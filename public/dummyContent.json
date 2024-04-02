@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "thumbnail": "/blogs_images/img1.png",
+    "title": "Article 1",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget tortor ut justo bibendum faucibus. In hac habitasse platea dictumst. Cras dapibus nunc ac diam vehicula, sed euismod mi congue. Integer ut lorem metus. Quisque nec orci eget nisi cursus efficitur. Nunc condimentum tellus ut fermentum vehicula. Fusce tincidunt augue nec varius aliquam. Duis dictum fringilla quam, eu ullamcorper risus consectetur nec. Maecenas vestibulum, ex ac tincidunt sodales, dolor ipsum tristique risus, sit amet pharetra arcu quam non leo. Integer ut dignissim felis. Sed at dui odio. Nullam vel feugiat ligula. Nullam ac fringilla arcu, at varius dui. Duis bibendum ante ut nibh pharetra congue.",
+    "date": "Monday, 9:00 AM"
+  },
+  {
+    "id": 2,
+    "thumbnail": "/blogs_images/img2.png",
+    "title": "Article 2",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget tortor ut justo bibendum faucibus. In hac habitasse platea dictumst. Cras dapibus nunc ac diam vehicula, sed euismod mi congue. Integer ut lorem metus. Quisque nec orci eget nisi cursus efficitur. Nunc condimentum tellus ut fermentum vehicula. Fusce tincidunt augue nec varius aliquam. Duis dictum fringilla quam, eu ullamcorper risus consectetur nec. Maecenas vestibulum, ex ac tincidunt sodales, dolor ipsum tristique risus, sit amet pharetra arcu quam non leo. Integer ut dignissim felis. Sed at dui odio. Nullam vel feugiat ligula. Nullam ac fringilla arcu, at varius dui. Duis bibendum ante ut nibh pharetra congue.",
+    "date": "Tuesday, 10:30 AM"
+  },
+  {
+    "id": 3,
+    "thumbnail": "/blogs_images/img3.png",
+    "title": "Article 3",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget tortor ut justo bibendum faucibus. In hac habitasse platea dictumst. Cras dapibus nunc ac diam vehicula, sed euismod mi congue. Integer ut lorem metus. Quisque nec orci eget nisi cursus efficitur. Nunc condimentum tellus ut fermentum vehicula. Fusce tincidunt augue nec varius aliquam. Duis dictum fringilla quam, eu ullamcorper risus consectetur nec. Maecenas vestibulum, ex ac tincidunt sodales, dolor ipsum tristique risus, sit amet pharetra arcu quam non leo. Integer ut dignissim felis. Sed at dui odio. Nullam vel feugiat ligula. Nullam ac fringilla arcu, at varius dui. Duis bibendum ante ut nibh pharetra congue.",
+    "date": "Wednesday, 11:45 AM"
+  },
+  {
+    "id": 4,
+    "thumbnail": "/blogs_images/img4.png",
+    "title": "Article 4",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget tortor ut justo bibendum faucibus. In hac habitasse platea dictumst. Cras dapibus nunc ac diam vehicula, sed euismod mi congue. Integer ut lorem metus. Quisque nec orci eget nisi cursus efficitur. Nunc condimentum tellus ut fermentum vehicula. Fusce tincidunt augue nec varius aliquam. Duis dictum fringilla quam, eu ullamcorper risus consectetur nec. Maecenas vestibulum, ex ac tincidunt sodales, dolor ipsum tristique risus, sit amet pharetra arcu quam non leo. Integer ut dignissim felis. Sed at dui odio. Nullam vel feugiat ligula. Nullam ac fringilla arcu, at varius dui. Duis bibendum ante ut nibh pharetra congue.",
+    "date": "Thursday, 1:15 PM"
+  },
+  {
+    "id": 5,
+    "thumbnail": "/blogs_images/img5.png",
+    "title": "Article 5",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget tortor ut justo bibendum faucibus. In hac habitasse platea dictumst. Cras dapibus nunc ac diam vehicula, sed euismod mi congue. Integer ut lorem metus. Quisque nec orci eget nisi cursus efficitur. Nunc condimentum tellus ut fermentum vehicula. Fusce tincidunt augue nec varius aliquam. Duis dictum fringilla quam, eu ullamcorper risus consectetur nec. Maecenas vestibulum, ex ac tincidunt sodales, dolor ipsum tristique risus, sit amet pharetra arcu quam non leo. Integer ut dignissim felis. Sed at dui odio. Nullam vel feugiat ligula. Nullam ac fringilla arcu, at varius dui. Duis bibendum ante ut nibh pharetra congue.",
+    "date": "Friday, 3:00 PM"
+  }
+]

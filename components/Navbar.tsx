@@ -1,15 +1,39 @@
+"use client"
 import Link from "next/link"
 import Image from "next/image"
 import { NAV_LINKS } from "@/constants"
+import { useRouter } from 'next/router';
+import { useEffect, useState } from "react";
 const Navbar = () => {
+  
+  const [activeLink, setActiveLink] = useState(0); // Set the initial active link index
+
+let text_color = "text-white";
+useEffect(() => {
+  if(activeLink === 0){
+    console.log(activeLink)
+    text_color = "text-white";
+  }else{
+    text_color = "text-white";
+  }
+  console.log(text_color);
+}, [activeLink]);
+  const handleClick = (index) => {
+    setActiveLink(index); // Update the active link index when a link is clicked
+  };
+
   return (
-    <nav className="flexBetween max-container padding-container relative z-30 py-1">
+    <nav className="flexBetween max-container padding-container relative z-30 ">
       <Link href="/">
         <Image src="/demoo_logo.png" alt="logo" width={150} height={50}></Image>
       </Link>
       <ul className="hidden h-full gap-12 lg:flex">
         {NAV_LINKS.map((link, index) => (
-          <Link href={link.href} key={link.key} className="regular-16 text-white flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">
+          <Link href={link.href}
+          key={link.key}
+          className={`regular-16 flexCenter ${activeLink === 0 ? "text-white" : "text-black"} cursor-pointer pb-1.5 transition-all hover:font-bold  `} 
+          onClick={() => handleClick(index)} 
+          >
             {link.label}
           </Link>
         )) }
