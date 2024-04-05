@@ -17,6 +17,7 @@ module.exports = {
           20: '#A2A2A2',
           30: '#7B7B7B',
           50: '#585858',
+          80: '#0D8585',
           90: '#141414',
         },
         orange: {
@@ -30,7 +31,7 @@ module.exports = {
         },
       },
       backgroundImage: {
-        'bg-img-1': "url('/img-1.png')",
+        'bg_img_blogPage': "url('/left_globe.jpg')",
         'bg-img-2': "url('/img-2.png')",
         'feature-bg': "url('/feature-bg.png')",
         pattern: "url('/pattern.png')",
@@ -47,7 +48,11 @@ module.exports = {
       borderRadius: {
         '5xl': '40px',
       },
+      fontFamily: {
+        Merriweather : ['Merriweather'],
+        playfair_display : ['var(--font-playfair_display)'],
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

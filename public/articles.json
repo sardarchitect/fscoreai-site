@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "thumbnail": "/blogs_images/img1.png",
+    "title": "Article 1 Sed eget tortor ut justo bibendum faucibus",
+    "date": "Monday, 9:00 AM",
+    "contentFile": "/posts/aws-quickstart.md",
+    "key": "article_1_key"
+  },
+  {
+    "id": 2,
+    "thumbnail": "/blogs_images/img2.png",
+    "title": "Article 2 Sed eget tortor ut justo bibendum faucibus",
+    "date": "Tuesday, 10:30 AM",
+    "contentFile": "/content/article_1.md",
+    "key": "article_2_key"
+  }
+]

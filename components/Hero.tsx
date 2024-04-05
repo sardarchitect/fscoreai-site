@@ -21,13 +21,13 @@ const Hero = () => {
         <Image
           src="/neuro_image.svg"
           alt="image"
-          width={1000}
+          width={200}
           height={700}
-          sizes="100vw"
+          // sizes="100vw"
           style={{
             objectFit: 'cover'
           }}
-          className="w-full fixed left-0 top-0 h-full -z-50"
+          className="fixed w-screen left-0 top-0 h-full -z-50"
         />
       </div>
 

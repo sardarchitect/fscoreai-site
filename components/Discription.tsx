@@ -3,7 +3,7 @@ import Image from "next/image";
 const Discription = () => {
   return (
     <>
-      <div className="bg-blue-500 z-0 ">
+      <div className="bg-blue-500 z-0 overflow-hidden">
         <div className="relative flex flex-wrap sm:p-32 bg-black bg-opacity-90 h-screen">
           <Image
             src={"/left_globe.jpg"}
