@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const Discription = () => {
+const DescriptionOne = () => {
   return (
     <>
       <div className="bg-blue-500 z-0 overflow-hidden">
@@ -32,4 +32,4 @@ const Discription = () => {
   );
 };
 
-export default Discription;
+export default DescriptionOne;

@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-const Hero = () => {
+const Hero_one = () => {
   return (
-    <section className="relative max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
+    <section className="relative h-screen max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
       {/* product intro */}
       <div className="flex flex-1 flex-col xl:w-1/2">
         <h1 className="bold-52 lg:bold-88">
@@ -14,6 +14,14 @@ const Hero = () => {
           reprehenderit ullam, quibusdam ratione necessitatibus et culpa
           molestias ipsa labore sit nam explicabo.
         </p>
+        <div className="py-6">
+          <button className="mx-6 bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
+  Contact Us
+</button>
+<button className="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
+  Learn More
+</button>
+        </div>
       </div>
 
       {/* background */}
@@ -23,7 +31,6 @@ const Hero = () => {
           alt="image"
           width={200}
           height={700}
-          // sizes="100vw"
           style={{
             objectFit: 'cover'
           }}
@@ -39,4 +46,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Hero_one;

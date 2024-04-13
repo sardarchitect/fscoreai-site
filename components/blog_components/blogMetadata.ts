@@ -1,4 +1,4 @@
-export interface PostMetadata {
+export interface BlogMetadata {
   title: string;
   date: string;
   subtitle: string;

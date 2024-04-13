@@ -30,6 +30,9 @@ module.exports = {
           50: '#FEC601',
         },
       },
+      backgroundColor: {
+        'rgb-2-6-23': 'rgb(2 6 23)',
+      },
       backgroundImage: {
         'bg_img_blogPage': "url('/left_globe.jpg')",
         'bg-img-2': "url('/img-2.png')",

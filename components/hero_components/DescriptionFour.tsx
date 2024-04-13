@@ -1,0 +1,36 @@
+import Image from "next/image";
+
+const DescriptionFour = () => {
+  return (
+    <>
+      <div className="bg-blue-500 z-0 overflow-hidden">
+        <div className="relative flex flex-wrap sm:p-32 bg-black bg-opacity-90 h-screen">
+          <div className=" w-full sm:w-full lg:w-1/2 px-4 py-2 z-10">
+            <p className="text-xl font-bold text-sky-500">About AI</p>
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 py-2 text-white">
+              Heading Here
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg py-4 text-white">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+              deleniti dolorem necessitatibus perspiciatis saepe esse voluptates
+              fugit quisquam aspernatur itaque laboriosam voluptatum voluptas
+              distinctio ut dolorum, veritatis voluptatem hic quas.
+            </p>
+          </div>
+        
+          <div className="w-full sm:w-1/2 lg:w-1/2 "></div>
+
+          <Image
+            src={"/left_globe.jpg"}
+            height={500}
+            width={500}
+            alt="ai pics"
+            className="hidden sm:block w-3/5 top-0 right-0 absolute z-0"
+          />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default DescriptionFour;

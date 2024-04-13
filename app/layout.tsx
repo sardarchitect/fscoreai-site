@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Lending Page",
+  title: "fscore.ai",
   description: "This is the demo desctiption",
 };
 

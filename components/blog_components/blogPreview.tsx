@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { PostMetadata } from "./PostMetadata";
+import { BlogMetadata } from "./blogMetadata";
 
-const PostPreview = (props: PostMetadata) => {
+const BlogPreview = (props: BlogMetadata) => {
   return (
     <div
       className="border border-slate-300 p-4 rounded-md shadow-sm
@@ -17,4 +17,4 @@ const PostPreview = (props: PostMetadata) => {
   );
 };
 
-export default PostPreview;
+export default BlogPreview;

@@ -5,7 +5,7 @@ import { NAV_LINKS } from "@/constants";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white text-center py-10">
+    <footer className="bg-black text-white text-center py-10 h-screen">
       <div>@2024 abc's blogs</div>
       <ul className="m-auto underline space-x-5 flexCenter">
         {NAV_LINKS.map((link, index) => (
@@ -22,13 +22,13 @@ const Footer = () => {
       <div className="flexCenter">
         <Link href="/">
           <Image
-            src="/demoo_logo.png"
+            src="/fscore_logo_text.png"
             alt="logo"
             width={100}
             height={10}
           ></Image>
         </Link>
-          <span className="font-bold text-xl">Site name</span>
+          <span className="font-bold text-xl">&nbsp;Site name</span>
       </div>
 
       </div>

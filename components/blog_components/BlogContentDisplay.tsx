@@ -1,6 +1,6 @@
-// "use client";
+"use client";
 import Image from "next/image";
-import PostPage from "./postPage";
+import PostPage from "./blogPage";
 
 const BlogContentDisplay = ({ content }) => {
   return (

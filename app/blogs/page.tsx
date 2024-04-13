@@ -1,13 +1,18 @@
 "use client";
-import BlogContentDisplay from "@/components/post_components/BlogContentDisplay";
-// import fs from 'fs';
-// import path from 'path';
+import BlogContentDisplay from "@/components/blog_components/BlogContentDisplay";
+import BlogPreview from "@/components/blog_components/blogPreview";
+import getBlogMetadata from "@/components/blog_components/getBlogMetadata";
 import React, { useState, useEffect, MouseEventHandler } from "react";
 
 const BlogsPage = () => {
   const [data, setData] = useState([]);
   const [contentIndex, setContentIndex] = useState(0);
 
+  function navigatePage(fileName: string){
+      const slug = fileName.replace(".md", "")
+    window.location.href = slug
+  }
+  
   const hendleNextPrevBtn = (check: string) => {
     if (contentIndex < data.length - 1) {
       if (check === "next" && contentIndex < 5) {
@@ -35,34 +40,29 @@ const BlogsPage = () => {
     };
 
     fetchData();
+    
   }, []);
+  var titlesArray = data.map(function(item) {
+    return item.title;
+});
+
+
 
   return (
-    <div className="bg-gray-100 w-full">
-      {/* <div className="bg-bg_img_blogPage px-4 lg:px-20 "> */}
+    <div className="bg-rgb-2-6-23">
       <div className="lg:px-10 w-5/6 m-auto">
-        {/* <div className="bg-gray-900 grid sm:grid-cols-25 gap-16"> */}
-        {/* <div className="col-span-5 hidden"></div> */}
-
         <div className="">
-          {/* <div className="col-span-15"> */}
-          <BlogContentDisplay content={data[contentIndex]} />
-          <div className="flex justify-between w-full lg:w-auto lg:m-10">
-            <button
-              className="bg-black hover:bg-gray-500 text-white font-bold py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-              onClick={(e) => hendleNextPrevBtn("prev")}
-            >
-              Prev
-            </button>
-            <button
-              className="bg-black hover:bg-gray-500 text-white font-bold py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-              onClick={(e) => hendleNextPrevBtn("next")}
-            >
-              Next
-            </button>
-          </div>
-        </div>
 
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:p-10 py-5"> 
+    {titlesArray.map((title, index) => (
+      <div key={index} className="bg-blue-200 p-4 rounded-lg shadow-md cursor-pointer" onClick={() => {navigatePage(data[index].contentFile)}}>
+      <p className="font-bold text-blue-800">{title}</p>
+      <p className="text-sm text-blue-600">Additional text goes here...</p>
+    </div>  ))}
+  </div>
+
+          {/* <BlogContentDisplay content={data[contentIndex]} /> */}
+          
         <div className="hidden">
           {/* <div className="col-span-5 hidden"> */}
           {/* <div className="col-span-3 hidden sm:block "> */}
@@ -89,6 +89,7 @@ const BlogsPage = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

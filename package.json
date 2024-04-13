@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cookies-next": "^4.1.1",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
     "markdown-to-jsx": "^7.4.5",
@@ -16,6 +17,7 @@
     "path": "^0.12.7",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.51.3",
     "remark": "^15.0.1",
     "remark-react": "^9.0.1"
   },

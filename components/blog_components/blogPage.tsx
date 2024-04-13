@@ -1,6 +1,6 @@
 import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
-import getPostMetadata from "./getPostMetadata";
+import getPostMetadata from "./getBlogMetadata";
 import { useEffect, useState } from 'react';
 
 
