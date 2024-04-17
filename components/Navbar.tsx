@@ -60,7 +60,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={`${BGColor} sm:flexBetween padding-container relative z-30 `}>
+    <nav className={`bg-rgb-2-6-23 sm:flexBetween padding-container relative z-30 `}>
       <div className="flex justify-between">
       <Link href="/">
         <Image src="/fscore_logo.png" alt="logo" width={120} height={10}></Image>
@@ -84,7 +84,7 @@ const Navbar = () => {
           <Link
             href={link.href}
             key={link.key}
-            className={`${textColor} duration-500 ease-in-out regular-16 justify-end cursor-pointer transition-all hover:bg-gray-400 rounded-xl py-2 px-3 `}
+            className={`text-white duration-500 ease-in-out regular-16 justify-end cursor-pointer transition-all hover:bg-gray-400 rounded-xl py-2 px-3 `}
             // className={`regular-16 flexCenter ${activeLink === 0 ? "text-white" : "text-black"} cursor-pointer pb-1.5 transition-all hover:font-bold  `}
             onClick={() => handleClick(index)}
           >

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Hero_one = () => {
   return (
-    <section className="relative h-screen max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
+    <section className="relative max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
       {/* product intro */}
       <div className="flex flex-1 flex-col xl:w-1/2">
         <h1 className="bold-52 lg:bold-88">

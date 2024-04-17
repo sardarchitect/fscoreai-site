@@ -2,6 +2,8 @@
 title: "Getting Started with AWS"
 subtitle: "Create an AWS account and set up CLI/SDK access."
 date: "2020-12-27"
+imageURL: "/blogs_images/img1.png"
+slug: "/blog/aws-quickstart.md"
 ---
 
 # Article One

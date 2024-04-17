@@ -13,6 +13,18 @@ const getPostContent = (slug: string) => {
 const PostPage = (props: any) => {
   const slug = props.params.slug;
   const post = getPostContent(slug);
+
+  // const blogsMetaData = (fileData: any) => {
+  //   const matterResult = matter(fileData);
+  //   return {
+  //     title: matterResult.data.title,
+  //     date: matterResult.data.date,
+  //     subtitle: matterResult.data.subtitle,
+  //   };
+  // }
+  // console.log(blogsMetaData(data), "gog")
+  // console.log("manugog")
+  
   // Read all file names from the directory
   const getPostFiles = () => {
     try {

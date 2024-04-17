@@ -1,55 +1,32 @@
 [
   {
     "id": 1,
-    "thumbnail": "/blogs_images/img1.png",
-    "title": "Article 1 Sed eget tortor ut justo bibendum faucibus",
     "date": "Monday, 9:00 AM",
-    "contentFile": "/blog/aws-quickstart.md",
-    "key": "article_1_key"
+    "Blog_fileURL": "/blog/aws-quickstart.md"
   },
   {
     "id": 2,
-    "thumbnail": "/blogs_images/img2.png",
-    "title": "Article 2 Sed eget tortor ut justo bibendum faucibus",
     "date": "Tuesday, 10:30 AM",
-    "contentFile": "/blog/aws-quickstart.md",
-    "key": "article_2_key"
+    "Blog_fileURL": "/blog/gpt-3-generated-poetry.md"
   },
   {
     "id": 3,
-    "thumbnail": "/blogs_images/img2.png",
-    "title": "Article 3 Sed eget tortor ut justo bibendum faucibus",
     "date": "Tuesday, 10:30 AM",
-    "contentFile": "/blog/aws-quickstart.md",
-    "key": "article_2_key"
-  }, {
-    "id": 4,
-    "thumbnail": "/blogs_images/img2.png",
-    "title": "Article 4 Sed eget tortor ut justo bibendum faucibus",
-    "date": "Tuesday, 10:30 AM",
-    "contentFile": "/blog/aws-quickstart.md",
-    "key": "article_2_key"
-  }, {
-    "id": 5,
-    "thumbnail": "/blogs_images/img2.png",
-    "title": "Article 5 Sed eget tortor ut justo bibendum faucibus",
-    "date": "Tuesday, 10:30 AM",    
-    "contentFile": "/blog/aws-quickstart.md",
-    "key": "article_2_key"
-  }, {
-    "id": 6,
-    "thumbnail": "/blogs_images/img2.png",
-    "title": "Article 62 Sed eget tortor ut justo bibendum faucibus",
-    "date": "Tuesday, 10:30 AM",
-    "contentFile": "/content/article_1.md",
-    "key": "article_2_key"
+    "Blog_fileURL": "/blog/qr-code-micro-app.md"
   },
   {
-    "id": 7,
-    "thumbnail": "/blogs_images/img2.png",
-    "title": "Article 27 Sed eget tortor ut justo bibendum faucibus",
+    "id": 4,
     "date": "Tuesday, 10:30 AM",
-    "contentFile": "/content/article_1.md",
-    "key": "article_2_key"
+    "Blog_fileURL": "/blog/retro-games-with-pico-8.md"
+  }, 
+  {
+    "id": 5,
+    "date": "Tuesday, 10:30 AM",    
+    "Blog_fileURL": "/blog/saas-starter-app.md"
+  }, 
+  {
+    "id": 6,
+    "date": "Tuesday, 10:30 AM",
+    "Blog_fileURL": "/blog/wolfhunter.md"
   }
 ]
