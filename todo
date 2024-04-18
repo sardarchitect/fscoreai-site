@@ -1,0 +1,53 @@
+## Database
+-[] Setup Vercel Postgres: https://vercel.com/storage/postgres
+
+## Site-wide
+-[] Make all backgrounds consistent
+-[] Make mobile-friendly 
+-[] Review accessibility
+-[] Optimize SEO
+
+## Navigation 
+
+
+## Homepage
+-[] Hero
+-[] Section: About
+-[] Section: Features
+-[] Section: Clients We Work With
+-[] Section: Pricing
+
+## About Us
+-[] Add content
+-[] Add testimonials
+-[] Add photos
+
+## Contact Us
+-[] Connect to Atlas DB
+
+## Blog Posts
+-[] Connect to Atlas DB
+-[] Add tags on blog
+-[] Add share buttons for blog posts. Share to LinkedIn, Facebook, X.
+-[] Add dark theme to blog posts.
+-[] Make adding/removing blogs more efficient. Organize into folders in separate categories.
+-[] Pagination is working
+-[] Order blogs by date
+-[] Add option to modify Featured Post
+
+## Demo Form
+-[x] Request Demo Button
+-[] Request Demo Form
+
+## Footer
+-[] Site Map
+-[] Add logos and links to social media (Instagram, LinkedIn, X)
+
+## Privacy Policy Page
+-[] Add privacy policy page
+-[] Connect with accept cookies banner
+-[] Add accept or reject cookies functionality
+
+## 404 Page
+-[x] Add 404 Page
+
