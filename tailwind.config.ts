@@ -39,6 +39,7 @@ module.exports = {
         'feature-bg': "url('/feature-bg.png')",
         pattern: "url('/pattern.png')",
         'pattern-2': "url('/pattern-bg.png')",
+        'about-us-header': "url('/about_us/about_us_header.png')",
       },
       screens: {
         xs: '400px',

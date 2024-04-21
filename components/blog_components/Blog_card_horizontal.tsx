@@ -8,11 +8,11 @@ const Blog_card_horizontal = (props: any) => {
     window.location.href = slug;
   }
   return (
-    <div className="mx-auto ">
-      <div className="bg-blue-200 grid grid-cols-2 md:grid-cols-2  lg:p-10 py-5 shadow-md border border-gray-200 rounded-lg mb-5">
-        <div>
+    <div className="sm:m-auto mx-5">
+      <div className="bg-blue-200 grid sm:grid-cols-2 md:grid-cols-2  sm:p-10  shadow-md border border-gray-200 rounded-lg mb-5">
+        <div className="p-5 ">
           <a href="#">
-            <img className="rounded-t-lg" src={imageURL} alt="" />
+            <img className="rounded-t-lg" src={imageURL} alt="latest post" />
           </a>
         </div>
         <div className="p-5">
