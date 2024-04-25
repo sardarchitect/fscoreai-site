@@ -172,3 +172,17 @@ body {
   object-fit: cover;
 
 }
+
+.navbar-responsive {
+  @media screen and (max-width: 1023px) {
+    
+    .block-to-hide {
+      display: none;
+      justify-content: space-between;
+    }
+    .block-to-display {
+      display: block; 
+
+    }
+  }
+}

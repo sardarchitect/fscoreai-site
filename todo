@@ -9,7 +9,6 @@
 
 ## Navigation 
 
-
 ## Homepage
 -[] Hero
 -[] Section: About
@@ -26,11 +25,11 @@
 -[] Connect to Atlas DB
 
 ## Blog Posts
--[] Connect to Atlas DB
+-[x] Connect to Atlas DB
 -[] Add tags on blog
 -[] Add share buttons for blog posts. Share to LinkedIn, Facebook, X.
 -[] Add dark theme to blog posts.
--[] Make adding/removing blogs more efficient. Organize into folders in separate categories.
+-[x] Make adding/removing blogs more efficient. Organize into folders in separate categories.
 -[] Pagination is working
 -[] Order blogs by date
 -[] Add option to modify Featured Post
