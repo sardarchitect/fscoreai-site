@@ -5,6 +5,7 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: ["class"],
   theme: {
     extend: {
       colors: {
@@ -29,9 +30,11 @@ module.exports = {
         yellow: {
           50: '#FEC601',
         },
+        theme: {blue: 'rgb(2 6 23)'},
       },
       backgroundColor: {
         'rgb-2-6-23': 'rgb(2 6 23)',
+        'theme-color': 'rgb(2 6 23)',
       },
       backgroundImage: {
         'bg_img_blogPage': "url('/left_globe.jpg')",

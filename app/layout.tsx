@@ -3,6 +3,7 @@ import "./globals.css";
 import { Playfair_Display, Merriweather } from "next/font/google"
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import {ThemeProvider} from "../context/theme";
 
 export const metadata: Metadata = {
   title: "fscore.ai",
@@ -24,15 +25,21 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) 
+
+
+
+{
   return (
-    <html lang="en">
-      <body className={`${playfair_display_init}, ${Merriweather_init}`}>
-        <Navbar></Navbar>
+    <html lang="en" >
+      <body className={`bg-white dark:bg-theme-color ${playfair_display_init}, ${Merriweather_init}`}>
+      <ThemeProvider>
+        <Navbar ></Navbar>
         <main>
         {children}
         </main>
         <Footer></Footer>
+      </ThemeProvider>
       </body>
     </html>
   );

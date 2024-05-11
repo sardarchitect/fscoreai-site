@@ -2,17 +2,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import { NAV_LINKS } from "@/constants";
+import { useThemeContext } from "@/context/theme";
 
 const Footer = () => {
+  const [theme, setTheme] = useThemeContext();
   return (
-    <footer className="bg-black text-white text-center py-10 h-screen">
+    <main className={`${theme}`}>
+    <footer className="bg-white text-theme-blue dark:bg-theme-blue dark:text-white text-center py-10 h-screen">
       <div>@2024 abc's blogs</div>
       <ul className="m-auto underline space-x-5 flexCenter">
         {NAV_LINKS.map((link, index) => (
           <Link
             href={link.href}
             key={link.key}
-            className={`text-white regular-16 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold  `}
+            className={` regular-16 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold  `}
           >
             {link.label}
           </Link>
@@ -37,6 +40,7 @@ const Footer = () => {
         <span className="underline">Site Name</span> - Home for tech readers
       </div>
     </footer>
+    </main>
   );
 };
 

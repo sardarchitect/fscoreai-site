@@ -1,15 +1,17 @@
-import DescriptionFour from "@/components/hero_components/DescriptionFour";
+"use client"
+import { useThemeContext } from "@/context/theme";import DescriptionFour from "@/components/hero_components/DescriptionFour";
 import DescriptionOne from "@/components/hero_components/DescriptionOne";
 import DescriptionThree from "@/components/hero_components/DescriptionThree";
 import DescriptionTwo from "@/components/hero_components/DescriptionTwo";
 import Hero_one from "@/components/hero_components/HeroSection";
 import ProductReport from "@/components/hero_components/ProductReport";
 import { CookieConsent } from "@/components/utilsComponents/CookieConsent";
-import Image from "next/image";
 
 export default function Home() {
+  const [theme] = useThemeContext();
   return (
-    <div className="text-blue-500">
+    <div className={`${theme}`}>
+    <div className="text-white ">
       <Hero_one/>
       <ProductReport/>
       <DescriptionOne/>
@@ -17,6 +19,8 @@ export default function Home() {
       <DescriptionThree/>
       <DescriptionFour/>
       <CookieConsent/>
+    </div>
+
     </div>
   );
 }

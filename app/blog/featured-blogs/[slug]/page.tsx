@@ -28,7 +28,7 @@ const PostPage = (props: any) => {
   // Read all file names from the directory
   const getPostFiles = () => {
     try {
-      const files = fs.readdirSync("public/blog/");
+      const files = fs.readdirSync("public/blog/featured-blogs");
       return files;
     } catch (error) {
       console.error("Error reading directory:", error);
@@ -59,7 +59,7 @@ const PostPage = (props: any) => {
             <Link
               id="link"
               legacyBehavior
-              href={`/blog/${files[currentIndex - 1].replace(".md", "")}`}
+              href={`/blog/featured-blogs/${files[currentIndex - 1].replace(".md", "")}`}
             >
               Prev
             </Link>
@@ -70,7 +70,7 @@ const PostPage = (props: any) => {
             <Link
               id="link"
               legacyBehavior
-              href={`/blog/${files[currentIndex + 1].replace(".md", "")}`}
+              href={`/blog/featured-blogs/${files[currentIndex + 1].replace(".md", "")}`}
             >
               Next
             </Link>

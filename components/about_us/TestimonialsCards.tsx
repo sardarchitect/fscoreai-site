@@ -11,7 +11,7 @@ const TestimonialsCards = (props: any) => {
   return (
     <div className="text-center">
     <div className="">
-  <div className="text-white sm:p-10  ">
+  <div className=" sm:p-10  ">
     <div  className="px-5 ">
       <a href="#">
         <img style={roundImage} className="m-auto" src={"/blogs_images/img3.png"} alt="latest post" />
@@ -25,7 +25,7 @@ const TestimonialsCards = (props: any) => {
         </h5>
       </div>
       {/* Use description prop for the description */}
-      <p className="font-normal mb-3">profession
+      <p className="font-normal mb-3 ">profession
 </p>
       <p className="font-normal  mb-3">description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero sequi commodi accusamus ratione non mollitia esse, excepturi a laboriosam illum voluptates libero, perspiciatis vitae suscipit praesentium? Aliquid magnam quam ducimus aspernatur modi asperiores, esse expedita?</p>
      

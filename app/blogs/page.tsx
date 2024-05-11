@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import matter from "gray-matter";
 import { BlogMetadata } from "@/components/blog_components/blogMetadata";
 import Blog_card_horizontal from "@/components/blog_components/Blog_card_horizontal";
+import { useThemeContext } from "@/context/theme";
 
 interface Block {
   Blog_fileURL: string; // Adjust the type if Blog_fileURL is of different type
@@ -13,6 +14,7 @@ interface Block {
 const BlogsPage = () => {
   const [data, setData] = useState([]);
   const [getMetadata, setMetaData] = useState();
+  const [theme] = useThemeContext();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -67,9 +69,10 @@ const BlogsPage = () => {
   }, [data]);
 
   return (
-    <div className="bg-rgb-2-6-23">
+    <main className={`${theme}`}>
+    <div className={`dark:text-white dark:bg-rgb-2-6-23 bg-white text-theme-blue`}>
       <div className="w-screen">
-        <div className="mx-10 h-3/4 text-white text-center">
+        <div className="mx-10 h-3/4 text-center">
           <h2 className="text-6xl p-5">
             Lorem consectetur adipisicing elit. Eveniet, recusandae?
           </h2>
@@ -94,8 +97,8 @@ const BlogsPage = () => {
             )}
           </div>
 
-          <div className="w-5/6 mx-auto lg:p-10 py-5 border-t border-gray-200">
-            <h3 className="text-4xl text-center text-white pb-10">
+          <div className="w-5/6 mx-auto lg:p-10 py-5 border-t dark:border-gray-200">
+            <h3 className="text-4xl text-center  pb-10">
               Featured posts
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -115,7 +118,7 @@ const BlogsPage = () => {
           <div className="hidden">
             {/* <div className="col-span-5 hidden"> */}
             {/* <div className="col-span-3 hidden sm:block "> */}
-            <div className="bg-white p-10 shadow-md mb-4">
+            <div className="p-10 shadow-md mb-4">
               <h3 className="text-lg font-semibold mb-4">Latest Posts</h3>
 
               <div className="flex items-center mb-2">
@@ -140,6 +143,7 @@ const BlogsPage = () => {
         </div>
       </div>
     </div>
+    </main>
   );
 };
 
