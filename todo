@@ -1,13 +1,14 @@
 ## Database
--[] Setup Vercel Postgres: https://vercel.com/storage/postgres
+-[x] Setup Vercel Postgres: https://vercel.com/storage/postgres
 
 ## Site-wide
--[] Make all backgrounds consistent
+-[x] Make all backgrounds consistent
 -[] Make mobile-friendly 
 -[] Review accessibility
 -[] Optimize SEO
 
 ## Navigation 
+-[x] Make mobile-friendly 
 
 ## Homepage
 -[] Hero
@@ -22,13 +23,13 @@
 -[] Add photos
 
 ## Contact Us
--[] Connect to Atlas DB
+-[x] Connect to Atlas DB
 
 ## Blog Posts
 -[x] Connect to Atlas DB
--[] Add tags on blog
+-[] Add filterable category on blog
 -[] Add share buttons for blog posts. Share to LinkedIn, Facebook, X.
--[] Add dark theme to blog posts.
+-[] Add dark theme to blog posts. (https://tailwindcss.com/docs/dark-mode)
 -[x] Make adding/removing blogs more efficient. Organize into folders in separate categories.
 -[] Pagination is working
 -[] Order blogs by date
@@ -44,6 +45,7 @@
 
 ## Privacy Policy Page
 -[x] Add privacy policy page
+-[] Add content on privacy policy page
 -[] Connect with accept cookies banner
 -[] Add accept or reject cookies functionality
 
