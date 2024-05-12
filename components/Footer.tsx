@@ -8,38 +8,29 @@ const Footer = () => {
   const [theme, setTheme] = useThemeContext();
   return (
     <main className={`${theme}`}>
-    <footer className="bg-white text-theme-blue dark:bg-theme-blue dark:text-white text-center py-10 h-screen">
-      <div>@2024 abc's blogs</div>
-      <ul className="m-auto underline space-x-5 flexCenter">
-        {NAV_LINKS.map((link, index) => (
-          <Link
-            href={link.href}
-            key={link.key}
-            className={` regular-16 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold  `}
-          >
-            {link.label}
-          </Link>
-        ))}
-      </ul>
-      <div className="">
-      <div className="flexCenter">
-        <Link href="/">
-          <Image
-            src="/fscore_logo_text.png"
-            alt="logo"
-            width={100}
-            height={10}
-          ></Image>
-        </Link>
-          <span className="font-bold text-xl">&nbsp;Site name</span>
-      </div>
+      <footer className="bg-white text-theme-blue dark:bg-theme-blue dark:text-white text-center p-20">
 
-      </div>
-      <div>
-        Powered by
-        <span className="underline">Site Name</span> - Home for tech readers
-      </div>
-    </footer>
+        <ul className="space-x-20 flexCenter">
+          {NAV_LINKS.map((link, index) => (
+            <Link
+              href={link.href}
+              key={link.key}
+              className={` regular-16 flexCenter cursor-pointer pb-1.5 transition-all hover:text-gray-50`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </ul>
+
+
+        <div className="mt-20">
+          <hr className="border-gray-50"/>
+          <div className="flex justify-around mt-5 text-sm">
+            <div>Copyright © 2024 Fscore AI LLC. All rights reserved.</div>
+            <div>Terms of Use & Privacy Policy</div>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 };
