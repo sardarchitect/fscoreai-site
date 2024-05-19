@@ -11,6 +11,8 @@ import Image from "next/image";
 import { NAV_LINKS } from "@/constants";
 import { useEffect, useState } from "react";
 import { useThemeContext } from "@/context/theme";
+import DemoForm from "./utilsComponents/DemoForm";
+import { useFormPopUpContext } from "../context/formPopup";
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState(0); // Set the initial active link index
   const [BGColor, setBGColor] = useState("bg-transparent");
@@ -19,7 +21,9 @@ const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
   const [menuState, setMenuState] = useState("hidden");
   const [theme, setTheme] = useThemeContext();
+  const [showPopup, setShowPopup] = useFormPopUpContext();
 
+  const open = true;
   // const updatedNavigation = navigation.map((item) => {
   //   const isCurrent = item[userInfo?.role] && location.pathname === item.href;
   //   return {
@@ -122,14 +126,16 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-              <button>
-                <a
-                  href="#"
-                  className="inline-block text-sm px-4 py-2 leading-none border rounded dark:text-white dark:border-white border-theme-blue hover:border-transparent hover:text-white hover:bg-theme-blue dark:hover:text-theme-blue hover:dark:bg-white mt-4 lg:mt-0"
+                <div
+                    // <button
+                  // href="#"
+                  onClick={() => {setShowPopup(!showPopup)}}
+                  className="inline-block text-sm px-4 py-3 leading-none border-2 rounded dark:text-white dark:border-white border-theme-blue hover:border-transparent hover:text-white hover:bg-theme-blue dark:hover:text-theme-blue hover:dark:bg-white cursor-pointer mt-4 lg:mt-0"
                 >
                   Book Demo
-                </a>
-              </button>
+                <DemoForm />
+              {/* </button> */}
+                </div>
 
               <button
                 className={`w-14 h-8 rounded-full bg-gray-400 flex items-center justify-start p-1 focus:outline-none transition duration-300 ease-in-out ${
@@ -140,8 +146,8 @@ const Navbar = () => {
                 }}
               >
                 <div
-                  className={`w-6 h-6 rounded-full bg-white shadow-md transform transition duration-300 translate-x-6 ${
-                    theme === "light" ? "translate-x-0" : ""
+                  className={`w-6 h-6 rounded-full  shadow-md transform transition duration-300  ${
+                    theme === "light" ? "translate-x-0 bg-white" : "translate-x-6 bg-theme-blue"
                   }`}
                 ></div>
               </button>

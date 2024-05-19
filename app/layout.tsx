@@ -4,6 +4,7 @@ import { Playfair_Display, Merriweather } from "next/font/google"
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import {ThemeProvider} from "../context/theme";
+import {FormPopUpProvider} from "../context/formPopup";
 
 export const metadata: Metadata = {
   title: "fscore.ai",
@@ -34,11 +35,13 @@ export default function RootLayout({
     <html lang="en" >
       <body className={`bg-white dark:bg-theme-color ${playfair_display_init}, ${Merriweather_init}`}>
       <ThemeProvider>
+        <FormPopUpProvider>
         <Navbar ></Navbar>
         <main>
         {children}
         </main>
         <Footer></Footer>
+        </FormPopUpProvider>
       </ThemeProvider>
       </body>
     </html>

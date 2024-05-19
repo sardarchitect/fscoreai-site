@@ -1,5 +1,6 @@
 import fs from "fs";
-import Markdown from "markdown-to-jsx";
+// import Markdown from "markdown-to-jsx";
+import Markdown from 'react-markdown'
 import matter from "gray-matter";
 import Link from "next/link";
 
@@ -43,16 +44,20 @@ const PostPage = (props: any) => {
       break;
     }
   }
+  const styles = {
+    color : "blue",
+  }
   return (
-    <div>
-      <div className="my-12 text-center">
+    <div className="text-white bg-theme-blue">
+      <div className="pt-12 text-center">
         <h1 className="text-2xl text-slate-600 ">{post.data.title}</h1>
         <p className="text-slate-400 mt-2">{post.data.date}</p>
       </div>
 
-      <article className="prose m-auto">
+      <article style={styles} className="prose mx-6 sm:m-auto text-justify">
         <Markdown>{post.content}</Markdown>
       </article>
+
       <div className="flex justify-between w-full lg:w-auto lg:m-10">
         {currentIndex > 0 && (
           <div className="bg-black hover:bg-gray-500 text-white font-bold py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">

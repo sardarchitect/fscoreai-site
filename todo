@@ -29,9 +29,9 @@
 -[x] Connect to Atlas DB
 -[] Add filterable category on blog
 -[] Add share buttons for blog posts. Share to LinkedIn, Facebook, X.
--[] Add dark theme to blog posts. (https://tailwindcss.com/docs/dark-mode)
+-[x] Add dark theme to blog posts. (https://tailwindcss.com/docs/dark-mode)
 -[x] Make adding/removing blogs more efficient. Organize into folders in separate categories.
--[] Pagination is working
+-[x] Pagination is working
 -[] Order blogs by date
 -[] Add option to modify Featured Post
 
@@ -40,7 +40,7 @@
 -[] Request Demo Form
 
 ## Footer
--[] Site Map
+-[x] Site Map
 -[] Add logos and links to social media (Instagram, LinkedIn, X)
 
 ## Privacy Policy Page
