@@ -81,7 +81,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className={`${theme} h-full`}>
+    <div className={`${theme} h-full `}>
       <Disclosure as="nav" className="">
         {({ open }) => (
           <nav

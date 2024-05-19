@@ -9,6 +9,10 @@
 
 ## Navigation 
 -[x] Make mobile-friendly 
+-[] Padding around nav
+-[] Dark mode button (left-right toggle)
+-[] Logo
+-[] Padding on large screen
 
 ## Homepage
 -[] Hero
@@ -42,6 +46,7 @@
 ## Footer
 -[x] Site Map
 -[] Add logos and links to social media (Instagram, LinkedIn, X)
+-[] Privacy Page Link
 
 ## Privacy Policy Page
 -[x] Add privacy policy page
@@ -51,6 +56,3 @@
 
 ## 404 Page
 -[x] Add 404 Page
-
-<!-- ultraview -->
-<!-- content image -->
