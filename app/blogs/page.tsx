@@ -6,6 +6,7 @@ import matter from "gray-matter";
 import { BlogMetadata } from "@/components/blog_components/blogMetadata";
 import Blog_card_horizontal from "@/components/blog_components/Blog_card_horizontal";
 import { useThemeContext } from "@/context/theme";
+import { usePageUpdateContext } from "@/context/pageUpdate";
 
 interface Block {
   Blog_fileURL: string; // Adjust the type if Blog_fileURL is of different type
@@ -14,7 +15,10 @@ interface Block {
 const BlogsPage = () => {
   const [data, setData] = useState([]);
   const [getMetadata, setMetaData] = useState();
+  const [metadataLength, setMetadataLength] = useState();
+  const [currentItems, setCurrentItems] = useState([]);
   const [theme] = useThemeContext();
+  const [currentPage, setCurrentPage] = usePageUpdateContext();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,7 +35,6 @@ const BlogsPage = () => {
     };
     fetchData();
   }, []);
-
   const blogsMetaData = async (blocks: any) => {
     const markdownBlogs = blocks.map((block: any) => {
       return block.Blog_fileURL;
@@ -61,12 +64,16 @@ const BlogsPage = () => {
       }
     }
     setMetaData(metaData);
+    setMetadataLength(metaData.length)
     return metaData;
   };
-
   useEffect(() => {
     blogsMetaData(data);
   }, [data]);
+  useEffect(() => {
+    const startIndex = (currentPage - 1) * 6;
+    setCurrentItems(getMetadata?.slice(startIndex, startIndex + 6));
+  }, [getMetadata, currentPage])
 
   return (
     <main className={`${theme}`}>
@@ -102,7 +109,7 @@ const BlogsPage = () => {
               Featured posts
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {getMetadata?.map((metaData: any, index: number) => (
+              {currentItems?.map((metaData: any, index: number) => (
                 <div key={index}>
                   <Blog_card
                     {...metaData}
@@ -114,7 +121,7 @@ const BlogsPage = () => {
             </div>
           </div>
 
-          <Pagination></Pagination>
+          <Pagination totalItems={metadataLength}></Pagination>
           <div className="hidden">
             {/* <div className="col-span-5 hidden"> */}
             {/* <div className="col-span-3 hidden sm:block "> */}

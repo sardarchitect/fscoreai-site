@@ -1,47 +1,69 @@
-"use client"
-import { setCookie, hasCookie } from 'cookies-next';
-import { useState, useEffect } from 'react';
+"use client";
+import { useThemeContext } from "@/context/theme";
+import { setCookie, hasCookie } from "cookies-next";
+import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export const CookieConsent = () => {
-const [showConsent, setShowConsent] = useState(false);
+  const [showConsent, setShowConsent] = useState(false);
+  const [theme, setTheme] = useThemeContext();
+  useEffect(() => {
+    // If no consent cookie is present, show the consent popup
+    if (!hasCookie("consent")) {
+      setShowConsent(true);
+    }
+  }, []);
 
-useEffect(() => {
-// If no consent cookie is present, show the consent popup
-if (!hasCookie('consent')) {
-setShowConsent(true);
-}
-}, []);
-
-const acceptConsent = () => {
+  const acceptConsent = () => {
     // When user accepts consent, hide the popup and set a consent cookie
     setShowConsent(false);
-    setCookie('consent', 'true');
-  
+    setCookie("consent", "true", {});
+
     // Trigger GTM script load
-    if (typeof window !== 'undefined') {
-      window.dispatchEvent(new Event('updateGTMConsent'));
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new Event("updateGTMConsent"));
     }
   };
   const declineConsent = () => {
     // When user declines the consent, simply hide the popup
     setShowConsent(false);
-};
+  };
 
-  
+  if (!showConsent) {
+    return null;
+  }
 
-if (!showConsent) {
-return null;
-}
-
-return (
-    <div className='ml-0 fixed bottom-0 left-1/2 w-full sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/3 max-w-2xl min-w-xs py-15 p-8 m-4 bg-blue-500 text-white flex flex-col items-center justify-center transform -translate-x-1/2'> 
-    <div> 
-        <p>We use some <strong>standard analytics packages</strong> to understand general user behaviour, so we can figure out how to improve our content. This involves some cookies. Are you OK with this?</p> 
-    </div> 
-    <div className="flex mt-2">
-        <button onClick={acceptConsent} className='bg-white text-blue-500 px-4 py-2 rounded mr-2'>Accept</button>
-        <button onClick={declineConsent} className='bg-white text-blue-500 px-4 py-2 rounded'>Decline</button>
+  return (
+    <div className={`${theme}`}>
+      <div className=" ml-0 fixed bottom-0 left-1/2 w-full py-5 sm:py-15 sm:p-8  dark:bg-theme-blue dark:text-white bg-white text-theme-blue flex justify-center transform -translate-x-1/2 z-[5000] bg-opacity-90">
+        <div className="w-5/6 m-auto text-justify">
+          <h2 className="text-2xl font-bold pb-5"> Welcome in fscore </h2>
+          <p>
+            We use some <strong>standard analytics packages</strong> to
+            understand general user behaviour, so we can figure out how to
+            improve our content. This involves some cookies. Read our
+            <Link href="/privacy_policy" className="font-bold hover:border-b-2">
+              {" "}
+              privacy policy.
+            </Link>
+            &nbsp; Are you OK with this?
+          </p>
+          <div className="mt-4 sm:mb-5 flex justify-end">
+            <button
+              onClick={acceptConsent}
+              className="dark:bg-white text-sm dark:text-theme-blue border-2 border-theme-blue sm:fixed sm:-translate-x-20 dark:sm:hover:border-white sm:hover:bg-theme-blue sm:hover:text-white px-4 py-2 rounded mr-4"
+            >
+              Accept
+            </button>
+            <button
+              onClick={declineConsent}
+              className="dark:bg-white text-sm dark:text-theme-blue border-2 border-theme-blue sm:fixed sm:translate-x-0 dark:sm:hover:border-white sm:hover:bg-theme-blue sm:hover:text-white px-4 py-2 rounded"
+            >
+              Decline
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-);
-}; 
+  );
+};

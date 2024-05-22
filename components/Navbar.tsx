@@ -23,7 +23,6 @@ const Navbar = () => {
   const [theme, setTheme] = useThemeContext();
   const [showPopup, setShowPopup] = useFormPopUpContext();
 
-  const open = true;
   // const updatedNavigation = navigation.map((item) => {
   //   const isCurrent = item[userInfo?.role] && location.pathname === item.href;
   //   return {
@@ -81,20 +80,30 @@ const Navbar = () => {
   }
 
   return (
-    <div className={`${theme} h-full `}>
+    <div className={`${theme} h-full`}>
       <Disclosure as="nav" className="">
         {({ open }) => (
           <nav
             // className={`navbar-responsive ${theme} lg:flexBetween padding-container relative z-30 `}
-            className={`navbar-responsive bg-white dark:bg-theme-color lg:flexBetween padding-container relative z-30 `}
+            className={`px-10 h-24 navbar-responsive bg-white dark:bg-theme-color lg:flexBetween padding-container relative z-30 `}
           >
             <div className="flex justify-between">
               <Link href="/">
+                {/* dark mode */}
                 <Image
                   src="/fscore_logo.png"
                   alt="logo"
-                  width={120}
+                  width={70}
                   height={10}
+                  className={`p-1 ${(theme==='dark') ? 'hidden' : 'visible'}`}
+                ></Image>
+                {/* light mode */}
+                <Image
+                  src="/fscore_logo_light.png"
+                  alt="logo"
+                  width={70}
+                  height={10}
+                  className={`p-1 ${(theme==='light') ? 'hidden' : 'visible'}`}
                 ></Image>
               </Link>
 
@@ -126,6 +135,7 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
+
                 <div
                     // <button
                   // href="#"
@@ -138,7 +148,7 @@ const Navbar = () => {
                 </div>
 
               <button
-                className={`w-14 h-8 rounded-full bg-gray-400 flex items-center justify-start p-1 focus:outline-none transition duration-300 ease-in-out ${
+                className={`w-14 h-8 m-auto rounded-full bg-gray-400 flex items-center justify-start p-1 focus:outline-none transition duration-300 ease-in-out ${
                   theme === "light" ? "bg-theme-blue" : "bg-white"
                 }`}
                 onClick={() => {
@@ -146,7 +156,7 @@ const Navbar = () => {
                 }}
               >
                 <div
-                  className={`w-6 h-6 rounded-full  shadow-md transform transition duration-300  ${
+                  className={`w-6 h-6  rounded-full  shadow-md transform transition duration-300  ${
                     theme === "light" ? "translate-x-0 bg-white" : "translate-x-6 bg-theme-blue"
                   }`}
                 ></div>
@@ -154,7 +164,7 @@ const Navbar = () => {
             </ul>
 
             {/* code to display menu in mobile view */}
-            <Disclosure.Panel className="block-to-display hidden">
+            <Disclosure.Panel className="px-10 block-to-display hidden">
               <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                 {NAV_LINKS.map((link, index) => (
                   <Link

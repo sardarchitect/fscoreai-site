@@ -35,10 +35,11 @@ const AboutUs = () => {
         {/* middle section */}
         <section className="dark:text-white dark:bg-rgb-2-6-23 bg-white text-theme-blue">
           <h2 className="text-5xl text-center pt-20 p-10">What are we</h2>
-          <div className="grid sm:grid-cols-3">
-          <TestimonialsCards name="abc" profession="developer" description="Testimonials"/>
-          <TestimonialsCards name="abc" profession="developer" description="Testimonials"/>
-          <TestimonialsCards name="abc" profession="developer" description="Testimonials"/>
+          <div className="flex m-auto w-4/5">
+          {/* <div className="grid sm:grid-cols-3"> */}
+          <TestimonialsCards name="Permider Singh" profession="Developer" description="Testimonials"/>
+          <TestimonialsCards name="Arvinder Singh" profession="Architecture developer" description="Testimonials"/>
+          {/* <TestimonialsCards name="abc" profession="developer" description="Testimonials"/> */}
           </div>
         </section>
       </main>

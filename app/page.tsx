@@ -5,7 +5,6 @@ import DescriptionThree from "@/components/hero_components/DescriptionThree";
 import DescriptionTwo from "@/components/hero_components/DescriptionTwo";
 import Hero_one from "@/components/hero_components/HeroSection";
 import ProductReport from "@/components/hero_components/ProductReport";
-import { CookieConsent } from "@/components/utilsComponents/CookieConsent";
 
 export default function Home() {
   const [theme] = useThemeContext();
@@ -18,7 +17,6 @@ export default function Home() {
       <DescriptionTwo/>
       <DescriptionThree/>
       <DescriptionFour/>
-      <CookieConsent/>
     </div>
 
     </div>

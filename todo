@@ -9,8 +9,8 @@
 
 ## Navigation 
 -[x] Make mobile-friendly 
--[] Padding around nav
--[] Dark mode button (left-right toggle)
+-[x] Padding around nav
+-[x] Dark mode button (left-right toggle)
 -[] Logo
 -[] Padding on large screen
 
@@ -41,7 +41,7 @@
 
 ## Demo Form
 -[x] Request Demo Button
--[] Request Demo Form
+-[x] Request Demo Form
 
 ## Footer
 -[x] Site Map
