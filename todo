@@ -3,56 +3,63 @@
 
 ## Site-wide
 -[x] Make all backgrounds consistent
--[] Make mobile-friendly 
--[] Review accessibility
--[] Optimize SEO
+-[] Make mobile-friendly (check after final)
+-[] Optimize SEO (after content)
 
 ## Navigation 
 -[x] Make mobile-friendly 
 -[x] Padding around nav
 -[x] Dark mode button (left-right toggle)
 -[] Logo
--[] Padding on large screen
+-[x] Padding on large screen
+-[] Make mobile-friendly navbar and nav menu
+-[] Change color of nav symbol to white in dark mode
 
 ## Homepage
--[] Hero
--[] Section: About
--[] Section: Features
--[] Section: Clients We Work With
--[] Section: Pricing
+-[][] Hero
+-[][] Section: About
+-[][] Section: Features
+-[][] Section: Clients We Work With
+-[][] Section: Pricing
 
 ## About Us
 -[x] Add content
 -[x] Add testimonials
--[] Add photos
+-[][] Add photos and content
 
 ## Contact Us
 -[x] Connect to Atlas DB
+-[] Add text after submitting form "Thank you for submitting your form. We will get back to you shortly."
+-[] Add field for "submission date" (UTC)
 
 ## Blog Posts
 -[x] Connect to Atlas DB
--[] Add filterable category on blog
--[] Add share buttons for blog posts. Share to LinkedIn, Facebook, X.
+-[x] Add share buttons for blog posts. Share to LinkedIn, Facebook, X.
 -[x] Add dark theme to blog posts. (https://tailwindcss.com/docs/dark-mode)
 -[x] Make adding/removing blogs more efficient. Organize into folders in separate categories.
 -[x] Pagination is working
+-[] Remove "#" link from blog thumbnails
 -[] Order blogs by date
 -[] Add option to modify Featured Post
 
 ## Demo Form
 -[x] Request Demo Button
 -[x] Request Demo Form
+-[] Add all fields
+-[] Test with Vercel
+-[] Change content of privacy policy under form
 
 ## Footer
 -[x] Site Map
 -[] Add logos and links to social media (Instagram, LinkedIn, X)
--[] Privacy Page Link
+-[] Privacy Page Link: Instagram, LinkedIn, Facebook, X
 
 ## Privacy Policy Page
 -[x] Add privacy policy page
--[] Add content on privacy policy page
--[] Connect with accept cookies banner
--[] Add accept or reject cookies functionality
+-[][] Add content on privacy policy page 
+-[x] Connect with accept cookies banner
+-[x] Add accept or reject cookies functionality
+-[] On cookies decline, add "false" for consent and do not show cookies banner again.
 
 ## 404 Page
 -[x] Add 404 Page
