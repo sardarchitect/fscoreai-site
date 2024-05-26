@@ -1,7 +1,7 @@
 ---
 title: "Building a QR code micro-app"
 subtitle: "Build a serverless QR code app with Python and AWS."
-date: "2021-08-14"
+date: "26-05-2024, 9:00 AM"
 imageURL: "/blogs_images/img3.png"
 slug: "/blog/qr-code-micro-app.md"
 ---

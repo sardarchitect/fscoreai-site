@@ -10,15 +10,15 @@ const Blog_card = (props: any) => {
   return (
     <div className="max-w-lg mx-auto">
       <div className="bg-blue-200 shadow-md border border-gray-200 rounded-lg max-w-sm mb-5">
-        <a href="#">
+        <span>
           {/* Use imageUrl prop for the image source */}
           <img className="rounded-t-lg" src={imageURL} alt="" />
-        </a>
+        </span>
         <div className="p-5">
-          <a href="#">
+          <span>
             {/* Use title prop for the title */}
             <h5 className="text-gray-900 font-bold text-2xl tracking-tight mb-2">{title}</h5>
-          </a>
+          </span>
           {/* Use description prop for the description */}
           <p className="font-normal text-gray-700 mb-3">{subtitle}</p>
           <p className="font-normal text-gray-700 mb-3">{date}</p>

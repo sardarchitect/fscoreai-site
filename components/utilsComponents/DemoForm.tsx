@@ -23,13 +23,13 @@ const DemoForm = ({open} :any) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data: any) => {
-    // await addUserData(data);
-    reset();
-  };
-
   const [showPopup, setShowPopup] = useFormPopUpContext()
   const [theme, setTheme] = useThemeContext();
+
+  const onSubmit = async (data: any) => {
+    await addUserData(data);
+    reset();
+  };
 
   useEffect(() => {
     if (showPopup) {
@@ -118,7 +118,43 @@ const DemoForm = ({open} :any) => {
                       />
                       {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
                     </div>
-                  </div>                 
+                  </div>              
+
+                  <div className="sm:col-span-4 mb-4">
+                    <label
+                      htmlFor="company_name"
+                      className="block text-sm font-medium leading-6 "
+                    >
+                      Company Name
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="text"
+                        {...register("company_name")}
+                        id="company_name"
+                      placeholder="Enter company name"
+                      className="block w-full rounded-md border-0 py-1.5  p-2 sm:p-4  shadow-sm ring-1 ring-inset dark:ring-gray-300 dark:bg-rgb-2-6-23 focus:ring-2 focus:ring-inset dark:focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="sm:col-span-4 mb-4">
+                    <label
+                      htmlFor="job_title"
+                      className="block text-sm font-medium leading-6 "
+                    >
+                      Job Title
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="text"
+                        {...register("job_title")}
+                        id="job_title"
+                      placeholder="Enter your job title"
+                      className="block w-full rounded-md border-0 py-1.5  p-2 sm:p-4  shadow-sm ring-1 ring-inset dark:ring-gray-300 dark:bg-rgb-2-6-23 focus:ring-2 focus:ring-inset dark:focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>   
 
                   <div className="sm:col-span-4 mb-4">
                     <label htmlFor="short_description" className="block text-sm font-medium leading-6">Short description</label>
@@ -144,9 +180,9 @@ const DemoForm = ({open} :any) => {
                           className="mr-4 cursor-pointer"
                         />
                         <label htmlFor="agree" className="cursor-pointer">
-                          By submitting I agree to be contacted by DiRoots for the purposes of this contact form. For more information please review our&nbsp;
+                        I agree to be receive communications from Fscore AI, and I understand Fscore AI will process my information in accordance with Fscore AI's &nbsp;
                           <Link legacyBehavior href={`/privacy_policy`}>
-                            <span className="dark:text-blue-900 cursor-pointer">privacy policy</span>
+                            <span className="hover:border-b-2 cursor-pointer">privacy policy</span>
                           </Link>.
                         </label>
                       </span>

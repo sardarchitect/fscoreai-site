@@ -27,6 +27,7 @@ export const CookieConsent = () => {
   const declineConsent = () => {
     // When user declines the consent, simply hide the popup
     setShowConsent(false);
+    setCookie("consent", "false", {});
   };
 
   if (!showConsent) {

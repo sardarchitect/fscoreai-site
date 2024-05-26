@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero_one = () => {
   return (
@@ -15,12 +16,16 @@ const Hero_one = () => {
           molestias ipsa labore sit nam explicabo.
         </p>
         <div className="py-6">
-          <button className="mx-6 bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
-  Contact Us
-</button>
-<button className="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
-  Learn More
-</button>
+          <Link href="/contact_us">
+            <button className="mx-6 bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
+              Contact Us
+            </button>
+          </Link>
+          <Link href="/blogs">
+            <button className="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
+              Learn More
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -32,16 +37,14 @@ const Hero_one = () => {
           width={200}
           height={700}
           style={{
-            objectFit: 'cover'
+            objectFit: "cover",
           }}
           className="fixed w-screen left-0 top-0 h-full -z-50"
         />
       </div>
 
       {/* product demo */}
-      <div className="">
-      
-      </div>
+      <div className=""></div>
     </section>
   );
 };

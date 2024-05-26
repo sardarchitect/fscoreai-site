@@ -1,77 +1,77 @@
 [
   {
     "id": 1,
-    "date": "Monday, 9:00 AM",
+    "date": "24-05-2024, 9:00 AM",
     "Blog_fileURL": "/blog/featured-blogs/aws-quickstart.md"
   },
   {
     "id": 2,
-    "date": "Tuesday, 10:30 AM",
+    "date": "25-05-2024, 9:00 AM",
     "Blog_fileURL": "/blog/featured-blogs/gpt-3-generated-poetry.md"
   },
   {
     "id": 3,
-    "date": "Tuesday, 10:30 AM",
+    "date": "26-05-2024, 9:00 AM",
     "Blog_fileURL": "/blog/featured-blogs/qr-code-micro-app.md"
   },
   {
     "id": 4,
-    "date": "Tuesday, 10:30 AM",
+    "date": "27-05-2024, 9:00 AM",
     "Blog_fileURL": "/blog/featured-blogs/retro-games-with-pico-8.md"
   }, 
   {
     "id": 5,
-    "date": "Tuesday, 10:30 AM",    
+    "date": "28-05-2024, 9:00 AM",    
     "Blog_fileURL": "/blog/featured-blogs/saas-starter-app.md"
   }, 
   {
     "id": 6,
-    "date": "Tuesday, 10:30 AM",
+    "date": "29-05-2024, 9:00 AM",
     "Blog_fileURL": "/blog/featured-blogs/wolfhunter.md"
   },
   {
     "id": 7,
-    "date": "Tuesday, 10:30 AM",
+    "date": "30-05-2024, 9:00 AM",
     "Blog_fileURL": "/blog/featured-blogs/blogone.md"
   },
   {
     "id": 8,
-    "date": "Tuesday, 10:30 AM",
+    "date": "31-05-2024, 9:00 AM",
     "Blog_fileURL": "/blog/featured-blogs/blogone.md"
   },
   {
     "id": 9,
-    "date": "Tuesday, 10:30 AM",
+    "date": "01-06-2024, 9:00 AM",
     "Blog_fileURL": "/blog/featured-blogs/blogone.md"
   },
   {
     "id": 10,
-    "date": "Tuesday, 10:30 AM",
+    "date": "02-06-2024, 9:00 AM",
     "Blog_fileURL": "/blog/featured-blogs/blogone.md"
   },
   {
     "id": 11,
-    "date": "Tuesday, 10:30 AM",
+    "date": "03-06-2024, 9:00 AM",
     "Blog_fileURL": "/blog/featured-blogs/blogone.md"
   },
   {
     "id": 12,
-    "date": "Tuesday, 10:30 AM",
+    "date": "04-06-2024, 9:00 AM",
     "Blog_fileURL": "/blog/featured-blogs/blogone.md"
   },
   {
     "id": 13,
-    "date": "Tuesday, 10:30 AM",
+    "date": "05-06-2024, 9:00 AM",
     "Blog_fileURL": "/blog/featured-blogs/blogone.md"
   },
   {
     "id": 14,
-    "date": "Tuesday, 10:30 AM",
+    "date": "06-06-2024, 9:00 AM",
     "Blog_fileURL": "/blog/featured-blogs/blogone.md"
   },
   {
     "id": 15,
-    "date": "Tuesday, 10:30 AM",
+    "date": "07-06-2024, 9:00 AM",
     "Blog_fileURL": "/blog/featured-blogs/blogone.md"
   }
 ]

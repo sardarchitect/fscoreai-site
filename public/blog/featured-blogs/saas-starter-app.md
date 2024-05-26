@@ -1,7 +1,7 @@
 ---
 title: "Building a serverless SaaS product"
 subtitle: "A full-stack SaaS project with authentication and payments."
-date: "2021-07-12"
+date: "28-05-2024, 9:00 AM"
 imageURL: "/blogs_images/img5.png"
 slug: "/blog/saas-starter-app.md"
 ---

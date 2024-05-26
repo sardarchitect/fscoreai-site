@@ -1,7 +1,7 @@
 ---
 title: "Blog one"
 subtitle: "Create an AWS account and set up CLI/SDK access."
-date: "2020-12-27"
+date: "25-05-2024, 9:00 AM"
 imageURL: "/blogs_images/img1.png"
 slug: "/blog/aws-quickstart.md"
 ---

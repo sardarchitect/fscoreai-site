@@ -1,5 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+   plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require("@tailwindcss/typography"),
+  ],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,6 +12,15 @@ module.exports = {
   darkMode: ["class"],
   theme: {
     extend: {
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        }
+      },
+      animation: {
+        fadeIn: 'fadeIn 3s ease-out forwards', // Adding forwards ensures it stays in the final state
+      },
       colors: {
         green: {
           50: '#30AF5B',
@@ -61,5 +74,4 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
 };

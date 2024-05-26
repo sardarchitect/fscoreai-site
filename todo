@@ -29,8 +29,8 @@
 
 ## Contact Us
 -[x] Connect to Atlas DB
--[] Add text after submitting form "Thank you for submitting your form. We will get back to you shortly."
--[] Add field for "submission date" (UTC)
+-[x] Add text after submitting form "Thank you for submitting your form. We will get back to you shortly."
+-[x] Add field for "submission date" (UTC)
 
 ## Blog Posts
 -[x] Connect to Atlas DB
@@ -38,28 +38,29 @@
 -[x] Add dark theme to blog posts. (https://tailwindcss.com/docs/dark-mode)
 -[x] Make adding/removing blogs more efficient. Organize into folders in separate categories.
 -[x] Pagination is working
--[] Remove "#" link from blog thumbnails
--[] Order blogs by date
+-[x] Remove "#" link from blog thumbnails
+-[x] Order blogs by date
+
 -[] Add option to modify Featured Post
 
 ## Demo Form
 -[x] Request Demo Button
 -[x] Request Demo Form
--[] Add all fields
--[] Test with Vercel
--[] Change content of privacy policy under form
+-[x] Add all fields
+-[x] Test with Vercel
+-[x] Change content of privacy policy under form
 
 ## Footer
 -[x] Site Map
--[] Add logos and links to social media (Instagram, LinkedIn, X)
--[] Privacy Page Link: Instagram, LinkedIn, Facebook, X
+-[][x] Add logos and links to social media (Instagram, LinkedIn, X)
+-[x] Privacy Page Link: Instagram, LinkedIn, Facebook, X
 
 ## Privacy Policy Page
 -[x] Add privacy policy page
 -[][] Add content on privacy policy page 
 -[x] Connect with accept cookies banner
 -[x] Add accept or reject cookies functionality
--[] On cookies decline, add "false" for consent and do not show cookies banner again.
+-[x] On cookies decline, add "false" for consent and do not show cookies banner again.
 
 ## 404 Page
 -[x] Add 404 Page
