@@ -232,10 +232,10 @@ const ContactUs = () => {
           {/* maps */}
           <div className="sm:col-span-3 col-span-3 py-16">
             <span className="m-10">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d188820.9032958392!2d-71.13509572908293!3d42.31423194975003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3652d0d3d311b%3A0x787cbf240162e8a0!2sBoston%2C%20MA%2C%20USA!5e0!3m2!1sen!2sin!4v1715422015591!5m2!1sen!2sin" className="w-full" height="250"  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d188820.9032958392!2d-71.13509572908293!3d42.31423194975003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3652d0d3d311b%3A0x787cbf240162e8a0!2sBoston%2C%20MA%2C%20USA!5e0!3m2!1sen!2sin!4v1715422015591!5m2!1sen!2sin" className="w-full" height="250"  loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </span>
             <span className="m-10 ">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27458.800850847038!2d76.69529713881917!3d30.65226833765403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390febe1fc6b2bef%3A0x555c2d1b4e524afa!2sSector%2082%2C%20JLPL%20Industrial%20Area%2C%20Punjab!5e0!3m2!1sen!2sin!4v1715421986592!5m2!1sen!2sin"  height="250" className="w-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27458.800850847038!2d76.69529713881917!3d30.65226833765403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390febe1fc6b2bef%3A0x555c2d1b4e524afa!2sSector%2082%2C%20JLPL%20Industrial%20Area%2C%20Punjab!5e0!3m2!1sen!2sin!4v1715421986592!5m2!1sen!2sin"  height="250" className="w-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </span>
           </div>
 

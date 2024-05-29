@@ -20,7 +20,7 @@ const SocialHendles = () => {
       </a>
       {/* X */}
       <a href="#" target="_blank" className=" rounded-full  transform hover:scale-110">
-        <img src='/social/icons-twitter.png' alt="Facebook Icon" className="w-12 h-12 text-white" />
+        <img src='/social/icons-twitter(1).png' alt="Facebook Icon" className="w-12 h-12 text-white" />
       </a>
     </div>
 </div>

@@ -80,7 +80,6 @@ metaData.sort((a, b) => b.dateObject.getTime() - a.dateObject.getTime());
 metaData.forEach((item) => delete item.dateObject);
 
     setMetaData(metaData);
-    console.log(metaData, 'okok')
     setMetadataLength(metaData.length);
     return metaData;
   };

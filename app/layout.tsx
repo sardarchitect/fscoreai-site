@@ -7,6 +7,7 @@ import { ThemeProvider } from "../context/theme";
 import { FormPopUpProvider } from "../context/formPopup";
 import { PageUpdateProvider } from "../context/pageUpdate";
 import { CookieConsent } from "@/components/utilsComponents/CookieConsent";
+// import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "fscore.ai",
@@ -38,6 +39,7 @@ export default function RootLayout({
           <FormPopUpProvider>
             <PageUpdateProvider>
               <Navbar></Navbar>
+              {/* <Header/> */}
               <main>{children}</main>
               <CookieConsent/>
               <Footer></Footer>
