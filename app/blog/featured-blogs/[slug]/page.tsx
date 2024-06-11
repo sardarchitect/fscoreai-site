@@ -87,9 +87,10 @@ const PostPage = (props: any) => {
         <Markdown>{post.content}</Markdown>
       </article>
 
-      <div className="flex justify-between w-4/5 lg:w-3/5 mt-10  m-auto lg:mt-20 ">
+      <div className="flex justify-between w-11/12 lg:w-3/5 mt-10  m-auto lg:mt-20 ">
       
-          <div className="bg-black hover:bg-gray-500 text-white font-bold py-5 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+      <div className="content-center">
+          <div className="bg-black hover:bg-gray-500 text-white font-bold h-10 content-center px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
             <Link
               id="link"
               legacyBehavior
@@ -101,12 +102,15 @@ const PostPage = (props: any) => {
               Prev
             </Link>
           </div>
-      
-          <div className="sm:flex hidden justify-center items-center space-x-4 ">
-            <Social title={post.data.title} description={post.data.description} image={post.data.imageURL} url='#'/>
           </div>
       
-          <div className="bg-black hover:bg-gray-500 text-white font-bold py-5 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+          <div className="flex w-full justify-center items-center space-x-4 ">
+          {/* <div className="sm:flex hidden justify-center items-center space-x-4 "> */}
+            <Social title={post.data.title} description={post.data.description} image={post.data.imageURL} url='#'/>
+          </div>
+          <div className="content-center">
+      
+          <div className="bg-black hover:bg-gray-500  text-white font-bold h-10 content-center px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
             <Link
               id="link"
               legacyBehavior
@@ -118,11 +122,11 @@ const PostPage = (props: any) => {
               Next
             </Link>
           </div>
-      
       </div>
-          <div className="sm:hidden flex justify-center items-center space-x-4 ">
+      </div>
+          {/* <div className="sm:hidden flex justify-center items-center space-x-4 ">
             <Social title={post.data.title} description={post.data.description} image={post.data.imageURL} url='#'/>
-          </div>
+          </div> */}
     </div>
   );
 };

@@ -42,7 +42,7 @@ const ContactUs = () => {
     setShowMsg(true);
     setTimeout(() => {
     setShowMsg(false);
-    }, 5000);
+    }, 10000);
   }
 
   async function addUserData(data: RequestBody) {
@@ -82,7 +82,7 @@ const ContactUs = () => {
         <div className="grid grid-cols-1 sm:gap-x-6 gap-y-8 sm:grid-cols-6 sm-auto">
         
         <div className="px-4 sm:px-6 sm:col-span-3 sm:py-6 lg:py-8 shadow-xl border rounded-lg">
-        {showMsg===false && 
+        {showMsg===true && 
         <div className="animate-fadeIn dark:border-2 shadow-xl border rounded-full sm:mt-auto mt-5">
         {/* <div className="px-4 sm:px-6 sm:col-span-3 sm:py-6 lg:py-8 shadow-xl border rounded-lg"> */}
           <SubmissionAlert type='success' message="Thank you for submitting your form. We will get back to you shortly." />

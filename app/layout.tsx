@@ -5,9 +5,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "../context/theme";
 import { FormPopUpProvider } from "../context/formPopup";
+import { MobileMenuProvider } from "../context/mobileMenu";
 import { PageUpdateProvider } from "../context/pageUpdate";
 import { CookieConsent } from "@/components/utilsComponents/CookieConsent";
-// import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "fscore.ai",
@@ -36,6 +36,7 @@ export default function RootLayout({
         className={`bg-white dark:bg-theme-color ${playfair_display_init}, ${Merriweather_init}`}
       >
         <ThemeProvider>
+        <MobileMenuProvider>
           <FormPopUpProvider>
             <PageUpdateProvider>
               <Navbar></Navbar>
@@ -45,6 +46,7 @@ export default function RootLayout({
               <Footer></Footer>
             </PageUpdateProvider>
           </FormPopUpProvider>
+          </MobileMenuProvider>
         </ThemeProvider>
       </body>
     </html>

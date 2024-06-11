@@ -2,9 +2,12 @@
 import { useFormPopUpContext } from "@/context/formPopup";
 import { useThemeContext } from "@/context/theme";
 import { sql } from "@vercel/postgres";
+import SubmissionAlert from "@/components/utilsComponents/SubmissionAlert";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useMobileMenuContext } from "@/context/mobileMenu";
 
 interface RequestBody {
   name: string;
@@ -23,14 +26,28 @@ const DemoForm = ({open} :any) => {
     formState: { errors },
   } = useForm();
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useMobileMenuContext()
   const [showPopup, setShowPopup] = useFormPopUpContext()
   const [theme, setTheme] = useThemeContext();
+  const [showMsg, setShowMsg] = useState(false);
 
   const onSubmit = async (data: any) => {
     await addUserData(data);
+    const targetSection = document.getElementById('contact-submission-alert');
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
     reset();
+    ShowAlert()
   };
 
+  function ShowAlert() {
+    setShowMsg(true);
+    setTimeout(() => {
+    setShowMsg(false);
+    setMobileMenuOpen(false)
+    }, 10000);
+  }
   useEffect(() => {
     if (showPopup) {
       document.body.classList.add('overflow-hidden');
@@ -61,9 +78,9 @@ const DemoForm = ({open} :any) => {
       console.error('Error adding user data:', error);
     }
   }
-
   const togglePopup = () => {
     setShowPopup(!showPopup);
+    setMobileMenuOpen(false)
   };
 
   return (
@@ -78,10 +95,17 @@ const DemoForm = ({open} :any) => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="absolute top-0 right-0 m-5">
-              <button onClick={togglePopup} className="hover:dark:text-theme-blue px-4 py-3 hover:bg-theme-color hover:text-white hover:dark:bg-white border-2 dark:border-white border-theme-blue rounded-xl">X</button>
+              <button onClick={togglePopup}
+              className="hover:dark:text-theme-blue px-4 py-3 hover:bg-theme-color hover:text-white hover:dark:bg-white border-2 dark:border-white border-theme-blue rounded-xl">X</button>
             </div>
-            <h2 className="text-4xl font-bold mb-4">We'd love to talk about how we can work together.</h2>
-            <p className="text-xl mt-4 tracking-wide mb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, in.</p>
+            <h2 className="text-4xl font-bold mb-4 pr-10">We'd love to talk about how we can work together.</h2>
+            <p className="text-xl mt-4 tracking-wide mb-4" id='contact-submission-alert'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, in.</p>
+            {showMsg===true && 
+        <div className="animate-fadeIn dark:border-2 shadow-xl border rounded-full sm:mt-auto mt-5">
+        {/* <div className="px-4 sm:px-6 sm:col-span-3 sm:py-6 lg:py-8 shadow-xl border rounded-lg"> */}
+          <SubmissionAlert type='success' message="Thank you for submitting your form. We will get back to you shortly." />
+        </div>}
+
             <form noValidate method="POST" onSubmit={handleSubmit(onSubmit)}>
               <div className="pb-12 mt-5">
                 <div className="mt-10">

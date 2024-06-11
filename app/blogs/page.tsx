@@ -98,7 +98,7 @@ metaData.forEach((item) => delete item.dateObject);
       >
         <div className="w-screen">
           <div className="mx-10 h-3/4 text-center">
-            <h2 className="text-6xl p-5">
+            <h2 className="sm:text-6xl text-3xl p-5">
               Lorem consectetur adipisicing elit. Eveniet, recusandae?
             </h2>
             {/*note: add background */}
