@@ -7,14 +7,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useForm } from "react-hook-form";
-import { z } from 'zod';
+import { any, z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { account, ID } from "@/appwrite/appwriteClient";
 
 const schema = z.object({
+   name: z.string().min(1, { message: "Name is required" }),
     email: z.string().email({ message: "Invalid email address" }),
-    password: z.string().min(6, { message: "Password must be at least 6 characters long" }),
-    confirmpassword: z.string().min(6, { message: "Password confirmation must be at least 6 characters long" }),
+    password: z.string().min(8, { message: "Password must be at least 8 characters long" }),
+    confirmpassword: z.string().min(8, { message: "Password confirmation must be at least 8 characters long" }),
   }).refine(data => data.password === data.confirmpassword, {
     message: "Passwords don't match",
     path: ['confirmpassword'], 
@@ -26,10 +27,17 @@ const schema = z.object({
 function RegisterForm() {
     const  from = useForm<RegisterFormType>({resolver:zodResolver(schema)});
     const { formState:{errors} } = from;
-    const onSumbit = async (value: RegisterFormType) =>{
-        console.log('value', value);
-        const user = await account.create(ID.unique(), value.email, value.password);
-        console.log('user', user);
+    const onSumbit = async (values: RegisterFormType) =>{
+        // const user = await account.create(ID.unique(), value.email, value.password);
+        // console.log('user', user);
+        const res = await fetch('/api/signup',{
+          method:'POST',
+          headers:{
+            'content-Type': 'application/json'
+          },
+          body:JSON.stringify(values)
+        });
+        console.log('res',res);
     }
 
     console.log('error', errors)
@@ -47,6 +55,16 @@ function RegisterForm() {
           </p>
         </div>
         <div className="grid gap-4">
+        <div className="grid gap-2">
+            <Label htmlFor="name">Name</Label>
+            <Input
+              id="name"
+              type="name"
+              placeholder="Enter Full Name"
+              {...from.register("name")} 
+            />
+            {errors.name && <p className=''>{errors.name.message}</p>}
+          </div>
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
             <Input
@@ -70,7 +88,7 @@ function RegisterForm() {
           <Button type="submit" className="w-full">
             Register
           </Button>
-          <Button variant="outline" className="w-full">
+          <Button variant="outline" className="w-full" >
             Register with Google
           </Button>
         </div>
