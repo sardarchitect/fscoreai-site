@@ -2,12 +2,13 @@ import { ID } from "node-appwrite";
 import { createAdminClient } from "@/server-actions/appwrite";
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { SESSION_KEY } from "@/helpers";  // Assuming SESSION_KEY is defined
+import { SESSION_KEY } from "@/utils/helpers";  // Assuming SESSION_KEY is defined
 
 export async function POST(request: Request) {
   try {
     // Parse the request body
     const { email, password, name, confirmpassword }: any = await request.json();
+    const userAgent = request.headers.get("userAgent");
 
     // Step 1: Validate input fields
     if (!email || !password || !name || !confirmpassword) {
@@ -19,7 +20,7 @@ export async function POST(request: Request) {
     }
 
     // Step 2: Create a user in Appwrite
-    const { account }: any = await createAdminClient();
+    const { account }: any = await createAdminClient(userAgent);
 
     // Create a new user
     const user = await account.create(ID.unique(), email, password, name);

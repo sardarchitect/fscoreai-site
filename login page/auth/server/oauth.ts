@@ -5,15 +5,17 @@ import { headers } from "next/headers";
 import { createAdminClient } from "@/server-actions/appwrite";
 import { OAuthProvider } from "node-appwrite";
 
-export async function signUpWuthGoogle() {
-    const { account } = await createAdminClient();
+export async function signUpWithGoogle() {
+    const origin = headers().get("origin");
+    const userAgent = headers().get("userAgent");
+    const { account } = await createAdminClient(userAgent);
 
-const origin = headers().get("origin");
+    
 
 
     const redirecturl = await account.createOAuth2Token(
         OAuthProvider.Google,
-        `${origin}/oauth`,
+        `${origin}/api/oauth/success`,
         `${origin}/signup`,
     );
     return redirect(redirecturl);
