@@ -30,7 +30,8 @@
             .setKey(process.env.APPWRITE_API_KEY!);
 
         if(userAgent) adminClient.setForwardedUserAgent(userAgent);
-            
+        console.log(userAgent);
+        
         return {
             get account() {
                 return new Account(adminClient);
