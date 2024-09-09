@@ -1,8 +1,7 @@
 import { ID } from "node-appwrite";
-import { createAdminClient } from "@/server-actions/appwrite";
+import { createAdminClient } from "@/server/appwrite";
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { SESSION_KEY } from "@/utils/helpers";  // Assuming SESSION_KEY is defined
 
 export async function POST(request: Request) {
   try {
@@ -29,7 +28,7 @@ export async function POST(request: Request) {
     const userSession = await account.createEmailPasswordSession(email, password);
 
     // Step 4: Set session cookie
-    cookies().set(SESSION_KEY, userSession.secret, {
+    cookies().set("next-session", userSession.secret, {
       path: "/",
       httpOnly: true,
       sameSite: "strict",

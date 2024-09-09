@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
-import { createAdminClient } from "@/server-actions/appwrite";
+import { createAdminClient } from "@/server/appwrite";
 import { OAuthProvider } from "node-appwrite";
 
 export async function signUpWithGoogle() {

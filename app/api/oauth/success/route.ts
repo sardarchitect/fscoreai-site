@@ -1,6 +1,5 @@
 
-import { SESSION_KEY } from "@/utils/helpers";
-import { createAdminClient } from "@/server-actions/appwrite";
+import { createAdminClient } from "@/server/appwrite";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 

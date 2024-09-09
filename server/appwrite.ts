@@ -1,6 +1,4 @@
 "use server"
-    import { config } from "@/appwrite/config" ;
-    import { SESSION_KEY } from "@/utils/helpers";
     import { cookies } from "next/headers";
     import { Client, Account } from "node-appwrite";
 
