@@ -12,8 +12,8 @@ const SocialHendles = () => {
        {/* {social media links} */}
        <div className="flex justify-center ">
       <div className="flex items-center space-x-3">
-      <SocialIcon url="https://instagram.com" className='rounded-full  transform hover:scale-110' bgColor="none" fgColor={`${color}`} />
-      <SocialIcon url="https://linkedin.com/manpreet" className='rounded-full  transform hover:scale-110' bgColor="none" fgColor={`${color}`} />
+      <SocialIcon url="https://www.instagram.com/fscoreai?igsh=ejJvOXM4emFhampu" className='rounded-full  transform hover:scale-110' bgColor="none" fgColor={`${color}`} />
+      <SocialIcon url="https://www.linkedin.com/company/fscore/" className='rounded-full  transform hover:scale-110' bgColor="none" fgColor={`${color}`} />
       <SocialIcon url="https://facebook.com" className='rounded-full  transform hover:scale-110' bgColor="none" fgColor={`${color}`} />
       <SocialIcon url="https://twitter.com" className='rounded-full  transform hover:scale-110' bgColor="none" fgColor={`${color}`} />
 

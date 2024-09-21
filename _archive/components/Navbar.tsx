@@ -14,6 +14,8 @@ import Link from "next/link";
 import { useThemeContext } from "@/context/theme";
 import { useFormPopUpContext } from "@/context/formPopup";
 import { useMobileMenuContext } from "@/context/mobileMenu";
+import { usePathname } from "next/navigation";
+
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useMobileMenuContext();
@@ -23,6 +25,10 @@ export default function Navbar() {
   );
   const [theme, setTheme] = useThemeContext();
   const [showPopup, setShowPopup] = useFormPopUpContext();
+  const currentPath = usePathname();
+
+  console.log("Current Path:",currentPath);
+  
 
   useEffect(() => {
     const newBgColor =
@@ -37,13 +43,13 @@ export default function Navbar() {
     setBgColor(newBgColor);
   }, [theme]);
   return (
-    <div className={`${theme} min-h-full sm:sticky sm:top-0 sm:z-50`}>
-      <header className={` bg-white dark:bg-theme-blue `}>
+    <div className={`${theme} min-h-full sm:sticky sm:top-0 sm:z-50 `}>
+      <header className={` bg-white dark:bg-theme-blue  `}>
         <nav
-          className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"
+          className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
           aria-label="Global"
         >
-          <div className="flex lg:flex-1">
+          <div className="flex lg:flex-1 ">
             <Link href="/">
               {/* light mode */}
               <Image
@@ -63,7 +69,7 @@ export default function Navbar() {
               ></Image>
             </Link>
           </div>
-          <div className="flex lg:hidden">
+          <div className="flex lg:hidden ">
             <button
               type="button"
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -83,8 +89,7 @@ export default function Navbar() {
               <Link
                 href={link.href}
                 key={link.key}
-                className={` dark:text-white duration-500 ease-in-out regular-16 justify-end cursor-pointer transition-all dark:hover:bg-gray-400 rounded-xl py-2 px-3 `}
-                // className={`regular-16 flexCenter ${activeLink === 0 ? "text-white" : "text-black"} cursor-pointer pb-1.5 transition-all hover:font-bold  `}
+                className={` dark:text-white duration-500 ease-in-out cursor-pointer rounded-xl py-2 px-3   transform hover:scale-110 ${currentPath == link.href ? "bg-gray-80" : ""}  `}
               >
                 {link.label}
               </Link>
@@ -175,6 +180,8 @@ export default function Navbar() {
                     onClick={() => setMobileMenuOpen(false)}
                     className="dark:text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
                   >
+                    
+
                     {link.label}
                   </Link>
                 ))}
@@ -191,7 +198,7 @@ export default function Navbar() {
                 </div>
 
                 <button
-                  className={`w-14 h-8 my-auto rounded-full bg-gray-400 flex  justify-start p-1 focus:outline-none transition duration-300 ease-in-out ${
+                  className={`w-14 h-8 my-auto rounded-full bg-gray-400 flex  justify-start p-1 focus:outline-none transition duration-300 ease-in-out  ${
                     theme === "light" ? "bg-theme-blue" : "bg-white"
                   }`}
                   onClick={() => {

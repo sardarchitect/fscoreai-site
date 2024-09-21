@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-white dark:bg-theme-color ${playfair_display_init}, ${Merriweather_init}`}
+        className={`bg-white dark:bg-theme-color ${playfair_display_init}, ${Merriweather_init}flex flex-col `}
       >
         <ThemeProvider>
         <MobileMenuProvider>

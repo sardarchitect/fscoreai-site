@@ -2,6 +2,7 @@
 import SubmissionAlert from "@/components/utilsComponents/SubmissionAlert";
 import { useThemeContext } from "@/context/theme";
 import { sql } from "@vercel/postgres";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -66,8 +67,8 @@ const ContactUs = () => {
   }
 
   return (
-    <main className={`${theme}`}>
-      <div className="dark:text-white dark:bg-rgb-2-6-23 bg-white text-theme-blue px-4 sm:px-6 lg:px-8 py-8">
+    <main className={`${theme} mx-auto flex max-w-7xl items-center justify-between`}>
+      <div className="dark:text-white dark:bg-rgb-2-6-23 bg-white text-theme-blue px-4 sm:px-6 lg:px-8 py-8 flex flex-col">
      <div>
         {/* <div className="py-5 text-justify"> */}
         <div className="py-5 sm:text-justify text-center">
@@ -235,9 +236,21 @@ const ContactUs = () => {
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d188820.9032958392!2d-71.13509572908293!3d42.31423194975003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3652d0d3d311b%3A0x787cbf240162e8a0!2sBoston%2C%20MA%2C%20USA!5e0!3m2!1sen!2sin!4v1715422015591!5m2!1sen!2sin" className="w-full" height="250"  loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </span>
             <span className="m-10 ">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27458.800850847038!2d76.69529713881917!3d30.65226833765403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390febe1fc6b2bef%3A0x555c2d1b4e524afa!2sSector%2082%2C%20JLPL%20Industrial%20Area%2C%20Punjab!5e0!3m2!1sen!2sin!4v1715421986592!5m2!1sen!2sin"  height="250" className="w-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13708.188655606024!2d76.69283215700325!3d30.69934842601334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390feefcab43ab1d%3A0xe7e71b2635af35e7!2sGR%20Tower%2C%20Industrial%20Area%2C%20Sector%2075%2C%20Sahibzada%20Ajit%20Singh%20Nagar%2C%20Punjab%20140308!5e0!3m2!1sen!2sin!4v1726829480918!5m2!1sen!2sin"  height="250" className="w-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </span>
           </div>
+          <div className="hero-img">
+        <Image
+          src="/neuro_image.svg"
+          alt="image"
+          width={200}
+          height={700}
+          style={{
+            objectFit: "cover",
+          }}
+          className="fixed w-screen left-0 top-0 h-full -z-50"
+        />
+      </div>
 
           
         </div>

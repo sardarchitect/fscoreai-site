@@ -8,10 +8,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+ 
 }
 
 body {
   font-family: Inter;
+  align-items: center;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -26,6 +28,16 @@ body {
 
 
 @layer utilities {
+  .responsive-text{
+    @apply text-center;
+  }
+  .responsive-padding{
+    @apply px-4 md:px-8 lg:px-20;
+  }
+  .responsive-flex{
+    @apply flex flex-col items-center justify-center;
+  }
+
   .btn_white { 
     @apply  border-white bg-white px-8 py-3 text-green-50
   }
@@ -175,6 +187,7 @@ body {
 
 .navbar-responsive {
   @media screen and (max-width: 1023px) {
+     align-items: center;
     
     .block-to-hide {
       display: none;
@@ -183,6 +196,16 @@ body {
     .block-to-display {
       display: block; 
 
+    }
+  }
+  @media (min-width: 640px) {
+    .text-responsive {
+      font-size: 1.125rem; /* Base for larger screens */
+    }
+  }
+  @media (min-width: 768px) {
+    .text-responsive {
+      font-size: 1.25rem; /* Larger text */
     }
   }
 }

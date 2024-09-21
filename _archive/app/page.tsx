@@ -9,8 +9,8 @@ import ProductReport from "@/components/hero_components/ProductReport";
 export default function Home() {
   const [theme] = useThemeContext();
   return (
-    <div className={`${theme}`}>
-    <div className="text-white ">
+    <div className={`${theme} flex flex-col items-center justify-center min-h-screen text-center`}>
+    <div className="text-white flex flex-col items-center w-full max-w-7xl mx-auto ">
       <Hero_one/>
       <ProductReport/>
       <DescriptionOne/>

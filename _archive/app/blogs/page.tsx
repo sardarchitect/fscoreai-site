@@ -7,6 +7,7 @@ import { BlogMetadata } from "@/components/blog_components/blogMetadata";
 import Blog_card_horizontal from "@/components/blog_components/Blog_card_horizontal";
 import { useThemeContext } from "@/context/theme";
 import { usePageUpdateContext } from "@/context/pageUpdate";
+import Image from "next/image";
 
 interface Block {
   Blog_fileURL: string; // Adjust the type if Blog_fileURL is of different type
@@ -92,9 +93,9 @@ metaData.forEach((item) => delete item.dateObject);
   }, [getMetadata, currentPage]);
 
   return (
-    <main className={`${theme}`}>
+    <main className={`${theme}  ` }>
       <div
-        className={`dark:text-white dark:bg-rgb-2-6-23 bg-white text-theme-blue`}
+        className={`dark:text-white dark:bg-rgb-2-6-23 bg-white text-theme-blue mx-auto flex max-w-7xl items-center justify-between  lg:px`}
       >
         <div className="w-screen">
           <div className="mx-10 h-3/4 text-center">
@@ -165,6 +166,18 @@ metaData.forEach((item) => delete item.dateObject);
             </div>
           </div>
         </div>
+      </div>
+      <div className="hero-img">
+        <Image
+          src="/neuro_image.svg"
+          alt="image"
+          width={200}
+          height={700}
+          style={{
+            objectFit: "cover",
+          }}
+          className="fixed w-screen left-0 top-0 h-full -z-50"
+        />
       </div>
     </main>
   );

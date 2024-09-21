@@ -1,18 +1,16 @@
-"use client";
-import TestimonialsCards from "@/components/about_us/TestimonialsCards";
-import { useThemeContext } from "@/context/theme";
-import Image from "next/image";
-import React from "react";
+'use client'
+import { useThemeContext } from '@/context/theme';
+import Image from 'next/image';
+import React from 'react'
 
-const AboutUs = () => {
-  const [theme, setTheme] = useThemeContext();
+function ProductPage() {
+    const [theme, setTheme] = useThemeContext();
   return (
-    <>
-      <main className={`${theme} mx-auto  max-w-7xl items-center justify-between  lg:px`}>
+    <div className={`${theme} mx-auto flex max-w-7xl items-center justify-between  lg:px`}>
         <header className="bg-white dark:bg-rgb-2-6-23 text-theme-blue dark:text-white pb-10 sm:h-screen bg-no-repeat bg bg-cover sm:flex justify-center items-center">
           <div className="sm:w-3/4">
             <h1 className="text-6xl p-10">
-              About Us
+             Product
               <br />
               <span className="text-blue-100">Fscore AI's envisions a future</span>
             </h1>
@@ -28,26 +26,8 @@ const AboutUs = () => {
               width={500}
             />
           </div>
-        </header>
-
-        {/* middle section */}
-        <section className="dark:text-white dark:bg-rgb-2-6-23 bg-white text-theme-blue">
-          <h2 className="text-5xl text-center pt-20 p-10">What are we</h2>
-          <div className="flex m-auto w-4/5">
-            {/* <div className="grid sm:grid-cols-3"> */}
-            <TestimonialsCards
-              name="Permider Singh"
-              profession="Developer"
-              description="Testimonials"
-            />
-            <TestimonialsCards
-              name="Arvinder Singh"
-              profession="Architecture developer"
-              description="Testimonials"
-            />
-            {/* <TestimonialsCards name="abc" profession="developer" description="Testimonials"/> */}
-          </div>
-          <Image
+          <div className="hero-img">
+        <Image
           src="/neuro_image.svg"
           alt="image"
           width={200}
@@ -57,10 +37,10 @@ const AboutUs = () => {
           }}
           className="fixed w-screen left-0 top-0 h-full -z-50"
         />
-        </section>
-      </main>
-    </>
-  );
-};
+      </div>
+        </header>
+    </div>
+  )
+}
 
-export default AboutUs;
+export default ProductPage;
