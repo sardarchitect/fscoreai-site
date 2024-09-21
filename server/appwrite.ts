@@ -4,10 +4,10 @@
 
     export async function createSessionClient() {
         const client = new Client()
-            .setEndpoint(config.appwriteUrl)
-            .setProject(config.appwriteProjectId);
+            .setEndpoint(process.env.NEXT_PUBLIC_ENDPOINT!)
+            .setProject(process.env.NEXT_PUBLIC_PROJECT_ID!);
 
-        const session =  cookies().get(SESSION_KEY);
+        const session =  cookies().get("next-session");
         if (!session || !session.value){
             throw new Error("No Session");
         }
@@ -23,8 +23,8 @@
 
     export async function createAdminClient(userAgent: string | null){
         const adminClient = new Client()
-            .setEndpoint(config.appwriteUrl)
-            .setProject(config.appwriteProjectId)
+            .setEndpoint(process.env.NEXT_PUBLIC_ENDPOINT!)
+            .setProject(process.env.NEXT_PUBLIC_PROJECT_ID!)
             .setKey(process.env.APPWRITE_API_KEY!);
 
         if(userAgent) adminClient.setForwardedUserAgent(userAgent);

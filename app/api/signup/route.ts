@@ -5,6 +5,8 @@ import { cookies } from "next/headers";
 
 export async function POST(request: Request) {
   try {
+    console.log("Inside API:", request);
+    
     // Parse the request body
     const { email, password, name, confirmpassword }: any = await request.json();
     const userAgent = request.headers.get("userAgent");

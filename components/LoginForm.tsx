@@ -5,9 +5,10 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { account } from "@/appwrite/appwriteClient";
+import { account, client } from "@/app/appwrite";
 import { signUpWithGoogle } from "@/server/oauth";
 import { useRouter } from "next/navigation";
+import { Users } from "node-appwrite";
 
 
 const schema = z.object({
@@ -27,10 +28,11 @@ function LoginForm() {
     try {
       const session = await account.createEmailPasswordSession(values.email, values.password);
       if (session) {
-        handleRedirect();
+        console.log("Logged in:", session);
+    
       }
     } catch (error) {
-      console.error("Login failed", error);
+      console.error("Login Failed:", error);
     }
   };
 
@@ -49,6 +51,7 @@ function LoginForm() {
   const handleRedirect = () => {
     router.push("/");
   };
+
 
 
   return (
@@ -98,4 +101,4 @@ function LoginForm() {
 export default LoginForm;
 
 
-type LoginFormType = z.infer<typeof schema>;
+
