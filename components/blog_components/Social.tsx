@@ -36,7 +36,7 @@ import {
 const Social = (props: any) => {
   const { title, description, image, url } = props;
   return (
-    <div className="rounded-full border-2 p-3 pb-2">
+    <div className="rounded-full border-1 p-3 pb-2">
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -71,7 +71,7 @@ const Social = (props: any) => {
       <span className="mx-2">
         <LinkedinShareButton
           // url={props}
-          url={"https://github.com/next-share"}
+          url={"https://www.linkedin.com/company/fscore/"}
         >
           <LinkedinIcon size={32} round 
           className="duration-500 ease-in-out transition-all hover:transform hover:scale-125"

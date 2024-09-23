@@ -44,7 +44,7 @@ export default function Navbar() {
   }, [theme]);
   return (
     <div className={`${theme} min-h-full sm:sticky sm:top-0 sm:z-50 `}>
-      <header className={` bg-white dark:bg-theme-blue  `}>
+      <header className={`fixed top-0 left-0 right-0 z-50 bg-white dark:bg-theme-blue  `}>
         <nav
           className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
           aria-label="Global"
