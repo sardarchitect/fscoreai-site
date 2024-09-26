@@ -7,12 +7,6 @@ import DescriptionTwo from "@/components/hero_components/DescriptionTwo";
 import Hero_one from "@/components/hero_components/HeroSection";
 import ProductReport from "@/components/hero_components/ProductReport";
 
-
-
-
-
-
-
 export default function Home() {
 
   

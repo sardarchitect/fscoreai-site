@@ -46,10 +46,30 @@ const ContactUs = () => {
     }, 10000);
   }
 
+  // async function addUserData(data: RequestBody) {
+  //   try {
+  //     const response = await fetch('http://localhost:3000/api/users', {
+  //       method: 'POST', // or 'POST' if your API endpoint expects POST requests
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(data),
+  //     });
+  
+  //     if (!response.ok) {
+  //       throw new Error('Failed to add user data');
+  //     }
+  //     const responseData = await response.json();
+  //     console.log('User data added successfully:', responseData);
+  //   } catch (error) {
+  //     console.error('Error adding user data:', error);
+  //   }
+  // }
+
   async function addUserData(data: RequestBody) {
     try {
-      const response = await fetch('http://localhost:3000/api/users', {
-        method: 'POST', // or 'POST' if your API endpoint expects POST requests
+      const response = await fetch('/api', { 
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -57,14 +77,20 @@ const ContactUs = () => {
       });
   
       if (!response.ok) {
-        throw new Error('Failed to add user data');
+        throw new Error('Failed to send email');
       }
+      
       const responseData = await response.json();
-      console.log('User data added successfully:', responseData);
+      console.log('Email sent successfully:', responseData);
     } catch (error) {
-      console.error('Error adding user data:', error);
+      console.error('Error sending email:', error);
     }
   }
+  
+
+
+
+ 
 
   return (
     <main className={`${theme} mx-auto flex max-w-7xl items-center justify-between`}>
