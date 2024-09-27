@@ -12,14 +12,7 @@ import Image from "next/image";
 interface Block {
   Blog_fileURL: string; // Adjust the type if Blog_fileURL is of different type
   // Add other properties if they exist
-  date: string;
-  dateObject?: Date;
 }
-
-interface Props {
-  metaData: MetaDataItem[];
-}
-
 const BlogsPage = () => {
   const [data, setData] = useState([]);
   const [getMetadata, setMetaData] = useState();
@@ -72,14 +65,14 @@ const BlogsPage = () => {
 
     
 // Convert date strings to Date objects
-const MyComponent: React.FC<Props> = ({ metaData }) => {
-  const updatedMetaData = metaData.map((item) => {
-    const dateString = item.date;
-    const [date, time] = dateString.split(',');
-    const [day, month, year] = date.split('-').map(Number);
-    const [hour, minute] = time.trim().split(':').map(Number);
-
-    const dateItem = new Date(year, month - 1, day, hour, minute);
+metaData.forEach((item) => {
+  const dateString = item.date;
+  const [date, time] = dateString.split(",");
+  const [day, month, year] = date.split("-");
+  const [hour, minute] = time.trim().split(":");
+  const dateItem = new Date(year, month - 1, day);
+  item.dateObject = dateItem; 
+});
 
 // Sort the metaData array based on the dateObject property
 metaData.sort((a, b) => b.dateObject.getTime() - a.dateObject.getTime());

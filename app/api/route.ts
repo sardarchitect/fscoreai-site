@@ -1,28 +1,27 @@
-// pages/api/sendEmail.ts
-import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
-const resend = new Resend('re_B7hqekJj_BNaJGKBky8SvNr68gQwQfn8Z');
-
-export async function POST(req: Request, res: Response) {
+export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY)
+  const fromEmail = process.env.FROM_EMAIL;
+  const body: User = await req.json();
+  const { name, email, company_name, job_title, short_description } = body; 
 
   try {
-    const { data, error } = await resend.emails.send({
-      from: 'nigamdhillo3021@gmail.com',
-      to: 'nigamworkmail@gmail.com',
-      subject: "Test Email",
-      html: `
-      <p> Hello World </p>
-      `
+    const data = await resend.emails.send({
+      from: `noreply@fscore.ai`,
+      to: `asingh@fscore.ai`,
+      subject: 'Contact Form Data',
+      html: `<h1>User Data</h1>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Company Name:</strong> ${company_name || 'N/A'}</p>
+        <p><strong>Job Title:</strong> ${job_title || 'N/A'}</p>
+        <p><strong>Short Description:</strong> ${short_description}</p>`,
     });
 
-    if (error) {
-      return Response.json({ error }, { status: 500 })
-    }
-
-    return Response.json(data)
+    return NextResponse.json(data);
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
-
+    return NextResponse.json(error)
   }
 }
