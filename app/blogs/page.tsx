@@ -125,7 +125,7 @@ metaData.forEach((item) => delete item.dateObject);
 
             <div className="w-5/6 mx-auto lg:p-10 py-5 border-t dark:border-gray-200">
               <h3 className="text-4xl text-center  pb-10">Featured posts</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className=" grid-cols-1 md:grid-cols-3 gap-4">
                 {currentItems?.map((metaData: any, index: number) => (
                   <div key={index}>
                     <Blog_card

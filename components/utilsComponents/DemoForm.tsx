@@ -46,7 +46,7 @@ const DemoForm = ({open} :any) => {
     setTimeout(() => {
     setShowMsg(false);
     setMobileMenuOpen(false)
-    }, 10000);
+    }, 10000);1
   }
   useEffect(() => {
     if (showPopup) {
@@ -61,7 +61,7 @@ const DemoForm = ({open} :any) => {
 
   async function addUserData(data: RequestBody) {
     try {
-      const response = await fetch('http://localhost:3000/api/users', {
+      const response = await fetch('/api', {
         method: 'POST', // or 'POST' if your API endpoint expects POST requests
         headers: {
           'Content-Type': 'application/json',
