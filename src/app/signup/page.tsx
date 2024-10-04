@@ -9,7 +9,7 @@ function SignPage() {
     <div className={`${theme} mx-auto max-w-7xl items-center justify-between lg:px-8`}>
       <div className="dark:text-white dark:bg-rgb-2-6-23 bg-white text-theme-blue flex flex-col sm:h-screen sm:flex-row justify-center items-center">
         <div className="bg-white dark:bg-gray-800 shadow-xl rounded-lg p-6 max-w-sm w-full">
-          <h2 className="text-2xl font-bold mb-4 text-center">Sign Up</h2>
+          <h2 className="text-2xl  font-bold mb-4 text-center">Sign Up</h2>
           <SignupForm />
           <p>Already have an account ? <a href="/login">Login</a> </p>
           <div className="mt-4 space-y-4 w-full">
