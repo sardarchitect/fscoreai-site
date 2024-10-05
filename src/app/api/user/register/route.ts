@@ -8,7 +8,7 @@ import { query } from '@/src/lib/db';
 export async function POST(request: NextRequest, res: NextResponse) {
   try {
     const reqBody = await request.json()
-    const { name, email, password } = reqBody
+    const {  email, password } = reqBody
 
     console.log(reqBody);
     // Check if the user already exists
@@ -23,8 +23,8 @@ export async function POST(request: NextRequest, res: NextResponse) {
 
     try {
       const result = await query(
-        'INSERT INTO users(name, email, password) VALUES($1, $2, $3)',
-        [name, email, hashedPassword]
+        'INSERT INTO users( email, password) VALUES($1, $2)',
+        [ email, hashedPassword]
       );
 
       return NextResponse.json({ message: 'User created successfully' }, { status: 200 });

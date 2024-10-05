@@ -1,6 +1,5 @@
 
 export interface SignUp {
-    name: string;
     email: string;
     password: string;
   }
@@ -9,13 +8,11 @@ export interface SignUp {
   // Form submission handler
   export default async function handleSignUp(formData: SignUp) {
       // "use server";
-      const name = formData.name
-      const email = formData.email
+         const email = formData.email
       const password = formData.password
       try {
         // Construct the JSON payload
         const payload = {
-          name,
           email,
           password,
         };

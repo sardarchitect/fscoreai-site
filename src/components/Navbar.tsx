@@ -43,7 +43,9 @@ export default function Navbar() {
     setBgColor(newBgColor);
   }, [theme]);
   return (
-    <div className={`${theme} min-h-full sm:sticky sm:top-0 sm:z-50 `}>
+    // <div>
+      // {/* { (window.location.href !== '/login' || window.location.href !== '/signup') && */}
+       (<div className={`${theme} min-h-full sm:sticky sm:top-0 sm:z-50 `}>
       <header className={` top-0 left-0 right-0 z-50 bg-white dark:bg-theme-blue  `}>
         <nav
           className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
@@ -218,6 +220,7 @@ export default function Navbar() {
           </Dialog>
         </div>
       </header>
-    </div>
+    </div>)
+    // </div>
   );
 }
