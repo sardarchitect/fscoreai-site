@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import LoginForm from "@/src/components/LoginForm";
 import Image from "next/image";
 import Link from "next/link";
