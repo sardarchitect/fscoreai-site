@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import { query } from '@/src/lib/db';
-import { getToken } from 'next-auth/jwt';
 
 // SQL statement to create the users table if it does not exist
 const createUsersTable = `
@@ -55,13 +54,12 @@ async function ensureUsersTableExists() {
  */
 
 export async function POST(request: NextRequest) {
-  const token = await getToken({ req: request });
-  console.log(token,'majsf')
+
   try {
     // Ensure the users table exists before handling the request
     await ensureUsersTableExists();
 
-    const { name, email, password } = await request.json();
+    const { email, password } = await request.json();
 
     // Check if the user already exists
     
@@ -77,8 +75,8 @@ export async function POST(request: NextRequest) {
 
     // Insert the new user into the database
   
-    const userInsertQuery = 'INSERT INTO users(name, email, password) VALUES($1, $2, $3)';
-    await query(userInsertQuery, [name, email, hashedPassword]);
+    const userInsertQuery = 'INSERT INTO users(email, password) VALUES($1, $2)';
+    await query(userInsertQuery, [email, hashedPassword]);
     
 
     //send verification email

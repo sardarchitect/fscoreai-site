@@ -13,6 +13,104 @@ module.exports = {
   darkMode: ["class"],
   theme: {
     extend: {
+      fontSize: {
+        'he0': ['6.250rem',{
+          lineHeight:'1.120rem',
+          letterSpacing:'0.063rem'
+        }],
+        'he1': ['4.750rem',{
+          lineHeight:'1.105rem',
+          letterSpacing:'0.048rem'
+        }],
+        'he2': ['4.000rem',{
+          lineHeight:'1.125rem',
+          letterSpacing:'0.040rem'
+        }],
+        'h1': ['3.125rem',{
+          lineHeight:'1.120rem',
+          letterSpacing:'0.031rem'
+        }],
+        'h2': ['2.500rem',{
+          lineHeight:'1.100rem',
+          letterSpacing:'0.025rem'
+        }],
+        'h3': ['2.000rem',{
+          lineHeight:'1.125rem',
+          letterSpacing:'0.000rem'
+        }],
+        'h4': ['1.375rem',{
+          lineHeight:'1.182rem',
+          letterSpacing:'0.000rem'
+        }],
+        'h5': ['1.250rem',{
+          lineHeight:'1.200rem',
+          letterSpacing:'0.000rem'
+        }],
+        'te1': ['1.125rem',{
+          lineHeight:'1.333rem',
+          letterSpacing:'0.000rem'
+        }],
+        'te2': ['1.125rem',{
+          lineHeight:'1.333rem',
+          letterSpacing:'0.000rem'
+        }],
+         'te3': ['0.875rem',{
+          lineHeight:'1.286rem',
+          letterSpacing:'0.000rem'
+        }],
+        'te4': ['0.750rem',{
+          lineHeight:'1.333rem',
+          letterSpacing:'0.000rem'
+        }],
+        't1': ['1.125rem',{
+          lineHeight:'1.333rem',
+          letterSpacing:'0.000rem'
+        }],
+        't2': ['1.000rem',{
+          lineHeight:'1.250rem',
+          letterSpacing:'0.000rem'
+        }],
+        't3': ['0.875rem',{
+          lineHeight:'1.286rem',
+          letterSpacing:'0.000rem'
+        }],
+        'b1': ['1.250rem',{
+          lineHeight:'1.000rem',
+          letterSpacing:'0.000rem'
+        }],
+        'b2': ['1.125rem',{
+          lineHeight:'1.000rem',
+          letterSpacing:'0.000rem'
+        }],
+        'b3': ['1.000rem',{
+          lineHeight:'1.000rem',
+          letterSpacing:'0.000rem'
+        }],
+        'b4': ['1.000rem',{
+          lineHeight:'1.000rem',
+          letterSpacing:'0.000rem'
+        }],
+        'l1': ['0.875rem',{
+          lineHeight:'1.000rem',
+          letterSpacing:'0.088rem'
+        }],
+        'l2': ['0.750rem',{
+          lineHeight:'1.000rem',
+          letterSpacing:'0.075rem'
+        }],
+        'l3': ['0.500rem',{
+          lineHeight:'1.000rem',
+          letterSpacing:'0.050rem'
+        }],
+        'c1': ['1.125rem',{
+          lineHeight:'1.000rem',
+          letterSpacing:'0.000rem'
+        }],
+        'c2': ['1.125rem',{
+          lineHeight:'1.000rem',
+          letterSpacing:'0.000rem'
+        }],
+      },
       keyframes: {
         fadeIn: {
           '0%': { opacity: 0 },
