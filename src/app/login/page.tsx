@@ -16,9 +16,9 @@ const LoginPage: React.FC = () => {
                     style={{
                         objectFit: "cover",
                     }}
-                    className=""
+                    className="mb-14 px-"
                 />
-            <div className="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full">
+            <div className="grid grid-col-4  p-8 max-w-lg w-full">
               
                 <h2 className="text-h2 font-bold text-gray-800 text-center mb-6">Log In</h2>
 
