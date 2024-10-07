@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import LoginForm from "@/src/components/LoginForm";
 import { useThemeContext } from "@/src/context/theme";
 import Image from "next/image";

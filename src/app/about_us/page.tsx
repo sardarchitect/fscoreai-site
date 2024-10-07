@@ -1,5 +1,6 @@
 "use client";
 import TestimonialsCards from "@/src/components/about_us/TestimonialsCards";
+import withAuth from "@/src/components/auth_components/withAuth";
 import { useThemeContext } from "@/src/context/theme";
 import Image from "next/image";
 import React from "react";
@@ -63,4 +64,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default withAuth(AboutUs, ['admin', 'mamber', 'manager']);

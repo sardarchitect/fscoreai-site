@@ -13,7 +13,6 @@ const SignupForm: React.FC = () => {
     e.preventDefault();
     // Handle signup logic here
     handleSignUp({ name, email, password });
-    console.log("Signup submitted:", { name, email, password });
   };
 
   return (

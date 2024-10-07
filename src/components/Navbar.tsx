@@ -25,10 +25,7 @@ export default function Navbar() {
   );
   const [theme, setTheme] = useThemeContext();
   const [showPopup, setShowPopup] = useFormPopUpContext();
-  const currentPath = usePathname();
-
-  console.log("Current Path:",currentPath);
-  
+  const currentPath = usePathname();  
 
   useEffect(() => {
     const newBgColor =

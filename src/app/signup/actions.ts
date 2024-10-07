@@ -35,7 +35,7 @@ export interface SignUp {
         }
     
         const data = await response.json();
-        window.location.href = '/admin';
+        // window.location.href = '/admin';
         console.log('signup response:', data);
         return data;
         // Handle success (e.g., navigate, store tokens, etc.)
