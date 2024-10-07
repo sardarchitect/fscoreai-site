@@ -39,9 +39,11 @@ export default function Navbar() {
     );
     setBgColor(newBgColor);
   }, [theme]);
+  
+  if (currentPath === "/login" || currentPath === "/signup") {
+    return null; // Hide the Navbar for these pages
+  }
   return (
-    // <div>
-      // {/* { (window.location.href !== '/login' || window.location.href !== '/signup') && */}
        (<div className={`${theme} min-h-full sm:sticky sm:top-0 sm:z-50 `}>
       <header className={` top-0 left-0 right-0 z-50 bg-white dark:bg-theme-blue  `}>
         <nav
@@ -218,6 +220,5 @@ export default function Navbar() {
         </div>
       </header>
     </div>)
-    // </div>
   );
 }

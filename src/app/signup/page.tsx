@@ -5,9 +5,8 @@ import Link from 'next/link';
 import React from 'react'
 
 function SignPage() {
-
-  return (
-<div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+    return (
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
             <div className="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full">
                 <h2 className="text-h2 font-bold text-gray-800 text-center mb-6">Sign In</h2>
 
@@ -50,7 +49,7 @@ function SignPage() {
             </div>
 
         </div>
-  )
+    )
 }
 
 export default SignPage;

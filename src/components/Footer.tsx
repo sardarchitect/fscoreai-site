@@ -4,9 +4,15 @@ import Image from "next/image";
 import { NAV_LINKS } from "@/src/constants";
 import { useThemeContext } from "@/src/context/theme";
 import SocialHandles from "./utilsComponents/SocialHendles";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
   const [theme] = useThemeContext();
+  const currentPath = usePathname();  
+
+  if (currentPath === "/login" || currentPath === "/signup") {
+    return null; // Hide the Navbar for these pages
+  }
   return (
     <main className={`${theme}`}>
       <footer className="bg-white text-theme-blue dark:bg-theme-blue dark:text-white text-center mx-auto max-w-7xl p-4 lg:px-8">
