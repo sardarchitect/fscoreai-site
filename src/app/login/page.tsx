@@ -1,12 +1,25 @@
 'use client';
 import LoginForm from "@/src/components/LoginForm";
+import Image from "next/image";
 import Link from "next/link";
 
 
 const LoginPage: React.FC = () => {
     return (
+
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+              <Image
+                    src="/Logo.svg"
+                    alt="image"
+                    width={166}
+                    height={41}
+                    style={{
+                        objectFit: "cover",
+                    }}
+                    className=""
+                />
             <div className="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full">
+              
                 <h2 className="text-h2 font-bold text-gray-800 text-center mb-6">Log In</h2>
 
                 <div className="grid lg:grid-col-4 sm:grid-col-2 gap-2 mb-4">
