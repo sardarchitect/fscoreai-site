@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { query } from '@/src/lib/db';
 import { updateUser } from '@/src/lib/actions/user';
 import { hasAuth } from '@/src/lib/Middleware/hasAuth';
@@ -6,8 +6,7 @@ import { hasAuth } from '@/src/lib/Middleware/hasAuth';
 export async function PUT(req: Request) {
   // Retrieve the session
   const authResponse = await hasAuth(req);
-  if (authResponse) return authResponse; // Return the unauthorized response if exists
-
+  if (!(authResponse.ok === true)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });  ; // Return the unauthorized response if exists
     
     try {
     // Start transaction

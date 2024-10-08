@@ -6,7 +6,7 @@ export default withAuth(
   function middleware(req) {
     const { pathname } = new URL(req.url);
     const user = req.nextauth.token 
-    console.log(user, pathname, "okokoko")
+    // console.log(user, pathname, "okokoko")
    
   },
   

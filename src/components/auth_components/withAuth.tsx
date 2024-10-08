@@ -10,7 +10,7 @@ type WithAuthProps = {
 
 const withAuth = (WrappedComponent: React.FC , allowedRoles: string[]) => {
   const Auth = (props: any) => {
-    const { data: session, status } = useSession();
+    const { data: session, status } = useSession(); 
 
     useEffect(() => {
       if (status === 'unauthenticated') {
