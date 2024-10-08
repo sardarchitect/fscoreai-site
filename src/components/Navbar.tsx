@@ -67,6 +67,7 @@ export default function Navbar() {
                 width={70}
                 height={10}
                 className={`p-1 ${theme === "light" ? "hidden" : "visible"}`}
+              
               ></Image>
             </Link>
           </div>

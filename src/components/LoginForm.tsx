@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 const LoginForm: React.FC = () => {
-  const [theme] = useThemeContext();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const router = useRouter();
@@ -28,23 +27,26 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center  mx-auto p-4">
-      <div className="inline-flex items-center justify-center w-full">
-        <hr className="w-64 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
-        <span className="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">or</span>
+    <div className="flex flex-col w-full gap-5">
+      
+      <div className="flex justify-center items-center py-5">
+      <hr className="absolute w-64 h-px bg-gray-200 border-0 dark:bg-gray-700" />
+        <span className="absolute font-medium text-gray-900 dark:text-white dark:bg-gray-900">or</span>
+        
       </div>
 
       <form onSubmit={handleSubmit} className="w-full">
-        <div className="mb-4">
+        <div className="mb-4 w-410  h-55">
           <label className="text-b3 block mb-1" htmlFor="email">Email or Phone Number</label>
           <input
             id="email"
-            className="border border-gray-300 rounded-lg px-3 py-2 w-full"
+            className="border h-56px border-gray-300 rounded-lg px-3 py-2 w-full"
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            
           />
         </div>
 
@@ -75,18 +77,20 @@ const LoginForm: React.FC = () => {
 
         </div>
 
-        <button className="bg-black text-b2 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg w-full">
+        <button className="bg-black text-b2 hover:bg-gray-800 text-white font-bold py-4 rounded-lg mt-4 w-full">
           Log In
         </button>
 
-        <a href="#" className="text-black text-b4 hover:underline text-center block mt-4">
+        <a href="#" className="text-black text-b4 hover:underline text-center block mt-5">
           Forgot Password?
         </a>
 
       </form>
+      
 
     </div>
   );
 };
 
 export default LoginForm;
+
