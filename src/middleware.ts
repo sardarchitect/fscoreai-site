@@ -12,14 +12,8 @@ export default withAuth(
   
   {
     callbacks: {
-<<<<<<< HEAD
-      authorized: ({ token }) => token?.role === "admin",
-    },
-  
-=======
       authorized: ({ token }: any) => roles.includes(token?.role),
     },    
->>>>>>> 8ede794069be4c58a7164fadf405fd1e4896f266
   },
 )
 
