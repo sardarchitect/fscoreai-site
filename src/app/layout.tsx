@@ -1,5 +1,5 @@
-'use client'
-// import type { Metadata } from "next";
+// 'use client'
+import type { Metadata } from "next";
 import "./globals.css";
 import { Playfair_Display, Merriweather } from "next/font/google";
 import Navbar from "@/src/components/Navbar";
@@ -9,12 +9,12 @@ import { FormPopUpProvider } from "../context/formPopup";
 import { MobileMenuProvider } from "../context/mobileMenu";
 import { PageUpdateProvider } from "../context/pageUpdate";
 import { CookieConsent } from "@/src/components/utilsComponents/CookieConsent";
-import { SessionProvider } from 'next-auth/react';
+import AuthProviders from "../providers/authProvider";
 
-// export const metadata: Metadata = {
-//   title: "fscore.ai",
-//   // description: "This is the demo desctiption",
-// };
+export const metadata: Metadata = {
+  title: "fscore.ai",
+  // description: "This is the demo desctiption",
+};
 
 const playfair_display_init = Playfair_Display({
   subsets: ["latin"],
@@ -36,8 +36,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`bg-white dark:bg-theme-color ${playfair_display_init}, ${Merriweather_init}`}
-      >        <SessionProvider>
-
+      >       
+      
+      <AuthProviders>
         <ThemeProvider>
         <MobileMenuProvider>
           <FormPopUpProvider>
@@ -51,7 +52,7 @@ export default function RootLayout({
           </FormPopUpProvider>
           </MobileMenuProvider>
         </ThemeProvider>
-        </SessionProvider>
+      </AuthProviders>
 
       </body>
     </html>
