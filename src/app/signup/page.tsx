@@ -5,6 +5,7 @@ import Link from 'next/link';
 import React from 'react'
 
 function SignPage() {
+    
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
             <div className="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full">
@@ -19,7 +20,7 @@ function SignPage() {
                             <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
                         </svg>
                         Continue with Google
-                    </button>
+                    </button> 
                     <button className="flex items-center justify-center w-full px-4 py-2 bg-slate-400 text-white rounded hover:bg-gray-600">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="30" viewBox="12 -12 48 48">
                             <path fill="#03a9f4" d="M34.807,12.511l-3.488,12.077c-3.03-2.052-6.327-3.744-13.318-0.83l3.408-11.945l0.041-0.019C28.414,8.908,31.787,10.447,34.807,12.511z"></path>

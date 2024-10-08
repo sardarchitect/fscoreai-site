@@ -28,8 +28,6 @@ export const updateUser = async (user: Partial<User>, userId: string, userEmail:
             RETURNING *;
         `;
 
-        console.log(values, updates, "okupdate");
-
         const updatedUser = await query(updateUserQuery, values);
 
         return updatedUser;

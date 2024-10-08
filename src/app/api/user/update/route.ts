@@ -1,11 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/src/lib/db';
 import { updateUser } from '@/src/lib/actions/user';
+import { hasAuth } from '@/src/lib/Middleware/hasAuth';
 
+export async function PUT(req: Request) {
+  // Retrieve the session
+  const authResponse = await hasAuth(req);
+  if (authResponse) return authResponse; // Return the unauthorized response if exists
 
-export async function PUT(req: NextRequest) {
-
-  try {
+    
+    try {
     // Start transaction
     await query('BEGIN');
 
@@ -23,8 +27,8 @@ export async function PUT(req: NextRequest) {
     await updateUser(updatedUser, id, email)
 
     await query('COMMIT');
+    return NextResponse.json({ message: 'User updated successfully', user: updatedUser }, { status: 200 });
 
-    return NextResponse.json({ message: 'user updated successfully' }, { status: 200 });
   }
 
 
@@ -33,12 +37,6 @@ export async function PUT(req: NextRequest) {
     console.error('Catch Error', error);
 
     if (error instanceof Error) {
-      if (error.message.includes('not found')) {
-        return NextResponse.json({ error: error.message }, { status: 404 });
-      }
-      if (error.message.includes('already exists')) {
-        return NextResponse.json({ error: error.message }, { status: 409 });
-      }
       if (error.message) {
         return NextResponse.json({ error: error.message }, { status: 500 });
       }
