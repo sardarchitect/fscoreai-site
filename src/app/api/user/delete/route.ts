@@ -1,16 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/src/lib/db';
+import { hasAuth } from '@/src/lib/Middleware/hasAuth';
 
 
 export async function DELETE(req: NextRequest) {
 
-  try {
+  const authResponse = await hasAuth(req);
+  if (!(authResponse.ok === true)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });  ; // Return the unauthorized response if exists
 
+  try {
     const { id, email } = await req.json();
 
-    // Check if the user exists 
-    const newUserCheckQuery = 'SELECT id FROM users WHERE id = $1 AND email = $2';
-    const newUserCheckResult = await query(newUserCheckQuery, [id, email]);
+    const newUserCheckQuery = 'SELECT id, name FROM users WHERE email = $1';
+    const newUserCheckResult = await query(newUserCheckQuery, [email]);
+
+    // // Check if the user exists 
+    // const newUserCheckQuery = 'SELECT id FROM users WHERE id = $1 AND email = $2';
+    // const newUserCheckResult = await query(newUserCheckQuery, [id, email]);
 
     if (newUserCheckResult.rows.length === 0) {
       throw new Error('user not found ');
@@ -22,7 +28,7 @@ export async function DELETE(req: NextRequest) {
     // `;
     // await query(removeUserQuery, [id, email]);
     const removeUserQuery = `DELETE FROM users WHERE email = $1`;
-    await query(removeUserQuery, [email]);
+    const removeUserQueryResult = await query(removeUserQuery, [email]);
 
     // Commit transaction
     await query('COMMIT');

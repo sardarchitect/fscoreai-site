@@ -1,21 +1,25 @@
 import { withAuth } from "next-auth/middleware"
-import { NextRequest, NextResponse } from 'next/server';
+import { roles } from "./lib/utils/data";
 
 export default withAuth(
-  // `withAuth` augments your `Request` with the user's token.
-  
+
   function middleware(req) {
     const { pathname } = new URL(req.url);
-    console.log( req.nextauth.token , 'ok')
-    
-    // If no token is found, redirect to login page
+    const user = req.nextauth.token 
+    // console.log(user, pathname, "okokoko")
+   
   },
   
   {
     callbacks: {
+<<<<<<< HEAD
       authorized: ({ token }) => token?.role === "admin",
     },
   
+=======
+      authorized: ({ token }: any) => roles.includes(token?.role),
+    },    
+>>>>>>> 8ede794069be4c58a7164fadf405fd1e4896f266
   },
 )
 
@@ -23,9 +27,9 @@ export default withAuth(
 // Protect API routes under /api/*
 export const config = {
   matcher: [
-    '/api((?!|user/register|/login|/signup).*)',
-    '/admin'
-
+    '/api/((?!login|user/register|signin|auth).*)',
+    // '/api/user/update',
+    '/((?!login||about_us|contact_us|blogs|blog|pricing|privacy_policy|product|signup|terms_of_use|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
   ],
 };
 
