@@ -27,53 +27,58 @@ const LoginPage: React.FC = () => {
             />
             <div className="grid grid-col-4  p-3 max-w-lg w-full">
 
-                <h2 className="text-h3 sm:text-h2 font-bold text-gray-800 text-center mb-6">Sign In</h2>
+                <h2 className="text-h3 sm:text-h2 font-bold text-gray-800 text-center mb-6">Login</h2>
 
-                <div className="grid grid-cols-3 sm:grid-cols-1  gap-2">
-                    <button className="justify-center flex p-4 bg-gray-200 text-[#181824] rounded hover:bg-blue-600">
-                    <Image
-                src="/google.svg"
-                alt="image"
-                width={24}
-                height={24}
-                style={{
-                    objectFit: "cover",
-                }}
-                className="mx-3"
-            />
-                        
-                        Google
-                    </button>
-                    <button className="justify-center flex p-4 bg-gray-200 text-[#181824] rounded hover:bg-gray-600">
-                    <Image
-                src="/microsoft.svg"
-                alt="image"
-                width={24}
-                height={24}
-                style={{
-                    objectFit: "cover",
-                }}
-                className="mx-3"
-            />
-                        
-                        Windows
-                    </button>
-                    <button className="justify-center flex p-4 bg-gray-200 text-[#181824] rounded hover:bg-green-600">
-                    <Image
-                src="/autodesk-02 1.svg"
-                alt="image"
-                width={24}
-                height={24}
-                style={{
-                    objectFit: "cover",
-                }}
-                className="mx-3"
-            />
-                        
-                        AutoDesk
-                    </button>
+                <div className="grid grid-cols-1  gap-2">
+                    <div className="grid grid-cols-2 justify-center p-4 bg-gray-200 text-[#181824] rounded hover:bg-blue-600">
+                        <div className="justify-self-end pr-5">
+                            <Image
+                                src="/google.svg"
+                                alt="image"
+                                width={24}
+                                height={24}
+                                className=""
+                            />
+                        </div>
+
+                        <p className="">
+                            Google
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-2 justify-center p-4 bg-gray-200 text-[#181824] rounded hover:bg-blue-600">
+                        <div className="justify-self-end pr-5">
+                            <Image
+                                src="/microsoft.svg"
+                                alt="image"
+                                width={24}
+                                height={24}
+                                className=""
+                            />
+                        </div>
+
+                        <p className="">
+                            Microsoft
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-2 p-4 bg-gray-200 text-[#181824] rounded hover:bg-blue-600">
+                        <div className="justify-self-end pr-5">
+                            <Image
+                                src="/autodesk-02 1.svg"
+                                alt="image"
+                                width={24}
+                                height={24}
+                                className=""
+                            />
+                        </div>
+
+                        <p className="">
+                            Autodesk
+                        </p>
+                    </div>
+
+
                 </div>
-             
+
                 <LoginForm />
 
                 <p className="text-gray-300 mt-6 text-b3 text-center">

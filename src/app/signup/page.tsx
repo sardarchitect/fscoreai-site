@@ -9,13 +9,13 @@ import React from 'react'
 function SignPage() {
     
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-white  relative" style={{
-            backgroundImage: 'url("/Waves.svg")',
-            backgroundSize: 'contain',
-            backgroundPosition: 'bottom',
-            backgroundRepeat: 'no-repeat',
-            height: '100vh'
-        }}>
+                <div className="flex flex-col items-center justify-center min-h-screen bg-white  relative" style={{
+                    backgroundImage: 'url("/Waves.svg")',
+                    backgroundSize: 'contain',
+                    backgroundPosition: 'bottom',
+                    backgroundRepeat: 'no-repeat',
+                    height: '100vh'
+                }}>
 
             <Image
                 src="/Logo.svg"
@@ -29,7 +29,7 @@ function SignPage() {
             />
             <div className="grid grid-col-4  p-3 max-w-lg w-full">
 
-                <h2 className="text-h3 sm:text-h2 font-bold text-gray-800 text-center mb-6">Log In</h2>
+                <h2 className="text-h3 sm:text-h2 font-bold text-gray-800 text-center mb-6">Sign Up</h2>
 
                 <div className="grid grid-cols-3 sm:grid-cols-1  gap-2">
                     <button className="justify-center flex gap-3 p-4 bg-gray-200 text-[#181824] rounded hover:bg-blue-600">
