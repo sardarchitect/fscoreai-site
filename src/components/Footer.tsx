@@ -15,7 +15,7 @@ const Footer = () => {
   }
   return (
     <main className={`${theme}`}>
-      <footer className="bg-white text-theme-blue dark:bg-theme-blue dark:text-white text-center mx-auto max-w-7xl p-4 lg:px-8">
+      <footer className="bg-white text-theme-blue dark:bg-theme-blue dark:text-white text-center mx-auto max-w-full p-4 lg:px-8">
         <hr className="border-gray-50" />
         <ul className="sm:space-x-20 space-x-2 flex flex-col sm:flex-row justify-center mt-6">
           {NAV_LINKS.map((link) => (
