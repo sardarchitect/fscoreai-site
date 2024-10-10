@@ -12,7 +12,7 @@ const PricingToggle: React.FC<PricingToggleProps> = ({ toggleMonthly, toggleYear
   return (
     <div className="flex justify-center mb-8">
       <button
-        className={`py-2 px-6 ${!isYearly ? 'bg-black text-white' : 'bg-gray-200 text-black'} rounded-l-lg`}
+        className={`py-2 text-te3  px-6 ${!isYearly ? 'bg-black text-white' : 'bg-gray-200 text-black'} rounded-l-lg`}
         onClick={toggleMonthly}
       >
         Monthly
