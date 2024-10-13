@@ -8,35 +8,63 @@ import { usePathname } from "next/navigation";
 
 const Footer = () => {
   const [theme] = useThemeContext();
-  const currentPath = usePathname();  
+  const currentPath = usePathname();
 
   if (currentPath === "/login" || currentPath === "/signup") {
-    return null; // Hide the Navbar for these pages
+    return null; // Hide the Footer for these pages
   }
-  return (
-    <main className={`${theme}`}>
-      <footer className="bg-white text-theme-blue dark:bg-theme-blue dark:text-white text-center mx-auto max-w-full p-4 lg:px-8">
-        <hr className="border-gray-50" />
-        <ul className="sm:space-x-20 space-x-2 flex flex-col sm:flex-row justify-center mt-6">
-          {NAV_LINKS.map((link) => (
-            <li key={link.key}>
-              <Link
-                href={link.href}
-                className={`regular-16 cursor-pointer pb-1.5 transition-all hover:text-gray-50`}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
 
-        <div className="mt-5 flex flex-col sm:flex-row justify-between items-center">
-          <div className="">Copyright © 2024 Fscore AI LLC. All rights reserved.</div>
-          <SocialHandles />
-          <div className="flex flex-col sm:flex-row items-center">
-            <Link href='/terms_of_use' className="font-bold hover:border-b-2">Terms of Use</Link>
-            <span className="hidden sm:inline"> & </span>
-            <Link href='/privacy_policy' className="font-bold hover:border-b-2">Privacy Policy</Link>
+  return (
+    <main>
+      <footer className="bg-[#0c0b16] text-white text-center mx-auto p-8 lg:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-start gap-8">
+          {/* Left Section with Logo and Description */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+            <Image
+              src="/" // Replace with your actual logo path
+              alt="Fscore AI Logo"
+              width={50} // Adjust size accordingly
+              height={50}
+            />
+            <p className="mt-4 text-gray-400">
+              Transforming architecture and engineering with intelligent systems that automate drawing production.
+            </p>
+            {/* Social Media Icons */}
+            <div className="mt-4 flex space-x-4">
+              <SocialHandles /> {/* Assuming this component handles your social icons */}
+            </div>
+          </div>
+
+          {/* Center Section with Navigation Links */}
+          <div className="flex flex-col lg:flex-row lg:space-x-24 text-left lg:text-start">
+            <div className="flex flex-col items-center lg:items-start space-y-2">
+              <h3 className="font-bold">Fscore AI</h3>
+              <div className="flex flex-col space-y-1">
+                {NAV_LINKS.map((link) => (
+                  <Link key={link.key} href={link.href} className="hover:text-gray-400">
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center lg:items-start space-y-2">
+              <h3 className="font-bold">Get Connected</h3>
+              <div className="flex flex-col space-y-1">
+                <Link href="/contact_us" className="hover:text-gray-400">Contact Us</Link>
+                <Link href="/community" className="hover:text-gray-400">Community</Link>
+                <Link href="/login" className="hover:text-gray-400">LogIn</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="mt-8 border-t border-gray-700 pt-4 flex flex-col sm:flex-row justify-between items-center sm:items-center space-y-4 sm:space-y-0">
+          <div className="text-gray-500">&copy; 2024 Fscore AI LLC. All rights reserved.</div>
+          <div className="flex space-x-6">
+            <Link href='/terms_of_use' className="hover:text-gray-400">Terms of Use</Link>
+            <Link href='/privacy_policy' className="hover:text-gray-400">Privacy Policy</Link>
           </div>
         </div>
       </footer>
