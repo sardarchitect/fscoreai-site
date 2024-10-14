@@ -1,30 +1,57 @@
 "use client";
-import Blog_card from "@/src/components/blog_components/Blog_card";
-import Pagination from "@/src/components/blog_components/Pagination";
 import React, { useState, useEffect } from "react";
 import matter from "gray-matter";
-import { BlogMetadata } from "@/src/components/blog_components/blogMetadata";
-import Blog_card_horizontal from "@/src/components/blog_components/Blog_card_horizontal";
-import { useThemeContext } from "@/src/context/theme";
-import { usePageUpdateContext } from "@/src/context/pageUpdate";
-import Image from "next/image";
 
-interface Block {
-  Blog_fileURL: string; // Adjust the type if Blog_fileURL is of different type
-  // Add other properties if they exist
-}
+// Pagination Component
+const Pagination = ({ totalItems, itemsPerPage = 6, currentPage, onPageChange }) => {
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  const handlePageChange = (page) => {
+    onPageChange(page);
+  };
+
+  return (
+    <div className="flex justify-center items-center space-x-2 mt-8">
+      <button
+        disabled={currentPage === 1}
+        onClick={() => handlePageChange(currentPage - 1)}
+        className="px-4 py-2 text-gray-700 bg-gray-200 rounded disabled:opacity-50"
+      >
+        Previous
+      </button>
+      {Array.from({ length: totalPages }, (_, index) => (
+        <button
+          key={index}
+          onClick={() => handlePageChange(index + 1)}
+          className={`px-4 py-2 ${index + 1 === currentPage ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'} rounded`}
+        >
+          {index + 1}
+        </button>
+      ))}
+      <button
+        disabled={currentPage === totalPages}
+        onClick={() => handlePageChange(currentPage + 1)}
+        className="px-4 py-2 text-gray-700 bg-gray-200 rounded disabled:opacity-50"
+      >
+        Next
+      </button>
+    </div>
+  );
+};
+
+// Blog Page Component
 const BlogsPage = () => {
-  const [data, setData] = useState([]);
-  const [getMetadata, setMetaData] = useState();
-  const [metadataLength, setMetadataLength] = useState();
-  const [currentItems, setCurrentItems] = useState([]);
-  const [theme] = useThemeContext();
-  const [currentPage, setCurrentPage] = usePageUpdateContext();
+  const [data, setData] = useState([]); // Raw JSON data
+  const [getMetadata, setMetaData] = useState([]); // Parsed metadata for blogs
+  const [metadataLength, setMetadataLength] = useState(0); // Number of blogs
+  const [currentItems, setCurrentItems] = useState([]); // Blogs displayed on the current page
+  const [currentPage, setCurrentPage] = useState(1); // Current pagination page
 
+  // Fetch blog data from JSON file
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/articles.json");
+        const response = await fetch("/articles.json"); // Adjust the URL based on your setup
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -37,15 +64,14 @@ const BlogsPage = () => {
     fetchData();
   }, []);
 
-  const blogsMetaData = async (blocks: any) => {
-    const markdownBlogs = blocks.map((block: any) => {
-      return block.Blog_fileURL;
-    });
-    // get the 
-    const metaData: BlogMetadata[] = [];
+  // Parse blog metadata from markdown files
+  const blogsMetaData = async (blocks) => {
+    const markdownBlogs = blocks.map((block) => block.Blog_fileURL); // Get blog markdown URLs
+    const metaData = [];
+
     for (const fileName of markdownBlogs) {
       try {
-        const response = await fetch(`${fileName}`); // Adjust the path based on your server setup
+        const response = await fetch(`${fileName}`); // Fetch markdown content
         if (!response.ok) {
           throw new Error(`Failed to fetch ${fileName}`);
         }
@@ -54,131 +80,99 @@ const BlogsPage = () => {
         metaData.push({
           title: matterResult.data.title,
           date: matterResult.data.date,
-          subtitle: matterResult.data.subtitle, 
-          imageURL: matterResult.data.imageURL, 
+          subtitle: matterResult.data.subtitle,
+          imageURL: matterResult.data.imageURL,
           slug: fileName.replace(".md", ""),
+          author: matterResult.data.author, // Assuming author is in frontmatter
+          category: matterResult.data.category, // Assuming category is in frontmatter
         });
       } catch (error) {
         console.error(`Error fetching ${fileName}:`, error);
       }
     }
 
-    
-// Convert date strings to Date objects
-metaData.forEach((item) => {
-  const dateString = item.date;
-  const [date, time] = dateString.split(",");
-  const [day, month, year] = date.split("-");
-  const [hour, minute] = time.trim().split(":");
-  const dateItem = new Date(year, month - 1, day);
-  item.dateObject = dateItem; 
-});
-
-// Sort the metaData array based on the dateObject property
-metaData.sort((a, b) => b.dateObject.getTime() - a.dateObject.getTime());
-
-// Remove the 'dateObject' property from each item (optional)
-metaData.forEach((item) => delete item.dateObject);
-
+    // Sort metaData by date (newest first)
+    metaData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     setMetaData(metaData);
     setMetadataLength(metaData.length);
     return metaData;
   };
+
+  // Initialize metadata
   useEffect(() => {
     blogsMetaData(data);
   }, [data]);
+
+  // Update current items based on pagination
   useEffect(() => {
     const startIndex = (currentPage - 1) * 6;
-    setCurrentItems(getMetadata?.slice(startIndex, startIndex + 6));
+    setCurrentItems(getMetadata.slice(startIndex, startIndex + 6));
   }, [getMetadata, currentPage]);
 
   return (
-    <main className={`${theme}  ` }>
-      <div
-        className={`dark:text-white dark:bg-rgb-2-6-23 bg-white text-theme-blue mx-auto flex max-w-7xl items-center justify-between  lg:px`}
-      >
-        <div className="w-screen">
-          <div className="mx-10 h-3/4 text-center">
-            <h2 className="sm:text-6xl text-3xl p-5">
-              Lorem consectetur adipisicing elit. Eveniet, recusandae?
-            </h2>
-            {/*note: add background */}
-            <p className="text-2xl p-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-          </div>
-          <div className="lg:px-10  m-auto">
-            <div className="lg:p-10 py-5">
-              {getMetadata?.map(
-                (metaData: any, index: number) =>
-                  index === 2 && (
-                    <div key={index}>
-                      <Blog_card_horizontal
-                        {...metaData}
-                        buttonUrl={data[index].Blog_fileURL}
-                        buttonText={"Read More"}
-                      />
-                    </div>
-                  )
-              )}
-            </div>
-
-            <div className="w-5/6 mx-auto lg:p-10 py-5 border-t dark:border-gray-200">
-              <h3 className="text-4xl text-center  pb-10">Featured posts</h3>
-              <div className=" grid-cols-1 md:grid-cols-3 gap-4">
-                {currentItems?.map((metaData: any, index: number) => (
-                  <div key={index}>
-                    <Blog_card
-                      {...metaData}
-                      buttonUrl={data[index].Blog_fileURL}
-                      buttonText={"Read More"}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <Pagination totalItems={metadataLength}></Pagination>
-            <div className="hidden">
-              {/* <div className="col-span-5 hidden"> */}
-              {/* <div className="col-span-3 hidden sm:block "> */}
-              <div className="p-10 shadow-md mb-4">
-                <h3 className="text-lg font-semibold mb-4">Latest Posts</h3>
-
-                <div className="flex items-center mb-2">
-                  <img
-                    src="latest-post-thumbnail.jpg"
-                    alt="Latest Post Thumbnail"
-                    className="w-16 h-16 mr-2"
-                  />
-
-                  <p className="text-blue-500">Latest Post Title</p>
-                </div>
-
-                <div className="bg-gray-200 p-2">
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    className="w-full py-1 px-2 rounded focus:outline-none focus:ring focus:border-blue-500"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+    <main className="bg-white">
+      {/* Main section */}
+      <section className="max-w-7xl mx-auto px-4 py-8">
+        {/* Hero section */}
+        <div className="text-center py-10">
+          <h1 className="text-4xl font-bold">Discover insightful articles here</h1>
+          <p className="text-lg mt-4">
+            Start building for free, then add a site plan to go live. Account plans unlock additional features.
+          </p>
         </div>
-      </div>
-      <div className="hero-img">
-        <Image
-          src="/neuro_image.svg"
-          alt="image"
-          width={200}
-          height={700}
-          style={{
-            objectFit: "cover",
-          }}
-          className="fixed w-screen left-0 top-0 h-full -z-50"
-        />
-      </div>
+
+        {/* Categories */}
+        <div className="flex justify-center space-x-4 py-5">
+          <button className="bg-gray-300 hover:bg-blue-500 hover:text-white text-black py-2 px-4 rounded">
+            Technology
+          </button>
+          <button className="bg-gray-300 hover:bg-blue-500 hover:text-white text-black py-2 px-4 rounded">Money</button>
+          <button className="bg-gray-300 hover:bg-blue-500 hover:text-white text-black py-2 px-4 rounded">Business</button>
+          <button className="bg-gray-300 hover:bg-blue-500 hover:text-white text-black py-2 px-4 rounded">
+            Productivity
+          </button>
+          <button className="bg-gray-300 hover:bg-blue-500 hover:text-white text-black py-2 px-4 rounded">Yada Yada</button>
+        </div>
+
+        {/* Blog Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          {currentItems.map((metaData, index) => (
+            <div key={index} className="md:col-span-8 md:col-start-2 flex flex-col md:flex-row justify-between border-b border-gray-200 pb-8">
+              <div className="flex-grow">
+                <div className="flex items-center text-gray-500 text-sm mb-2">
+                  <span>{metaData.author}</span>
+                  <span className="mx-2">·</span>
+                  <span>{metaData.date}</span>
+                </div>
+                <h2 className="text-2xl font-bold mb-2">{metaData.title}</h2>
+                <p className="text-gray-600">{metaData.subtitle}</p>
+                <div className="flex items-center mt-4">
+                  <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs">
+                    {metaData.category}
+                  </span>
+                  <span className="ml-4 text-gray-500 text-sm">3 min read</span>
+                </div>
+              </div>
+              <div className="mt-4 md:mt-0 md:ml-4 w-full md:w-48 h-32">
+                <img
+                  src={metaData.imageURL}
+                  alt={metaData.title}
+                  className="object-cover w-full h-full rounded-md"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Pagination */}
+        <div className="flex justify-center mt-10">
+          <Pagination
+            totalItems={metadataLength}
+            currentPage={currentPage}
+            onPageChange={setCurrentPage}
+          />
+        </div>
+      </section>
     </main>
   );
 };

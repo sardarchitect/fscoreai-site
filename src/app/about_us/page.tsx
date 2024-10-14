@@ -174,22 +174,22 @@ const AboutUs = () => {
           </p>
 
           {/* Team Members Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
             {/* Team Member 1 */}
             <div className="flex flex-col items-center">
               <img
                 src="/about_us/Team1.png"
                 alt="Team Member 1"
-                className="rounded-lg object-cover w-48 h-64"
+                className="rounded-lg object-cover w-40 h-64"
               />
             </div>
 
             {/* Team Member 2 */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col py-9 items-center">
               <img
                 src="/about_us/Team2.png"
                 alt="Team Member 2"
-                className="rounded-lg object-cover w-48 h-64"
+                className="rounded-lg object-cover w-40 h-64"
               />
             </div>
 
@@ -198,16 +198,16 @@ const AboutUs = () => {
               <img
                 src="/about_us/Team3.png"
                 alt="Team Member 3"
-                className="rounded-lg object-cover w-48 h-64"
+                className="rounded-lg object-cover w-40 h-64"
               />
             </div>
 
             {/* Team Member 4 */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col py-9 items-center">
               <img
                 src="/about_us/Team4.png"
                 alt="Team Member 4"
-                className="rounded-lg object-cover w-48 h-64"
+                className="rounded-lg object-cover w-40 h-64"
               />
             </div>
 
@@ -216,7 +216,7 @@ const AboutUs = () => {
               <img
                 src="/about_us/Team5.png"
                 alt="Team Member 5"
-                className="rounded-lg object-cover w-48 h-64"
+                className="rounded-lg object-cover w-35 h-64"
               />
             </div>
           </div>

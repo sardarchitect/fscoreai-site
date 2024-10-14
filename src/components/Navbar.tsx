@@ -27,9 +27,8 @@ export default function Navbar() {
           <div className="flex lg:flex-1">
             <Link href="/">
               {/* Light mode */}
-              <Image src="/fscore_logo.png" alt="logo" width={70} height={10} />
-              {/* Dark mode */}
-              <Image src="/FSCORE_Dark.png" alt="logo" width={70} height={10}  />
+              <Image src="/Fscorebold.svg" alt="logo" width={171} height={50} />
+
             </Link>
           </div>
 
@@ -67,7 +66,7 @@ export default function Navbar() {
             <div className="fixed inset-0 z-10 bg-white dark:bg-theme-blue p-6">
               <div className="flex justify-between items-center">
                 <Link href="/">
-                  <Image src="/fscore_logo.png" alt="logo" width={50} height={10}  />
+                  <Image src="/darklogo.svg" alt="logo" width={50} height={10}  />
                   <Image src="/FSCORE_Dark.png" alt="logo" width={50} height={10}  />
                 </Link>
                 <button

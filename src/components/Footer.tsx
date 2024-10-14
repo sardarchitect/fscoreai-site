@@ -16,18 +16,18 @@ const Footer = () => {
 
   return (
     <main>
-      <footer className="bg-[#0c0b16] text-white text-center mx-auto p-8 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-start gap-8">
+      <footer className="bg-[#0c0b16] text-white text-center p-8 lg:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8">
           {/* Left Section with Logo and Description */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <Image
-              src="/" // Replace with your actual logo path
+              src="/Fscore-icon.svg" // Replace with your actual logo path
               alt="Fscore AI Logo"
               width={50} // Adjust size accordingly
               height={50}
             />
             <p className="mt-4 text-gray-400">
-              Transforming architecture and engineering with intelligent systems that automate drawing production.
+              Transforming architecture and engineering <br /> with intelligent systems that automate <br /> drawing production.
             </p>
             {/* Social Media Icons */}
             <div className="mt-4 flex space-x-4">
@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
 
           {/* Center Section with Navigation Links */}
-          <div className="flex flex-col lg:flex-row lg:space-x-24 text-left lg:text-start">
+          <div className="flex flex-col lg:flex-row lg:space-x-24 text-center lg:text-left">
             <div className="flex flex-col items-center lg:items-start space-y-2">
               <h3 className="font-bold">Fscore AI</h3>
               <div className="flex flex-col space-y-1">
@@ -60,12 +60,12 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-8 border-t border-gray-700 pt-4 flex flex-col sm:flex-row justify-between items-center sm:items-center space-y-4 sm:space-y-0">
-          <div className="text-gray-500">&copy; 2024 Fscore AI LLC. All rights reserved.</div>
-          <div className="flex space-x-6">
-            <Link href='/terms_of_use' className="hover:text-gray-400">Terms of Use</Link>
-            <Link href='/privacy_policy' className="hover:text-gray-400">Privacy Policy</Link>
+        <div className="mt-8 border-t border-gray-700 pt-4 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+          <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6">
+            <Link href="/terms_of_use" className="hover:text-gray-400">Terms of Use</Link>
+            <Link href="/privacy_policy" className="hover:text-gray-400">Privacy Policy</Link>
           </div>
+          <div className="text-gray-500 text-center">&copy; 2024 Fscore AI LLC. All rights reserved.</div>
         </div>
       </footer>
     </main>
