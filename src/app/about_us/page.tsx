@@ -40,14 +40,14 @@ const AboutUs = () => {
           <div className="flex flex-col md:flex-row justify-between items-center px-5 sm:px-0">
             {/* Left Side - Journey */}
             <div className="w-full text-left mb-10 md:mb-0 md:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold">Journey</h2>
-              <p className="mt-4 text-gray-400 text-sm md:text-base">
+              <h2 className="text-he2 md:text-4xl font-bold">Journey</h2>
+              <p className="mt-4 text-gray-400 text-t1 md:text-base">
                 We are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.
               </p>
             </div>
             {/* Right Side - Since */}
             <div className="w-full text-left md:text-right md:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold">Since 2022</h2>
+              <h2 className="text-he2 md:text-4xl font-bold">Since 2022</h2>
             </div>
           </div>
 
@@ -56,7 +56,7 @@ const AboutUs = () => {
             {/* 4,500 Hours Saved */}
             <div className="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-lg">
               <h3 className="text-4xl md:text-5xl font-bold">4,500</h3>
-              <p className="mt-4 text-lg text-gray-400">Hours Saved</p>
+              <p className="mt-4 text-h4 text-gray-400">Hours Saved</p>
             </div>
 
             {/* $1.8M Cost Saved */}
@@ -232,7 +232,7 @@ const AboutUs = () => {
           </p>
 
           {/* Job Listings */}
-          <div className="space-y-6">
+          <div className="space-y-6 text-start">
             {/* Job 1 */}
             <JobListing
               title="SaaS Designer for Homepage redesign and onboarding updates"

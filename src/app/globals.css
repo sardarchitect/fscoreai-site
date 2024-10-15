@@ -14,6 +14,120 @@ body {
   font-family: Inter;
 }
 
+@layer base{
+  .he0 {
+    @apply text-he0;
+    @apply font-bold;
+  }
+  .he1 {
+    @apply text-he1;
+    @apply font-bold;
+  }
+  .he2 {
+    @apply text-he2;
+    @apply font-bold;
+  }
+  .h1 {
+    @apply text-h1;
+    @apply font-bold;
+  }
+  .h2 {
+    @apply text-h2;
+    @apply font-bold;
+  }
+  .h3 {
+    @apply text-h3;
+    @apply font-bold;
+  }
+  .h4 {
+    @apply text-h4;
+    @apply font-semibold;
+  }
+  .h6 {
+    @apply text-h6;
+    @apply font-semibold;
+  }
+  .te1 {
+    @apply text-te1;
+    @apply font-semibold;
+  }
+  .te2 {
+    @apply text-te2;
+    @apply font-semibold;
+  }
+  .te3 {
+    @apply text-te3;
+    @apply font-semibold;
+  }
+  .te4 {
+    @apply text-te4;
+    @apply font-semibold;
+  }
+  .t1 {
+    @apply text-t1;
+    @apply font-normal;
+  }
+  .t2 {
+    @apply text-t2;
+    @apply font-normal;
+  }
+  .t3 {
+    @apply text-t3;
+    @apply font-normal;
+  }
+  .t4 {
+    @apply text-t4;
+    @apply font-medium;
+  }
+  
+  .b1 {
+    @apply text-b1;
+    @apply font-bold;
+  }
+  
+  .b2 {
+    @apply text-b2;
+    @apply font-bold;
+  }
+  
+  .b3 {
+    @apply text-b3;
+    @apply font-bold;
+  }
+  
+  .b4 {
+    @apply text-b4;
+    @apply font-bold;
+  }
+  
+  .l1 {
+    @apply text-l1;
+    @apply font-bold;
+  }
+  
+  .l2 {
+    @apply text-l2;
+    @apply font-bold;
+  }
+  
+  .l3 {
+    @apply text-l3;
+    @apply font-bold;
+  }
+  
+  .c1 {
+    @apply text-c1;
+    @apply font-semibold;
+  }
+  
+  .c2 {
+    @apply text-c2;
+    @apply font-semibold;
+  }
+  
+
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 ::-webkit-scrollbar {
   display: none;

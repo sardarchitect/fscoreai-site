@@ -42,7 +42,7 @@ module.exports = {
           lineHeight:'1.182rem',
           letterSpacing:'0.000rem'
         }],
-        'h5': ['1.250rem',{
+        'h6': ['1.250rem',{
           lineHeight:'1.200rem',
           letterSpacing:'0.000rem'
         }],
@@ -72,6 +72,10 @@ module.exports = {
         }],
         't3': ['0.875rem',{
           lineHeight:'1.286rem',
+          letterSpacing:'0.000rem'
+        }],
+        't4': ['0.750rem',{
+          lineHeight:'1.333rem',
           letterSpacing:'0.000rem'
         }],
         'b1': ['1.250rem',{

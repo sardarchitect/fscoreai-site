@@ -26,7 +26,7 @@ const SignupForm: React.FC = () => {
 
       <form onSubmit={handleSubmit} className="w-full">
         <div className="mb-4 w-410 h-55">
-          <label className="text-b3 block mb-1" htmlFor="email">Email or Phone Number</label>
+          <label className="b3 block mb-1" htmlFor="email">Email or Phone Number</label>
           <input
             id="email"
             className="border border-gray-300 rounded-lg px-3 py-2 w-full"
@@ -39,7 +39,7 @@ const SignupForm: React.FC = () => {
         </div>
 
         <div className="mb-4">
-          <label className="text-b3 block mb-1" htmlFor="password">Password</label>
+          <label className="b3 block mb-1" htmlFor="password">Password</label>
           <input
             id="password"
             className="border border-gray-300 rounded-lg px-3 py-2 w-full"
@@ -57,7 +57,7 @@ const SignupForm: React.FC = () => {
               checked={rememberMe}
               onChange={() => setRememberMe(!rememberMe)}
             />
-            <label htmlFor="remember-me" className="ml-2 text-te3 text-gray-600">
+            <label htmlFor="remember-me" className="ml-2 te3 text-gray-600">
               Remember me
             </label>
 
@@ -65,11 +65,11 @@ const SignupForm: React.FC = () => {
 
         </div>
 
-        <button className="bg-black text-b2 hover:bg-gray-800 text-white font-bold py-4 rounded-lg mt-4 w-full">
+        <button className="bg-black b2 hover:bg-gray-800 text-white font-bold py-4 rounded-lg mt-4 w-full">
           Sign In
         </button>
 
-        <a href="#" className="text-black text-b4 hover:underline text-center block mt-5">
+        <a href="#" className="text-black b4 hover:underline text-center block mt-5">
           Forgot Password?
         </a>
 
