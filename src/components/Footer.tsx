@@ -60,16 +60,16 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-8 border-t border-gray-700 pt-4 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6">
+        <div className="mt-8 border-t border-gray-700 m-auto  pt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-6">
+          <div className="flex flex-col sm:flex-row justify-center sm:text-center  lg:text-left space-y-2 sm:space-y-0 sm:space-x-6">
             <Link href="/terms_of_use" className="hover:text-gray-400">Terms of Use</Link>
             <Link href="/privacy_policy" className="hover:text-gray-400">Privacy Policy</Link>
           </div>
-          <div className="text-gray-500 text-center">&copy; 2024 Fscore AI LLC. All rights reserved.</div>
+          <div className="text-gray-500 lg:text-right  sm:text-center ">&copy; 2024 Fscore AI LLC. All rights reserved.</div>
         </div>
       </footer>
-    </main>
+    </main> 
   );
-};
+}
 
 export default Footer;

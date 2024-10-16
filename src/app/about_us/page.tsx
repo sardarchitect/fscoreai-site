@@ -40,14 +40,14 @@ const AboutUs = () => {
           <div className="flex flex-col md:flex-row justify-between items-center px-5 sm:px-0">
             {/* Left Side - Journey */}
             <div className="w-full text-left mb-10 md:mb-0 md:w-1/2">
-              <h2 className="text-he2 md:text-4xl font-bold">Journey</h2>
-              <p className="mt-4 text-gray-400 text-t1 md:text-base">
-                We are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.
+              <h2 className="he2 md:text-4xl sm:text-2xl pl-36 ">Journey</h2>
+              <p className="mt-4 text-gray-400 t1 pl-72 sm:text:2xl md:text-base">
+                We are passionate about enhancing the <br /> way architects and drafters work. Our <br /> mission is to streamline the architectural <br /> drawing process.
               </p>
             </div>
             {/* Right Side - Since */}
-            <div className="w-full text-left md:text-right md:w-1/2">
-              <h2 className="text-he2 md:text-4xl font-bold">Since 2022</h2>
+            <div className="w-full text-left pr-96 md:text-right md:w-1/2">
+              <h2 className="he2 md:text-4xl sm:text-2xl ">Since 2022</h2>
             </div>
           </div>
 
