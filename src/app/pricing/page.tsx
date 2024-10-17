@@ -1,87 +1,187 @@
 'use client'
+import PricingToggle from '@/src/components/pricing_components/PricingToggle';
+import React, { useState } from 'react';
 
-import { useThemeContext } from '@/src/context/theme';
-import Head from 'next/head';
-import Image from 'next/image';
+const Pricing: React.FC = () => {
+  const [isYearly, setIsYearly] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<'basic' | 'pro' | 'enterprise'>('pro'); // Default selected plan is 'pro'
 
-interface PricingPlan {
-  name: string;
-  price: string;
-  features: string[];
-}
+  const toggleMonthly = () => setIsYearly(false);
+  const toggleYearly = () => setIsYearly(true);
 
-const PricingPage: React.FC = () => {
-    const [theme] = useThemeContext();
-  const pricingPlans: PricingPlan[] = [
-    {
-      name: "Basic",
-      price: "$19/month",
-      features: [
-        "Feature 1: ",
-        "Feature 2: ",
-        "Feature 3: ",
-      ],
+  const pricing = {
+    basic: {
+      monthly: '$0',
+      yearly: '$0',
     },
-    {
-      name: "Enterprise",
-      price: "$99/month",
-      features: [
-        "Feature 1: ",
-        "Feature 2: ",
-        "Feature 3: ",
-       
-      ],
+    pro: {
+      monthly: '$25',
+      yearly: '$240',
     },
+    enterprise: {
+      monthly: '$45',
+      yearly: '$384',
+    },
+  };
+
+  const features = [
+    'Auto-Resolution of Errors',
+    'Analytical Dashboards & Reports',
+    'Includes essential features to get started',
+    'More advanced features for increased productivity',
+    'Real-Time Error Detection',
+    'Customizable options to meet your specific needs',
+    'Secure data storage',
+    'Email Support',
+    '24/7 customer support',
+    'Analytics and reporting',
+    'Customizable Checklists',
   ];
 
+  // Define features for each plan
+  const basicFeatures = [true, true, true, false, false, false, false, false, false, false, false];
+  const proFeatures = [true, true, true, true, true, true, false, true, true, true, false];
+  const enterpriseFeatures = [true, true, true, true, true, true, true, true, true, true, true];
+
   return (
-    <div className={`container mx-auto p-8 ${theme === 'dark' ? 'bg-theme-blue text-white' : 'bg-white text-black'} mx-auto  max-w-7xl items-center justify-between p-4 lg:px-8`}>
-      <Head>
-        <title>Pricing</title>
-        <meta name="description" content="Pricing plans for our service." />
-      </Head>
-      
-      <h1 className="text-3xl font-bold text-center mb-6">Choose Your Plan</h1>
-      <p className="text-center mb-6 text-gray-600">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis ipsum dolores dolorem exercitationem ea dolor fugit, nemo fugiat et accusamus assumenda qui neque eaque! Placeat deserunt atque alias libero repellendus, rerum, impedit natus laboriosam sit blanditiis quod est voluptates ad numquam beatae! Culpa veniam assumenda a natus ut debitis. Voluptatibus.
-      </p>
-      
-      <h2 className="text-2xl font-semibold text-center mb-4">Simple and Transparent Pricing</h2>
-      <p className="text-center mb-8 text-gray-500">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta unde explicabo recusandae dolorem ipsam, esse voluptatum minus. Beatae nihil velit iure voluptatem dolores fugiat, tempora fuga laborum. Mollitia, aliquid vitae!
+    <div className="container mx-auto mb-20 px-4 py-8">
+      <h1 className="h2 sm:he2 mt-16 text-center">Pricing Plans</h1>
+      <p className="text-center te1 pt-8 text-gray-600 mb-8">
+        Start building for free, then add a site plan to go live. Account plans unlock additional features.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {pricingPlans.map((plan, index) => (
-          <div key={index} className="border rounded-lg p-6 shadow-md transition-transform transform hover:scale-105">
-            <h2 className="text-xl font-semibold mb-2">{plan.name}</h2>
-            <p className="text-2xl font-bold mb-4">{plan.price}</p>
-            <ul className="mb-4">
-              {plan.features.map((feature, idx) => (
-                <li key={idx} className="text-gray-600">{feature}</li>
-              ))}
-            </ul>
-            <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-500 transition">
-              Get Started
-            </button>
-          </div>
+      {/* Monthly/Yearly Toggle */}
+      <div className="flex justify-center mb-8">
+        <div className="inline-flex p-1 bg-gray-200 rounded-lg">
+          <button
+            onClick={toggleMonthly}
+            className={`px-4 py-2 rounded-l-lg text-sm font-medium ${
+              !isYearly ? 'bg-white text-black' : 'text-gray-500'
+            }`}
+          >
+            Monthly
+          </button>
+          <button
+            onClick={toggleYearly}
+            className={`px-4 py-2 rounded-r-lg text-sm font-medium ${
+              isYearly ? 'bg-gray-90 text-white' : 'text-gray-500'
+            }`}
+          >
+            Yearly <span className="ml-1 text-xs text-gray-500">Save 40%</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Plan Selection for Mobile View */}
+      <div className="flex flex-col overflow-y-scroll space-y-4 mb-8 lg:hidden">
+        {['basic', 'pro', 'enterprise'].map((plan) => (
+          <button
+            key={plan}
+            onClick={() => setSelectedPlan(plan as 'basic' | 'pro' | 'enterprise')}
+            className={`flex justify-between items-center p-4 rounded-lg border-2 ${
+              selectedPlan === plan ? 'border-black bg-gray-100' : 'border-gray-300 bg-white'
+            }`}
+          >
+            <div className="flex items-center space-x-2">
+              {/* Circle with Tick */}
+              <span className={`flex items-center justify-center w-5 h-5 border-2 rounded-full ${
+                selectedPlan === plan ? 'border-black text-white bg-black' : 'border-gray-300 text-white'
+              }`}>
+                {selectedPlan === plan && <span>✓</span>}
+              </span>
+              {/* Plan name */}
+              <span className="text-sm font-semibold">
+                {plan.charAt(0).toUpperCase() + plan.slice(1)}
+              </span>
+            </div>
+            <span className="font-bold">
+              {pricing[plan as 'basic' | 'pro' | 'enterprise'][isYearly ? 'yearly' : 'monthly']}
+            </span>
+          </button>
         ))}
-        <div className="hero-img">
-        <Image
-          src="/neuro_image.svg"
-          alt="image"
-          width={200}
-          height={700}
-          style={{
-            objectFit: "cover",
-          }}
-          className="fixed w-screen left-0 top-0 h-full -z-50"
-        />
-      </div>
       </div>
 
-    </div>
+      {/* Scrollable Features List */}
+      <div className="mt-4 lg:hidden overflow-y-scroll max-h-48 border border-black rounded-lg p-4">
+        <h4 className="font-bold mb-2">{`${selectedPlan.charAt(0).toUpperCase() + selectedPlan.slice(1)} Plan Includes:`}</h4>
+        <ul className="list-disc ml-5">
+          {selectedPlan === 'basic' && basicFeatures.map(
+            (isIncluded, index) => isIncluded && <li key={index} className="text-sm">{features[index]}</li>
+          )}
+          {selectedPlan === 'pro' && proFeatures.map(
+            (isIncluded, index) => isIncluded && <li key={index} className="text-sm">{features[index]}</li>
+          )}
+          {selectedPlan === 'enterprise' && enterpriseFeatures.map(
+            (isIncluded, index) => isIncluded && <li key={index} className="text-sm">{features[index]}</li>
+          )}
+        </ul>
+      </div>
+
+      {/* Call to Action: fixed button for mobile/tablet */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white p-4 lg:hidden">
+        <button className="bg-black text-white w-full px-4 py-2 rounded-full">
+          Choose This Plan {selectedPlan.charAt(0).toUpperCase() + selectedPlan.slice(1)} -{' '}
+          {isYearly ? pricing[selectedPlan].yearly : pricing[selectedPlan].monthly}
+        </button>
+      </div>
+
+      {/* Full Pricing Table - Only visible on larger screens */}
+      <div className="hidden lg:block mt-8">
+        <table className="w-full table-auto border-collapse">
+          <thead>
+            <tr>
+              <th className="border px-4 py-4 text-left">
+                <div className="flex flex-col items-start space-y-2">
+                  <h3 className="text-lg te1">Compare plans</h3>
+                  <span className="bg-white text-gray-700 border border-gray-400 rounded-full px-2 py-1 text-sm">40% Off</span>
+                  <p className="te4 text-gray-500">
+                    Choose your workspace plan <br /> according to your organizational plan
+                  </p>
+                </div>
+              </th>
+              {['basic', 'pro', 'enterprise'].map((plan) => (
+                <th key={plan} className="border px-4 py-4 relative">
+                  <div className="flex flex-col items-center space-y-2">
+                    <h3 className="font-bold text-lg">{plan.charAt(0).toUpperCase() + plan.slice(1)}</h3>
+                    <span className="text-2xl font-bold">
+                      {pricing[plan as 'basic' | 'pro' | 'enterprise'][isYearly ? 'yearly' : 'monthly']}
+                    </span>
+                    <p className="t4 text-gray-500">
+                      {plan === 'basic' ? '/Lifetime' : '/User / Month'}
+                    </p>
+                    {plan === 'pro' && (
+                      <span className="bg-gray-700 text-white px-2 py-1 text-xs font-bold rounded-full absolute top-0 right-0 mt-2 mr-2">
+                        Popular
+                      </span>
+                    )}
+                    <button className="bg-black text-white px-4 py-2 rounded-full">
+                      Choose This Plan
+                    </button>
+                  </div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {features.map((feature, index) => (
+              <tr key={index}>
+                <td className="border px-4 py-4 te3 text-left">{feature}</td>
+                <td className="border px-4 py-4 text-center">
+                  {basicFeatures[index] ? '✔' : '✘'}
+                </td>
+                <td className="border px-4 py-4 text-center">
+                  {proFeatures[index] ? '✔' : '✘'}
+                </td>
+                <td className="border px-4 py-4 text-center">
+                  {enterpriseFeatures[index] ? '✔' : '✘'}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      </div>
   );
 };
 
-export default PricingPage;
+export default Pricing;

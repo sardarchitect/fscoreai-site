@@ -68,7 +68,7 @@ const ContactUs = () => {
 
   async function addUserData(data: RequestBody) {
     try {
-      const response = await fetch('/api', { 
+      const response = await fetch('/api/email/contactus', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

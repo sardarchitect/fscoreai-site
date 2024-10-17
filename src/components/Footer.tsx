@@ -6,42 +6,116 @@ import { useThemeContext } from "@/src/context/theme";
 import SocialHandles from "./utilsComponents/SocialHendles";
 import { usePathname } from "next/navigation";
 
+const onSubmit = async (data: any) => {
+  await addUserData(data);
+  const targetSection = document.getElementById('contact-submission-alert');
+  if (targetSection) {
+    targetSection.scrollIntoView({ behavior: 'smooth' });
+  }
+  reset();
+  ShowAlert()
+};
+
 const Footer = () => {
   const [theme] = useThemeContext();
-  const currentPath = usePathname();  
+  const currentPath = usePathname();
 
   if (currentPath === "/login" || currentPath === "/signup") {
-    return null; // Hide the Navbar for these pages
+    return null; // Hide the Footer for these pages
   }
-  return (
-    <main className={`${theme}`}>
-      <footer className="bg-white text-theme-blue dark:bg-theme-blue dark:text-white text-center mx-auto max-w-7xl p-4 lg:px-8">
-        <hr className="border-gray-50" />
-        <ul className="sm:space-x-20 space-x-2 flex flex-col sm:flex-row justify-center mt-6">
-          {NAV_LINKS.map((link) => (
-            <li key={link.key}>
-              <Link
-                href={link.href}
-                className={`regular-16 cursor-pointer pb-1.5 transition-all hover:text-gray-50`}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
 
-        <div className="mt-5 flex flex-col sm:flex-row justify-between items-center">
-          <div className="">Copyright © 2024 Fscore AI LLC. All rights reserved.</div>
-          <SocialHandles />
-          <div className="flex flex-col sm:flex-row items-center">
-            <Link href='/terms_of_use' className="font-bold hover:border-b-2">Terms of Use</Link>
-            <span className="hidden sm:inline"> & </span>
-            <Link href='/privacy_policy' className="font-bold hover:border-b-2">Privacy Policy</Link>
-          </div>
+  async function addUserData(data: RequestBody) {
+    try {
+      const response = await fetch('/api/email/contactus', {
+        method: 'POST', // or 'POST' if your API endpoint expects POST requests
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to add user data');
+      }
+      const responseData = await response.json();
+      console.log('User data added successfully:', responseData);
+    } catch (error) {
+      console.error('Error adding user data:', error);
+    }
+  }
+
+
+  return (
+    <main>
+      <footer className="bg-black text-white py-20 md:py-28 text-center">
+        <h2 className="text-2xl md:text-h2 font-semibold">Sign up for all the Future Updates</h2>
+        <p className="mt-16 text-sm md:text-base">
+          Our mission is to streamline the architectural drawing process and elevate the quality of
+          construction documents through cutting-edge technology.
+        </p>
+        <div className="mt-8 flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+          <input
+            type="email"
+            placeholder="Enter your Email Address.... "
+            className="p-3 rounded-lg w-80 md:w-96"
+          />
+          <button className="bg-gray-800 p-3 rounded-lg w-40">Subscribe</button>
         </div>
       </footer>
-    </main>
+      <footer className="bg-[#0c0b16] text-black text-center p-8 lg:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8">
+          {/* Left Section with Logo and Description */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+            <Image
+              src="/Fscore-icon.svg" // Replace with your actual logo path
+              alt="Fscore AI Logo"
+              width={50} // Adjust size accordingly
+              height={50}
+            />
+            <p className="mt-4 text-gray-400">
+              Transforming architecture and engineering <br /> with intelligent systems that automate <br /> drawing production.
+            </p>
+            {/* Social Media Icons */}
+            <div className="mt-4 flex space-x-4">
+              <SocialHandles /> {/* Assuming this component handles your social icons */}
+            </div>
+          </div>
+
+          {/* Center Section with Navigation Links */}
+          <div className="flex flex-col lg:flex-row lg:space-x-24 text-center lg:text-left">
+            <div className="flex flex-col items-center lg:items-start space-y-2">
+              <h3 className="font-bold">Fscore AI</h3>
+              <div className="flex flex-col space-y-1">
+                {NAV_LINKS.map((link) => (
+                  <Link key={link.key} href={link.href} className="hover:text-gray-400">
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center lg:items-start space-y-2">
+              <h3 className="font-bold">Get Connected</h3>
+              <div className="flex flex-col space-y-1">
+                <Link href="/contact_us" className="hover:text-gray-400">Contact Us</Link>
+                <Link href="/community" className="hover:text-gray-400">Community</Link>
+                <Link href="/login" className="hover:text-gray-400">LogIn</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="mt-8 border-t border-gray-700 m-auto  pt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-6">
+          <div className="flex flex-col sm:flex-row justify-center sm:text-center  lg:text-left space-y-2 sm:space-y-0 sm:space-x-6">
+            <Link href="/terms_of_use" className="hover:text-gray-400">Terms of Use</Link>
+            <Link href="/privacy_policy" className="hover:text-gray-400">Privacy Policy</Link>
+          </div>
+          <div className="text-gray-500 lg:text-right  sm:text-center ">&copy; 2024 Fscore AI LLC. All rights reserved.</div>
+        </div>
+      </footer>
+    </main> 
   );
-};
+}
 
 export default Footer;
