@@ -61,7 +61,7 @@ const DemoForm = ({open} :any) => {
 
   async function addUserData(data: RequestBody) {
     try {
-      const response = await fetch('/api', {
+      const response = await fetch('/api/email/contactus', {
         method: 'POST', // or 'POST' if your API endpoint expects POST requests
         headers: {
           'Content-Type': 'application/json',

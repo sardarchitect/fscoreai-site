@@ -1,5 +1,5 @@
 'use client'
-import PricingToggle from '@/src/components/prcing_components/PricingToggle';
+import PricingToggle from '@/src/components/pricing_components/PricingToggle';
 import React, { useState } from 'react';
 
 const Pricing: React.FC = () => {
@@ -38,57 +38,80 @@ const Pricing: React.FC = () => {
     'Customizable Checklists',
   ];
 
-  const getFeaturesForSelectedPlan = (): boolean[] => {
-    switch (selectedPlan) {
-      case 'basic':
-        return [true, true, true, false, false, false, false, false, false, false, false];
-      case 'pro':
-        return [true, true, true, true, true, true, false, true, true, true, false];
-      case 'enterprise':
-        return [true, true, true, true, true, true, true, true, true, true, true];
-      default:
-        return [];
-    }
-  };
-
-  const selectedPlanFeatures = getFeaturesForSelectedPlan();
+  // Define features for each plan
+  const basicFeatures = [true, true, true, false, false, false, false, false, false, false, false];
+  const proFeatures = [true, true, true, true, true, true, false, true, true, true, false];
+  const enterpriseFeatures = [true, true, true, true, true, true, true, true, true, true, true];
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="h2 sm:he2 mt-16 text-center ">Pricing Plans</h1>
+    <div className="container mx-auto mb-20 px-4 py-8">
+      <h1 className="h2 sm:he2 mt-16 text-center">Pricing Plans</h1>
       <p className="text-center te1 pt-8 text-gray-600 mb-8">
         Start building for free, then add a site plan to go live. Account plans unlock additional features.
       </p>
 
       {/* Monthly/Yearly Toggle */}
-      <PricingToggle toggleMonthly={toggleMonthly} toggleYearly={toggleYearly} isYearly={isYearly} />
+      <div className="flex justify-center mb-8">
+        <div className="inline-flex p-1 bg-gray-200 rounded-lg">
+          <button
+            onClick={toggleMonthly}
+            className={`px-4 py-2 rounded-l-lg text-sm font-medium ${
+              !isYearly ? 'bg-white text-black' : 'text-gray-500'
+            }`}
+          >
+            Monthly
+          </button>
+          <button
+            onClick={toggleYearly}
+            className={`px-4 py-2 rounded-r-lg text-sm font-medium ${
+              isYearly ? 'bg-gray-90 text-white' : 'text-gray-500'
+            }`}
+          >
+            Yearly <span className="ml-1 text-xs text-gray-500">Save 40%</span>
+          </button>
+        </div>
+      </div>
 
       {/* Plan Selection for Mobile View */}
-      <div className="flex flex-col space-y-4 mb-8 lg:hidden">
+      <div className="flex flex-col overflow-y-scroll space-y-4 mb-8 lg:hidden">
         {['basic', 'pro', 'enterprise'].map((plan) => (
           <button
             key={plan}
             onClick={() => setSelectedPlan(plan as 'basic' | 'pro' | 'enterprise')}
-            className={`flex justify-between items-center p-4 rounded-lg border border-gray-300 ${
-              selectedPlan === plan ? 'bg-gray-200' : 'bg-white'
+            className={`flex justify-between items-center p-4 rounded-lg border-2 ${
+              selectedPlan === plan ? 'border-black bg-gray-100' : 'border-gray-300 bg-white'
             }`}
           >
-            <span className="text-sm font-semibold">
-              {plan.charAt(0).toUpperCase() + plan.slice(1)}
+            <div className="flex items-center space-x-2">
+              {/* Circle with Tick */}
+              <span className={`flex items-center justify-center w-5 h-5 border-2 rounded-full ${
+                selectedPlan === plan ? 'border-black text-white bg-black' : 'border-gray-300 text-white'
+              }`}>
+                {selectedPlan === plan && <span>✓</span>}
+              </span>
+              {/* Plan name */}
+              <span className="text-sm font-semibold">
+                {plan.charAt(0).toUpperCase() + plan.slice(1)}
+              </span>
+            </div>
+            <span className="font-bold">
+              {pricing[plan as 'basic' | 'pro' | 'enterprise'][isYearly ? 'yearly' : 'monthly']}
             </span>
-            <span className="font-bold">{pricing[plan as 'basic' | 'pro' | 'enterprise'][isYearly ? 'yearly' : 'monthly']}</span>
-            {plan === 'pro' && selectedPlan === 'pro' && (
-              <span className="bg-black text-white px-2 rounded-full text-xs ml-2">Popular</span>
-            )}
           </button>
         ))}
       </div>
 
-      {/* Scrollable Features List with border */}
-      <div className="mt-4 lg:hidden  overflow-y-scroll max-h-48 border border-blue-300 rounded-lg p-4 ">
-        <h4 className="font-bold mb-2">Pro Plan Includes:</h4>
+      {/* Scrollable Features List */}
+      <div className="mt-4 lg:hidden overflow-y-scroll max-h-48 border border-black rounded-lg p-4">
+        <h4 className="font-bold mb-2">{`${selectedPlan.charAt(0).toUpperCase() + selectedPlan.slice(1)} Plan Includes:`}</h4>
         <ul className="list-disc ml-5">
-          {selectedPlanFeatures.map(
+          {selectedPlan === 'basic' && basicFeatures.map(
+            (isIncluded, index) => isIncluded && <li key={index} className="text-sm">{features[index]}</li>
+          )}
+          {selectedPlan === 'pro' && proFeatures.map(
+            (isIncluded, index) => isIncluded && <li key={index} className="text-sm">{features[index]}</li>
+          )}
+          {selectedPlan === 'enterprise' && enterpriseFeatures.map(
             (isIncluded, index) => isIncluded && <li key={index} className="text-sm">{features[index]}</li>
           )}
         </ul>
@@ -97,8 +120,7 @@ const Pricing: React.FC = () => {
       {/* Call to Action: fixed button for mobile/tablet */}
       <div className="fixed bottom-0 left-0 right-0 bg-white p-4 lg:hidden">
         <button className="bg-black text-white w-full px-4 py-2 rounded-full">
-          Choose This Plan{' '}
-          {selectedPlan.charAt(0).toUpperCase() + selectedPlan.slice(1)} -{' '}
+          Choose This Plan {selectedPlan.charAt(0).toUpperCase() + selectedPlan.slice(1)} -{' '}
           {isYearly ? pricing[selectedPlan].yearly : pricing[selectedPlan].monthly}
         </button>
       </div>
@@ -144,17 +166,21 @@ const Pricing: React.FC = () => {
             {features.map((feature, index) => (
               <tr key={index}>
                 <td className="border px-4 py-4 te3 text-left">{feature}</td>
-                {['basic', 'pro', 'enterprise'].map((plan) => (
-                  <td key={plan} className="border px-4 py-4 text-center">
-                    {getFeaturesForSelectedPlan()[index] ? '✔' : '✘'}
-                  </td>
-                ))}
+                <td className="border px-4 py-4 text-center">
+                  {basicFeatures[index] ? '✔' : '✘'}
+                </td>
+                <td className="border px-4 py-4 text-center">
+                  {proFeatures[index] ? '✔' : '✘'}
+                </td>
+                <td className="border px-4 py-4 text-center">
+                  {enterpriseFeatures[index] ? '✔' : '✘'}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-    </div>
+      </div>
   );
 };
 

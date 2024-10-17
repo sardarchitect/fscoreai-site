@@ -130,7 +130,7 @@ module.exports = {
           90: '#292C27',
         },
         gray: {
-          10: '#EEEEEE',
+          10: '#EEEEE',
           20: '#A2A2A2',
           30: '#7B7B7B',
           50: '#585858',
@@ -146,6 +146,28 @@ module.exports = {
         yellow: {
           50: '#FEC601',
         },
+        Neptune : {
+          50: '#0166FF',
+        },
+        Earth : {
+          50: '#008CFF',
+        },
+        Uranus : {
+          50: '#25C2FF',
+        },
+        Mercury : {
+          50: '#181824',
+        },
+        Charcoal:{
+          10:'#F6F6FC',
+          40:'#9C9CAE',
+          60: '#676767',
+          80: '#3F3F57',
+        },
+        Venus : {
+          50: '#F9F7FC',
+        },
+        
         theme: {blue: 'rgb(2 6 23)'},
       },
       backgroundColor: {

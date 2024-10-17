@@ -6,6 +6,16 @@ import { useThemeContext } from "@/src/context/theme";
 import SocialHandles from "./utilsComponents/SocialHendles";
 import { usePathname } from "next/navigation";
 
+const onSubmit = async (data: any) => {
+  await addUserData(data);
+  const targetSection = document.getElementById('contact-submission-alert');
+  if (targetSection) {
+    targetSection.scrollIntoView({ behavior: 'smooth' });
+  }
+  reset();
+  ShowAlert()
+};
+
 const Footer = () => {
   const [theme] = useThemeContext();
   const currentPath = usePathname();
@@ -14,9 +24,45 @@ const Footer = () => {
     return null; // Hide the Footer for these pages
   }
 
+  async function addUserData(data: RequestBody) {
+    try {
+      const response = await fetch('/api/email/contactus', {
+        method: 'POST', // or 'POST' if your API endpoint expects POST requests
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to add user data');
+      }
+      const responseData = await response.json();
+      console.log('User data added successfully:', responseData);
+    } catch (error) {
+      console.error('Error adding user data:', error);
+    }
+  }
+
+
   return (
     <main>
-      <footer className="bg-[#0c0b16] text-white text-center p-8 lg:px-8">
+      <footer className="bg-black text-white py-20 md:py-28 text-center">
+        <h2 className="text-2xl md:text-h2 font-semibold">Sign up for all the Future Updates</h2>
+        <p className="mt-16 text-sm md:text-base">
+          Our mission is to streamline the architectural drawing process and elevate the quality of
+          construction documents through cutting-edge technology.
+        </p>
+        <div className="mt-8 flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+          <input
+            type="email"
+            placeholder="Enter your Email Address.... "
+            className="p-3 rounded-lg w-80 md:w-96"
+          />
+          <button className="bg-gray-800 p-3 rounded-lg w-40">Subscribe</button>
+        </div>
+      </footer>
+      <footer className="bg-[#0c0b16] text-black text-center p-8 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8">
           {/* Left Section with Logo and Description */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">

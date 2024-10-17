@@ -27,17 +27,17 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col w-full gap-5">
+    <div className="flex flex-col w-full gap-1">
       
-      <div className="flex justify-center items-center py-5">
-      <hr className="absolute w-64 h-px bg-gray-200 border-0 dark:bg-gray-700" />
+      <div className="flex justify-center items-center py-8">
+      <hr className="absolute w-1/4 h-px bg-gray-200 border-0 dark:bg-gray-700" />
         <span className="absolute font-medium text-gray-900 dark:text-white dark:bg-gray-900">or</span>
         
       </div>
 
       <form onSubmit={handleSubmit} className="w-full">
         <div className="mb-4 w-410  h-55">
-          <label className="b3 block mb-1" htmlFor="email">Email or Phone Number</label>
+          <label className="b3 block mb-3" htmlFor="email">Email or Phone Number</label>
           <input
             id="email"
             className="border h-56px border-gray-300 rounded-lg px-3 py-2 w-full"
@@ -51,7 +51,7 @@ const LoginForm: React.FC = () => {
         </div>
 
         <div className="mb-4">
-          <label className="b3 block mb-1" htmlFor="password">Password</label>
+          <label className="b3 block mb-3" htmlFor="password">Password</label>
           <input
             id="password"
             className="border border-gray-300 rounded-lg px-3 py-2 w-full"
