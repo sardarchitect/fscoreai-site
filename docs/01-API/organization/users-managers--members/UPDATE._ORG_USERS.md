@@ -1,5 +1,3 @@
-Here’s the flow of your code represented as a **flowchart** and a **detailed step-by-step breakdown**, including the update for `orgId` in the user's role:
-
 ### Code Flow for PUT/DELETE Request to Update or Delete Organization Members/Managers
 
 ```mermaid
@@ -9,8 +7,8 @@ flowchart TD
   B -- No --> D[Return 401 Unauthorized]
   C --> E[Parse Request Body]
   E --> F[Start Database Transaction]
-  F --> G[Check Session User for Admin Privileges]
-  G -- Admin --> H{Request Method?}
+  F --> G[Check Session User for Privileges]
+  G -- Have Privileges --> H{Request Method?}
   H -- PUT --> I[Update Members/Managers]
   H -- DELETE --> J[Delete Members/Managers]
   I --> K[Call updateUserRole Function with orgId]
@@ -39,10 +37,9 @@ flowchart TD
    - The body of the request is parsed to retrieve necessary organization data (such as members, managers, and additional details).
 
 5. **Start Database Transaction**
-   - A transaction (`trx`) is initiated to handle all database operations within an atomic unit. This ensures either all updates are successfully made or none are applied in case of an error.
 
 6. **Check Session User for Admin Privileges**
-   - The system verifies whether the session user has admin privileges for the organization. If the user is not an admin, no further actions are allowed.
+   - The system verifies whether the session user has privileges for the organization. If the user is not an admin | manager, no further actions are allowed.
 
 7. **Request Method? (PUT or DELETE)**
    - **PUT**: Calls the `updateUsers` function to update the members or managers of the organization.
@@ -50,22 +47,23 @@ flowchart TD
 
 8. **Update Members/Managers (PUT)**
    - In the case of a `PUT` request, the `updateUsers` function handles updating the members and managers of the organization.
-   - Inside this function, the `updateUserRole` is invoked to update the user role and associate the organization ID (`orgId`) with the user in the `usersTable`.
 
 9. **Delete Members/Managers (DELETE)**
    - In the case of a `DELETE` request, the `deleteUserFromOrganization` function is called to remove users from the organization.
 
 10. **Call `updateUserRole` Function with orgId**
     - When updating members or managers (PUT request), the `updateUserRole` function is called.
-    - **Key Addition**: This function now includes updating the `orgId` field in the `usersTable`, ensuring each user is associated with the organization to which they belong and also CHECK IF THE USER IS PART OF ANOTHER organization OR NOT 
+    - **Key Addition**
+      - This function includes updating the `orgId` field in the `usersTable`
+      - Ensuring each user is associated with the organization to which they belong
+      - CHECK IF THE USER IS PART OF ANOTHER organization OR NOT 
+      - Also hendle internal updates of manager and managers (update member | manager)
 
 
 11. **Commit Transaction**
     - After successfully updating or deleting users, the transaction is committed, saving all changes to the database.
 
 12. **Return 200 Success with Updated Organization**
-    - If everything succeeds, the updated organization data is returned with a `200 Success` status.
 
 13. **Caught Error?**
-    - **Yes**: If any error is encountered during the process, the transaction is rolled back, and a `500 Internal Server Error` is returned with the error message.
-    - **No**: If no error occurs, a success response is returned with the updated organization details.
+    

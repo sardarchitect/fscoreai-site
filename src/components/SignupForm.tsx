@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-import handleSignUp from "../app/signup/actions";
+import handleSignUp from "../app/(public)/signup/actions";
 
 const SignupForm: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -11,7 +11,6 @@ const SignupForm: React.FC = () => {
     e.preventDefault();
     // Handle signup logic here
     handleSignUp({  email, password });
-    console.log("Signup submitted:", { email, password });
   };
 
   return (

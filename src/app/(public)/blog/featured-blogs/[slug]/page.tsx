@@ -5,7 +5,7 @@ import Markdown from "react-markdown";
 import matter from "gray-matter";
 import Link from "next/link";
 import Social from "@/src/components/blog_components/Social";
-import { useThemeContext } from "../../../../context/theme";
+import { useThemeContext } from "../../../../../context/theme";
 
 export async function generateMetadata(
   Props: any

@@ -3,6 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcrypt";
 import { query } from '@/src/lib/db';
 import { JWT, Session, SessionOptions, User } from "next-auth";
+import { signOut } from "next-auth/react";
 
 
 export const authOptions = {
@@ -93,9 +94,8 @@ export const authOptions = {
 
   },
   pages: {
-    signIn: "/login"  // Custom login page
+    signIn: "/login",  // Custom login page
   },
   secret: process.env.NEXTAUTH_SECRET,
- 
 }
 

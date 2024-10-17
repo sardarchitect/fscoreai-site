@@ -2,8 +2,6 @@
 
 # Next.js API Route for Updating an Organization
 
-This code is a Next.js API route that handles **updating an organization** in the database. It performs authentication checks, fetches the relevant organization data, and updates the organization based on the provided information. The code uses **Drizzle ORM** for database interactions.
-
 ## Flow of the Code
 
 ### 1. **Authentication Check (`hasAuth`)**
@@ -53,7 +51,6 @@ flowchart TD
   K -- Yes --> L[Update Organization in DB]
   K -- No --> I[Return 404 Organization Not Found]
   L --> M[Return 200 Success with Updated Organization]
-  F --> N[Commit Transaction]
   F --> O[Caught Error?]
   O -- Yes --> P[Return 500 Internal Server Error]
   O -- No --> M[Return Success Response]

@@ -8,14 +8,23 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useThemeContext } from "@/src/context/theme";
 import { useFormPopUpContext } from "@/src/context/formPopup";
 import { usePathname } from "next/navigation";
+import { signOut, useSession } from "next-auth/react";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // Mobile menu toggle state
+  const [filteredLinks, setFilteredLinks] = useState(NAV_LINKS.filter(link => link.key !== 'logout')); 
   const [theme, setTheme] = useThemeContext();
   const [showPopup, setShowPopup] = useFormPopUpContext();
   const currentPath = usePathname();
+  const { status } = useSession(); 
 
+  useEffect(() => {
+  const links = status === 'unauthenticated' 
+  ? NAV_LINKS.filter(link => link.key !== 'logout')
+  : NAV_LINKS.filter(link => link.key !== 'login')
 
+    setFilteredLinks(links)
+    }, [status]);
 
   if (currentPath === "/login" || currentPath === "/signup") return null; 
 
@@ -46,7 +55,12 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex gap-8">
-            {NAV_LINKS.map(link => (
+            {filteredLinks.map(link => (
+              link.key === 'logout' ? (
+                <button key={link.key}  onClick={() => signOut()} className="dark:text-white duration-500 ease-in-out cursor-pointer py-2 px-3">
+                  {link.label}
+                </button>
+              ) : 
               <Link href={link.href} key={link.key} className={`dark:text-white duration-500 ease-in-out cursor-pointer py-2 px-3`}>
                 {link.label}
               </Link>
@@ -79,7 +93,12 @@ export default function Navbar() {
               </div>
               
               <div className="mt-4 space-y-1">
-                {NAV_LINKS.map(link => (
+                {filteredLinks.map(link => (
+                      link.key === 'logout' ? (
+                        <button key={link.key}  onClick={() => {signOut(); setMobileMenuOpen(false);}} className="block text-lg py-2 dark:text-white" >
+                          {link.label}
+                        </button>
+                      ) : 
                   <Link href={link.href} key={link.key} className="block text-lg py-2 dark:text-white" onClick={() => setMobileMenuOpen(false)}>
                     {link.label}
                   </Link>

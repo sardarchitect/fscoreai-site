@@ -5,44 +5,49 @@ import { NAV_LINKS } from "@/src/constants";
 import { useThemeContext } from "@/src/context/theme";
 import SocialHandles from "./utilsComponents/SocialHendles";
 import { usePathname } from "next/navigation";
+import { useForm } from "react-hook-form";
 
-const onSubmit = async (data: any) => {
-  await addUserData(data);
-  const targetSection = document.getElementById('contact-submission-alert');
-  if (targetSection) {
-    targetSection.scrollIntoView({ behavior: 'smooth' });
-  }
-  reset();
-  ShowAlert()
-};
+
+interface FormData {
+  email: string;
+}
 
 const Footer = () => {
   const [theme] = useThemeContext();
   const currentPath = usePathname();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
 
   if (currentPath === "/login" || currentPath === "/signup") {
     return null; // Hide the Footer for these pages
   }
 
-  async function addUserData(data: RequestBody) {
+  async function addUserData(data: FormData) {
     try {
-      const response = await fetch('/api/email/contactus', {
+      const response = await fetch('/api/email/subscribe', {
         method: 'POST', // or 'POST' if your API endpoint expects POST requests
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
-  
+
       if (!response.ok) {
         throw new Error('Failed to add user data');
       }
       const responseData = await response.json();
+      reset()
       console.log('User data added successfully:', responseData);
     } catch (error) {
       console.error('Error adding user data:', error);
     }
   }
+  
+  
+    const onSubmit = async (data: FormData) => {
+      console.log('Email:', data.email);
+      // making an API call
+    await addUserData(data);
+    };
 
 
   return (
@@ -54,12 +59,25 @@ const Footer = () => {
           construction documents through cutting-edge technology.
         </p>
         <div className="mt-8 flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
-          <input
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col md:flex-row items-center gap-4">
+            <input
+              type="email"
+              placeholder="Enter your Email Address.... "
+              {...register("email", { required: "Email is required", pattern: { value: /^\S+@\S+$/i, message: "Invalid email address" } })}
+              className={`p-3 rounded-lg w-80 md:w-96 ${errors.email ? 'border-red-500' : ''}`}
+            />
+            {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+
+            <button type="submit" className="bg-gray-800 p-3 rounded-lg w-40 text-white">
+              Subscribe
+            </button>
+          </form>
+          {/* <input
             type="email"
             placeholder="Enter your Email Address.... "
             className="p-3 rounded-lg w-80 md:w-96"
           />
-          <button className="bg-gray-800 p-3 rounded-lg w-40">Subscribe</button>
+          <button className="bg-gray-800 p-3 rounded-lg w-40">Subscribe</button> */}
         </div>
       </footer>
       <footer className="bg-[#0c0b16] text-black text-center p-8 lg:px-8">
@@ -114,7 +132,7 @@ const Footer = () => {
           <div className="text-gray-500 lg:text-right  sm:text-center ">&copy; 2024 Fscore AI LLC. All rights reserved.</div>
         </div>
       </footer>
-    </main> 
+    </main>
   );
 }
 

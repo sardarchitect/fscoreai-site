@@ -25,60 +25,60 @@ const AboutUs = () => {
 
       {/* Journey Section */}
       <section className="relative py-10 md:py-20 text-white">
-  {/* SVG Background */}
-  <div className="absolute inset-0 -z-10">
-    <Image
-      src="/about_us/bg-charcoal.svg"  // Replace with your actual SVG image path
-      alt="Background SVG"
-      layout="fill"
-      objectFit="cover"
-      quality={100}
-    />
-  </div>
+        {/* SVG Background */}
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="/about_us/bg-charcoal.svg"  // Replace with your actual SVG image path
+            alt="Background SVG"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+          />
+        </div>
 
-  <div className="max-w-7xl mx-auto text-center relative z-20">
-    <div className="flex flex-col md:flex-row justify-between items-center px-5 sm:px-0">
-      {/* Left Side - Journey */}
-      <div className="w-full text-left mb-10 md:mb-0 md:w-1/2">
-        <h2 className="he2 md:text-4xl sm:text-2xl pl-4 md:pl-36">Journey</h2>
-        <p className="mt-4 text-gray-400 t1 pl-4 md:pl-72 sm:text-2xl md:text-base">
-          We are passionate about enhancing the <br /> way architects and drafters work. Our <br /> mission is to streamline the architectural <br /> drawing process.
-        </p>
-      </div>
-      {/* Right Side - Since */}
-      <div className="w-full text-left md:text-right md:w-1/2 pr-4 md:pr-96">
-        <h2 className="sm:he2 md:text-4xl h3 ">Since 2022</h2>
-      </div>
-    </div>
+        <div className="max-w-7xl mx-auto text-center relative z-20">
+          <div className="flex flex-col md:flex-row justify-between items-center px-5 sm:px-0">
+            {/* Left Side - Journey */}
+            <div className="w-full text-left mb-10 md:mb-0 md:w-1/2">
+              <h2 className="he2 md:text-4xl sm:text-2xl pl-4 md:pl-36">Journey</h2>
+              <p className="mt-4 text-gray-400 t1 pl-4 md:pl-72 sm:text-2xl md:text-base">
+                We are passionate about enhancing the <br /> way architects and drafters work. Our <br /> mission is to streamline the architectural <br /> drawing process.
+              </p>
+            </div>
+            {/* Right Side - Since */}
+            <div className="w-full text-left md:text-right md:w-1/2 pr-4 md:pr-96">
+              <h2 className="sm:he2 md:text-4xl h3 ">Since 2022</h2>
+            </div>
+          </div>
 
-    {/* Statistics Section */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12">
-      {/* 4,500 Hours Saved */}
-      <div className="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-lg">
-        <h3 className="text-4xl md:text-5xl font-bold">4,500</h3>
-        <p className="mt-4 text-lg text-gray-400">Hours Saved</p>
-      </div>
+          {/* Statistics Section */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12">
+            {/* 4,500 Hours Saved */}
+            <div className="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-lg">
+              <h3 className="text-4xl md:text-5xl font-bold">4,500</h3>
+              <p className="mt-4 text-lg text-gray-400">Hours Saved</p>
+            </div>
 
-      {/* $1.8M Cost Saved */}
-      <div className="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-lg">
-        <h3 className="text-4xl md:text-5xl font-bold">$1.8M</h3>
-        <p className="mt-4 text-lg text-gray-400">Cost Saved</p>
-      </div>
+            {/* $1.8M Cost Saved */}
+            <div className="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-lg">
+              <h3 className="text-4xl md:text-5xl font-bold">$1.8M</h3>
+              <p className="mt-4 text-lg text-gray-400">Cost Saved</p>
+            </div>
 
-      {/* 20+ Trusted Enterprises */}
-      <div className="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-lg">
-        <h3 className="text-4xl md:text-5xl font-bold">20+</h3>
-        <p className="mt-4 text-lg text-gray-400">Trusted Enterprises</p>
-      </div>
+            {/* 20+ Trusted Enterprises */}
+            <div className="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-lg">
+              <h3 className="text-4xl md:text-5xl font-bold">20+</h3>
+              <p className="mt-4 text-lg text-gray-400">Trusted Enterprises</p>
+            </div>
 
-      {/* 600+ Clients Served */}
-      <div className="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-lg">
-        <h3 className="text-4xl md:text-5xl font-bold">600+</h3>
-        <p className="mt-4 text-lg text-gray-400">Clients Served</p>
-      </div>
-    </div>
-  </div>
-</section>
+            {/* 600+ Clients Served */}
+            <div className="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-lg">
+              <h3 className="text-4xl md:text-5xl font-bold">600+</h3>
+              <p className="mt-4 text-lg text-gray-400">Clients Served</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
       {/* Mission Section */}
@@ -135,8 +135,10 @@ const AboutUs = () => {
       </section>
 
       {/* Meet the Founder Section */}
-      <section className="bg-white py-10 md:py-20">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center px-5">
+      <section className="bg-white py-10 md:py-20 flex flex-col items-center max-w-7xl mx-auto px-5">
+
+      <h2 className="text-2xl lg:mb-10 mb-6 font-medium text-gray-600">Meet the <span className="font-bold">Founder</span></h2>
+        <div className="flex flex-col md:flex-row lg:space-x-5 md:space-x-5 space-x-0 sm:text-left text-center">
           {/* Founder Image */}
           <div className="w-full md:w-1/2 mb-10 md:mb-0">
             <Image
@@ -149,18 +151,17 @@ const AboutUs = () => {
           </div>
 
           {/* Founder Text */}
-          <div className="w-full md:w-1/2 md:pl-10">
-            <h2 className="text-2xl font-medium text-gray-600">Meet the <span className="font-bold">Founder</span></h2>
-            <h1 className="text-4xl md:text-7xl font-bold text-Mercury-50 leading-tight mt-4">
-            <span className="text-Charcoal-60"> My</span> Goal <span className="text-Charcoal-60">with </span> <br />
-              <span className="text-Charcoal-60">ReviewSync</span> is Simple
+          <div className="w-full md:w-1/2 ">
+            <h1 className="lg:-mx-24 md:-mx-24 mx-auto text-4xl md:text-6xl lg:text-7xl font-bold text-Mercury-50 leading-tight md:pt-10">
+              <span className="text-Charcoal-60"> My</span> Goal <span className="text-Charcoal-60">with </span> <br />
+              <span className="text-Charcoal-60">ReviewSync</span><br className="hidden md:block lg:block"></br> is Simple
             </h1>
-            <p className="text-lg text-gray-500 mt-6">
+            <p className="lg:text-lg md:text-sm text-sm text-gray-500 mt-6">
               As an architect myself, I’ve been in the trenches—managing tight deadlines, navigating complex design requirements, and dealing with the inevitable headaches that come from catching errors late in the process.
             </p>
-            <div className="mt-8">
+            <div className="mt-8 sm:block flex justify-center">
               {/* Signature (Optional) */}
-              <img src="/about_us/sign.png" alt="Signature" className="w-48" />
+              <img src="/about_us/sign.png" alt="Signature" className="w-48 " />
             </div>
           </div>
         </div>
@@ -226,37 +227,37 @@ const AboutUs = () => {
 
       {/* Call to Action (Join Us) Section */}
       <section className="bg-white py-10 md:py-20">
-  <div className="max-w-6xl mx-auto text-center px-6">
-    <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-Mercury-50 mb-6"><span className="text-Charcoal-60">Become a</span> Part of < span className="text-Charcoal-60"> our </span> Team</div>
-    <p className="text-base sm:text-lg text-gray-600 mb-10">
-      Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
-    </p>
+        <div className="max-w-6xl mx-auto text-center px-6">
+          <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-Mercury-50 mb-6"><span className="text-Charcoal-60">Become a</span> Part of < span className="text-Charcoal-60"> our </span> Team</div>
+          <p className="text-base sm:text-lg text-gray-600 mb-10">
+            Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
+          </p>
 
-    {/* Job Listings */}
-    <div className="space-y-4 text-left">
-      {/* Job 1 */}
-      <JobListing
-        title="01. SaaS Designer for Homepage redesign and onboarding updates"
-        description="Looking for an experienced UX/UI designer to redesign our homepage and improve our onboarding process. Experience in SaaS design is a must."
-        timePosted="UX/UI Design • Posted 27 minutes ago"
-      />
+          {/* Job Listings */}
+          <div className="space-y-4 text-left">
+            {/* Job 1 */}
+            <JobListing
+              title="01. SaaS Designer for Homepage redesign and onboarding updates"
+              description="Looking for an experienced UX/UI designer to redesign our homepage and improve our onboarding process. Experience in SaaS design is a must."
+              timePosted="UX/UI Design • Posted 27 minutes ago"
+            />
 
-      {/* Job 2 */}
-      <JobListing
-        title="02. Frontend Developer with React Experience"
-        description="We need a talented frontend developer with experience in React.js to build new features for our platform. Must have 2+ years of experience."
-        timePosted="Frontend Development • Posted 2 days ago"
-      />
+            {/* Job 2 */}
+            <JobListing
+              title="02. Frontend Developer with React Experience"
+              description="We need a talented frontend developer with experience in React.js to build new features for our platform. Must have 2+ years of experience."
+              timePosted="Frontend Development • Posted 2 days ago"
+            />
 
-      {/* Job 3 */}
-      <JobListing
-        title="03. Backend Developer with Node.js Expertise"
-        description="Join our team as a backend developer. Expertise in Node.js, REST APIs, and cloud infrastructure is required. Work with a fast-paced team."
-        timePosted="Backend Development • Posted 3 days ago"
-      />
-    </div>
-  </div>
-</section>
+            {/* Job 3 */}
+            <JobListing
+              title="03. Backend Developer with Node.js Expertise"
+              description="Join our team as a backend developer. Expertise in Node.js, REST APIs, and cloud infrastructure is required. Work with a fast-paced team."
+              timePosted="Backend Development • Posted 3 days ago"
+            />
+          </div>
+        </div>
+      </section>
 
 
 
