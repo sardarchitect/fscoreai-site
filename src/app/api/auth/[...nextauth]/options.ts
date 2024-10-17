@@ -1,10 +1,8 @@
 import Credentials from "next-auth/providers/credentials";
-
 import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcrypt";
-
 import { query } from '@/src/lib/db';
-import { cookies } from "next/headers";
+import { JWT, Session, SessionOptions, User } from "next-auth";
 
 
 export const authOptions = {
@@ -19,12 +17,12 @@ export const authOptions = {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-        async authorize(credentials, req) {
-          const {email, password} = credentials as {
+      async authorize(credentials, req) {
+        const { email, password } = credentials as {
           email: string,
           password: string,
         };
-          
+
         if (!email || !password) {
           return null;
           // throw new Error('Email and password are required')
@@ -41,57 +39,47 @@ export const authOptions = {
               // throw new Error('Invalid email or password');
               return null
             }
-            console.log(result.rows)
-              // Successful login logic (e.g., creating a session)
-              return result.rows as any
-              // return  NextResponse.json({ message: 'Login successful!' }, {status: 200});
+            // Successful login logic (e.g., creating a session)
+            return result.rows[0] as any
           } else {
             return null
-            // return  NextResponse.json({ message: 'Invalid credentials' }, {status: 400});
           }
-      } catch (error) {
+        } catch (error) {
           console.error('Database query error:', error);
           return null
-          // return NextResponse.json({ message: 'Internal server error' }, {status: 400});
-      }
+        }
 
       }
-      
+
     }),
   ],
-  // Add this to your NextAuth configuration
-// cookies: {
-//   sessionToken: {
-//     name: 'next-auth.session-token',
-//     options: {
-//       httpOnly: true,
-//       secure: process.env.NODE_ENV === 'production',
-//       sameSite: 'lax',
-//       path: '/',
-//     },
-//   },
-// },
-  
+  session: {
+    strategy: "jwt",
+    maxAge: 7 * 60 * 60 * 24
+  },
+ 
   callbacks: {
-    async jwt({ token, user }: any) {
+    async jwt({ token, user }:  { token: JWT; user?: User }) {
       // Persist the OAuth access_token and or the user id to the token right after signin
-      if (user && user[0]) {
-        token.role = user[0].role?.toString()
-        token.id = user[0].id.toString()
-        token.email = user[0].email.toString()
-        token.company_name = user[0].company_name?.toString()
+      if (user) {
+        token.role = user.role?.toString()
+        token.id = user.id.toString()
+        token.email = user.email.toString()
+        token.company_name = user.company_name?.toString()
       }
       return token
     },
-    
-    async session({ session, token }: any) {
+
+    async session({ session, token }:  { session: Session; token: JWT }) {
       // Send properties to the client, from a provider.
-      if(token){
+      if (token) {
         session.user.role = token.role
         session.user.id = token.id
         session.user.email = token.email
         session.user.company_name = token.company_name
       }
+      // console.log(session)
+
       return session
     },
     // async redirect({ url, baseUrl } : any) {
@@ -101,12 +89,13 @@ export const authOptions = {
     // },
 
     debug: process.env.NODE_ENV !== "production",
+    // refetchInterval: 1 * 24 * 60 * 60,
+
   },
   pages: {
     signIn: "/login"  // Custom login page
   },
   secret: process.env.NEXTAUTH_SECRET,
-  session: {
-    strategy: "jwt",
-  },
+ 
 }
+

@@ -21,9 +21,9 @@ export default withAuth(
 // Protect API routes under /api/*
 export const config = {
   matcher: [
-    '/api/((?!login|user/register|signin|auth).*)',
-    // '/api/user/update',
-    '/((?!login||about_us|contact_us|blogs|blog|pricing|privacy_policy|product|signup|terms_of_use|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
+    // '/api/((?!login|user/register|signin).*)',
+    '/',
+    // '/((?!login||about_us|contact_us|blogs|blog|pricing|privacy_policy|product|signup|terms_of_use|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
   ],
 };
 
