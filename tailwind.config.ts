@@ -14,105 +14,105 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        'he0': ['6.250rem',{
-          lineHeight:'1.120rem',
-          letterSpacing:'0.063rem'
+        'he0': ['6.250em',{
+          lineHeight:'1.120em',
+          letterSpacing:'0.063em'
         }],
-        'he1': ['4.750rem',{
-          lineHeight:'1.105rem',
-          letterSpacing:'0.048rem'
+        'he1': ['4.750em',{
+          lineHeight:'1.105em',
+          letterSpacing:'0.048em'
         }],
-        'he2': ['4.000rem',{
-          lineHeight:'1.125rem',
-          letterSpacing:'0.040rem'
+        'he2': ['4.000em',{
+          lineHeight:'1.125em',
+          letterSpacing:'0.040em'
         }],
-        'h1': ['3.125rem',{
-          lineHeight:'1.120rem',
-          letterSpacing:'0.031rem'
+        'h1': ['3.125em',{
+          lineHeight:'1.120em',
+          letterSpacing:'0.031em'
         }],
-        'h2': ['2.500rem',{
-          lineHeight:'1.100rem',
-          letterSpacing:'0.025rem'
+        'h2': ['2.500em',{
+          lineHeight:'1.100em',
+          letterSpacing:'0.000em'
         }],
-        'h3': ['2.000rem',{
-          lineHeight:'1.125rem',
-          letterSpacing:'0.000rem'
+        'h3': ['2.000em',{
+          lineHeight:'1.125em',
+          letterSpacing:'0.000em'
         }],
-        'h4': ['1.375rem',{
-          lineHeight:'1.182rem',
-          letterSpacing:'0.000rem'
+        'h4': ['1.375em',{
+          lineHeight:'1.182em',
+          letterSpacing:'0.000em'
         }],
-        'h6': ['1.250rem',{
-          lineHeight:'1.200rem',
-          letterSpacing:'0.000rem'
+        'h6': ['1.250em',{
+          lineHeight:'1.200em',
+          letterSpacing:'0.000em'
         }],
-        'te1': ['1.125rem',{
-          lineHeight:'1.333rem',
-          letterSpacing:'0.000rem'
+        'te1': ['1.125em',{
+          lineHeight:'1.333em',
+          letterSpacing:'0.000em'
         }],
-        'te2': ['1.125rem',{
-          lineHeight:'1.333rem',
-          letterSpacing:'0.000rem'
+        'te2': ['1.125em',{
+          lineHeight:'1.333em',
+          letterSpacing:'0.000em'
         }],
-         'te3': ['0.875rem',{
-          lineHeight:'1.286rem',
-          letterSpacing:'0.000rem'
+         'te3': ['0.875em',{
+          lineHeight:'1.286em',
+          letterSpacing:'0.000em'
         }],
-        'te4': ['0.750rem',{
-          lineHeight:'1.333rem',
-          letterSpacing:'0.000rem'
+        'te4': ['0.750em',{
+          lineHeight:'1.333em',
+          letterSpacing:'0.000em'
         }],
-        't1': ['1.125rem',{
-          lineHeight:'1.333rem',
-          letterSpacing:'0.000rem'
+        't1': ['1.125em',{
+          lineHeight:'1.333em',
+          letterSpacing:'0.000em'
         }],
-        't2': ['1.000rem',{
-          lineHeight:'1.250rem',
-          letterSpacing:'0.000rem'
+        't2': ['1.000em',{
+          lineHeight:'1.250em',
+          letterSpacing:'0.000em'
         }],
-        't3': ['0.875rem',{
-          lineHeight:'1.286rem',
-          letterSpacing:'0.000rem'
+        't3': ['0.875em',{
+          lineHeight:'1.286em',
+          letterSpacing:'0.000em'
         }],
-        't4': ['0.750rem',{
-          lineHeight:'1.333rem',
-          letterSpacing:'0.000rem'
+        't4': ['0.750em',{
+          lineHeight:'1.333em',
+          letterSpacing:'0.000em'
         }],
-        'b1': ['1.250rem',{
-          lineHeight:'1.000rem',
-          letterSpacing:'0.000rem'
+        'b1': ['1.250em',{
+          lineHeight:'1.000em',
+          letterSpacing:'0.000em'
         }],
-        'b2': ['1.125rem',{
-          lineHeight:'1.000rem',
-          letterSpacing:'0.000rem'
+        'b2': ['1.125em',{
+          lineHeight:'1.000em',
+          letterSpacing:'0.000em'
         }],
-        'b3': ['1.000rem',{
-          lineHeight:'1.000rem',
-          letterSpacing:'0.000rem'
+        'b3': ['1.000em',{
+          lineHeight:'1.000em',
+          letterSpacing:'0.000em'
         }],
-        'b4': ['1.000rem',{
-          lineHeight:'1.000rem',
-          letterSpacing:'0.000rem'
+        'b4': ['1.000em',{
+          lineHeight:'1.000em',
+          letterSpacing:'0.000em'
         }],
-        'l1': ['0.875rem',{
-          lineHeight:'1.000rem',
-          letterSpacing:'0.088rem'
+        'l1': ['0.875em',{
+          lineHeight:'1.000em',
+          letterSpacing:'0.088em'
         }],
-        'l2': ['0.750rem',{
-          lineHeight:'1.000rem',
-          letterSpacing:'0.075rem'
+        'l2': ['0.750em',{
+          lineHeight:'1.000em',
+          letterSpacing:'0.075em'
         }],
-        'l3': ['0.500rem',{
-          lineHeight:'1.000rem',
-          letterSpacing:'0.050rem'
+        'l3': ['0.500em',{
+          lineHeight:'1.000em',
+          letterSpacing:'0.050em'
         }],
-        'c1': ['1.125rem',{
-          lineHeight:'1.000rem',
-          letterSpacing:'0.000rem'
+        'c1': ['1.125em',{
+          lineHeight:'1.000em',
+          letterSpacing:'0.000em'
         }],
-        'c2': ['1.125rem',{
-          lineHeight:'1.000rem',
-          letterSpacing:'0.000rem'
+        'c2': ['1.125em',{
+          lineHeight:'1.000em',
+          letterSpacing:'0.000em'
         }],
       },
       keyframes: {
