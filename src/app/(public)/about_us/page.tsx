@@ -82,52 +82,56 @@ const AboutUs = () => {
 
 
       {/* Mission Section */}
-      <section className="relative bg-white text-theme-blue py-10 md:py-20">
-        {/* Container */}
-        <div className="max-w-6xl mx-auto text-center">
-          {/* Title */}
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            We aim to <span className="text-gray-800">transform</span> the quality control process
-          </h2>
-          <p className="text-lg text-gray-600 mb-12">
-            We are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.
-          </p>
+      <section className="bg-white py-10 md:py-20">
+        <div className="max-w-6xl mx-auto text-center px-6">
+          <p className="h2 md:text-4xl text-Mercury-50 font-bold mb-6"><span className="text-Charcoal-60"> We aim to </span> transform  <span className="text-Charcoal-60"> the </span> quality control <span className="text-Charcoal-60">process</span></p>
+          <p className="text-xl text-gray-600 mb-16">
+          we are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.  </p>
 
-          {/* Image Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-            {/* Image 1 */}
-            <div className="relative">
+          {/* Team Members Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
+            {/* Team Member 1 */}
+            <div className="flex flex-col items-center">
               <img
-                src="/about_us/aim1.png"
-                alt="Team at work"
-                className="w-full h-full object-cover rounded-lg"
+                src="/about_us/Team1.png"
+                alt="Team Member 1"
+                className="rounded-lg object-cover w-40 h-64"
               />
             </div>
 
-            {/* Image 2 */}
-            <div className="relative">
+            {/* Team Member 2 */}
+            <div className="flex flex-col py-9 items-center">
               <img
-                src="/about_us/aim 2.png"
-                alt="Architectural plans"
-                className="w-full h-full object-cover rounded-lg"
+                src="/about_us/Team2.png"
+                alt="Team Member 2"
+                className="rounded-lg object-cover w-40 h-64"
               />
             </div>
 
-            {/* Image 3 */}
-            <div className="relative">
+            {/* Team Member 3 */}
+            <div className="flex flex-col items-center">
               <img
-                src="/about_us/aim 3.png"
-                alt="Group discussion"
-                className="w-full h-full object-cover rounded-lg"
+                src="/about_us/Team3.png"
+                alt="Team Member 3"
+                className="rounded-lg object-cover w-40 h-64"
               />
             </div>
 
-            {/* Image 4 */}
-            <div className="relative">
+            {/* Team Member 4 */}
+            <div className="flex flex-col py-9 items-center">
               <img
-                src="/about_us/aim 4.png"
-                alt="Building construction"
-                className="w-full h-full object-cover rounded-lg"
+                src="/about_us/Team4.png"
+                alt="Team Member 4"
+                className="rounded-lg object-cover w-40 h-64"
+              />
+            </div>
+
+            {/* Team Member 5 */}
+            <div className="flex flex-col items-center">
+              <img
+                src="/about_us/Team5.png"
+                alt="Team Member 5"
+                className="rounded-lg object-cover w-35 h-64"
               />
             </div>
           </div>
