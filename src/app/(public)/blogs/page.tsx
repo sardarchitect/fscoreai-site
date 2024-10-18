@@ -89,14 +89,14 @@ const BlogsPage = () => {
             Start building for free, then add a site plan to go live. Account plans unlock additional features.
           </p>
           {/* Recommended Topics */}
-          <div className="flex justify-center gap-4 py-6">
-            <button className="px-4 py-2 bg-gray-200 rounded-lg">Technology</button>
-            <button className="px-4 py-2 bg-gray-200 rounded-lg">Money</button>
-            <button className="px-4 py-2 bg-gray-200 rounded-lg">Business</button>
-            <button className="px-4 py-2 bg-gray-200 rounded-lg">Productivity</button>
-            <button className="px-4 py-2 bg-gray-200 rounded-lg">Yada Yada</button>
-          </div>
-        </div>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 py-6">
+  <button className="px-2 sm:px-4 py-2 bg-gray-200 rounded-lg">Technology</button>
+  <button className="px-2 sm:px-4 py-2 bg-gray-200 rounded-lg">Money</button>
+  <button className="px-2 sm:px-4 py-2 bg-gray-200 rounded-lg">Business</button>
+  <button className="px-2 sm:px-4 py-2 bg-gray-200 rounded-lg">Productivity</button>
+  <button className="px-2 sm:px-4 py-2 bg-gray-200 rounded-lg">Yada Yada</button>
+</div>
+</div>
 
         {/* Blog Cards Section */}
         <div className="py-10 w-full">

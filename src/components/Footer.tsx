@@ -102,8 +102,8 @@ const Footer = () => {
           {/* Center Section with Navigation Links */}
           <div className="flex flex-col lg:flex-row lg:space-x-24 text-center lg:text-left">
             <div className="flex flex-col items-center lg:items-start space-y-2">
-              <h3 className="font-bold">Fscore AI</h3>
-              <div className="flex flex-col space-y-1">
+              <h3 className="font-bold text-white">Fscore AI</h3>
+              <div className="flex flex-col text-Charcoal-60 space-y-1">
                 {NAV_LINKS.map((link) => (
                   <Link key={link.key} href={link.href} className="hover:text-gray-400">
                     {link.label}
@@ -113,8 +113,8 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col items-center lg:items-start space-y-2">
-              <h3 className="font-bold">Get Connected</h3>
-              <div className="flex flex-col space-y-1">
+              <h3 className="font-bold text-white">Get Connected</h3>
+              <div className="flex flex-col t3 text-Charcoal-60 space-y-1">
                 <Link href="/contact_us" className="hover:text-gray-400">Contact Us</Link>
                 <Link href="/community" className="hover:text-gray-400">Community</Link>
                 <Link href="/login" className="hover:text-gray-400">LogIn</Link>
@@ -126,8 +126,8 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-8 border-t border-gray-700 m-auto  pt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-6">
           <div className="flex flex-col sm:flex-row justify-center sm:text-center  lg:text-left space-y-2 sm:space-y-0 sm:space-x-6">
-            <Link href="/terms_of_use" className="hover:text-gray-400">Terms of Use</Link>
-            <Link href="/privacy_policy" className="hover:text-gray-400">Privacy Policy</Link>
+            <Link href="/terms_of_use" className="hover:text-gray-400 text-Charcoal-60">Terms of Use</Link>
+            <Link href="/privacy_policy" className="hover:text-gray-400 text-Charcoal-60">Privacy Policy</Link>
           </div>
           <div className="text-gray-500 lg:text-right  sm:text-center ">&copy; 2024 Fscore AI LLC. All rights reserved.</div>
         </div>

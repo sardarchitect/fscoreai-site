@@ -40,7 +40,7 @@ const AboutUs = () => {
           <div className="flex flex-col md:flex-row justify-between items-center px-5 sm:px-0">
             {/* Left Side - Journey */}
             <div className="w-full text-left mb-10 md:mb-0 md:w-1/2">
-              <h2 className="he2 md:text-4xl sm:text-2xl pl-4 md:pl-36">Journey</h2>
+              <h2 className="he2  pl-4 md:pl-36">Journey</h2>
               <p className="mt-4 text-gray-400 t1 pl-4 md:pl-72 sm:text-2xl md:text-base">
                 We are passionate about enhancing the <br /> way architects and drafters work. Our <br /> mission is to streamline the architectural <br /> drawing process.
               </p>
@@ -90,20 +90,20 @@ const AboutUs = () => {
 
           {/* Team Members Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
-            {/* Team Member 1 */}
+            {/* Aim 1 */}
             <div className="flex flex-col items-center">
               <img
-                src="/about_us/Team1.png"
-                alt="Team Member 1"
+                src="/about_us/qc1.png"
+                alt="Aim 1"
                 className="rounded-lg object-cover w-40 h-64"
               />
             </div>
 
-            {/* Team Member 2 */}
+            {/* Aim 2 */}
             <div className="flex flex-col py-9 items-center">
               <img
-                src="/about_us/Team2.png"
-                alt="Team Member 2"
+                src="/about_us/qc2.png"
+                alt="Aim 2"
                 className="rounded-lg object-cover w-40 h-64"
               />
             </div>
@@ -111,26 +111,26 @@ const AboutUs = () => {
             {/* Team Member 3 */}
             <div className="flex flex-col items-center">
               <img
-                src="/about_us/Team3.png"
+                src="/about_us/qc3.png"
                 alt="Team Member 3"
                 className="rounded-lg object-cover w-40 h-64"
               />
             </div>
 
-            {/* Team Member 4 */}
+            {/* Aim 4 */}
             <div className="flex flex-col py-9 items-center">
               <img
-                src="/about_us/Team4.png"
-                alt="Team Member 4"
+                src="/about_us/qc4.png"
+                alt="Aim 4"
                 className="rounded-lg object-cover w-40 h-64"
               />
             </div>
 
-            {/* Team Member 5 */}
+            {/* Aim 5 */}
             <div className="flex flex-col items-center">
               <img
-                src="/about_us/Team5.png"
-                alt="Team Member 5"
+                src="/about_us/qc5.png"
+                alt="Aim 5"
                 className="rounded-lg object-cover w-35 h-64"
               />
             </div>
