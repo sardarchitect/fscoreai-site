@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 
-const JobListing = ({ title, description, timePosted }) => {
+const JobListing = ({ sNo, title, description, timePosted, jobRole }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Toggles the isOpen state
@@ -11,9 +11,13 @@ const JobListing = ({ title, description, timePosted }) => {
 
   return (
     <div className="bg-white p-6 rounded-lg ">
-         <div className="flex items-center justify-between">
+      <div>
+        {sNo}
+      </div>
+      <div className="flex items-center justify-between">
         <div className="mb-9 ">
           <h3 className="text-lg md:text-xl font-semibold">{title}</h3>
+          <p>{jobRole}</p>
           <p className="text-gray-500">{timePosted}</p>
         </div>
         <button
@@ -32,7 +36,7 @@ const JobListing = ({ title, description, timePosted }) => {
       )}
       <hr className="" />
     </div>
-    
+
   );
 };
 

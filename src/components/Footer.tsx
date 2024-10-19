@@ -52,23 +52,23 @@ const Footer = () => {
 
   return (
     <main>
-      <footer className="bg-black text-white py-20 md:py-28 text-center">
-        <h2 className="text-2xl md:text-h2 font-semibold">Sign up for all the Future Updates</h2>
-        <p className="mt-16 text-sm md:text-base">
-          Our mission is to streamline the architectural drawing process and elevate the quality of
+      <footer className="bg-black text-white py-10 md:py-28 text-center">
+        <p className="h3 md:h2 font-semibold">Sign up for all the Future Updates</p>
+        <p className="mt-9 te3 md:te1">
+          Our mission is to streamline the architectural drawing process and elevate the quality  of
           construction documents through cutting-edge technology.
         </p>
         <div className="mt-8 flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
-          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col md:flex-row items-center gap-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col md:flex-row items-center gap-0 ">
             <input
               type="email"
               placeholder="Enter your Email Address.... "
               {...register("email", { required: "Email is required", pattern: { value: /^\S+@\S+$/i, message: "Invalid email address" } })}
-              className={`p-3 rounded-lg w-80 md:w-96 ${errors.email ? 'border-red-500' : ''}`}
+              className={`p-3 bg-[#444444] te3 rounded h-14 w-80 md:w-96 ${errors.email ? 'border-red-500' : ''}`}
             />
             {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
 
-            <button type="submit" className="bg-gray-800 p-3 rounded-lg w-40 text-white">
+            <button type="submit" className="bg-gray-300 p-5 h-14 rounded z-5 sm:w-auto w-auto text-Mercury-50 b2">
               Subscribe
             </button>
           </form>
@@ -90,22 +90,22 @@ const Footer = () => {
               width={50} // Adjust size accordingly
               height={50}
             />
-            <p className="mt-4 text-gray-400">
+            <p className="mt-4 t4  text-gray-400">
               Transforming architecture and engineering <br /> with intelligent systems that automate <br /> drawing production.
             </p>
             {/* Social Media Icons */}
-            <div className="mt-4 flex space-x-4">
+            <div className="mt-4 flex  ">
               <SocialHandles /> {/* Assuming this component handles your social icons */}
             </div>
           </div>
 
           {/* Center Section with Navigation Links */}
-          <div className="flex flex-col lg:flex-row lg:space-x-24 text-center lg:text-left">
+          <div className="flex flex-col lg:flex-row lg:space-x-24 text-center lg:text-left ">
             <div className="flex flex-col items-center lg:items-start space-y-2">
-              <h3 className="font-bold text-white">Fscore AI</h3>
-              <div className="flex flex-col text-Charcoal-60 space-y-1">
+              <p className="b3 text-white">Fscore AI</p>
+              <div className="flex flex-col t3 text-Charcoal-60 space-y-2">
                 {NAV_LINKS.map((link) => (
-                  <Link key={link.key} href={link.href} className="hover:text-gray-400">
+                  <Link key={link.key} href={link.href} className="hover:text-gray-400 ">
                     {link.label}
                   </Link>
                 ))}
@@ -113,8 +113,8 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col items-center lg:items-start space-y-2">
-              <h3 className="font-bold text-white">Get Connected</h3>
-              <div className="flex flex-col t3 text-Charcoal-60 space-y-1">
+              <p className="b3 text-white">Get Connected</p>
+              <div className="flex flex-col t3 text-Charcoal-60 space-y-2">
                 <Link href="/contact_us" className="hover:text-gray-400">Contact Us</Link>
                 <Link href="/community" className="hover:text-gray-400">Community</Link>
                 <Link href="/login" className="hover:text-gray-400">LogIn</Link>

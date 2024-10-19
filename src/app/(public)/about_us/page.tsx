@@ -1,18 +1,31 @@
+"use client"
+
 import JobListing from "@/src/components/about_us/JobListing";
+import openJobsData from "@/src/components/about_us/openJobsData";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 
 const AboutUs = () => {
+  useEffect(() => {
+    getOpenJobsData();
+  }, [])
+
+  const getOpenJobsData = () => {
+    fetch('./src/componenets/about_us/openJobsData').then(function (res) {
+      return res.json();
+    })
+  }
+
   return (
-    <main className="mx-auto w-full items-center justify-center">
+    <main className="mx-auto w-full items-center justify-center px-5 sm:px-[20px] md:px-[35px] lg:px-14">
       {/* Header Section */}
-      <header className="bg-white gap-10 md:gap-36 py-10 md:py-20 h-auto md:h-80 flex flex-col md:flex-row justify-center items-center text-center md:text-left">
+      <header className="bg-white gap-10 md:gap-36 py-10 md:py-20 flex flex-col md:flex-row justify-center items-center text-center md:text-left">
         {/* Left side with the main heading */}
         <div className="flex justify-center">
-          <h1 className="text-3xl md:text-5xl font-bold">
+          <p className="h2">
             Empowering Architectural <br /> Excellence
             <span className="text-gray-700"> Through Smart <br /> Quality Control</span>
-          </h1>
+          </p>
         </div>
 
         {/* Right side with the mission statement */}
@@ -40,39 +53,39 @@ const AboutUs = () => {
           <div className="flex flex-col md:flex-row justify-between items-center px-5 sm:px-0">
             {/* Left Side - Journey */}
             <div className="w-full text-left mb-10 md:mb-0 md:w-1/2">
-              <h2 className="he2  pl-4 md:pl-36">Journey</h2>
-              <p className="mt-4 text-gray-400 t1 pl-4 md:pl-72 sm:text-2xl md:text-base">
+              <div className="he2 pl-4 md:pl-36">Journey</div>
+              <p className="mt-4 text-gray-400 t1 pl-4 md:pl-72 sm:te3 md:te1">
                 We are passionate about enhancing the <br /> way architects and drafters work. Our <br /> mission is to streamline the architectural <br /> drawing process.
               </p>
             </div>
             {/* Right Side - Since */}
             <div className="w-full text-left md:text-right md:w-1/2 pr-4 md:pr-96">
-              <h2 className="sm:he2 md:text-4xl h3 ">Since 2022</h2>
+              <div className="sm:h3  lg:he2 md:h3">Since 2022</div>
             </div>
           </div>
 
           {/* Statistics Section */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12">
             {/* 4,500 Hours Saved */}
-            <div className="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-lg">
+            <div className="bg-gray-800 bg-opacity-70 p-6 text-start md:p-10 rounded-lg shadow-lg">
               <h3 className="text-4xl md:text-5xl font-bold">4,500</h3>
               <p className="mt-4 text-lg text-gray-400">Hours Saved</p>
             </div>
 
             {/* $1.8M Cost Saved */}
-            <div className="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-lg">
+            <div className="bg-gray-800 bg-opacity-70 p-6 text-start md:p-10 rounded-lg shadow-lg">
               <h3 className="text-4xl md:text-5xl font-bold">$1.8M</h3>
               <p className="mt-4 text-lg text-gray-400">Cost Saved</p>
             </div>
 
             {/* 20+ Trusted Enterprises */}
-            <div className="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-lg">
+            <div className="bg-gray-800 bg-opacity-70 text-start p-6 md:p-10 rounded-lg shadow-lg">
               <h3 className="text-4xl md:text-5xl font-bold">20+</h3>
               <p className="mt-4 text-lg text-gray-400">Trusted Enterprises</p>
             </div>
 
             {/* 600+ Clients Served */}
-            <div className="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-lg">
+            <div className="bg-gray-800 bg-opacity-70 p-6 text-start md:p-10 rounded-lg shadow-lg">
               <h3 className="text-4xl md:text-5xl font-bold">600+</h3>
               <p className="mt-4 text-lg text-gray-400">Clients Served</p>
             </div>
@@ -81,12 +94,13 @@ const AboutUs = () => {
       </section>
 
 
+
       {/* Mission Section */}
       <section className="bg-white py-10 md:py-20">
         <div className="max-w-6xl mx-auto text-center px-6">
           <p className="h2 md:text-4xl text-Mercury-50 font-bold mb-6"><span className="text-Charcoal-60"> We aim to </span> transform  <span className="text-Charcoal-60"> the </span> quality control <span className="text-Charcoal-60">process</span></p>
           <p className="text-xl text-gray-600 mb-16">
-          we are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.  </p>
+            we are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.  </p>
 
           {/* Team Members Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
@@ -141,7 +155,7 @@ const AboutUs = () => {
       {/* Meet the Founder Section */}
       <section className="bg-white py-10 md:py-20 flex flex-col items-center max-w-7xl mx-auto px-5">
 
-      <h2 className="text-2xl lg:mb-10 mb-6 font-medium text-gray-600">Meet the <span className="font-bold">Founder</span></h2>
+        <h2 className="text-2xl lg:mb-10 mb-6 font-medium text-gray-600">Meet the <span className="font-bold">Founder</span></h2>
         <div className="flex flex-col md:flex-row lg:space-x-5 md:space-x-5 space-x-0 sm:text-left text-center">
           {/* Founder Image */}
           <div className="w-full md:w-1/2 mb-10 md:mb-0">
@@ -239,26 +253,20 @@ const AboutUs = () => {
 
           {/* Job Listings */}
           <div className="space-y-4 text-left">
-            {/* Job 1 */}
-            <JobListing
-              title="01. SaaS Designer for Homepage redesign and onboarding updates"
-              description="Looking for an experienced UX/UI designer to redesign our homepage and improve our onboarding process. Experience in SaaS design is a must."
-              timePosted="UX/UI Design • Posted 27 minutes ago"
-            />
-
-            {/* Job 2 */}
-            <JobListing
-              title="02. Frontend Developer with React Experience"
-              description="We need a talented frontend developer with experience in React.js to build new features for our platform. Must have 2+ years of experience."
-              timePosted="Frontend Development • Posted 2 days ago"
-            />
-
-            {/* Job 3 */}
-            <JobListing
-              title="03. Backend Developer with Node.js Expertise"
-              description="Join our team as a backend developer. Expertise in Node.js, REST APIs, and cloud infrastructure is required. Work with a fast-paced team."
-              timePosted="Backend Development • Posted 3 days ago"
-            />
+            {
+              openJobsData.map((data, idx) => {
+                return(
+                  <JobListing 
+                    key={idx}
+                    sNo = {idx+1}
+                    title={data.title} 
+                    description={data.description} 
+                    timePosted={data.timePosted}
+                    jobRole={data.jobRole}
+                    />
+                )
+              })
+            }
           </div>
         </div>
       </section>

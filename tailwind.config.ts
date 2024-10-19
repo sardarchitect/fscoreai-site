@@ -24,11 +24,11 @@ module.exports = {
         }],
         'he2': ['4.000em',{
           lineHeight:'1.125em',
-          letterSpacing:'0.040em'
+          letterSpacing:'0.000em'
         }],
         'h1': ['3.125em',{
           lineHeight:'1.120em',
-          letterSpacing:'0.031em'
+          letterSpacing:'0.000em'
         }],
         'h2': ['2.500em',{
           lineHeight:'1.100em',
@@ -51,7 +51,7 @@ module.exports = {
           letterSpacing:'0.000em'
         }],
         'te2': ['1.125em',{
-          lineHeight:'1.333em',
+          lineHeight:'1.5em',
           letterSpacing:'0.000em'
         }],
          'te3': ['0.875em',{
