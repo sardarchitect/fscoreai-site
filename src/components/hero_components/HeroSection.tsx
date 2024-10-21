@@ -1,52 +1,49 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Hero_one = () => {
+const HeroSection = () => {
   return (
-    <section className="relative  max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
-      {/* product intro */}
-      <div className="flex flex-1 flex-col xl:w-1/2">
-        <h1 className="bold-52 lg:bold-88">
-          Lorem ipsum dolo Dignissimos, mollitia.
-        </h1>
-        <p className="regular-16 mt-6 text-gray-30 xl:max-w-[520px]">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi fuga
-          autem corrupti nulla dignissimos accusantium doloremque delectus
-          reprehenderit ullam, quibusdam ratione necessitatibus et culpa
-          molestias ipsa labore sit nam explicabo.
+    <section className="relative grid grid-cols-12 max-w-7xl mx-auto py-10 pb-32 lg:py-20 items-center">
+      {/* Left Section: Text Content */}
+      <div className="col-span-12 lg:col-span-6 flex flex-col justify-center space-y-6 px-6">
+        <p className="he2 text-start text-gray-900 leading-tight">
+          Revolutionize your firm's quality control process using Draftflow.
         </p>
-        <div className="py-6">
-          <Link href="/contact_us">
-            <button className="mx-6 bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
-              Contact Us
-            </button>
-          </Link>
-          <Link href="/blogs">
-            <button className="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
-              Learn More
-            </button>
-          </Link>
+        <p className="te2 text-start text-gray-600">
+        Draftflow catches production drawing mistakes early, <br /> leading to faster review times while reducing <br /> architect-caused change orders.        </p>
+        <div className="">
+        <form className="flex w-full max-w-lg ">
+          <input
+            type="email"
+            placeholder="Enter your Email Address..."
+            className="flex px-4 py-2 border rounded-l-lg shadow-2xl text-gray-700"
+          />
+          <button className="bg-blue-500 text-white px-6 py-2 rounded-l-lg rounded-r-lg hover:bg-blue-600">
+            Subscribe
+          </button>
+        </form>
         </div>
       </div>
 
-      {/* background */}
-      <div className="hero-img">
-        <Image
-          src="/neuro_image.svg"
-          alt="image"
-          width={200}
-          height={700}
-          style={{
-            objectFit: "cover",
-          }}
-          className="fixed w-screen left-0 top-0 h-full -z-50"
-        />
+      {/* Right Section: Background Image */}
+      <div className="col-span-12 lg:col-span-6 relative h-96">
+        <div className="absolute inset-0 bg-gray-100">
+          {/* Placeholder for background image */}
+          <Image
+            src="/hero_img.png"
+            alt="Hero Background"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
       </div>
 
-      {/* product demo */}
-      <div className=""></div>
+      {/* Bottom Section: Email Subscription */}
+      <div className="col-span-12 flex justify-center mt-8">
+
+      </div>
     </section>
   );
 };
 
-export default Hero_one;
+export default HeroSection;

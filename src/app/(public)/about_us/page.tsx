@@ -4,8 +4,14 @@ import JobListing from "@/src/components/about_us/JobListing";
 import openJobsData from "@/src/components/about_us/openJobsData";
 import Image from "next/image";
 import React, { useEffect } from "react";
+import AnimatedCounter from "@/src/components/about_us/AnimatedCounter";
+
+
+
 
 const AboutUs = () => {
+
+
   useEffect(() => {
     getOpenJobsData();
   }, [])
@@ -15,7 +21,7 @@ const AboutUs = () => {
       return res.json();
     })
   }
-
+;
   return (
     <main className="mx-auto w-full items-center justify-center px-5 sm:px-[20px] md:px-[35px] lg:px-14">
       {/* Header Section */}
@@ -30,7 +36,7 @@ const AboutUs = () => {
 
         {/* Right side with the mission statement */}
         <div className="flex justify-center py-8 md:py-0 text-te2">
-          <p className="text-gray-600 text-sm md:text-base">
+          <p className="text-gray-600 te2 md:te1">
             Our mission is to streamline the architectural <br /> drawing process and elevate the quality of <br /> construction documents through cutting-edge <br /> technology.
           </p>
         </div>
@@ -38,55 +44,61 @@ const AboutUs = () => {
 
       {/* Journey Section */}
       <section className="relative py-10 md:py-20 text-white">
-        {/* SVG Background */}
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/about_us/bg-charcoal.svg"  // Replace with your actual SVG image path
+            src="/about_us/bg-charcoal.svg" // Your SVG path
             alt="Background SVG"
             layout="fill"
             objectFit="cover"
             quality={100}
           />
         </div>
+        
 
         <div className="max-w-7xl mx-auto text-center relative z-20">
           <div className="flex flex-col md:flex-row justify-between items-center px-5 sm:px-0">
             {/* Left Side - Journey */}
             <div className="w-full text-left mb-10 md:mb-0 md:w-1/2">
               <div className="he2 pl-4 md:pl-36">Journey</div>
-              <p className="mt-4 text-gray-400 t1 pl-4 md:pl-72 sm:te3 md:te1">
+              <p className="mt-4 text-gray-400 t1 pl-4 md:pl-72 sm:te3 ">
                 We are passionate about enhancing the <br /> way architects and drafters work. Our <br /> mission is to streamline the architectural <br /> drawing process.
               </p>
             </div>
             {/* Right Side - Since */}
             <div className="w-full text-left md:text-right md:w-1/2 pr-4 md:pr-96">
-              <div className="sm:h3  lg:he2 md:h3">Since 2022</div>
+              <div className="sm:h1  lg:he2 md:h1">Since 2022</div>
             </div>
           </div>
-
-          {/* Statistics Section */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12">
             {/* 4,500 Hours Saved */}
             <div className="bg-gray-800 bg-opacity-70 p-6 text-start md:p-10 rounded-lg shadow-lg">
-              <h3 className="text-4xl md:text-5xl font-bold">4,500</h3>
+              <h3 className="text-4xl md:text-5xl font-bold">
+                <AnimatedCounter target={4500} />
+              </h3>
               <p className="mt-4 text-lg text-gray-400">Hours Saved</p>
             </div>
 
             {/* $1.8M Cost Saved */}
             <div className="bg-gray-800 bg-opacity-70 p-6 text-start md:p-10 rounded-lg shadow-lg">
-              <h3 className="text-4xl md:text-5xl font-bold">$1.8M</h3>
+              <h3 className="text-4xl md:text-5xl font-bold">
+                <AnimatedCounter target={1.8} />M
+              </h3>
               <p className="mt-4 text-lg text-gray-400">Cost Saved</p>
             </div>
 
             {/* 20+ Trusted Enterprises */}
             <div className="bg-gray-800 bg-opacity-70 text-start p-6 md:p-10 rounded-lg shadow-lg">
-              <h3 className="text-4xl md:text-5xl font-bold">20+</h3>
+              <h3 className="text-4xl md:text-5xl font-bold">
+                <AnimatedCounter target={20} />+
+              </h3>
               <p className="mt-4 text-lg text-gray-400">Trusted Enterprises</p>
             </div>
 
             {/* 600+ Clients Served */}
             <div className="bg-gray-800 bg-opacity-70 p-6 text-start md:p-10 rounded-lg shadow-lg">
-              <h3 className="text-4xl md:text-5xl font-bold">600+</h3>
+              <h3 className="text-4xl md:text-5xl font-bold">
+                <AnimatedCounter target={600} />+
+              </h3>
               <p className="mt-4 text-lg text-gray-400">Clients Served</p>
             </div>
           </div>
@@ -98,8 +110,8 @@ const AboutUs = () => {
       {/* Mission Section */}
       <section className="bg-white py-10 md:py-20">
         <div className="max-w-6xl mx-auto text-center px-6">
-          <p className="h2 md:text-4xl text-Mercury-50 font-bold mb-6"><span className="text-Charcoal-60"> We aim to </span> transform  <span className="text-Charcoal-60"> the </span> quality control <span className="text-Charcoal-60">process</span></p>
-          <p className="text-xl text-gray-600 mb-16">
+          <p className="h2 md:text-4xl text-Mercury-50  mb-6"><span className="text-Charcoal-60"> We aim to </span> transform  <span className="text-Charcoal-60"> the </span> quality control <span className="text-Charcoal-60">process</span></p>
+          <p className="t1 text-gray-600 mb-16">
             we are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.  </p>
 
           {/* Team Members Grid */}
@@ -155,7 +167,7 @@ const AboutUs = () => {
       {/* Meet the Founder Section */}
       <section className="bg-white py-10 md:py-20 flex flex-col items-center max-w-7xl mx-auto px-5">
 
-        <h2 className="text-2xl lg:mb-10 mb-6 font-medium text-gray-600">Meet the <span className="font-bold">Founder</span></h2>
+        <p className="h2 lg:mb-10 mb-6 font-medium text-gray-600">Meet the <span className="font-bold">Founder</span></p>
         <div className="flex flex-col md:flex-row lg:space-x-5 md:space-x-5 space-x-0 sm:text-left text-center">
           {/* Founder Image */}
           <div className="w-full md:w-1/2 mb-10 md:mb-0">
@@ -170,12 +182,12 @@ const AboutUs = () => {
 
           {/* Founder Text */}
           <div className="w-full md:w-1/2 ">
-            <h1 className="lg:-mx-24 md:-mx-24 mx-auto text-4xl md:text-6xl lg:text-7xl font-bold text-Mercury-50 leading-tight md:pt-10">
+            <p className="lg:-mx-24 md:-mx-24 mx-auto h2 md:h1 lg:he1 font-bold text-Mercury-50 leading-tight md:pt-10">
               <span className="text-Charcoal-60"> My</span> Goal <span className="text-Charcoal-60">with </span> <br />
               <span className="text-Charcoal-60">ReviewSync</span><br className="hidden md:block lg:block"></br> is Simple
-            </h1>
-            <p className="lg:text-lg md:text-sm text-sm text-gray-500 mt-6">
-              As an architect myself, I’ve been in the trenches—managing tight deadlines, navigating complex design requirements, and dealing with the inevitable headaches that come from catching errors late in the process.
+            </p>
+            <p className="lg:t1 md:text-sm text-sm text-gray-500 mt-6">
+              As an architect myself, I’ve been in the trenches—managing <br /> tight deadlines, navigating complex design  requirements, and <br /> dealing with the inevitable headaches that come from catching errors <br />  late in the process.
             </p>
             <div className="mt-8 sm:block flex justify-center">
               {/* Signature (Optional) */}
@@ -188,19 +200,19 @@ const AboutUs = () => {
       {/* Meet the Team Section */}
       <section className="bg-white py-10 md:py-20">
         <div className="max-w-6xl mx-auto text-center px-6">
-          <h2 className="text-3xl md:text-4xl text-Mercury-50 font-bold mb-6"><span className="text-Charcoal-60"> Our </span> Experts <span className="text-Charcoal-60"> are like </span> No Other</h2>
-          <p className="text-xl text-gray-600 mb-16">
+          <p className="h3 md:h2 text-Mercury-50 font-bold mb-6"><span className="text-Charcoal-60"> Our </span> Experts <span className="text-Charcoal-60"> are like </span> No Other</p>
+          <p className="te1 text-gray-600 mb-16">
             Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
           </p>
 
           {/* Team Members Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 ">
             {/* Team Member 1 */}
             <div className="flex flex-col items-center">
               <img
                 src="/about_us/Team1.png"
                 alt="Team Member 1"
-                className="rounded-lg object-cover w-40 h-64"
+                className="rounded-lg object-cover w-50 h-64"
               />
             </div>
 
@@ -209,7 +221,7 @@ const AboutUs = () => {
               <img
                 src="/about_us/Team2.png"
                 alt="Team Member 2"
-                className="rounded-lg object-cover w-40 h-64"
+                className="rounded-lg object-cover w-50 h-64"
               />
             </div>
 
@@ -218,7 +230,7 @@ const AboutUs = () => {
               <img
                 src="/about_us/Team3.png"
                 alt="Team Member 3"
-                className="rounded-lg object-cover w-40 h-64"
+                className="rounded-lg object-cover w-50 h-64"
               />
             </div>
 
@@ -227,16 +239,16 @@ const AboutUs = () => {
               <img
                 src="/about_us/Team4.png"
                 alt="Team Member 4"
-                className="rounded-lg object-cover w-40 h-64"
+                className="rounded-lg object-cover w-50 h-64"
               />
             </div>
 
             {/* Team Member 5 */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center ">
               <img
                 src="/about_us/Team5.png"
                 alt="Team Member 5"
-                className="rounded-lg object-cover w-35 h-64"
+                className="rounded-lg object-cover w-50 h-64"
               />
             </div>
           </div>
@@ -246,8 +258,8 @@ const AboutUs = () => {
       {/* Call to Action (Join Us) Section */}
       <section className="bg-white py-10 md:py-20">
         <div className="max-w-6xl mx-auto text-center px-6">
-          <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-Mercury-50 mb-6"><span className="text-Charcoal-60">Become a</span> Part of < span className="text-Charcoal-60"> our </span> Team</div>
-          <p className="text-base sm:text-lg text-gray-600 mb-10">
+          <div className="h4 sm:h3 md:h2 font-bold text-Mercury-50 mb-6"><span className="text-Charcoal-60">Become a</span> Part of < span className="text-Charcoal-60"> our </span> Team</div>
+          <p className="te3 sm:te1 text-gray-600 mb-10">
             Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
           </p>
 

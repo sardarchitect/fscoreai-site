@@ -3,30 +3,38 @@ import Image from "next/image";
 const DescriptionTwo = () => {
   return (
     <>
-      <div className="bg-blue-500 z-0 overflow-hidden">
-        <div className="relative flex flex-wrap sm:p-32 bg-black bg-opacity-90 h-screen">
-          <div className=" w-full sm:w-full lg:w-1/2 px-4 py-2 z-10">
-            <p className="text-xl font-bold text-sky-500">About AI</p>
-            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 py-2 text-white">
-              Heading Here
-            </h2>
-            <p className="text-sm sm:text-base lg:text-lg py-4 text-white">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-              deleniti dolorem necessitatibus perspiciatis saepe esse voluptates
-              fugit quisquam aspernatur itaque laboriosam voluptatum voluptas
-              distinctio ut dolorum, veritatis voluptatem hic quas.
-            </p>
+      <div className="bg-white z-0 overflow-hidden">
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-4 sm:p-32 h-screen">
+          
+          {/* Text Content Section */}
+          <div className="px-4 py-2 z-10">
+            <p className="text-black he2">Key Benefits of Draftflow for Your Firm</p>
+            <p className="t1 py-4 text-gray-700">
+            Draftflow is designed specifically for firms in the AEC industry. Through this one unique system, Draftflow benefits a large set of stakeholders:             </p>
+          
+            
+            {/* Learn More Button */}
+            <button className="bg-blue-500 text-white c1 py-5 px-14 rounded mt-4 hover:bg-blue-600 transition duration-300">
+              Learn More
+            </button>
           </div>
-        
-          <div className="w-full sm:w-1/2 lg:w-1/2 "></div>
 
-          <Image
-            src={"/left_globe.jpg"}
-            height={500}
-            width={500}
+          {/* Empty Space or Image Section */}
+          <div className="relative hidden lg:block">
+            <div className="w-full h-full flex items-center justify-center">
+              {/* Placeholder for the empty space or an image */}
+              <Image
+            src={"/"}
+            height={100}
+            width={100}
             alt="ai pics"
-            className="hidden sm:block w-3/5 top-0 right-0 absolute z-0"
+            className="hidden sm:block  absolute "
           />
+            </div>
+          </div>
+
+          {/* Background Image */}
+         
         </div>
       </div>
     </>

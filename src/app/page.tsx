@@ -32,8 +32,8 @@ export default function Home() {
   }, [update])
 
   return (
-    <div className={`${theme} flex flex-col items-center justify-center min-h-screen text-center`}>
-    <div className="text-white flex flex-col items-center w-full max-w-7xl mx-auto ">
+    <div className="">
+    <div className="text-white flex flex-col items-center w-full max-w-full mx-auto ">
       <Hero_one/>
       <ProductReport/>
       <DescriptionOne/>

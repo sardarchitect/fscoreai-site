@@ -16,11 +16,11 @@ module.exports = {
       fontSize: {
         'he0': ['6.250em',{
           lineHeight:'1.120em',
-          letterSpacing:'0.063em'
+          letterSpacing:'0.000em'
         }],
         'he1': ['4.750em',{
           lineHeight:'1.105em',
-          letterSpacing:'0.048em'
+          letterSpacing:'0.000em'
         }],
         'he2': ['4.000em',{
           lineHeight:'1.125em',
