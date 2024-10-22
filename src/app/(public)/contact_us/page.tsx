@@ -1,8 +1,6 @@
 "use client";
 import SubmissionAlert from "@/src/components/utilsComponents/SubmissionAlert";
 import { useThemeContext } from "@/src/context/theme";
-import Image from "next/image";
-import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -21,12 +19,12 @@ const ContactUs = () => {
     reset,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<RequestBody>();
 
   const [showMsg, setShowMsg] = useState(false);
-  const [theme, setTheme] = useThemeContext();
+  const [theme] = useThemeContext();
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: RequestBody) => {
     await addUserData(data);
     const targetSection = document.getElementById('contact-submission-alert');
     if (targetSection) {
@@ -45,18 +43,18 @@ const ContactUs = () => {
 
   async function addUserData(data: RequestBody) {
     try {
-      const response = await fetch('/api/email/contactus', { 
+      const response = await fetch('/api/email/contactus', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
-  
+
       if (!response.ok) {
         throw new Error('Failed to send email');
       }
-      
+
       const responseData = await response.json();
       console.log('Email sent successfully:', responseData);
     } catch (error) {
@@ -67,65 +65,78 @@ const ContactUs = () => {
   return (
     <main className="py-16">
       <div className="dark:text-white dark:bg-rgb-2-6-23 bg-white text-theme-blue px-4 sm:px-6 lg:px-8 py-8">
-        <div className="py-5 sm:text-justify text-center">
+        {/* Centered Header Text */}
+        <div className="text-center py-5">
           <h2 className="text-4xl font-bold">
             We'd love to talk about how we can work together.
           </h2>
           <p id='contact-submission-alert' className="text-xl mt-4 tracking-wide">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Voluptatem, in.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, in.
           </p>
         </div>
 
         {/* Grid Layout for 50-50% split */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          
-          {/* Form Section (Left Side) */}
-          <div className="bg-white dark:bg-gray-800 shadow-lg border rounded-lg px-6 py-8">
+          {/* Left Side Section (Why Connect With Us?) */}
+          <div className="bg-white dark:bg-gray-800 rounded-lg px-6 py-8">
+            <p className="text-2xl font-semibold mb-4">Why Connect With Us?</p>
+            <p className="text-gray-700 dark:text-gray-300 mb-6">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae molestiae delectus neque amet nesciunt cum voluptatem illo. Ducimus, quos eos. Facere odio illum impedit veniam!
+            </p>
+            <p className="text-gray-700 dark:text-gray-300">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci culpa nisi expedita fugiat dolor quibusdam quidem animi commodi voluptates itaque.
+            </p>
+          </div>
+
+          {/* Right Side Section (Form Section) */}
+          <div className="bg-white dark:bg-gray-800   rounded-lg px-6 py-8">
             {showMsg && (
               <div className="animate-fadeIn shadow-xl border rounded-full mb-5">
                 <SubmissionAlert type='success' message="Thank you for submitting your form. We will get back to you shortly." />
               </div>
             )}
             <form noValidate method="POST" onSubmit={handleSubmit(onSubmit)}>
-              <div className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="full-name"
-                    className="block text-sm font-medium leading-6"
-                  >
-                    Full name
-                  </label>
-                  <input
-                    type="text"
-                    {...register("name", { required: "Name is required" })}
-                    id="name"
-                    placeholder="Enter your name"
-                    className="mt-1 block w-full rounded-md border-0 py-2 px-3 shadow-sm ring-1 ring-inset dark:bg-gray-900 focus:ring-2 focus:ring-indigo-600 sm:text-sm"
-                  />
-                </div>
+              <div className="space-y-6 ">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {/* Full Name Input */}
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium leading-6"
+                    >
+                      Full name
+                    </label>
+                    <input
+                      type="text"
+                      {...register("name", { required: "Name is required" })}
+                      id="name"
+                      placeholder="Enter your name"
+                      className="mt-1 block w-full rounded-md border-0 py-2 px-3 shadow-sm ring-1 ring-inset dark:bg-gray-900 focus:ring-2 focus:ring-indigo-600 sm:text-sm"
+                    />
+                  </div>
 
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium leading-6"
-                  >
-                    Email address
-                  </label>
-                  <input
-                    id="email"
-                    {...register("email", {
-                      required: "Email is required",
-                      pattern: {
-                        value:
-                          /^([0-9a-zA-Z].*?@([0-9a-zA-Z].*\.\w{2,4}))$/gm,
-                        message: "Please enter a valid email address",
-                      },
-                    })}
-                    type="email"
-                    placeholder="Enter your email"
-                    className="mt-1 block w-full rounded-md border-0 py-2 px-3 shadow-sm ring-1 ring-inset dark:bg-gray-900 focus:ring-2 focus:ring-indigo-600 sm:text-sm"
-                  />
+                  {/* Email Address Input */}
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium leading-6"
+                    >
+                      Email address
+                    </label>
+                    <input
+                      id="email"
+                      {...register("email", {
+                        required: "Email is required",
+                        pattern: {
+                          value: /^\S+@\S+\.\S+$/i,
+                          message: "Please enter a valid email address",
+                        },
+                      })}
+                      type="email"
+                      placeholder="Enter your email"
+                      className="mt-1 block w-full rounded-md border-0 py-2 px-3 shadow-sm ring-1 ring-inset dark:bg-gray-900 focus:ring-2 focus:ring-indigo-600 sm:text-sm"
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -159,8 +170,8 @@ const ContactUs = () => {
                     <label htmlFor="agree" className="font-medium text-gray-700">
                       I agree to receive communications from Fscore AI, and I understand Fscore AI will process my information in accordance with Fscore AI's{" "}
                       {/* <Link href="/privacy_policy">
-                        <a className="text-indigo-600 hover:underline">privacy policy</a>
-                      </Link> */}
+            <a className="text-indigo-600 hover:underline">privacy policy</a>
+          </Link> */}
                     </label>
                   </div>
                 </div>
@@ -175,19 +186,8 @@ const ContactUs = () => {
                 </div>
               </div>
             </form>
-          </div>
 
-          {/* Right Side Section (Text Section) */}
-          <div className="bg-white dark:bg-gray-800 shadow-lg border rounded-lg px-6 py-8">
-            <p className="text-2xl font-semibold mb-4">Why Connect With Us?</p>
-            <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae molestiae delectus neque amet nesciunt cum voluptatem illo. Ducimus, quos eos. Facere odio illum impedit veniam!
-            </p>
-            <p className="text-gray-700 dark:text-gray-300">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci culpa nisi expedita fugiat dolor quibusdam quidem animi commodi voluptates itaque.
-            </p>
           </div>
-
         </div>
       </div>
     </main>
@@ -195,4 +195,3 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
- 

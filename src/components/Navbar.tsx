@@ -30,10 +30,10 @@ export default function Navbar() {
 
   return (
     <div >
-      <header className="top-0 left-0 right-0 z-50 bg-white ">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
+      <header className="top-0 left-0 right-0 z-50 fixed  bg-white/90  rounded ">
+        <nav className="mx-auto flex max-w-7xl items-center bg-transparent justify-between p-4 lg:px-8" aria-label="Global">
           {/* Logo Section */}
-          <div className="flex lg:flex-1">
+          <div className="flex  lg:flex-1">
             <Link href="/">
               {/* Light mode */}
               <Image src="/Fscorebold.svg" alt="logo" width={171} height={50} />
@@ -67,7 +67,7 @@ export default function Navbar() {
             ))}
 
             {/* Book Demo Button */}
-            <div onClick={() => setShowPopup(!showPopup)} className="inline-block text-sm px-4 py-3 leading-none border-2 rounded dark:text-white dark:border-white border-theme-blue cursor-pointer">
+            <div onClick={() => setShowPopup(!showPopup)} className="inline-block text-sm px-4 py-3 leading-none border-2 bg-black  rounded text-white dark:border-white border-theme-blue cursor-pointer">
               Book a Demo
               <DemoForm />
             </div>

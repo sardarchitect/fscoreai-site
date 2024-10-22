@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <div className="">
-    <div className="text-white flex flex-col items-center w-full max-w-full mx-auto ">
+    <div className="text-white flex flex-col items-center w-full justify-center   m-auto ">
       <Hero_one/>
       <ProductReport/>
       <DescriptionOne/>

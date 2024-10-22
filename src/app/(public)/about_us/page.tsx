@@ -23,7 +23,7 @@ const AboutUs = () => {
   }
 ;
   return (
-    <main className="mx-auto w-full items-center justify-center px-5 sm:px-[20px] md:px-[35px] lg:px-14">
+    <main className="mx-auto w-full items-center justify-center">
       {/* Header Section */}
       <header className="bg-white gap-10 md:gap-36 py-10 md:py-20 flex flex-col md:flex-row justify-center items-center text-center md:text-left">
         {/* Left side with the main heading */}
@@ -44,29 +44,31 @@ const AboutUs = () => {
 
       {/* Journey Section */}
       <section className="relative py-10 md:py-20 text-white">
-        <div className="absolute inset-0 -z-10">
-          <Image
+        <div className="absolute bg-ab-bg inset-0 max-w-7xl">
+          {/* <Image
             src="/about_us/bg-charcoal.svg" // Your SVG path
             alt="Background SVG"
-            layout="fill"
+            // layout=""
             objectFit="cover"
             quality={100}
-          />
+            width={600}
+            height={600}
+          /> */}
         </div>
         
 
-        <div className="max-w-7xl mx-auto text-center relative z-20">
+        <div className=" mx-auto text-center relative z-20">
           <div className="flex flex-col md:flex-row justify-between items-center px-5 sm:px-0">
             {/* Left Side - Journey */}
             <div className="w-full text-left mb-10 md:mb-0 md:w-1/2">
               <div className="he2 pl-4 md:pl-36">Journey</div>
-              <p className="mt-4 text-gray-400 t1 pl-4 md:pl-72 sm:te3 ">
-                We are passionate about enhancing the <br /> way architects and drafters work. Our <br /> mission is to streamline the architectural <br /> drawing process.
+              <p className="mt-4 text-gray-400 t1 pl-40 md:pl-96 sm:te3 ">
+                We are passionate about enhancing the  way architects and drafters work. Our  mission is to streamline the architectural <br /> drawing process.
               </p>
             </div>
             {/* Right Side - Since */}
-            <div className="w-full text-left md:text-right md:w-1/2 pr-4 md:pr-96">
-              <div className="sm:h1  lg:he2 md:h1">Since 2022</div>
+            <div className="w-full text-left md:text-right md:w-1/2  md:pr-96">
+              <div className="h2">Since 2022</div>
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12">

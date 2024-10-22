@@ -3,12 +3,12 @@ import Image from "next/image";
 const DescriptionTwo = () => {
   return (
     <>
-      <div className="bg-white z-0 overflow-hidden">
+      <div className="bg-white mt-10 z-0 overflow-hidden">
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-4 sm:p-32 h-screen">
           
           {/* Text Content Section */}
           <div className="px-4 py-2 z-10">
-            <p className="text-black he2">Key Benefits of Draftflow for Your Firm</p>
+            <p className="text-black h3  sm:he2">Key Benefits of Draftflow for Your Firm</p>
             <p className="t1 py-4 text-gray-700">
             Draftflow is designed specifically for firms in the AEC industry. Through this one unique system, Draftflow benefits a large set of stakeholders:             </p>
           

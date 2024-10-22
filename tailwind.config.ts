@@ -26,6 +26,10 @@ module.exports = {
           lineHeight:'1.125em',
           letterSpacing:'0.000em'
         }],
+        'he3': ['3.625em',{
+          lineHeight:'1.125em',
+          letterSpacing:'0.000em'
+        }],
         'h1': ['3.125em',{
           lineHeight:'1.120em',
           letterSpacing:'0.000em'
@@ -178,6 +182,7 @@ module.exports = {
         'bg_img_blogPage': "url('/left_globe.jpg')",
         'bg-img-2': "url('/img-2.png')",
         'feature-bg': "url('/feature-bg.png')",
+        "ab-bg": 'url("/about_us/bg-charcoal.svg")',
         pattern: "url('/pattern.png')",
         'pattern-2': "url('/pattern-bg.png')",
         'about-us-header': "url('/about_us/about_us_header.png')",

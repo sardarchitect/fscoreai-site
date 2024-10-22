@@ -1,46 +1,117 @@
-import Image from "next/image";
-import Link from "next/link";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { useState } from "react";
 
-const HeroSection = () => {
+type FormValues = {
+  email: string;
+};
+
+const HeroSection: React.FC = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormValues>();
+
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const addUserData = async (data: FormValues) => {
+    try {
+      setLoading(true);
+      const response = await fetch("/api/email/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add user data");
+      }
+
+      const responseData = await response.json();
+      console.log("User data added successfully:", responseData);
+      reset();
+    } catch (error) {
+      console.error("Error adding user data:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    console.log("Email submitted:", data.email);
+    await addUserData(data);
+  };
+
   return (
-    <section className="relative grid grid-cols-12 max-w-7xl mx-auto py-10 pb-32 lg:py-20 items-center">
-      {/* Left Section: Text Content */}
-      <div className="col-span-12 lg:col-span-6 flex flex-col justify-center space-y-6 px-6">
-        <p className="he2 text-start text-gray-900 leading-tight">
-          Revolutionize your firm's quality control process using Draftflow.
-        </p>
-        <p className="te2 text-start text-gray-600">
-        Draftflow catches production drawing mistakes early, <br /> leading to faster review times while reducing <br /> architect-caused change orders.        </p>
-        <div className="">
-        <form className="flex w-full max-w-lg ">
-          <input
-            type="email"
-            placeholder="Enter your Email Address..."
-            className="flex px-4 py-2 border rounded-l-lg shadow-2xl text-gray-700"
-          />
-          <button className="bg-blue-500 text-white px-6 py-2 rounded-l-lg rounded-r-lg hover:bg-blue-600">
-            Subscribe
-          </button>
-        </form>
+    <section
+      className="relative w-full h-screen flex items-center  justify-center text-center"
+      style={{
+        backgroundImage: `url(/heroimg.png), url(/herobg.jpg)`,
+        backgroundSize: "cover, cover",
+        backgroundPosition: "center, ceter",
+        backgroundRepeat: "no-repeat, no-repeat",
+      }}
+    >
+      {/* Overlay for darkening the background slightly */}
+      <div className="absolute inset-0  opacity-20 z-0"></div>
+
+      {/* Content Section */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
+        {/* Left Section: Text Content */}
+        <div className="col-span-12 lg:col-span-6 flex text-start mt-28 mb-48 flex-col justify-center">
+          <p className="h3 sm:he3 font-semibold text-Mercury-50">
+            Revolutionize <span className="text-[#666666]">your firm's</span> quality control <span className="text-[#666666]">process using</span> Draftflow.
+          </p>
+          <p className="mt-4 te2 text-gray-50">
+            Draftflow catches production drawing mistakes early, <br />
+            leading to faster review times while reducing <br />
+            architect-caused change orders.
+          </p>
+
+          {/* Subscribe Form */}
+          <div className="mt-8 text-start">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex justify-center lg:justify-start"
+            >
+              {/* Email Input */}
+              <input
+                type="email"
+                placeholder="Enter your Email Address..."
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^\S+@\S+$/i,
+                    message: "Invalid email address",
+                  },
+                })}
+                className={`px-4 py-2 border rounded-l-lg shadow-2xl  text-gray-700 ${
+                  errors.email ? "border-red-500" : ""
+                }`}
+              />
+
+              {/* Validation Error Message */}
+              {errors.email && (
+                <p className="text-red-500 text-sm">{errors.email.message}</p>
+              )}
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="bg-blue-500 text-white px-6 py-2 rounded-r-lg hover:bg-blue-600"
+                disabled={loading}
+              >
+                {loading ? "Subscribing..." : "Subscribe"}
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
 
-      {/* Right Section: Background Image */}
-      <div className="col-span-12 lg:col-span-6 relative h-96">
-        <div className="absolute inset-0 bg-gray-100">
-          {/* Placeholder for background image */}
-          <Image
-            src="/hero_img.png"
-            alt="Hero Background"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-      </div>
-
-      {/* Bottom Section: Email Subscription */}
-      <div className="col-span-12 flex justify-center mt-8">
-
+        {/* Right Section: Empty Space for Balance */}
+        <div className="col-span-12 lg:col-span-6"></div>
       </div>
     </section>
   );

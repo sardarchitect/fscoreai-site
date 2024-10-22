@@ -1,12 +1,13 @@
 
 // NAVIGATION
 export const NAV_LINKS = [
-  { href: '/blogs', key: 'blogs', label: 'Blogs' },
-  { href: '/about_us', key: 'about_us', label: 'About Us' },
+  
+  { href: '/about_us', key: 'about_us', label: 'About' },
   { href: '/contact_us', key: 'contact_us', label: 'Contact Us' },
-  { href: '/login' , key: 'login', label: 'Login'},
-  { href: '/logout' , key: 'logout', label: 'Logout'},
-  { href: '/pricing', key: 'pricing', label:'Pricing'},
+    { href: '/logout' , key: 'logout', label: 'Logout'},
+  // { href: '/blogs', key: 'blogs', label: 'Blogs' },
+  // { href: '/login' , key: 'login', label: 'Login'},
+  // { href: '/pricing', key: 'pricing', label:'Pricing'},
 ];
 
 export const FOOTER_CONTACT_INFO = {
