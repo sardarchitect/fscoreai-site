@@ -7,7 +7,7 @@ export const organizationTable = pgTable('organization', {
     orgId: uuid('org_id').defaultRandom().primaryKey(),
     name: varchar('name', { length: 255 }),
     contact: jsonb('contact').notNull().default('{}'),
-    currentPlan: varchar('current_plan', { length: 100 }),
+    currentPlan: varchar('current_plan', { length: 100 }).default("free"),
     members: jsonb('members').notNull().default('[]'), 
     managers: jsonb('managers').notNull().default('[]'), 
     adminUserId: uuid('admin_user_id').notNull().references(() => usersTable.id, { onDelete: 'cascade' }),

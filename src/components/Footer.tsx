@@ -80,7 +80,7 @@ const Footer = () => {
           <button className="bg-gray-800 p-3 rounded-lg w-40">Subscribe</button> */}
         </div>
       </footer>
-      <footer className="bg-[#0c0b16] text-black text-center p-8 lg:px-8">
+      <footer className="bg-[#0c0b16] text-gray-400 text-center p-8 lg:px-8 ">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8">
           {/* Left Section with Logo and Description */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">

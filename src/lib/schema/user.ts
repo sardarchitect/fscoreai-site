@@ -1,7 +1,11 @@
 import { sql } from 'drizzle-orm';
-import { pgTable, uuid, varchar, text, timestamp, integer } from 'drizzle-orm/pg-core';
+import { pgTable, uuid, varchar, text, timestamp, integer, pgEnum } from 'drizzle-orm/pg-core';
 import { db } from '../db';
 import { organizationTable } from './organization';
+
+// Enum for user roles
+export const rolesEnum = pgEnum("role", ["admin", "member", "manager", "user"]);
+
 
 // Define the 'users' table schema using Drizzle ORM
 export const usersTable: any = pgTable('users', {
@@ -12,6 +16,7 @@ export const usersTable: any = pgTable('users', {
     password: varchar('password', { length: 255 }).notNull(),
     jobTitle: varchar('job_title', { length: 100 }),
     companyName: varchar('company_name', { length: 255 }),
+    // role: rolesEnum().default("user"),
     role: varchar('role', { length: 20 }).default('user'),
     shortDescription: text('short_description'),
     createdAt: timestamp('created_at', { withTimezone: false }).defaultNow(),
