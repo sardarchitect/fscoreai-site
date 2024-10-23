@@ -16,19 +16,23 @@ module.exports = {
       fontSize: {
         'he0': ['6.250em',{
           lineHeight:'1.120em',
-          letterSpacing:'0.063em'
+          letterSpacing:'0.000em'
         }],
         'he1': ['4.750em',{
           lineHeight:'1.105em',
-          letterSpacing:'0.048em'
+          letterSpacing:'0.000em'
         }],
         'he2': ['4.000em',{
           lineHeight:'1.125em',
-          letterSpacing:'0.040em'
+          letterSpacing:'0.000em'
+        }],
+        'he3': ['3.625em',{
+          lineHeight:'1.125em',
+          letterSpacing:'0.000em'
         }],
         'h1': ['3.125em',{
           lineHeight:'1.120em',
-          letterSpacing:'0.031em'
+          letterSpacing:'0.000em'
         }],
         'h2': ['2.500em',{
           lineHeight:'1.100em',
@@ -51,7 +55,7 @@ module.exports = {
           letterSpacing:'0.000em'
         }],
         'te2': ['1.125em',{
-          lineHeight:'1.333em',
+          lineHeight:'1.5em',
           letterSpacing:'0.000em'
         }],
          'te3': ['0.875em',{
@@ -178,6 +182,7 @@ module.exports = {
         'bg_img_blogPage': "url('/left_globe.jpg')",
         'bg-img-2': "url('/img-2.png')",
         'feature-bg': "url('/feature-bg.png')",
+        "ab-bg": 'url("/about_us/bg-charcoal.svg")',
         pattern: "url('/pattern.png')",
         'pattern-2': "url('/pattern-bg.png')",
         'about-us-header': "url('/about_us/about_us_header.png')",

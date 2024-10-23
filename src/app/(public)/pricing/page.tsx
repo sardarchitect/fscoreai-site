@@ -1,5 +1,4 @@
-'use client'
-import PricingToggle from '@/src/components/pricing_components/PricingToggle';
+'use client';
 import React, { useState } from 'react';
 
 const Pricing: React.FC = () => {
@@ -40,7 +39,7 @@ const Pricing: React.FC = () => {
 
   // Define features for each plan
   const basicFeatures = [true, true, true, false, false, false, false, false, false, false, false];
-  const proFeatures = [true, true, true, true, true, true, false, true, true, true, false];
+  const proFeatures = [true, true, true, true, false, false, false, true, true, true, true];
   const enterpriseFeatures = [true, true, true, true, true, true, true, true, true, true, true];
 
   return (
@@ -51,12 +50,12 @@ const Pricing: React.FC = () => {
       </p>
 
       {/* Monthly/Yearly Toggle */}
-      <div className="flex justify-center mb-8">
-        <div className="inline-flex p-1 bg-gray-200 rounded-lg">
+      <div className="flex justify-center  mb-8">
+        <div className="inline-flex p-1 bg-gray-200 border-black border rounded-lg">
           <button
             onClick={toggleMonthly}
             className={`px-4 py-2 rounded-l-lg text-sm font-medium ${
-              !isYearly ? 'bg-white text-black' : 'text-gray-500'
+              !isYearly ? 'bg-Charcoal-80 text-white' : 'text-gray-500'
             }`}
           >
             Monthly
@@ -64,16 +63,16 @@ const Pricing: React.FC = () => {
           <button
             onClick={toggleYearly}
             className={`px-4 py-2 rounded-r-lg text-sm font-medium ${
-              isYearly ? 'bg-gray-90 text-white' : 'text-gray-500'
+              isYearly ? 'bg-Charcoal-80 text-white' : 'text-Charcoal-80'
             }`}
           >
-            Yearly <span className="ml-1 text-xs text-gray-500">Save 40%</span>
+            Yearly <span className="ml-1 text-xs text-Charcoal-40">Save 40%</span>
           </button>
         </div>
       </div>
 
-      {/* Plan Selection for Mobile View */}
-      <div className="flex flex-col overflow-y-scroll space-y-4 mb-8 lg:hidden">
+      {/* Plan Selection for Mobile View (Hidden on md and larger) */}
+      <div className="flex flex-col overflow-y-scroll space-y-4 mb-8 md:hidden">
         {['basic', 'pro', 'enterprise'].map((plan) => (
           <button
             key={plan}
@@ -84,56 +83,66 @@ const Pricing: React.FC = () => {
           >
             <div className="flex items-center space-x-2">
               {/* Circle with Tick */}
-              <span className={`flex items-center justify-center w-5 h-5 border-2 rounded-full ${
-                selectedPlan === plan ? 'border-black text-white bg-black' : 'border-gray-300 text-white'
-              }`}>
+              <span
+                className={`flex items-center justify-center w-5 h-5  rounded-full ${
+                  selectedPlan === plan ? 'border-black text-white bg-black' : 'border-gray-300 text-white'
+                }`}
+              >
                 {selectedPlan === plan && <span>✓</span>}
               </span>
               {/* Plan name */}
-              <span className="text-sm font-semibold">
-                {plan.charAt(0).toUpperCase() + plan.slice(1)}
-              </span>
+              <span className="text-sm font-semibold">{plan.charAt(0).toUpperCase() + plan.slice(1)}</span>
             </div>
             <span className="font-bold">
               {pricing[plan as 'basic' | 'pro' | 'enterprise'][isYearly ? 'yearly' : 'monthly']}
             </span>
+
+            {/* Display Popular Badge for Pro Plan */}
+            {plan === 'pro' && (
+              <span className="bg-gray-700 text-white px-2 py-1 text-xs font-bold rounded-full ml-2">
+                Popular
+              </span>
+            )}
           </button>
         ))}
       </div>
 
-      {/* Scrollable Features List */}
-      <div className="mt-4 lg:hidden overflow-y-scroll max-h-48 border border-black rounded-lg p-4">
+      {/* Scrollable Features List for Mobile (Hidden on md and larger) */}
+      <div className="mt-4 md:hidden overflow-y-scroll max-h-48   shadow-Venus-50 shadow-inner bg-Charcoal-10 rounded-lg p-4">
         <h4 className="font-bold mb-2">{`${selectedPlan.charAt(0).toUpperCase() + selectedPlan.slice(1)} Plan Includes:`}</h4>
         <ul className="list-disc ml-5">
-          {selectedPlan === 'basic' && basicFeatures.map(
-            (isIncluded, index) => isIncluded && <li key={index} className="text-sm">{features[index]}</li>
-          )}
-          {selectedPlan === 'pro' && proFeatures.map(
-            (isIncluded, index) => isIncluded && <li key={index} className="text-sm">{features[index]}</li>
-          )}
-          {selectedPlan === 'enterprise' && enterpriseFeatures.map(
-            (isIncluded, index) => isIncluded && <li key={index} className="text-sm">{features[index]}</li>
-          )}
+          {selectedPlan === 'basic' &&
+            basicFeatures.map(
+              (isIncluded, index) => isIncluded && <><p key={index} className="text-sm py-2">✔{features[index]}</p><hr /></>
+            )}
+          {selectedPlan === 'pro' &&
+            proFeatures.map(
+              (isIncluded, index) => isIncluded && <><p key={index} className="text-sm py-2">✔{features[index]}</p><hr /></>
+            )}
+          {selectedPlan === 'enterprise' &&
+            enterpriseFeatures.map(
+              (isIncluded, index) => isIncluded && <><p key={index} className="text-sm py-2"> ✔ {features[index]}</p><hr/></>
+            )}
         </ul>
       </div>
 
-      {/* Call to Action: fixed button for mobile/tablet */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white p-4 lg:hidden">
-        <button className="bg-black text-white w-full px-4 py-2 rounded-full">
-          Choose This Plan {selectedPlan.charAt(0).toUpperCase() + selectedPlan.slice(1)} -{' '}
+      {/* Call to Action: fixed button for mobile/tablet (Hidden on md and larger) */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white c2 space-y-3 text-center p-4 shadow-2xl shadow-black md:hidden">Continue to subscription period for
+        <button className="bg-black text-white mt-3 w-full px-4 py-2 te3 h-14 rounded-l-lg rounded-r-lg">
+          Fscore {selectedPlan.charAt(0).toUpperCase() + selectedPlan.slice(1)} -{' '}
           {isYearly ? pricing[selectedPlan].yearly : pricing[selectedPlan].monthly}
         </button>
       </div>
 
-      {/* Full Pricing Table - Only visible on larger screens */}
-      <div className="hidden lg:block mt-8">
+      {/* Full Pricing Table - Visible on md and larger */}
+      <div className="hidden md:block mt-8">
         <table className="w-full table-auto border-collapse">
           <thead>
             <tr>
               <th className="border px-4 py-4 text-left">
                 <div className="flex flex-col items-start space-y-2">
-                  <h3 className="text-lg te1">Compare plans</h3>
-                  <span className="bg-white text-gray-700 border border-gray-400 rounded-full px-2 py-1 text-sm">40% Off</span>
+                  <p className="text-lg flex te1">Compare plans
+                  <span className="bg-white text-gray-700 border border-gray-400 rounded-full px-2 mx-3 py-1 text-sm">40% Off</span></p>
                   <p className="te4 text-gray-500">
                     Choose your workspace plan <br /> according to your organizational plan
                   </p>
@@ -154,7 +163,7 @@ const Pricing: React.FC = () => {
                         Popular
                       </span>
                     )}
-                    <button className="bg-black text-white px-4 py-2 rounded-full">
+                    <button className="bg-black text-white px-4 py-2 rounded-l-lg rounded-r-lg">
                       Choose This Plan
                     </button>
                   </div>
@@ -167,20 +176,20 @@ const Pricing: React.FC = () => {
               <tr key={index}>
                 <td className="border px-4 py-4 te3 text-left">{feature}</td>
                 <td className="border px-4 py-4 text-center">
-                  {basicFeatures[index] ? '✔' : '✘'}
+                  {basicFeatures[index] ? '✔' : ''}
                 </td>
                 <td className="border px-4 py-4 text-center">
-                  {proFeatures[index] ? '✔' : '✘'}
+                  {proFeatures[index] ? '✔' : ''}
                 </td>
                 <td className="border px-4 py-4 text-center">
-                  {enterpriseFeatures[index] ? '✔' : '✘'}
+                  {enterpriseFeatures[index] ? '✔' : ''}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      </div>
+    </div>
   );
 };
 

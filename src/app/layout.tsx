@@ -45,7 +45,7 @@ export default function RootLayout({
             <PageUpdateProvider>
               <Navbar></Navbar>
               {/* <Header/> */}
-              <main>{children}</main>
+              <main className="mx-auto flex max-w-7xl items-center  justify-between p-4 lg:px-8">{children}</main>
               <CookieConsent/>
               <Footer></Footer>
             </PageUpdateProvider>

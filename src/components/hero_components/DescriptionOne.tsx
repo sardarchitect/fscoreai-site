@@ -1,34 +1,40 @@
+import Link from "next/link";
 import Image from "next/image";
 
 const DescriptionOne = () => {
   return (
-    <>
-      <div className="bg-blue-500 z-0 overflow-hidden">
-        <div className="relative flex flex-wrap sm:p-32 bg-black bg-opacity-90 h-screen">
-          <Image
-            src={"/left_globe.jpg"}
-            height={500}
-            width={500}
-            alt="ai pics"
-            className="hidden sm:block w-3/5 top-0 left-0 absolute z-0"
-          />
-          <div className="w-full sm:w-1/2 lg:w-1/2 "></div>
+    <section className="relative w-full h-screen space-y-10 grid grid-cols-12">
+      {/* Full-width Background Image */}
+      <div className="absolute inset-0 col-span-12 z-0">
+        <div
+          className="w-full h-full bg-cover bg-center"
+          style={{ backgroundImage: 'url("/about_us/bg-charcoal.svg")' }}
+        >
+          {/* Replace "/path-to-your-image.svg" with your actual background image */}
+        </div>
+      </div>
 
-          <div className=" w-full sm:w-full lg:w-1/2 px-4 py-2 z-10">
-            <p className="text-xl font-bold text-sky-500">About AI</p>
-            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 py-2 text-white">
-              Heading Here
-            </h2>
-            <p className="text-sm sm:text-base lg:text-lg py-4 text-white">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-              deleniti dolorem necessitatibus perspiciatis saepe esse voluptates
-              fugit quisquam aspernatur itaque laboriosam voluptatum voluptas
-              distinctio ut dolorum, veritatis voluptatem hic quas.
-            </p>
+      {/* Centered Text in Grid Layout */}
+      <div className="relative z-10 col-span-12 flex items-center justify-center">
+        <div className="text-center px-8">
+          <p className="sm:he2 h3 text-white">
+          Create <span className="text-Earth-50">Flawless</span> Drawings <br />  with <span className="text-Earth-50">Draftflow</span>
+          </p>
+          <p className="mt-6 t1 text-gray-300 max-w-lg mx-auto">
+            Draftflow is a subscription-based software that provides real-time, context-specific assistance to architects and engineers during production of drawings in Autodesk Revit.
+          </p>
+
+          {/* Call-to-Action Button with Link */}
+          <div className="mt-8">
+            <Link href="/book-demo">
+              <p className="bg-blue-500 text-white px-6 py-3  rounded-l-lg rounded-r-lg c1 hover:bg-blue-600">
+                Book a Demo
+              </p>
+            </Link>
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

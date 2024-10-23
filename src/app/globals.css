@@ -12,6 +12,7 @@
 
 body {
   font-family: Inter;
+  
 }
 
 @layer base{
@@ -25,6 +26,10 @@ body {
   }
   .he2 {
     @apply text-he2;
+    @apply font-bold;
+  }
+  .he3 {
+    @apply text-he3;
     @apply font-bold;
   }
   .h1 {
@@ -230,4 +235,5 @@ body {
   .form button:hover {
     background-color: #3e8e41;
   }
+  
 }
