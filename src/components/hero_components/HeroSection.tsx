@@ -47,7 +47,7 @@ const HeroSection: React.FC = () => {
 
   return (
     <section
-      className="relative w-full h-screen flex items-center  justify-center text-center"
+      className="relative w-full h-screen flex items-center bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] justify-center text-center"
       style={{
         backgroundImage: `url(/heroimg.png), url(/herobg.jpg)`,
         backgroundSize: "cover, cover",
@@ -63,12 +63,12 @@ const HeroSection: React.FC = () => {
         {/* Left Section: Text Content */}
         <div className="col-span-12 lg:col-span-6 flex text-start mt-28 mb-48 flex-col justify-center">
           <p className="h3 sm:he3 font-semibold text-Mercury-50">
-            Revolutionize <span className="text-[#666666]">your firm's</span> quality control <span className="text-[#666666]">process using</span> Draftflow.
+            Revolutionize <span className="text-[#666666]">your AEC firm's</span> quality control <span className="text-[#666666]">process with</span> Draftflow.
           </p>
           <p className="mt-4 te2 text-gray-50">
-            Draftflow catches production drawing mistakes early, <br />
-            leading to faster review times while reducing <br />
-            architect-caused change orders.
+            Draftflow catches production drawing mistakes early, 
+            speeding up the review process and preventing  
+            construction delays and changes.
           </p>
 
           {/* Subscribe Form */}
@@ -93,7 +93,7 @@ const HeroSection: React.FC = () => {
                 }`}
               />
 
-              {/* Validation Error Message */}
+              {/* Validation Error Message */}                                                                                                                                                                                                                                    
               {errors.email && (
                 <p className="text-red-500 text-sm">{errors.email.message}</p>
               )}
