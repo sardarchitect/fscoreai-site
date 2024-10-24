@@ -1,4 +1,5 @@
-export const pricingPlans: PricingPlan[] =  [
+// export const pricingPlans: PricingPlan[] =  [
+  export const pricingPlans: any=  [
     {
       title: 'Basic',
       description: 'Choose your workspace plan',

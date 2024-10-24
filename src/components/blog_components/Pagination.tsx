@@ -90,7 +90,7 @@ useEffect(() => {
                   onClick={() => {
                     hendlePage("setPage", index + 1);
                   }}
-                  aria-current="currentPage"
+                  aria-current={currentPage === index + 1 ? "page" : undefined}
                   className={`relative  cursor-pointer z-10 inline-flex items-center ${
                     index + 1 === currentPage
                       ? "bg-indigo-600 "

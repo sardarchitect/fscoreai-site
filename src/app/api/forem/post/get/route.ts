@@ -3,25 +3,25 @@ import { db } from '@/src/lib/db';
 import { hasAuth } from '@/src/lib/Middleware/hasAuth';
 import { postsTable } from '@/src/lib/schema/forem';
 import { eq } from 'drizzle-orm';
-import { likePostQueue } from '@/src/lib/queues/likePostQueue';
+import { likePostQueue } from '@/src/lib/queues/postQueue';
 
-export const checkAndAddLikePostJob = async (postId: string, userId: string) => {
-  const jobId = `like-post-${postId}-${userId}`;
+// export const checkAndAddLikePostJob = async (postId: string, userId: string) => {
+//   const jobId = `like-post-${postId}-${userId}`;
 
-  // const existingJob = await likePostQueue.getJobs();
-  const existingJob = await likePostQueue.getJobCounts('wait', 'completed', 'failed');
-//  await worker
-  if (existingJob) {
-    console.log(`Job already exists for postId: ${postId} and userId: ${JSON.stringify(existingJob, null, 2)} `);
-    return existingJob; // Return the existing job instead of adding a new one
-  }
-  return existingJob; // Return the existing job instead of adding a new one
-};
+//   // const existingJob = await likePostQueue.getJobs();
+//   const existingJob = await likePostQueue.getJobCounts('wait', 'completed', 'failed');
+// //  await worker
+//   if (existingJob) {
+//     console.log(`Job already exists for postId: ${postId} and userId: ${JSON.stringify(existingJob, null, 2)} `);
+//     return existingJob; // Return the existing job instead of adding a new one
+//   }
+//   return existingJob; // Return the existing job instead of adding a new one
+// };
 
 
 export async function GET(request: Request) {
   // Authentication check
-  const authResponse = await hasAuth(request);
+  const authResponse = await hasAuth();
   if (!authResponse.ok) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }

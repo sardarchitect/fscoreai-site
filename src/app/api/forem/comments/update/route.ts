@@ -7,7 +7,7 @@ import { commentsTable } from '@/src/lib/schema/forem';
 import { handleErrorResponse } from '@/src/types/api_response';
 
 export async function PUT(request: NextRequest) {
-  const authResponse = await hasAuth(request);
+  const authResponse = await hasAuth();
   if (!authResponse.ok) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }

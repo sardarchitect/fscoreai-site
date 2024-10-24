@@ -26,7 +26,7 @@ const handleViewsIncrement = (currentViews: number, increment?: boolean): number
 // API to handle updating a post
 export async function PUT(request: Request) {
   // **Authentication Check**  
-  const authResponse = await hasAuth(request);
+  const authResponse = await hasAuth();
   if (!authResponse.ok) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }

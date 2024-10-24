@@ -4,7 +4,7 @@ import { Resend } from "resend";
 export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY)
   const fromEmail = process.env.FROM_EMAIL;
-  const body: User = await req.json();
+  const body = await req.json();
   const { name, email, company_name, job_title, short_description } = body; 
 
   try {

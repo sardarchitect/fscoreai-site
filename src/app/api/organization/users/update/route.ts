@@ -12,7 +12,7 @@ import { usersTable } from '@/src/lib/schema/user';
 /**
  * Check if the session user matches the organization.
  */
-export async function checkSessionUser(trx: any, sessionUser: User) {
+async function checkSessionUser(trx: any, sessionUser: User) {
 
   const result = await trx
     .select({ orgId: usersTable.orgId, role: usersTable.role })
@@ -174,7 +174,7 @@ managers.forEach((newManager) => {
  */
 export async function PUT(request: NextRequest) {
   // Check authentication
-  const authResponse = await hasAuth(request);
+  const authResponse = await hasAuth();
   if (!(authResponse.ok === true)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
@@ -216,7 +216,7 @@ export async function PUT(request: NextRequest) {
  */
 export async function DELETE(request: NextRequest) {
   // Check authentication
-  const authResponse = await hasAuth(request);
+  const authResponse = await hasAuth();
   if (!(authResponse.ok === true)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }

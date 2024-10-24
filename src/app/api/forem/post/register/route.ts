@@ -6,7 +6,7 @@ import { generateUniqueSlug } from '@/src/lib/actions/posts';
 
 export async function POST(request: Request) {
   // Authentication check
-  const authResponse = await hasAuth(request);
+  const authResponse = await hasAuth();
   if (!authResponse.ok) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }

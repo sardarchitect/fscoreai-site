@@ -2,8 +2,6 @@ import { pgTable as table } from "drizzle-orm/pg-core";
 import * as t from "drizzle-orm/pg-core";
 import { usersTable } from "./user";
 import { sql } from "drizzle-orm";
-import { db } from "../db";
-
 
 // Posts table
 export const postsTable: any = table(
@@ -46,6 +44,23 @@ export const postLikesTable: any = table(
   }
 );
 
+
+  // views table to store who view the post
+  export const postViewsTable: any = table(
+    "post_views",
+    {
+      id: t.uuid("id").primaryKey().defaultRandom(),
+      postId: t.uuid("post_id").references(() => postsTable.id, { onDelete: 'cascade' }), // Foreign key to the post
+      userId: t.uuid("user_id").references(() => usersTable.id, { onDelete: 'set null' }).default("user-was-removed"), // Foreign key to the user
+      createdAt: t.timestamp("created_at", { withTimezone: false }).defaultNow(),
+    },
+    (table) => {
+      return {
+        viewIndex: t.uniqueIndex("view_idx").on(table.postId, table.userId), // Unique index to prevent duplicate likes
+      };
+    }
+  );
+  
 
 // Comments table
 export const commentsTable: any = table(
