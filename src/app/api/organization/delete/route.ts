@@ -11,7 +11,7 @@ import { User } from 'next-auth';
 
 export async function DELETE(req: NextRequest) {
   //  Authenticate the request
-  const authResponse = await hasAuth(req);
+  const authResponse = await hasAuth();
   if (!(authResponse.ok === true)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }

@@ -6,7 +6,7 @@ import { eq } from 'drizzle-orm';
 
 export async function POST(request: NextRequest) {
   // Check for user authentication
-  const authResponse = await hasAuth(request);
+  const authResponse = await hasAuth();
   if (!authResponse.ok) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }

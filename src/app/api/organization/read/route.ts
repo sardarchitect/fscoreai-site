@@ -31,7 +31,7 @@ async function getOrganization({
  */
 export async function GET(request: Request) {
   // Authentication check
-  const authResponse = await hasAuth(request);
+  const authResponse = await hasAuth();
   if (!(authResponse.ok === true)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }

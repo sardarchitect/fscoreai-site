@@ -15,21 +15,21 @@ export default function Home() {
   const [theme] = useThemeContext();
   const { data: session, status, update } = useSession()
 
-  // Polling the session every 1 hour
-  useEffect(() => {
-    const interval = setInterval(() => update(), 1000 * 12)
-    return () => clearInterval(interval)
-  }, [update])
+  // // Polling the session every 1 hour
+  // useEffect(() => {
+  //   const interval = setInterval(() => update(), 1000 * 12)
+  //   return () => clearInterval(interval)
+  // }, [update])
 
-  // Listen for when the page is visible, if the user switches tabs
-  // and makes our tab visible again, re-fetch the session
-  useEffect(() => {
-    const visibilityHandler = () =>
-      document.visibilityState === "visible" && update()
-    window.addEventListener("visibilitychange", visibilityHandler, false)
-    return () =>
-      window.removeEventListener("visibilitychange", visibilityHandler, false)
-  }, [update])
+  // // Listen for when the page is visible, if the user switches tabs
+  // // and makes our tab visible again, re-fetch the session
+  // useEffect(() => {
+  //   const visibilityHandler = () =>
+  //     document.visibilityState === "visible" && update()
+  //   window.addEventListener("visibilitychange", visibilityHandler, false)
+  //   return () =>
+  //     window.removeEventListener("visibilitychange", visibilityHandler, false)
+  // }, [update])
 
   return (
     <div className="">

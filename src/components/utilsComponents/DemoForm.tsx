@@ -119,7 +119,9 @@ const DemoForm = ({open} :any) => {
                         placeholder="Enter your name"
                         className="block w-full rounded-md border-0 py-1.5 p-2 sm:p-4 shadow-sm ring-1 ring-inset dark:ring-gray-300 dark:bg-rgb-2-6-23 focus:ring-2 focus:ring-inset dark:focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
-                      {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
+                      {errors.name && <p className="text-red-500 text-sm mt-1">
+                        {typeof errors.name.message === "string" ? errors.name.message : ""}
+                      </p>}
                     </div>
                   </div>
 
@@ -140,7 +142,9 @@ const DemoForm = ({open} :any) => {
                         placeholder="Enter your email"
                         className="block w-full rounded-md border-0 py-1.5 p-2 sm:p-4 shadow-sm ring-1 ring-inset dark:ring-gray-300 dark:bg-rgb-2-6-23 focus:ring-2 focus:ring-inset dark:focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
-                      {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
+                      {errors.email && <p className="text-red-500 text-sm mt-1">
+                        {typeof errors.email.message === "string" ? errors.email.message : ""}
+                      </p>}
                     </div>
                   </div>              
 
@@ -190,7 +194,9 @@ const DemoForm = ({open} :any) => {
                         placeholder="Write your thoughts here..."
                         className="block w-full rounded-md border-0 py-1.5 p-2 sm:p-4 shadow-sm ring-1 ring-inset dark:bg-rgb-2-6-23 dark:ring-gray-100 focus:ring-2 focus:ring-inset dark:focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       ></textarea>
-                      {errors.short_description && <p className="text-red-500 text-sm mt-1">{errors.short_description.message}</p>}
+                      {errors.short_description && <p className="text-red-500 text-sm mt-1">
+                        {typeof errors.short_description.message === "string" ? errors.short_description.message : ""}
+                      </p>}
                     </div>
                   </div>
 

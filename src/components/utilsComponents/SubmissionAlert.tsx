@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SubmissionAlert = ({ type, message }) => {
+const SubmissionAlert = ({ type, message }: {type: string, message: string}) => {
   // Define alert color classes based on type
   let colorClass = '';
   if (type === 'success') {

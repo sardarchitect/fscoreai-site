@@ -1,7 +1,7 @@
 // src/app/api/likePost/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { hasAuth } from '@/src/lib/Middleware/hasAuth';
-import { likePostQueue } from '@/src/lib/queues/postQueue';
+import { likePostQueue, viewPostQueue } from '@/src/lib/queues/postQueue';
 import startWorker from '@/src/lib/queues/postProcessor';
 
 export async function POST(request: NextRequest) {
@@ -20,7 +20,8 @@ export async function POST(request: NextRequest) {
     }
     await startWorker()
 
-    await likePostQueue.add('like-post', { postId, userId });
+    await viewPostQueue.add('view-post', { postId, userId });
+    // await likePostQueue.add('like-post', { postId, userId });
 
     return NextResponse.json({ message: `added to queue` }, { status: 200 });
   } catch (error) {

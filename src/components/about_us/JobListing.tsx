@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 
-const JobListing = ({ sNo, title, description, timePosted, jobRole }) => {
+const JobListing = ({ sNo, title, description, timePosted, jobRole }: any) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Toggles the isOpen state

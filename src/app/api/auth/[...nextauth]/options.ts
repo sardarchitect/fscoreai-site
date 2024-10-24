@@ -2,8 +2,8 @@ import Credentials from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcrypt";
 import { query } from '@/src/lib/db';
-import { JWT, Session, SessionOptions, User } from "next-auth";
-import { signOut } from "next-auth/react";
+import { Session, SessionOptions, User } from "next-auth";
+import { JWT } from "next-auth/jwt";
 
 
 export const authOptions = {
@@ -26,7 +26,6 @@ export const authOptions = {
 
         if (!email || !password) {
           return null;
-          // throw new Error('Email and password are required')
         }
 
         try {
@@ -54,33 +53,23 @@ export const authOptions = {
 
     }),
   ],
-  session: {
-    strategy: "jwt",
-    maxAge: 7 * 60 * 60 * 24
-  },
  
   callbacks: {
     async jwt({ token, user }:  { token: JWT; user?: User }) {
-      // Persist the OAuth access_token and or the user id to the token right after signin
       if (user) {
-        token.role = user.role?.toString()
         token.id = user.id.toString()
+        token.role = user.role.toString()
         token.email = user.email.toString()
-        token.company_name = user.company_name?.toString()
       }
       return token
     },
 
     async session({ session, token }:  { session: Session; token: JWT }) {
-      // Send properties to the client, from a provider.
       if (token) {
-        session.user.role = token.role
         session.user.id = token.id
+        session.user.role = token.role
         session.user.email = token.email
-        session.user.company_name = token.company_name
       }
-      // console.log(session)
-
       return session
     },
     // async redirect({ url, baseUrl } : any) {
@@ -89,13 +78,16 @@ export const authOptions = {
     //   return baseUrl
     // },
 
-    debug: process.env.NODE_ENV !== "production",
-    // refetchInterval: 1 * 24 * 60 * 60,
+    debug: process.env.NODE_ENV !== "production"
 
   },
   pages: {
-    signIn: "/login",  // Custom login page
+    signIn: "/login"
   },
   secret: process.env.NEXTAUTH_SECRET,
+  session: {
+    strategy: "jwt"
+    // maxAge: 7 * 60 * 60 * 24
+  }
 }
 

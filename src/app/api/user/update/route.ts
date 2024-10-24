@@ -5,7 +5,7 @@ import { hasAuth } from '@/src/lib/Middleware/hasAuth';
 
 export async function PUT(req: Request) {
   // Retrieve the session
-  const authResponse = await hasAuth(req);
+  const authResponse = await hasAuth();
   if (!(authResponse.ok === true)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });  ; // Return the unauthorized response if exists
   const {user} = await authResponse.json();
   
