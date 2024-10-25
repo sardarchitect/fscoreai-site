@@ -33,6 +33,8 @@ const DescriptionThree = () => {
     animate(x, calculateOffset(newIndex)); // Animate the X offset to center the new card
   };
 
+  
+
   // Recalculate and update the card positions when the window is resized
   useEffect(() => {
     const handleResize = () => {
@@ -47,7 +49,7 @@ const DescriptionThree = () => {
   }, [currentIndex]);
 
   return (
-    <section className="relative bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-16 lg:py-24">
+    <section className="relative  bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-16 lg:py-24">
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className=" text-center">
@@ -60,7 +62,7 @@ const DescriptionThree = () => {
         </div>
 
         {/* Scrollable cards */}
-        <div className="relative mt-12 flex justify-center  items-center ">
+        <div className="relative mt-12   flex justify-center  items-center ">
           <motion.div
             className="flex space-x-6"
             style={{ x }} // Use x motion value for scrolling animation
@@ -73,7 +75,7 @@ const DescriptionThree = () => {
               return (
                 <motion.div
                   key={testimonial.id}
-                  className={`bg-white shadow-lg rounded-lg p-8 text-start w-96 space-x-10 flex-none transition-transform duration-300 transform ${
+                  className={`bg-white shadow-lg  rounded-lg p-8 text-start w-96 space-x-10 flex-none transition-transform duration-300 transform ${
                     isCenter
                       ? "scale-105 opacity-100 z-10" // Center card gets larger scale and full opacity
                       : isLeft

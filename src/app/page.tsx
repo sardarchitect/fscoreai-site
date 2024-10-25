@@ -1,6 +1,7 @@
 "use client"
 import { useThemeContext } from "@/src/context/theme";
 import DescriptionFour from "@/src/components/hero_components/DescriptionFour";
+import DescriptionFive from "@/src/components/hero_components/DescriptionFive";
 import DescriptionOne from "@/src/components/hero_components/DescriptionOne";
 import DescriptionThree from "@/src/components/hero_components/DescriptionThree";
 import DescriptionTwo from "@/src/components/hero_components/DescriptionTwo";
@@ -40,6 +41,7 @@ export default function Home() {
       <DescriptionTwo/>
       <DescriptionThree/>
       <DescriptionFour/>
+      <DescriptionFive />
     </div>
 
     </div>
