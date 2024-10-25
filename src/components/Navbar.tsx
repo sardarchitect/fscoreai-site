@@ -36,7 +36,7 @@ export default function Navbar() {
           <div className="flex  lg:flex-1">
             <Link href="/">
               {/* Light mode */}
-              <Image src="/Fscorebold.svg" alt="logo" width={171} height={50} />
+              <Image src="/fscorebold.svg" alt="logo" width={171} height={50} />
 
             </Link>
           </div>
