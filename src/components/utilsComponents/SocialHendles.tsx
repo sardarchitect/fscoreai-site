@@ -15,12 +15,7 @@ const SocialHendles = () => {
       <SocialIcon url="https://www.instagram.com/fscoreai?igsh=ejJvOXM4emFhampu" className='rounded-md transform hover:scale-110' bgColor="none" fgColor={`${color}`} />
       <SocialIcon url="https://www.linkedin.com/company/fscore/" className='  transform hover:scale-110' bgColor="none" fgColor={`${color}`} />
       <SocialIcon url="https://facebook.com" className='rounded-md transform hover:scale-110' bgColor="none" fgColor={`${color}`} />
-     
-
-
-        
-     
-    </div>
+     </div>
 </div>
     </div>
   )

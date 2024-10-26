@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <div >
-      <header className="top-0 left-0 right-0 z-50 fixed  backdrop-blur bg-white  bg-opacity-70 ">
+      <header className="top-0 left-0 right-0 z-50 fixed backdrop-blur bg-white bg-opacity-70 ">
         <nav className="mx-auto flex max-w-7xl items-center bg-transparent justify-between p-4 lg:px-8" aria-label="Global">
           {/* Logo Section */}
           <div className="flex  lg:flex-1">
@@ -77,7 +77,7 @@ export default function Navbar() {
         {/* Mobile View Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden">
-            <div className="fixed inset-0 z-10 bg-white dark:bg-theme-blue p-6">
+            <div className="lg:fixed md:fixed relative inset-0 z-10 bg-white dark:bg-theme-blue p-6">
               <div className="flex justify-between items-center">
                 <Link href="/">
                   <Image src="/darklogo.svg" alt="logo" width={50} height={10}  />

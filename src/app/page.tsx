@@ -7,7 +7,7 @@ import DescriptionTwo from "@/src/components/hero_components/DescriptionTwo";
 import Hero_one from "@/src/components/hero_components/HeroSection";
 import ProductReport from "@/src/components/hero_components/ProductReport";
 import { useSession } from "next-auth/react";
-import { useEffect } from "react";
+import StackedCards from "../components/hero_components/StackedCards";
 
 export default function Home() {
 
@@ -33,11 +33,13 @@ export default function Home() {
 
   return (
     <div className="">
-    <div className="text-white flex flex-col items-center w-full justify-center   m-auto ">
+    <div className="">
+    {/* <div className="text-white flex flex-col items-center w-full justify-center m-auto "> */}
       <Hero_one/>
       <ProductReport/>
       <DescriptionOne/>
-      <DescriptionTwo/>
+      {/* <DescriptionTwo/> */}
+      <StackedCards/>
       <DescriptionThree/>
       <DescriptionFour/>
     </div>
@@ -45,3 +47,7 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+

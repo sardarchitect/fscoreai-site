@@ -89,7 +89,7 @@ const DemoForm = ({open} :any) => {
       {showPopup && (
         <div className="cursor-default ">
 
-        <div className={`${theme} backdrop-blur-sm fixed inset-0 bg-opacity-5 flex items-center justify-center z-50 w-screen overflow-hidden`} onClick={togglePopup}>
+        <div className={`${theme} backdrop-blur-sm fixed inset-0 bg-opacity-5 flex items-center justify-center z-50 w-screen h-screen overflow-hidden`} onClick={togglePopup}>
           <div
             className="dark:text-white dark:bg-theme-blue bg-white text-theme-blue dark:border-white border-theme-blue p-6 max-w-lg max-h-[80%] overflow-y-auto rounded-lg shadow-lg relative"
             onClick={(e) => e.stopPropagation()}

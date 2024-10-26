@@ -36,8 +36,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`bg-white dark:bg-theme-color ${playfair_display_init}, ${Merriweather_init}`}
-      >       
-      
+      > 
       <AuthProviders>
         <ThemeProvider>
         <MobileMenuProvider>

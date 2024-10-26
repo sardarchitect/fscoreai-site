@@ -5,8 +5,6 @@ import cardData from "./cardData";
 import { useRef } from "react";
 
 
-
-
 // const index = useRef();
 // const { scrollYProgress } = useScroll({
 //   target: index,

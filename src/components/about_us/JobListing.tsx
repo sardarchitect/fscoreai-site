@@ -13,7 +13,7 @@ const JobListing = ({ sNo, title, description, timePosted, jobRole }: any) => {
 <div className="bg-white p-6 rounded-lg  border-gray-200 mb-4">
   <div className="flex justify-between items-center">
     {/* Serial Number */}
-    <div className="mr-4 px-8 te1  text-gray-600">
+    <div className="mr-4 px-8 te1 hidden md:block lg:block text-gray-600">
       {sNo}.
     </div>
     
