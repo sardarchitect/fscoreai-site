@@ -18,7 +18,7 @@ const FAQSection = () => {
                 <div className="flex flex-col items-center justify-center text-center">
                     {/* Title and Description */}
                     <h2 className="he3 text-gray-800 mb-4">
-                        Frequently Asked <span className="text-gray-600">Questions</span>
+                    <span className="text-gray-600"> Frequently Asked</span> Questions
                     </h2>
                     <p className="mb-8 t1 text-gray-600">
                         Draftflow uses a SaaS in pricing based on required features.
@@ -27,26 +27,26 @@ const FAQSection = () => {
 
                 <div className="flex flex-col lg:flex-row items-start gap-8 justify-center">
                     {/* Left Side - Customer Support */}
-                    <div className="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center w-full lg:w-1/3 relative">
-                        <div className="flex flex-col items-start">
+                    <div className="bg-g[#514F4F] p-6 rounded-xl    shadow-lg flex flex-col items-center w-full lg:w-1/3 relative">
+                        <div className=" flex flex-col items-start">
                             {/* SVG inside the div */}
                             <div className="mb-4 items-start text-black flex">
                                 {/* Replace this with actual 24/7 SVG Image */}
                                 <Image
-                                    src="/247.svg" // Adjust to the path of your SVG
+                                    src="/home/24-7.svg" // Adjust to the path of your SVG
                                     alt="24/7"
-                                    width={80}
-                                    height={80}
-                                />24/7
+                                    width={327}
+                                    height={360}
+                                />
                             </div>
-                            <p className="h3  text-gray-800">
+                            <p className="h4  text-gray-800">
                                 Exceptional Customer Support
                             </p>
                             <p className="mt-2 t4 text-gray-600 ">
                                 We have covered most of your doubts but if you still have any
                                 questions we're happy to help you 24/7.
                             </p>
-                            <div className="mt-4 w-full c1 text-center cursor-pointer py-3 bg-black text-white rounded-lg">
+                            <div className="mt-4 w-full c1 text-center cursor-pointer py-5 p-14  bg-black text-white rounded-lg">
                                 <a href="/contact_us" className="w-full block">Contact Us</a>
                             </div>
                         </div>
@@ -56,23 +56,23 @@ const FAQSection = () => {
                     <div className="w-full lg:w-2/3">
                         {faqs.map((faq, index) => (
                             <>
-                                <div key={index} className="mb-4">
+                                <div key={index} className="">
                                     <button
-                                        className="flex justify-between items-center w-full text-left p-4  rounded-lg "
+                                        className="flex justify-between items-center w-full text-left py-5 px-4  rounded-lg "
                                         onClick={() => toggleFAQ(index)}
                                     >
                                         <p className="b1 text-gray-800">
                                             {faq.question}
                                         </p>
-                                        <span className=" w-8 md:w-10 h-8 md:h-10 bg-black text-white rounded-full flex items-center justify-center text-xl">
+                                        <span className="w-8 md:w-10 h-8 md:h-10 ml-10 p-3 bg-black text-white rounded-full sm:rounded-full flex items-center justify-center text-xl">
                                             {activeIndex === index ? "–" : "+"}
                                         </span>
                                     </button>
                                     {activeIndex === index && (
-                                        <div className="mt-2 te4 px-4 text-gray-600">{faq.answer}</div>
+                                        <div className="te4 px-4 pt-4 pb-8 text-gray-600">{faq.answer}</div>
                                     )}
                                 </div>
-                                <hr className="mt-4  " />
+                                <hr className=" bg-black " />
                             </>
                         ))}
                     </div>

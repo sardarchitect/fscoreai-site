@@ -49,7 +49,7 @@ const DescriptionThree = () => {
   }, [currentIndex]);
 
   return (
-    <section className="relative  bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-16 lg:py-24">
+    <section className="relative scroll-smooth bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-16 lg:py-24">
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className=" text-center">
@@ -64,7 +64,7 @@ const DescriptionThree = () => {
         {/* Scrollable cards */}
         <div className="relative mt-12   flex justify-center  items-center ">
           <motion.div
-            className="flex space-x-6"
+            className="flex justify-start  space-x-6"
             style={{ x }} // Use x motion value for scrolling animation
           >
             {testimonials.map((testimonial, index) => {
@@ -75,7 +75,7 @@ const DescriptionThree = () => {
               return (
                 <motion.div
                   key={testimonial.id}
-                  className={`bg-white shadow-lg  rounded-lg p-8 text-start w-96 space-x-10 flex-none transition-transform duration-300 transform ${
+                  className={`bg-white shadow-lg  rounded-lg p-8 text-start w-96 cursor-pointer scroll-smooth  flex-none transition-transform duration-300 transform ${
                     isCenter
                       ? "scale-105 opacity-100 z-10" // Center card gets larger scale and full opacity
                       : isLeft
@@ -91,7 +91,7 @@ const DescriptionThree = () => {
                   <p className="text-lg items-center text-gray-700 mb-4">
                     {testimonial.testimonial}
                   </p>
-                  <div className="flex place-items-start items-center">
+                  <div className="flex  justify-start items-start">
                     <Image
                       src={testimonial.image}
                       alt={testimonial.name}
@@ -116,7 +116,7 @@ const DescriptionThree = () => {
 
         {/* Scroll left button */}
         <button
-          className="absolute left top-1/2 transform -translate-y-1/2 bg-black rounded-full shadow-lg p-3"
+          className="absolute left  top-1/2 transform -translate-y-1/2 bg-black rounded-full shadow-lg p-3"
           onClick={() => moveCards("left")}
           disabled={currentIndex === 0} // Disable button if no more cards to the left
         >
@@ -137,7 +137,7 @@ const DescriptionThree = () => {
 
         {/* Scroll right button */}
         <button
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black rounded-full shadow-lg p-3"
+          className="absolute  right-10 top-1/2 transform -translate-y-1/2 bg-black rounded-full shadow-lg p-3"
           onClick={() => moveCards("right")}
           disabled={currentIndex === maxIndex} // Disable button if no more cards to the right
         >
