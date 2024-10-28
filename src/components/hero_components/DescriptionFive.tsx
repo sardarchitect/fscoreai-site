@@ -13,7 +13,7 @@ const FAQSection = () => {
 
 
     return (
-        <section className=" bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-16 px-6">
+        <section className="h-screen pb-5 bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-16 px-6">
             <div className="container mx-auto">
                 <div className="flex flex-col items-center justify-center text-center">
                     {/* Title and Description */}
@@ -53,7 +53,7 @@ const FAQSection = () => {
                     </div>
 
                     {/* Right Side - FAQ */}
-                    <div className="w-full lg:w-2/3">
+                    <div className=" w-full  lg:w-2/3">
                         {faqs.map((faq, index) => (
                             <>
                                 <div key={index} className="">

@@ -36,13 +36,13 @@ export default function Home() {
     <div className="">
     <div className="">
     {/* <div className="text-white flex flex-col items-center w-full justify-center m-auto "> */}
-      <Hero_one/>
-      <ProductReport/>
-      <DescriptionOne/>
+      <div><Hero_one/></div>
+      <div><ProductReport/></div>
+      <div><DescriptionOne/></div>
       {/* <DescriptionTwo/> */}
-      <StackedCards/>
-      <DescriptionThree/>
-      <DescriptionFour/>
+      <div><StackedCards/></div>
+      <div><DescriptionThree/></div>
+      <div><DescriptionFour/></div>
       <DescriptionFive />
     </div>
 
