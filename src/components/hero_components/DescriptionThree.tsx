@@ -116,7 +116,7 @@ const DescriptionThree = () => {
 
         {/* Scroll left button */}
         <button
-          className="absolute left  top-1/2 transform -translate-y-1/2 bg-black rounded-full shadow-lg p-3"
+          className="absolute left  top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full shadow-lg p-3"
           onClick={() => moveCards("left")}
           disabled={currentIndex === 0} // Disable button if no more cards to the left
         >
@@ -137,7 +137,7 @@ const DescriptionThree = () => {
 
         {/* Scroll right button */}
         <button
-          className="absolute  right-10 top-1/2 transform -translate-y-1/2 bg-black rounded-full shadow-lg p-3"
+          className="absolute  right-10 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full shadow-lg p-3"
           onClick={() => moveCards("right")}
           disabled={currentIndex === maxIndex} // Disable button if no more cards to the right
         >
