@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <div >
-      <header className="top-0 left-0 right-0 z-50 fixed backdrop-blur bg-white bg-opacity-70 ">
+      <header className="top-0 left-0 right-0 z-50 fixed lg:backdrop-blur bg-white bg-opacity-70 ">
         <nav className="mx-auto flex max-w-7xl items-center bg-transparent justify-between p-4 lg:px-8" aria-label="Global">
           {/* Logo Section */}
           <div className="flex  lg:flex-1">

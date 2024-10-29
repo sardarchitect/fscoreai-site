@@ -22,7 +22,7 @@ const JobListing = ({ sNo, title, description, timePosted, jobRole }: any) => {
       <p className="h4 md:h3 font-semibold mb-1">
         {title}
       </p>
-      <p className="text-gray-500 te4 mb-1">{jobRole}</p>
+      <p className="text-gray-500 t1  mb-1">{jobRole}</p>
       <p className="text-gray-400 te4">{timePosted}</p>
     </div>
 
@@ -37,8 +37,8 @@ const JobListing = ({ sNo, title, description, timePosted, jobRole }: any) => {
 
   {/* Conditionally render the job description if the section is open */}
   {isOpen && (
-    <div className="mt-4 text-gray-600">
-      <p>{description}</p>
+    <div className="mt-4 t1  pl-24 text-gray-600">
+      <p className="w-[618px]">{description}</p>
     </div>
   )}
 

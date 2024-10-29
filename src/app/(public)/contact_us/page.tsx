@@ -63,8 +63,8 @@ const ContactUs = () => {
   }
 
   return (
-    <main className="py-16">
-      <div className="dark:text-white dark:bg-rgb-2-6-23 bg-white text-theme-blue px-4 sm:px-6 lg:px-8 py-8">
+    <main className="py-16 flex justify-center">
+      <div className=" max-w-7xl dark:text-white dark:bg-rgb-2-6-23 bg-white text-theme-blue px-4 sm:px-6 lg:px-8 py-8">
         {/* Centered Header Text */}
         <div className="text-center py-5">
           <h2 className="text-4xl font-bold">
