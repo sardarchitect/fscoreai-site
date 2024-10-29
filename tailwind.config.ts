@@ -183,6 +183,7 @@ module.exports = {
         'bg-img-2': "url('/img-2.png')",
         'feature-bg': "url('/feature-bg.png')",
         "ab-bg": 'url("/about_us/bg-charcoal.svg")',
+        "bc-bg": 'url("/home/Banner-bg.png")',
         "product": 'url("/home/BG.jpg")',
         "product-bg": 'url("/home/graph-up.png")',
         "pattern": "url('/pattern.png')",

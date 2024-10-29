@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { NAV_LINKS } from "@/src/constants";
+import { FOOTER_LINKS, NAV_LINKS } from "@/src/constants";
 import SocialHandles from "./utilsComponents/SocialHendles";
 import { usePathname } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -83,7 +83,7 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row lg:space-x-24  text-center lg:text-left ">
             <div className="flex flex-col h4 items-center lg:items-start space-y-2">
               <div className="flex flex-col pr-5 h4 w-[231px] text-Charcoal-30 space-y-2">
-                {NAV_LINKS.map((link) => (
+                {FOOTER_LINKS.map((link) => (
                   <Link key={link.key} href={link.href} className="hover:text-gray-400 ">
                     {link.label}
                   </Link>
@@ -94,18 +94,25 @@ const Footer = () => {
             </div>
 
            
-            <div className=" flex flex-col h4 items-center lg:items-left    cursor-pointer">
-                <div className="flex h4 pr-64 flex-col items-center lg:items-start space-y-2 ">
-              <div className="flex gap-2 items-center lg:items-start"><img src="/linkdin.svg" alt="" /> Linkdin</div>
-              <div className="flex gap-2 items-center lg:items-start"><img src="/instagram.svg" alt="" /> Instagram</div>
-              <div className="flex gap-2 items-center lg:items-start"><img src="/facebook.svg" alt="" /> Facebook</div>
+            <div >
+            <div className="flex flex-col h4 items-center lg:items-start space-y-2">
+              <div className="flex flex-col pr-5 h4 w-[231px] text-Charcoal-30 space-y-2">
+              <div className="flex gap-2 "><img src="/linkdin.svg" alt="" /> Linkdin</div>
+              <div className="flex gap-2 "><img src="/instagram.svg" alt="" /> Instagram</div>
+              <div className="flex gap-2 "><img src="/facebook.svg" alt="" /> Facebook</div>
+              </div>
             </div>
+
             </div>
             </div>
             </div>
             
-
-
+{/* 
+            <div className="flex h4 pr-64 flex-col items-center lg:items-start space-y-2 ">
+              <div className="flex gap-2 items-center sm:items-start"><img src="/linkdin.svg" alt="" /> Linkdin</div>
+              <div className="flex gap-2 items-center sm:items-start"><img src="/instagram.svg" alt="" /> Instagram</div>
+              <div className="flex gap-2 items-center sm:items-start"><img src="/facebook.svg" alt="" /> Facebook</div>
+            </div> */}
   
 
         {/* Bottom Section */}
