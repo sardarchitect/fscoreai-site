@@ -47,7 +47,7 @@ const HeroSection: React.FC = () => {
 
   return (
     <section
-      className="relative w-full h-screen flex items-center bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] justify-center text-center"
+      className="relative w-full h-full min-h-screen flex items-center bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] justify-center text-center"
       style={{
         backgroundImage: `url(/heroimg.png), url(/herobg.jpg)`,
         backgroundSize: "cover, cover",

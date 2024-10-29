@@ -49,8 +49,10 @@ const DescriptionThree = () => {
   }, [currentIndex]);
 
   return (
-    <section className="relative scroll-smooth bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-16 lg:py-24">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="">
+
+    <section className="relative h-screen scroll-smooth bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-16 lg:py-24">
+      <div className="w-full mx-auto  px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className=" text-center">
           <p className="he2 text-Charcoal-80 tracking-wide">
@@ -116,7 +118,7 @@ const DescriptionThree = () => {
 
         {/* Scroll left button */}
         <button
-          className="absolute left  top-1/2 transform -translate-y-1/2 bg-black rounded-full shadow-lg p-3"
+          className="absolute left  top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full shadow-lg p-3"
           onClick={() => moveCards("left")}
           disabled={currentIndex === 0} // Disable button if no more cards to the left
         >
@@ -137,7 +139,7 @@ const DescriptionThree = () => {
 
         {/* Scroll right button */}
         <button
-          className="absolute  right-10 top-1/2 transform -translate-y-1/2 bg-black rounded-full shadow-lg p-3"
+          className="absolute  right-10 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full shadow-lg p-3"
           onClick={() => moveCards("right")}
           disabled={currentIndex === maxIndex} // Disable button if no more cards to the right
         >
@@ -156,6 +158,8 @@ const DescriptionThree = () => {
           </svg>
         </button>
       </div>
+    </section>
+
     </section>
   );
 };

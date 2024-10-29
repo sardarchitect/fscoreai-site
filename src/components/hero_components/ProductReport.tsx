@@ -24,7 +24,7 @@ const ProductReport = () => {
 
   return (
     <section
-      className="relative w-full h-screen flex items-center justify-center text-center"
+      className="relative w-full h-full min-h-screen flex items-center justify-center text-center"
       style={{
         backgroundImage: `url(/home/graph-up.png), url(/home/BG.jpg)`,
         backgroundSize: "cover, cover",

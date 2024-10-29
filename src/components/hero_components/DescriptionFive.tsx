@@ -9,16 +9,13 @@ const FAQSection = () => {
     const toggleFAQ = (index: number) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
-
-
-
     return (
         <section className=" bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-16 px-6">
             <div className="container mx-auto">
                 <div className="flex flex-col items-center justify-center text-center">
                     {/* Title and Description */}
                     <h2 className="he3 text-gray-800 mb-4">
-                    <span className="text-gray-600"> Frequently Asked</span> Questions
+                        <span className="text-gray-600"> Frequently Asked</span> Questions
                     </h2>
                     <p className="mb-8 t1 text-gray-600">
                         Draftflow uses a SaaS in pricing based on required features.
