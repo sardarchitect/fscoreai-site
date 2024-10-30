@@ -52,7 +52,7 @@ const DescriptionThree = () => {
     <section className="">
 
     <section className="relative scroll-smooth bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-16 lg:py-24">
-      <div className="w-full mx-auto pt-8  px-4 sm:px-6 lg:px-8">
+      <div className="max-w-full mx-auto pt-8  px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className=" text-center">
           <p className="he2 text-Charcoal-80 tracking-wide">

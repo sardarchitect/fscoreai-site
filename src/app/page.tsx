@@ -9,7 +9,6 @@ import Hero_one from "@/src/components/hero_components/HeroSection";
 import ProductReport from "@/src/components/hero_components/ProductReport";
 import { useSession } from "next-auth/react";
 import StackedCards from "../components/hero_components/StackedCards";
-import VerticelStackedCards from "../components/hero_components/VerticalStackedCards";
 import React, { useEffect, useRef, useState } from "react";
 
 export default function Home() {
