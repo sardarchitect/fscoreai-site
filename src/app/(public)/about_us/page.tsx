@@ -21,7 +21,7 @@ const AboutUs = () => {
       return res.json();
     })
   }
-;
+    ;
   return (
     <main className=" w-full items-center justify-center">
       {/* Header Section */}
@@ -55,13 +55,13 @@ const AboutUs = () => {
             height={600}
           /> */}
         </div>
-        
+
 
         <div className=" max-w-7xl mx-auto text-center pt-0 mb-10 py-0 relative z-10">
           <div className="flex flex-col md:flex-row justify-between text-center md:text-left pt-0  mt-0 items-center gap-6  px-5 sm:px-0">
-         <div className="w-full sm:w-[33%] h2 sm:he2 mb-0 sm:mb-5 text-center md:text-left lg:text-right ">Journey</div>
-         <div className="w-full sm:w-[33%] t1 text-[#ADADAD] sm:mt-0 md:mt-0 lg:mt-[60px]">we are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.</div>
-         <div className="w-full sm:w-[33%] h2 sm:he2 sm:mt-0 md:mt-0 lg:mt-[100px]">Since 2022</div>
+            <div className="w-full sm:w-[33%] h2 sm:he2 mb-0 sm:mb-5 text-center md:text-left lg:text-right ">Journey</div>
+            <div className="w-full sm:w-[33%] t1 text-[#ADADAD] sm:mt-0 md:mt-0 lg:mt-[60px]">we are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.</div>
+            <div className="w-full sm:w-[33%] h2 sm:he2 sm:mt-0 md:mt-0 lg:mt-[100px]">Since 2022</div>
           </div>
           <div className="grid grid-cols-1 sm:pl-5 sm:pr-5 pl-5 pr-5 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12">
             {/* 4,500 Hours Saved */}
@@ -109,7 +109,7 @@ const AboutUs = () => {
             we are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.  </p>
 
           {/* Team Members Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 justify-items-center">
             {/* Aim 1 */}
             <div className="flex w-[185px] h-[360px] flex-col items-center">
               <img
@@ -120,7 +120,7 @@ const AboutUs = () => {
             </div>
 
             {/* Aim 2 */}
-            <div className="flex flex-col w-[185px] h-[360px] py-9 items-center">
+            <div className="flex flex-col w-[185px] h-[360px] py-0 sm:py-9 items-center">
               <img
                 src="/about_us/qc2.png"
                 alt="Aim 2"
@@ -138,7 +138,7 @@ const AboutUs = () => {
             </div>
 
             {/* Aim 4 */}
-            <div className="flex flex-col w-[185px] h-[360px] py-9 items-center">
+            <div className="flex flex-col w-[185px] h-[360px] py-0 sm:py-9 items-center">
               <img
                 src="/about_us/qc4.png"
                 alt="Aim 4"
@@ -161,7 +161,9 @@ const AboutUs = () => {
       {/* Meet the Founder Section */}
       <section className="bg-white py-10 md:py-20 mb-10 mt-10  flex flex-col items-center w-full mx-auto px-5">
 
-        <p className="h2 max-w-7xl lg:mb-10 mb-6 font-medium text-gray-600">Meet the <span className="font-bold">Founder</span></p>
+        <p className="h2 max-w-7xl lg:mb-10 mb-6 font-medium text-gray-600 text-center lg:text-left">
+          Meet the <span className="font-bold">Founder</span>
+        </p>
         <div className="flex flex-col max-w-7xl md:flex-row lg:space-x-5 md:space-x-5 space-x-0 sm:text-left text-center">
           {/* Founder Image */}
           <div className="w-full md:w-1/2 mb-10 md:mb-0">
@@ -193,16 +195,16 @@ const AboutUs = () => {
 
       {/* Meet the Team Section */}
       <section className="bg-white py-10 md:py-20">
-        <div className="max-w-7xl mx-auto text-center px-6">
+        <div className="max-w-7xl mx-auto text-center flex-col flex px-6">
           <p className="h3 md:h2 text-Mercury-50 font-bold mb-6"><span className="text-Charcoal-60"> Our </span> Experts <span className="text-Charcoal-60"> are like </span> No Other</p>
           <p className="te1 text-gray-600 mb-16">
             Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
           </p>
 
           {/* Team Members Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 justify-items-center">
             {/* Team Member 1 */}
-            <div className="flex flex-col w-[185px] h-[360px] items-center">
+            <div className="flex flex-col w-[185px] h-[360px] justify-center items-center">
               <img
                 src="/about_us/Team1.png"
                 alt="Team Member 1"
@@ -211,7 +213,7 @@ const AboutUs = () => {
             </div>
 
             {/* Team Member 2 */}
-            <div className="flex flex-col py-9 w-[185px] h-[360px] items-center">
+            <div className="flex flex-col py-0 sm:py-9  w-[185px] h-[360px] items-center">
               <img
                 src="/about_us/Team2.png"
                 alt="Team Member 2"
@@ -229,7 +231,7 @@ const AboutUs = () => {
             </div>
 
             {/* Team Member 4 */}
-            <div className="flex flex-col py-9 w-[185px] h-[360px] items-center">
+            <div className="flex flex-col py-0 sm:py-9 w-[185px] h-[360px] items-center">
               <img
                 src="/about_us/Team4.png"
                 alt="Team Member 4"
@@ -252,24 +254,24 @@ const AboutUs = () => {
       {/* Call to Action (Join Us) Section */}
       <section className="bg-white py-10 md:py-20">
         <div className="max-w-7xl mx-auto text-center px-6">
-          <div className="h4 sm:h3 md:h2 font-bold text-Mercury-50 mb-6"><span className="text-Charcoal-60">Become a</span> Part of < span className="text-Charcoal-60"> our </span> Team</div>
+          <div className="h3 sm:h2   text-Mercury-50 mb-6"><span className="text-Charcoal-60">Become a</span> Part of < span className="text-Charcoal-60"> our </span> Team</div>
           <p className="te3 sm:te1 text-gray-600 mb-10">
             Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
           </p>
 
           {/* Job Listings */}
-          <div className="space-y-4 text-left">
+          <div className="space-y-4 max-w-7xl   text-left">
             {
               openJobsData.map((data, idx) => {
-                return(
-                  <JobListing 
+                return (
+                  <JobListing
                     key={idx}
-                    sNo = {idx+1}
-                    title={data.title} 
-                    description={data.description} 
+                    sNo={idx + 1}
+                    title={data.title}
+                    description={data.description}
                     timePosted={data.timePosted}
                     jobRole={data.jobRole}
-                    />
+                  />
                 )
               })
             }
