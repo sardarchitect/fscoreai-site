@@ -72,7 +72,11 @@ const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
       entries.forEach((entry) => {
         if (entry.isIntersecting && entry.target instanceof HTMLElement) {
           // Smoothly scroll to the intersecting element
-          scrollToElement(entry.target, 500); // Adjust the duration if necessary
+          if (entry.target.classList.contains('DescriptionFour')) {
+            scrollToElement(entry.target, 500); // Adjust the duration if necessary
+        } else {
+          scrollToElement(entry.target, 500);
+        }
         }
       });
     }, observerOptions);
@@ -103,12 +107,12 @@ return (
     <DescriptionOne />
   </div>
   {/* <div ref={(el) => { sectionsRef.current[3] = el; }}> */}
-    <StackedCards />
+    {/* <StackedCards /> */}
   {/* </div> */}
   <div ref={(el) => { sectionsRef.current[4] = el; }} className="h-full min-h-screen">
     <DescriptionThree />
   </div>
-  <div ref={(el) => { sectionsRef.current[5] = el; }} className="h-full min-h-screen">
+  <div ref={(el) => { sectionsRef.current[5] = el; }} className="DescriptionFour h-full min-h-screen">
     <DescriptionFour />
   </div>
   <div ref={(el) => { sectionsRef.current[6] = el; }} className="h-full min-h-screen">
