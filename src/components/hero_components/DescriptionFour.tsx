@@ -68,7 +68,7 @@ useEffect(() => {
 
       {/* Sticky Heading Section */}
       <div 
-      className={`sticky top-0 h-[${headerHeight}vh] py-24 z-10 max-w-7xl m-auto`}>
+      className={`sticky top-0 h-[${headerHeight}vh] py-28 z-10 max-w-7xl m-auto`}>
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-800">
             No more Hassle, yada yada
@@ -80,7 +80,7 @@ useEffect(() => {
       </div>
       <div
       ref={cardContainer}
-      className="h-full m-auto ">
+      className="h-full m-auto scroll-smooth">
         {cardData.map((card, index) => {
           return <Cards index={index} range={[index * 0.25, 1]} card={card}></Cards>
          
@@ -110,12 +110,12 @@ function Cards({index, range, card}) {
     <div
       key={index}
       ref={container}
-      className={`m-auto sticky top-[35vh] h-screen `}
+      className={`m-auto scroll-smooth sticky top-[35vh] h-[80vh] `}
     >
       <motion.div
         style={{  scale, transition: `all 0.8s` }}
         // style={{scale, top: `calc(-5vh + ${index * 25}px)` }}
-        className={`relative bg-white h-[60vh] m-auto max-w-7xl origin-top shadow-lg rounded-lg p-6 flex flex-col ${card.reverseLayout ? "md:flex-row-reverse" : "md:flex-row"} items-center mb-10 z-[${index + 1}]`}>
+        className={`relative scroll-smooth bg-white h-[60vh] m-auto max-w-7xl origin-top shadow-lg rounded-lg p-6 flex flex-col ${card.reverseLayout ? "md:flex-row-reverse" : "md:flex-row"} items-center mb-10 z-[${index + 1}]`}>
         <div className="relative w-2/5 h-3/4">
           {/* Image */}
           <div

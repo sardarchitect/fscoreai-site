@@ -112,9 +112,9 @@ return (
   <div ref={(el) => { sectionsRef.current[4] = el; }} className="h-full min-h-screen">
     <DescriptionThree />
   </div>
-  <div ref={(el) => { sectionsRef.current[5] = el; }} className="DescriptionFour h-full min-h-screen">
+  {/* <div ref={(el) => { sectionsRef.current[5] = el; }} className="DescriptionFour h-full min-h-screen"> */}
     <DescriptionFour />
-  </div>
+  {/* </div> */}
   <div ref={(el) => { sectionsRef.current[6] = el; }} className="h-full min-h-screen">
     <DescriptionFive />
   </div>
