@@ -38,7 +38,7 @@ const ProductReport = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen pt-24 flex items-center justify-center text-center overflow-hidden"
+      className="relative w-full pt-10 flex items-center justify-center text-center overflow-hidden"
     >
       {/* Moving Background Image controlled by scroll */}
       <motion.div
