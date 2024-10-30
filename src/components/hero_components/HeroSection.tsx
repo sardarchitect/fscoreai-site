@@ -61,7 +61,7 @@ const HeroSection: React.FC = () => {
       {/* Content Section */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
         {/* Left Section: Text Content */}
-        <div className="col-span-12 lg:col-span-6 flex text-start mt-28 mb-48 flex-col justify-center">
+        <div className="col-span-12 lg:col-span-6 flex text-start mt-28 mb-8 flex-col justify-center">
           <p className="h3 sm:he3 font-semibold text-Mercury-50">
             Revolutionize <span className="text-[#666666]">your AEC firm's</span> quality control <span className="text-[#666666]">process with</span> Draftflow.
           </p>

@@ -58,7 +58,7 @@ const DescriptionFour = () => {
     <section className="">
 
       {/* Sticky Heading Section */}
-      <div className="sticky top-20 py-8 z-10 max-w-7xl m-auto">
+      <div className="sticky top-0 pt-24 z-10 max-w-7xl m-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-800">
             No more Hassle, yada yada
