@@ -1,33 +1,33 @@
 const cardData = [
     {
-      title: "Time and Cost Savings",
+      title: "Enhanced Quality Control",
       description:
-        "By automating error detection and standardization, Draftflow significantly reduces the time spent on manual reviews and rework.",
+        "Draftflow's live, intuitive interface detects and flags graphical and design errors during the drawing production process, ensuring documents meet high standards of clarity and compliance. ",
       icon: "/home/enhanced quality control.svg", // Replace with the actual path to your icon
     },
     {
-      title: "Improved Efficiency",
+      title: "Customized Checklists",
       description:
-        "Draftflow streamlines project workflows, improving team productivity and collaboration throughout the construction lifecycle.",
+        "Customize in-built checklists to ensure adherence to individual project standards, ensuring flexibility in your project reviews.",
+      icon: "/home/custom.svg",
+    },
+    {
+      title: "Time and Cost Savings",
+      description:
+        "Automate error detection and resolution, significantly reducing time spent on drawing review markups and rework, while reducing the risk of architect-caused change orders during the construction phase.",
       icon: "/home/Time and cost savings.svg",
     },
     {
-      title: "Risk Mitigation",
+      title: "Seamless Integration",
       description:
-        "Reduce the risks associated with errors and miscommunication by ensuring all stakeholders have access to up-to-date documents.",
-      icon: "/home/enhanced quality control.svg",
+        "Draftflow operates quietly in the background within Autodesk® Revit, integrating effortlessly in your existing workflow with minimal changes.",
+      icon: "/home/seamless.svg",
     },
     {
-      title: "Enhanced Collaboration",
+      title: "Improved Training",
       description:
-        "Draftflow facilitates seamless collaboration among different teams and stakeholders, ensuring project transparency.",
-      icon: "/home/Time and cost savings.svg",
-    },
-    {
-      title: "Increased Profitability",
-      description:
-        "Optimize resources and reduce unnecessary expenditures, leading to increased profitability across your projects.",
-      icon: "/home/enhanced quality control.svg",
+        "Train new BIM Technicians by letting Draftflow enforce your company’s BIM and graphical standards, enhancing team onboarding and meeting project quality across the team.",
+      icon: "/home/improved.svg",
     },
   ];
   export default cardData;

@@ -7,67 +7,61 @@ import Image from "next/image";
 const cardData = [
   {
     title: "Real-time Error Detection System",
-    description: "Our innovative real-time error detection system operates seamlessly in the background, keeping your projects on track.",
-    additionalInfo: "As it reviews your Revit documents against comprehensive project checklists, any potential errors are promptly identified.",
+    description: "Our innovative real-time error detection system operates seamlessly in the background, keeping your projects on track. Users can customize detection frequency to suit their workflow.",
+    additionalInfo: "As it reviews your Revit documents against comprehensive project-based checklists, any potential errors are promptly identified. You'll receive gentle on-screen notifications, allowing you to quickly view issues through an easy to navigate error table",
     buttonLabel: "Get Started",
-    imageSrc: "/left_globe.jpg",
+    imageSrc: "/home/Real-time Error Detection System.png",
     imageAlt: "Issue Checklist",
     reverseLayout: false,
   },
   {
     title: "Smart Error Resolution System",
-    description: "Resolve errors quickly and intuitively.",
-    additionalInfo: "Our system compares project checklists with your Revit documents, instantly detecting issues and offering resolutions.",
+    description: "Streamline your project corrections with our Smart Error Resolution System. Upon detecting errors, you have the option to automatically resolve them with just a few clicks.",
+    additionalInfo:  "Our intuitive user interface suggests fixes based on your established checklist definitions, making error management faster and more efficient.",
     buttonLabel: "Get Started",
-    imageSrc: "/left_globe.jpg",
+    imageSrc: "/home/smart error resolution system.png",
     imageAlt: "Issue Checklist",
     reverseLayout: true,
   },
   {
-    title: "Real-time Error Detection System",
-    description: "Our innovative real-time error detection system operates seamlessly in the background, keeping your projects on track.",
-    additionalInfo: "As it reviews your Revit documents against comprehensive project checklists, any potential errors are promptly identified.",
+    title: "In-built Checklists",
+    description: "Ensure your designs meet the highest standards with our extensive in-built checklists, covering essential areas such as:",
+    additionalInfo: " Graphical Standards Information Consistency and Compliance Scope Captureh",
     buttonLabel: "Get Started",
-    imageSrc: "/left_globe.jpg",
+    imageSrc: "/home/in-built checklists.png",
     imageAlt: "Issue Checklist",
     reverseLayout: false,
   },
   {
-    title: "Smart Error Resolution System",
-    description: "Resolve errors quickly and intuitively.",
-    additionalInfo: "Our system compares project checklists with your Revit documents, instantly detecting issues and offering resolutions.",
+    title: "Project Analytics",
+    description: "Gain valuable insights into your team's performance with our robust Project Analytics feature. Admins and managers can monitor how Draftflow is utilized across projects, enabling informed decision-making and enhancing project outcomes. Elevate your workflow and ensure quality with Draftflow’s powerful features!",
+    additionalInfo: "Elevate your workflow and ensure quality with Draftflow’s powerful features!",
     buttonLabel: "Get Started",
-    imageSrc: "/left_globe.jpg",
+    imageSrc: "/home/project analytics.png",
     imageAlt: "Issue Checklist",
     reverseLayout: true,
   },
 ];
 
 const DescriptionFour = () => {
-const cardContainer = useRef(null)
-const [headerHeight, setHeaderHeight] = useState(0)
-useEffect(() => {
-  const handleScroll = () => {
-    if(cardContainer.current){
-      const containerPositionY = cardContainer.current.getBoundingClientRect().top
-      if(containerPositionY < 0){
-        setHeaderHeight(120)
-      }else{
-        setHeaderHeight(0)
+  const cardContainer = useRef(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (cardContainer.current) {
+        const containerPositionY = cardContainer.current.getBoundingClientRect().top;
+        setHeaderHeight(containerPositionY < 0 ? 120 : 0);
       }
-    }
-  }
-  window.addEventListener('scroll' , handleScroll)
-  return () => window.removeEventListener('scroll' , handleScroll)
-}, [])
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-
-    <section className="">
-
+    <section className="max-w-7xl m-auto ">
       {/* Sticky Heading Section */}
-      <div 
-      className={`sticky top-0 h-[${headerHeight}vh] py-28 z-10 max-w-7xl m-auto`}>
+      <div className={`sticky top-0 h-[${headerHeight}vh] py-28 z-10 max-w-7xl m-auto`}>
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-800">
             No more Hassle, yada yada
@@ -77,70 +71,52 @@ useEffect(() => {
           </p>
         </div>
       </div>
-      <div
-      ref={cardContainer}
-      className="h-full m-auto scroll-smooth">
-        {cardData.map((card, index) => {
-          return <Cards index={index} range={[index * 0.25, 1]} card={card}></Cards>
-         
-        })}
+
+      <div ref={cardContainer} className="h-full m-auto scroll-smooth">
+        {cardData.map((card, index) => (
+          <Cards key={index} index={index} range={[index * 0.25, 1]} card={card} />
+        ))}
       </div>
-
-      {/* <div className="h-40"></div> */}
     </section>
-
   );
 };
 
 export default DescriptionFour;
 
-function Cards({index, range, card}) {
+function Cards({ index, range, card }) {
   const container = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start end', 'start start']
-
-  })
-  const targetScale = 1 - ( (cardData.length - index) * 0.05);
+  const { scrollYProgress } = useScroll({ target: container, offset: ['start end', 'start start'] });
+  const targetScale = 1 - ((cardData.length - index) * 0.05);
   const scale = useTransform(scrollYProgress, range, [1, targetScale]);
 
   return (
-    <div
-      key={index}
-      ref={container}
-      className={`m-auto scroll-smooth sticky top-[35vh] h-[80vh] `}
-    >
+    <motion.div ref={container} className={`m-auto scroll-smooth sticky top-[35vh] h-[100vh]`}>
       <motion.div
-        style={{  scale, transition: `all 0.8s` }}
-        // style={{scale, top: `calc(-5vh + ${index * 25}px)` }}
-        className={`relative scroll-smooth bg-white h-[60vh] m-auto max-w-7xl origin-top shadow-lg rounded-lg p-6 flex flex-col ${card.reverseLayout ? "md:flex-row-reverse" : "md:flex-row"} items-center mb-10 z-[${index + 1}]`}>
-        <div className="relative w-2/5 h-3/4">
+        style={{ scale }}
+        className={`relative bg-white  rounded-2xl p-8 flex flex-col ${card.reverseLayout ? "md:flex-row-reverse" : "md:flex-row"} items-center mb-10 transition-transform duration-500`}
+      >
+        <div className="md:w-1/2 flex justify-center items-center mb-6 md:mb-0">
           {/* Image */}
-          <div
-            // style={{ scale: imageScale }}
-            className="md:w-1/3 flex justify-center mb-4 md:mb-0">
-            <Image
-              src={card.imageSrc}
-              alt={card.imageAlt}
-              fill
-              className="rounded-lg bg-cover"
-            />
-          </div>
+          <Image
+            src={card.imageSrc}
+            alt={card.imageAlt}
+            width={500}
+            height={500}
+            className="rounded-lg  object-cover"
+          />
         </div>
-        {/* Text */}
-        <div className="md:w-2/3 md:pl-8">
-          <h3 className="text-xl font-bold text-sky-500">
-            {card.title}
-          </h3>
-          <p className="mt-4 text-gray-700">{card.description}</p>
-          <p className="mt-4 text-gray-600">{card.additionalInfo}</p>
-          <button className="mt-4 px-6 py-2 bg-blue-500 text-white font-bold rounded">
+
+        {/* Text Section */}
+        <div className="md:w-1/2 md:px-8">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-4">{card.title}</h3>
+          <p className="text-gray-600 mb-4">{card.description}</p>
+          <p className="text-gray-500">{card.additionalInfo}</p>
+          <button className="mt-6 px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-200">
             {card.buttonLabel}
           </button>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 

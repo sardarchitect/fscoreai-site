@@ -83,9 +83,7 @@ const ContactUs = () => {
             <p className="text-gray-700 dark:text-gray-300 mb-6">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae molestiae delectus neque amet nesciunt cum voluptatem illo. Ducimus, quos eos. Facere odio illum impedit veniam!
             </p>
-            <p className="text-gray-700 dark:text-gray-300">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci culpa nisi expedita fugiat dolor quibusdam quidem animi commodi voluptates itaque.
-            </p>
+ 
           </div>
 
           {/* Right Side Section (Form Section) */}
@@ -179,7 +177,7 @@ const ContactUs = () => {
                 <div className="mt-6">
                   <button
                     type="submit"
-                    className="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="w-full inline-flex justify-center h-[56px] items-center  py-2 px-4 border border-transparent shadow-sm b2 rounded-md text-white bg-Neptune-50 hover:bg-Mercury-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     Submit
                   </button>
