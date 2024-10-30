@@ -41,11 +41,9 @@ const cardData = [
     imageAlt: "Issue Checklist",
     reverseLayout: true,
   },
-  // {}
 ];
 
 const DescriptionFour = () => {
-const rootCont = useRef(null)
 const cardContainer = useRef(null)
 const [headerHeight, setHeaderHeight] = useState(0)
 useEffect(() => {
@@ -60,6 +58,7 @@ useEffect(() => {
     }
   }
   window.addEventListener('scroll' , handleScroll)
+  return () => window.removeEventListener('scroll' , handleScroll)
 }, [])
 
   return (
