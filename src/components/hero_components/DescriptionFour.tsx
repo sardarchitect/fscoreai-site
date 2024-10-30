@@ -53,18 +53,23 @@ useEffect(() => {
       const containerPositionY = cardContainer.current.getBoundingClientRect().top
       if(containerPositionY < 0){
         setHeaderHeight(120)
+        console.log(containerPositionY)
       }else{
         setHeaderHeight(0)
       }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+    }
+  }
+  window.addEventListener('scroll' , handleScroll)
+  return () => window.removeEventListener('scroll' , handleScroll)
+}, [])
+ 
   return (
-    <section className="max-w-7xl m-auto ">
+ 
+    <section className="max-w-7xl m-auto">
+ 
       {/* Sticky Heading Section */}
-      <div className={`sticky top-0 h-[${headerHeight}vh] py-28 z-10 max-w-7xl m-auto`}>
+      <div
+      className={`lg:sticky md:sticky relative md:top-0 lg:top-0 lg:h-[${headerHeight}vh] md:h-[${headerHeight}vh] lg:pt-[10%] md:pt-[10%] z-10 max-w-7xl m-auto`}>
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-800">
             No more Hassle, yada yada
@@ -74,16 +79,21 @@ useEffect(() => {
           </p>
         </div>
       </div>
-
-      <div ref={cardContainer} className="h-full m-auto scroll-smooth">
-        {cardData.map((card, index) => (
-          <Cards key={index} index={index} range={[index * 0.25, 1]} card={card} />
-        ))}
+      <div
+      ref={cardContainer}
+      className="h-full m-auto scroll-smooth">
+        {cardData.map((card, index) => {
+          return <Cards key={index} index={index} range={[index * 0.25, 1]} card={card}></Cards>
+         
+        })}
       </div>
+ 
+      {/* <div className="h-40"></div> */}
     </section>
+ 
   );
 };
-
+ 
 export default DescriptionFour;
 
 function Cards({ index, range, card }) {
