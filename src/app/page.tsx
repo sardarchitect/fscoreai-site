@@ -106,12 +106,12 @@ return (
   <div  className="">
     <DescriptionOne />
   </div>
-  {/* <div ref={(el) => { sectionsRef.current[3] = el; }}> */}
-    {/* <StackedCards /> */}
-  {/* </div> */}
-  <div ref={(el) => { sectionsRef.current[4] = el; }} className="h-full min-h-screen">
-    <DescriptionThree />
+  <div ref={(el) => { sectionsRef.current[3] = el; }}>
+    <StackedCards />
   </div>
+  {/* <div ref={(el) => { sectionsRef.current[4] = el; }} className="h-full min-h-screen">
+    <DescriptionThree />
+  </div> */}
   {/* <div ref={(el) => { sectionsRef.current[5] = el; }} className="DescriptionFour h-full min-h-screen"> */}
     <DescriptionFour />
   {/* </div> */}

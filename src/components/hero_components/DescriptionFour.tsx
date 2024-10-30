@@ -94,7 +94,7 @@ useEffect(() => {
 
 export default DescriptionFour;
 
-function Cards({index, range, card}) {
+function Cards({index, range, card}: any) {
   const container = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -112,7 +112,7 @@ function Cards({index, range, card}) {
       className={`m-auto scroll-smooth sticky top-[35vh] h-[80vh] `}
     >
       <motion.div
-        style={{  scale, transition: `all 0.8s` }}
+        // style={{  scale, transition: `all 0.8s` }}
         // style={{scale, top: `calc(-5vh + ${index * 25}px)` }}
         className={`relative scroll-smooth bg-white h-[60vh] m-auto max-w-7xl origin-top shadow-lg rounded-lg p-6 flex flex-col ${card.reverseLayout ? "md:flex-row-reverse" : "md:flex-row"} items-center mb-10 z-[${index + 1}]`}>
         <div className="relative w-2/5 h-3/4">
