@@ -1,3 +1,4 @@
+'use client'
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -44,7 +45,7 @@ const cardData = [
 ];
 
 const DescriptionFour = () => {
-const cardContainer = useRef(null)
+  const cardContainer = useRef<HTMLDivElement | null>(null);
 const [headerHeight, setHeaderHeight] = useState(0)
 useEffect(() => {
   const handleScroll = () => {
