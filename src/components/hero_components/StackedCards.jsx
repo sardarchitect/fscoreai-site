@@ -62,7 +62,7 @@ const StackedCards = () => {
     const myStyle = (index, activeIndex) => ({
       transform: getTransformStyle(index, activeIndex),
       zIndex: index - cards.length,
-      transition: "transform 0.6s ease-in-out",
+      transition: "transform 0.4s ease-out",
       // display: getDisplayStyle(index, activeIndex),
     });
 

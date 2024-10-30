@@ -65,7 +65,7 @@ const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.001, // Trigger when 1% of the section is visible
+      threshold: 0.2, // Trigger when 1% of the section is visible
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -103,19 +103,18 @@ return (
     <ProductReport />
   </div>
   {/* <div ref={(el) => { sectionsRef.current[2] = el; }} className=""> */}
-  <div  className="">
     <DescriptionOne />
-  </div>
-  <div ref={(el) => { sectionsRef.current[3] = el; }}>
+  {/* </div> */}
+  {/* <div ref={(el) => { sectionsRef.current[2] = el; }}> */}
     <StackedCards />
-  </div>
+  {/* </div> */}
   {/* <div ref={(el) => { sectionsRef.current[4] = el; }} className="h-full min-h-screen">
     <DescriptionThree />
   </div> */}
-  {/* <div ref={(el) => { sectionsRef.current[5] = el; }} className="DescriptionFour h-full min-h-screen"> */}
+  {/* <div ref={(el) => { sectionsRef.current[3] = el; }} className=""> */}
     <DescriptionFour />
   {/* </div> */}
-  <div ref={(el) => { sectionsRef.current[6] = el; }} className="h-full min-h-screen">
+  <div ref={(el) => { sectionsRef.current[6] = el; }} className="">
     <DescriptionFive />
   </div>
   
