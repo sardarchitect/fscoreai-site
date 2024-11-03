@@ -10,6 +10,7 @@ import { MobileMenuProvider } from "../context/mobileMenu";
 import { PageUpdateProvider } from "../context/pageUpdate";
 import { CookieConsent } from "@/src/components/utilsComponents/CookieConsent";
 import AuthProviders from "../providers/authProvider";
+import { ReactLenis, useLenis } from 'lenis/react'
 
 export const metadata: Metadata = {
   title: "fscore.ai",
@@ -40,6 +41,7 @@ export default function RootLayout({
       > 
       <AuthProviders>
         <ThemeProvider>
+        <ReactLenis root>
         <MobileMenuProvider>
           <FormPopUpProvider>
             <PageUpdateProvider>
@@ -51,6 +53,7 @@ export default function RootLayout({
             </PageUpdateProvider>
           </FormPopUpProvider>
           </MobileMenuProvider>
+          </ReactLenis>
         </ThemeProvider>
       </AuthProviders>
 

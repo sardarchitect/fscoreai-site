@@ -45,31 +45,23 @@ const cardData = [
 ];
 
 const DescriptionFour = () => {
-  const cardContainer = useRef<HTMLDivElement | null>(null);
-const [headerHeight, setHeaderHeight] = useState(0)
-useEffect(() => {
-  const handleScroll = () => {
-    if(cardContainer.current){
-      const containerPositionY = cardContainer.current.getBoundingClientRect().top
-      if(containerPositionY < 0){
-        setHeaderHeight(110)
-        console.log(containerPositionY)
-      }else{
-        setHeaderHeight(0)
-      }
-    }
-  }
-  window.addEventListener('scroll' , handleScroll)
-  return () => window.removeEventListener('scroll' , handleScroll)
-}, [])
+
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref });
+
+  // Animate header opacity to disappear as the last card stacks
+  const headerOpacity = useTransform(scrollYProgress, [0.9, 1], [1, 0]);
+  const headerTop = useTransform(scrollYProgress, [0.8, 1], [0, -100]);
+
 
   return (
 
-    <section className="max-w-7xl m-auto">
+    <section className="max-w-7xl m-auto" ref={ref} >
 
-      {/* Sticky Heading Section */}
-      <div 
-      className={`sticky top-0 h-[${headerHeight}vh] pt-[10%] pb-[13%] z-10 max-w-7xl m-auto`}>
+      <motion.div
+        style={{ top: headerTop, opacity: headerOpacity }}
+
+        className={`lg:sticky lg:top-0 md:sticky md:top-0 static h-auto pt-[10%] pb-[8%] z-10 max-w-7xl m-auto`}>
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-800">
             No more Hassle, yada yada
@@ -78,17 +70,15 @@ useEffect(() => {
             Draftflow uses a SaaS business model with tiered pricing, allowing flexibility in pricing based on required features.
           </p>
         </div>
-      </div>
+      </motion.div>
       <div
-      ref={cardContainer}
-      className="h-auto m-auto">
+        className="h-auto m-auto">
         {cardData.map((card, index) => {
           return <Cards key={index} index={index} range={[index * 0.25, 1]} card={card}></Cards>
-         
+
         })}
       </div>
 
-      {/* <div className="h-40"></div> */}
     </section>
 
   );
@@ -96,31 +86,19 @@ useEffect(() => {
 
 export default DescriptionFour;
 
-function Cards({index, range, card}: any) {
-  const container = useRef(null);
+function Cards({ index, card }: any) {
 
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start end', 'start start']
-
-  })
-  const targetScale = 1 - ( (cardData.length - index) * 0.05);
-  const scale = useTransform(scrollYProgress, range, [1, targetScale]);
 
   return (
-    <div
+    <motion.div
       key={index}
-      ref={container}
-      className={`m-auto scroll-smooth sticky top-[35vh] h-[70vh]`}
+      className={`m-auto lg:sticky lg:top-[35vh] md:sticky md:top-[35vh] static lg:h-[70vh] md:[70vh] h-full`}
     >
       <motion.div
-        // style={{  scale, transition: `all 0.8s` }}
-        // style={{scale, top: `calc(-5vh + ${index * 25}px)` }}
-        className={`relative scroll-smooth bg-white h-[60vh] m-auto max-w-7xl origin-top shadow-lg rounded-lg flex flex-col ${card.reverseLayout ? "md:flex-row-reverse" : "md:flex-row"} items-center mb-10 z-[${index + 1}]`}>
+        className={`relative bg-white h-[60vh] m-auto max-w-7xl origin-top shadow-lg rounded-lg flex flex-col ${card.reverseLayout ? "md:flex-row-reverse" : "md:flex-row"} items-center mb-10 z-[${index + 1}]`}>
         <div className="relative w-2/5 h-3/4">
           {/* Image */}
           <div
-            // style={{ scale: imageScale }}
             className="md:w-1/3 flex justify-center mb-4 md:mb-0">
             <Image
               src={card.imageSrc}
@@ -142,7 +120,7 @@ function Cards({index, range, card}: any) {
           </button>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
