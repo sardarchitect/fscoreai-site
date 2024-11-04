@@ -76,19 +76,16 @@ export default function Navbar() {
 
         {/* Mobile View Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden">
-            <div className="lg:fixed md:fixed relative inset-0 z-10 bg-white dark:bg-theme-blue p-6">
+          <div className="lg:hidden w-auto">
+            <div className="lg:fixed md:fixed relative inset-0 z-10 bg-white dark:bg-theme-blue p-6 w-full h-screen">
               <div className="flex justify-between items-center">
-                <Link href="/">
-                  <Image src="/darklogo.svg" alt="logo" width={50} height={10}  />
-                  <Image src="/FSCORE_Dark.png" alt="logo" width={50} height={10}  />
-                </Link>
+
                 <button
                   type="button"
                   className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <XMarkIcon className="block h-10 w-10 dark:text-white" aria-hidden="true" />
+                  <XMarkIcon className="block h-10 w-10 items-end dark:text-white" aria-hidden="true" />
                 </button>
               </div>
               

@@ -30,9 +30,9 @@ return (
 
   <Hero_one />
   <ProductReport />
-  <DescriptionOne ></DescriptionOne>
+  <DescriptionOne />
   <StackedCards />
-  {/* <DescriptionThree /> */}
+  <DescriptionThree />
   <DescriptionFour />
   <DescriptionFive />
 

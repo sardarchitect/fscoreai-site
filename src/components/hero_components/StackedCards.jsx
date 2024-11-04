@@ -79,7 +79,7 @@ const StackedCards = () => {
   if (windowWidth > 900 && windowWidth !== null) {
     return (
 
-      <div className="w-full bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] z-0 h-auto  m-auto flex flex-col items-center justify-center">
+      <div className="w-full  z-0 h-auto  m-auto flex flex-col items-center justify-center">
         <div className={`w-full max-w-7xl flex h-[500vh] justify-center relative stack-area`} ref={stackAreaRef}>
           {/* <div className={`w-full hidden lg:flex md:flex h-[${cards.length * 100}vh] justify-center relative stack-area`} ref={stackAreaRef}> */}
           <div className={`flex flex-col items-center justify-center h-screen sticky top-0 basis-1/2 p-8 left ${adjustLayout()}`}>
@@ -107,7 +107,7 @@ const StackedCards = () => {
                   style={myStyle(index, activeIndex)}
                   className="absolute top-1/2 left-1/2 flex flex-col justify-between card ">
                   {(card.description || card.title) ?
-                    (<div className={`w-[389px] h-auto p-14  lg:backdrop-blur bg-white bg-opacity-70  rounded-md shadow-2xl  backdrop-blur-[30px] flex-col justify-center items-center gap-2.5`}
+                    (<div className={`w-[389px] h-auto p-14  rounded-md shadow-2xl  backdrop-blur-[30px] flex-col justify-center items-center gap-2.5`}
                     >
                       <div className="flex-col justify-start text-center items-center gap-5 flex">
                         <div className="item-center font-bold  leading-tight">
@@ -158,7 +158,7 @@ const StackedCards = () => {
                   key={index}
                   className="flex flex-col justify-between card ">
                   {(card.description || card.title) ?
-                    (<div className={`m-4 p-14 bg-[#FFFFFF] rounded-md shadow-2xl border-2 backdrop-blur-[30px] flex-col justify-center items-center gap-2.5`}
+                    (<div className={`m-4 p-14 bg-[#FFFFFF] rounded-md shadow-2xl border-2  flex-col justify-center items-center gap-2.5`}
                     >
                       <div className="flex-col justify-start text-center items-center gap-5 flex">
                         <div className="item-center font-bold  leading-tight">

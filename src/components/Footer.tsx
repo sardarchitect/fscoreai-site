@@ -61,12 +61,12 @@ const Footer = () => {
               {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
 
               {/* Mobile View: Subscribe Button */}
-              <button type="submit" className="bg-blue-500 c1 w-full sm:hidden justify-center text-center items-center p-3 h-14 rounded text-white">
+              <button type="submit" className="bg-blue-500 c1 w-full sm:hidden justify-center text-center items-center p-5 h-14 rounded text-white">
                 Subscribe
               </button>
 
               {/* Desktop View: Arrow Icon */}
-              <button type="submit" className="hidden sm:block bg-gray-50 p-3 h-10 rounded text-black">
+              <button type="submit" className="hidden sm:block bg-gray-50 p-5 h-14 rounded text-black">
                 <img src="/home/arrow.svg" alt="arrow icon" />
               </button>
             </form>
