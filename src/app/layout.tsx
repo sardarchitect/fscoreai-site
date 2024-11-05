@@ -38,24 +38,24 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`bg-white dark:bg-theme-color ${playfair_display_init}, ${Merriweather_init}`}
-      > 
-      <AuthProviders>
-        <ThemeProvider>
-        <ReactLenis root>
-        <MobileMenuProvider>
-          <FormPopUpProvider>
-            <PageUpdateProvider>
-              <Navbar></Navbar>
-              {/* <Header/> */}
-              <main className="">{children}</main>
-              <CookieConsent/>
-              <Footer></Footer>
-            </PageUpdateProvider>
-          </FormPopUpProvider>
-          </MobileMenuProvider>
-          </ReactLenis>
-        </ThemeProvider>
-      </AuthProviders>
+      >
+        <AuthProviders>
+          <ThemeProvider>
+            <MobileMenuProvider>
+              <FormPopUpProvider>
+                <PageUpdateProvider>
+                    <Navbar></Navbar>
+                  <ReactLenis root>
+                    {/* <Header/> */}
+                    <main className="">{children}</main>
+                    <CookieConsent />
+                    <Footer></Footer>
+                  </ReactLenis>
+                </PageUpdateProvider>
+              </FormPopUpProvider>
+            </MobileMenuProvider>
+          </ThemeProvider>
+        </AuthProviders>
 
       </body>
     </html>

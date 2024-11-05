@@ -1,5 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { HeroVideo } from "./Videos";
 
 type FormValues = {
@@ -15,6 +15,11 @@ const HeroSection: React.FC = () => {
   } = useForm<FormValues>();
 
   const [loading, setLoading] = useState<boolean>(false);
+  const [isSubscribed, setSubscribe] = useState<boolean>(false);
+  
+  useEffect(() => {
+    
+  })
 
   const addUserData = async (data: FormValues) => {
     try {
@@ -34,6 +39,7 @@ const HeroSection: React.FC = () => {
       const responseData = await response.json();
       console.log("User data added successfully:", responseData);
       reset();
+      setSubscribe(true)
     } catch (error) {
       console.error("Error adding user data:", error);
     } finally {
@@ -92,7 +98,7 @@ const HeroSection: React.FC = () => {
                 className="bg-blue-500 h-[56px] lg:w-[179px] w-full text-white px-6 py-2 lg:rounded-r-lg md:rounded-r-lg  hover:bg-blue-600"
                 disabled={loading}
               >
-                {loading ? "Subscribing..." : "Subscribe"}
+                  {loading ? 'Subscribing...' : isSubscribed ? "Subscribed" : "Subscribe"}
               </button>
               
             </form>
