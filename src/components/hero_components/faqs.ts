@@ -2,31 +2,31 @@
 
 const faqs = [
     {
-      question: "How does Draftflow work?",
+      question: "How does Draftflow work? ",
       answer:
-        "Draftflow scans your Revit projects for errors in real time, reviewing documents against comprehensive, customizable project-based checklists. It identifies potential issues and provides on-screen notifications, along with an easy-to-navigate error table for quick resolution.",
+        "Draftflow performs real-time scans of your Revit projects, comparing them against customizable checklists. It flags potential issues through on-screen notifications and an error table, simplifying review and correction.",
     },
     {
       question: "How much time does Draftflow save?",
-      answer: "Draftflow significantly reduces the time spent on architectural reviews by automating common error detection and resolution. Users can address issues swiftly with a few clicks, allowing for faster project completion and improved efficiency.",
+      answer: "By automating error detection and resolution, Draftflow drastically reduces review time, enabling quicker project completion and better resource allocation.",
     },
     {
-      question: "Can we customize the checklists according to our company standards?",
-      answer: "Yes! Draftflow allows users to customize checklists to align with your company’s specific standards and requirements, ensuring that your projects meet the highest quality benchmarks.",
+      question: "Can we customize checklists to our firm’s standards?",
+      answer: "Yes! Draftflow’s customizable checklists allow alignment with your firm’s unique standards, ensuring that every project meets your quality expectations.",
     },
     {
-      question: "Does Draftflow have access to our project data?",
-      answer: "Draftflow only accesses your Revit project data locally to perform its error detection and resolution functions. Draftflow does not extract any data outside of your local environment.",
+      question: "Does Draftflow access our project data? ",
+      answer: "Draftflow only accesses Revit data locally for error detection and resolution. No data is stored or accessed externally. ",
     },
     {
-      question: "Can other firms access our data?",
+      question: "Is our data safe with Draftflow?",
       answer:
-        "No, Draftflow maintains strict data privacy measures. Your project data is only accessible to your team members and authorized users within your organization. We do not share your data with other firms.",
+        "Absolutely. Draftflow enforces strict data privacy, ensuring your project data is accessible only to your team and authorized users within your firm.",
     },
     {
-      question: "What types of errors does Draftflow detect?",
+      question: "What types of errors does Draftflow detect? ",
       answer:
-        "Draftflow’s real-time error detection system identifies a wide range of issues, including graphical inconsistencies, compliance violations, and scope capture errors, all based on your customizable checklists.",
+        "Draftflow identifies a wide range of issues, including graphical inconsistencies, compliance issues, and scope capture errors, all based on customizable checklists.",
     },
     
   ];

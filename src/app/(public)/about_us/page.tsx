@@ -27,22 +27,22 @@ const AboutUs = () => {
     <main className=" w-full items-center justify-center">
       {/* Header Section */}
       <header className="bg-ab-bg w-full mt-20 sm:mt-10 md:mt-20 gap-6 md:gap-36 py-8 md:py-20 flex flex-col md:flex-row justify-center items-center text-center md:text-left">
-  <div className="max-w-7xl flex flex-col md:flex-row gap-8 md:gap-16 px-4 md:px-8">
-    {/* Left side with the main heading */}
-    <div className="md:w-1/2 flex justify-center md:justify-start">
-      <p className="text-white h3 md:h2 lg:h2  leading-tight">
-        Empowering Architectural Excellence Through Smart Quality Control
-      </p>
-    </div>
+        <div className="max-w-7xl flex flex-col md:flex-row gap-8 md:gap-16 px-4 md:px-8">
+          {/* Left side with the main heading */}
+          <div className="md:w-1/2 flex justify-center md:justify-start">
+            <p className="text-white h3 md:h2 lg:h2  leading-tight">
+           <span className="text-Charcoal-40"> We Believe</span> Automation is The Next Revolution <span className="text-Charcoal-40"> in Architecture </span>
+            </p>
+          </div>
 
-    {/* Right side with the mission statement */}
-    <div className="md:w-1/2 flex justify-center md:justify-start">
-      <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed">
-        Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
-      </p>
-    </div>
-  </div>
-</header>
+          {/* Right side with the mission statement */}
+          <div className="md:w-1/2 flex justify-center md:justify-start">
+            <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed">
+            Our mission is to streamline the architectural drawing production process and elevate the quality of construction documents through cutting-edge technology.
+            </p>
+          </div>
+        </div>
+      </header>
 
 
 
@@ -50,9 +50,18 @@ const AboutUs = () => {
       {/* Mission Section */}
       <section className="bg-white mb-10 mt-10  py-10 md:py-20">
         <div className="max-w-7xl  mx-auto text-center px-6">
-          <p className="h3 md:h2 text-Mercury-50  mb-6"><span className="text-Charcoal-60"> We aim to </span> transform  <span className="text-Charcoal-60"> the </span> quality control <span className="text-Charcoal-60">process</span></p>
-          <p className="t1 text-gray-600 mb-16">
-            we are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.  </p>
+
+          <div className="w-full md:w-[840px] mx-auto mb-8">
+            <p className="h3 sm:he2 text-Mercury-50 mb-6">
+              <span className="text-Charcoal-60">Our</span> Mission
+            </p>
+            <p className="t1 text-gray-600 mb-5">
+              Fscore AI envisions a future where architecture and engineering transcend traditional boundaries through the use of cutting-edge automation and innovation. The company believes that to deal with the upcoming future challenges, the architectural industry will need the assistance of intelligent systems that can handle the additional stressors caused by increasing amounts of demand in our built environment.
+            </p>
+
+            <p className="text-gray-600 t1">Fscore AI strives to be at the forefront of developing technologies that empower architects and engineers to achieve greater efficiency, productivity, and quality in their projects.</p>
+          </div>
+
 
           {/* Team Members Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 justify-items-center ">
@@ -123,19 +132,24 @@ const AboutUs = () => {
           </div>
 
           {/* Founder Text */}
-          <div className="w-full md:w-1/2 ">
-            <p className="lg:-mx-24 md:-mx-24 mx-auto h2 md:h1 lg:he1 font-bold text-Mercury-50 leading-tight md:pt-10">
-              <span className="text-Charcoal-60"> My</span> Goal <span className="text-Charcoal-60">with </span> <br />
-              <span className="text-Charcoal-60">ReviewSync</span><br className="hidden md:block lg:block"></br> is Simple
-            </p>
-            <p className="lg:t1 md:text-sm text-sm text-gray-500 mt-6">
-              As an architect myself, I’ve been in the trenches—managing <br /> tight deadlines, navigating complex design  requirements, and  dealing with the inevitable headaches that come from catching errors <br />  late in the process.
-            </p>
-            <div className="mt-8 sm:block flex justify-center">
-              {/* Signature (Optional) */}
-              <img src="/about_us/sign.png" alt="Signature" className="w-48 " />
-            </div>
-          </div>
+          <div className="w-full md:w-1/2">
+  {/* Goal Text */}
+  <p className="lg:-mx-24 md:-mx-24 mx-6 sm:mx-0 h2 md:h1 lg:he1 w-full sm:w-[90%] md:w-[680px] text-Mercury-50 leading-tight md:pt-10 text-center sm:text-left">
+   <span className="text-Charcoal-60"> My</span> Goal <span className="text-Charcoal-60">is to</span> Empower Architects <span className="text-Charcoal-60">with</span> AI
+  </p>
+
+  {/* Description Text */}
+  <p className="lg:t1 md:text-sm text-sm text-gray-500 mt-6 mx-6 sm:mx-0 w-full sm:w-[90%] md:w-[503px] text-center sm:text-left">
+    As an architect myself, I’ve been in the trenches—managing <br /> tight deadlines, navigating complex design requirements, and dealing with the inevitable headaches that come from catching errors <br /> late in the process.
+  </p>
+
+  {/* Signature Image */}
+  <div className="mt-8 sm:block flex justify-center">
+    <img src="/about_us/sign.png" alt="Signature" className="w-48" />
+  </div>
+</div>
+
+
         </div>
       </section>
 
@@ -226,42 +240,42 @@ const AboutUs = () => {
       </section>
 
       <section
-      className="relative  w-full h-[460px] flex items-center justify-center text-center"
-      style={{
-        backgroundImage: `url("/home/blue-bg.svg")`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      {/* Overlay for darkening the background slightly */}
-      <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
+        className="relative  w-full h-[460px] flex items-center justify-center text-center"
+        style={{
+          backgroundImage: `url("/home/blue-bg.svg")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {/* Overlay for darkening the background slightly */}
+        <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
 
-      {/* Content Section */}
-      <div className="relative z-10 max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
-        {/* Centered Text in Grid Layout */}
-        <div className="col-span-12 flex items-center justify-center">
-          <div className="text-center px-8">
-            <p className="sm:he2 h3 text-white">
-              Create <span className="text-Earth-50">Flawless</span> Drawings with{" "}
-              <span className="text-Earth-50">Draftflow</span>
-            </p>
-            <p className="mt-6 t1 text-gray-300 max-w-lg mx-auto">
-              Draftflow is a subscription-based software that provides real-time, context-specific assistance to architects and engineers during production of drawings in Autodesk Revit.
-            </p>
+        {/* Content Section */}
+        <div className="relative z-10 max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
+          {/* Centered Text in Grid Layout */}
+          <div className="col-span-12 flex items-center justify-center">
+            <div className="text-center px-8">
+              <p className="sm:he2 h3 text-white">
+                Create <span className="text-Earth-50">Flawless</span> Drawings with{" "}
+                <span className="text-Earth-50">Draftflow</span>
+              </p>
+              <p className="mt-6 t1 text-gray-300 max-w-lg mx-auto">
+                Draftflow is a subscription-based software that provides real-time, context-specific assistance to architects and engineers during production of drawings in Autodesk Revit.
+              </p>
 
-            {/* Call-to-Action Button with Link */}
-            <div className="mt-8 flex justify-center">
-              <Link href="/book-demo">
-                <p className="bg-blue-500  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-blue-600">
-                  Book a Demo
-                </p>
-              </Link>
+              {/* Call-to-Action Button with Link */}
+              <div className="mt-8 flex justify-center">
+                <Link href="/book-demo">
+                  <p className="bg-blue-500  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-blue-600">
+                    Book a Demo
+                  </p>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
 
 

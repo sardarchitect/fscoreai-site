@@ -21,14 +21,19 @@ const FAQSection: React.FC = () => {
     return (
         <section className="bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] h-full w-full py-20 px-6">
             <div className="container justify-center mt-24 mx-auto">
-                <div className="flex flex-col items-center justify-center text-center">
-                    <h2 className="he3 text-gray-800 mb-4">
-                        <span className="text-gray-600"> Frequently Asked</span> Questions
-                    </h2>
-                    <p className="mb-8 t1 text-gray-600">
-                        Draftflow uses a SaaS in pricing based on required features.
-                    </p>
-                </div>
+            <div className="flex flex-col items-center justify-center text-center">
+    <p className="he3 text-gray-800 mb-4">
+      <span className="text-gray-600"> Frequently Asked</span> Questions
+    </p>
+    <p className="mb-8 t1 text-gray-600 w-full max-w-[657px]">
+      These are the most commonly asked questions about Draftflow. Can’t find what you’re looking for?{' '}
+      <strong>
+        <a href="/contact_us" className="text-gray-800 underline">
+          Contact Us Now!
+        </a>
+      </strong>
+    </p>
+  </div>
 
                 <div className="flex flex-col lg:flex-row items-start gap-20 justify-center">
                     <div className="p-6 rounded-xl bg-white/40 shadow-lg flex flex-col items-center w-full lg:w-1/3 relative">
@@ -44,8 +49,7 @@ const FAQSection: React.FC = () => {
                             <div>
                                 <p className="h3">Exceptional Customer Support</p>
                                 <p className="mt-2 t4 text-gray-600">
-                                    We have covered most of your doubts but if you still have any
-                                    questions we're happy to help you 24/7.
+                                We have covered most of your doubts but if you still have any questions we’re happy to help you 24/7
                                 </p>
                             </div>
                             <div className="mt-4 w-full c1 text-center cursor-pointer py-5 p-14 bg-black text-white rounded-lg">
@@ -68,9 +72,15 @@ const FAQSection: React.FC = () => {
                                         {activeIndexes.includes(index) ? "–" : "+"}
                                     </span>
                                 </button>
-                                {activeIndexes.includes(index) && (
-                                    <div className="te2 px-4 pt-4 pb-8 text-gray-600">{faq.answer}</div>
-                                )}
+                                <div
+                                    className={`faq-answer overflow-hidden transition-all duration-300 ease-in-out ${
+                                        activeIndexes.includes(index) ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
+                                    }`}
+                                >
+                                    <div className="te2 px-4 pt-4 pb-8 text-gray-600">
+                                        {faq.answer}
+                                    </div>
+                                </div>
                                 <hr className="border-gray-30" />
                             </div>
                         ))}

@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 
-// Define prop types for the JobListing component
 interface JobListingProps {
   sNo: number;
   title: string;
@@ -13,7 +12,6 @@ interface JobListingProps {
 const JobListing: React.FC<JobListingProps> = ({ sNo, title, description, timePosted, jobRole }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  // Toggles the isOpen state
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
@@ -22,7 +20,6 @@ const JobListing: React.FC<JobListingProps> = ({ sNo, title, description, timePo
     <div className="bg-white p-4 md:p-6 rounded-lg mb-4">
       {/* Clickable area for the entire job listing */}
       <div className="flex justify-between items-center cursor-pointer" onClick={handleToggle}>
-        {/* Serial Number for larger screens */}
         <div className="hidden md:block text-gray-600 text-lg font-semibold mr-4 md:mr-24">
           {sNo}.
         </div>
@@ -38,7 +35,7 @@ const JobListing: React.FC<JobListingProps> = ({ sNo, title, description, timePo
         <div className="flex-shrink-0">
           <button
             onClick={(e) => {
-              e.stopPropagation(); // Prevents toggle when clicking the button only
+              e.stopPropagation();
               handleToggle();
             }}
             className="w-8 md:w-12 h-8 md:h-12 bg-black text-white rounded-full flex items-center justify-center text-lg"
@@ -48,15 +45,17 @@ const JobListing: React.FC<JobListingProps> = ({ sNo, title, description, timePo
         </div>
       </div>
 
-      {/* Conditionally render the job description if the section is open */}
-      {isOpen && (
-        <div className="mt-4 pl-2 md:pl-10 text-gray-600 text-sm md:tex4">
-          <p>{description}</p>
-        </div>
-      )}
+      {/* Conditionally render the job description with smooth transition */}
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? 'max-h-[200px] opacity-100 mt-4 pl-2 md:pl-28 w-4/5 text-gray-600 text-sm md:tex4' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <p>{description}</p>
+      </div>
 
-      {/* Divider */}
-      <hr className="mt-4" />
+      {/* Centered horizontal line */}
+      <hr className="mt-4 border-gray-300" />
     </div>
   );
 };

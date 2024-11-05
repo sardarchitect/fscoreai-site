@@ -2,31 +2,31 @@ const cardData = [
     {
       title: "Enhanced Quality Control",
       description:
-        "Draftflow's live, intuitive interface detects and flags graphical and design errors during the drawing production process, ensuring documents meet high standards of clarity and compliance. ",
+        "Draftflow’s live, intuitive interface detects graphical and design errors in real time, ensuring your documents meet the highest standards of clarity and compliance. ",
       icon: "/home/enhanced quality control.svg", // Replace with the actual path to your icon
     },
     {
-      title: "Customized Checklists",
+      title: "Advanced Compliance Checklists",
       description:
-        "Customize in-built checklists to ensure adherence to individual project standards, ensuring flexibility in your project reviews.",
+        "Access over 50 in-built checklists that uphold international standards and catch common design and drafting errors.",
       icon: "/home/custom.svg",
     },
     {
       title: "Time and Cost Savings",
       description:
-        "Automate error detection and resolution, significantly reducing time spent on drawing review markups and rework, while reducing the risk of architect-caused change orders during the construction phase.",
+        "With Draftflow’s Smart Error Resolution System, automate corrections and drastically cut down time spent on manual review and rework. ",
       icon: "/home/Time and cost savings.svg",
     },
     {
-      title: "Seamless Integration",
+      title: "Effortless Integration",
       description:
-        "Draftflow operates quietly in the background within Autodesk® Revit, integrating effortlessly in your existing workflow with minimal changes.",
+        "Working within Autodesk® Revit, Draftflow operates seamlessly in the background, blending naturally into your existing workflow without interruptions. ",
       icon: "/home/seamless.svg",
     },
     {
-      title: "Improved Training",
+      title: "Customized to Your Needs",
       description:
-        "Train new BIM Technicians by letting Draftflow enforce your company’s BIM and graphical standards, enhancing team onboarding and meeting project quality across the team.",
+        "Our team can develop custom checklists tailored to your firm’s standards, making Draftflow a perfect fit for your quality assurance process. ",
       icon: "/home/improved.svg",
     },
   ];

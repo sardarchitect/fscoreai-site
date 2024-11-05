@@ -51,12 +51,12 @@ const DescriptionThree = () => {
     <section className="relative bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-16 lg:py-24">
       <div className="max-w-full mx-auto pt-8 px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <div className="text-center">
+        <div className="text-center ">
           <p className="sm:he2 h2 text-Charcoal-80 tracking-wide">
             From our <span className="text-Mercury-50">Community</span>
           </p>
-          <p className="mt-2 t1 text-Mercury-50">
-            Draftflow uses a SaaS business model with tiered pricing!
+          <p className="mt-2 t1   text-Mercury-50">
+          Draftflow is continuously evolving, thanks to insights from forward-thinking firms like yours. Here’s what some of our partners are saying: 
           </p>
         </div>
 

@@ -91,7 +91,7 @@ const Footer = () => {
             <div className="flex justify-center">
             <div className="flex flex-col gap-2">
               <div className="flex gap-2 h4"><img src="/linkdin.svg" alt="LinkedIn Icon" /> LinkedIn</div>
-              <div className="flex gap-2 h4"><img src="/instagram.svg" alt="Instagram Icon" /> Instagram</div>
+              <div className="flex gap-2 h4"><img src="/Instagram.svg" alt="Instagram Icon" /> Instagram</div>
               <div className="flex gap-2 h4"><img src="/facebook.svg" alt="Facebook Icon" /> Facebook</div>
             </div>
             </div>

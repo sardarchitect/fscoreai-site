@@ -80,16 +80,17 @@ const StackedCards = () => {
     return (
 
       <div className="w-full  z-0 h-auto  m-auto flex flex-col items-center justify-center">
+        
         <div className={`w-full max-w-7xl flex h-[500vh] justify-center relative stack-area`} ref={stackAreaRef}>
           {/* <div className={`w-full hidden lg:flex md:flex h-[${cards.length * 100}vh] justify-center relative stack-area`} ref={stackAreaRef}> */}
           <div className={`flex flex-col items-center justify-center h-screen sticky top-0 basis-1/2 p-8 left ${adjustLayout()}`}>
             {/* Left Side: Text Content Section */}
             <div className="col-span-12 lg:col-span-6 px-4 py-2">
-              <p className="h3 sm:he2 text-black">
-                Key Benefits of Draftflow for Your Firm
+              <p className="h3 sm:he2 w-[448px] text-Mercury-50">
+             <span className="text-Charcoal-80"> Why</span> Choose Draftflow <span className="text-Charcoal-80">for Your Firm?</span>
               </p>
-              <p className="t1 py-4 text-gray-700">
-                Draftflow is designed specifically for firms in the AEC industry. Through this one unique system, Draftflow benefits a large set of stakeholders:
+              <p className="t1 py-4 w-[448px] text-gray-700">
+              Draftflow has been developed in collaboration with top architectural firms to address the unique demands of your industry. Here’s how Draftflow delivers measurable value:
               </p>
 
               {/* Learn More Button */}
@@ -107,7 +108,7 @@ const StackedCards = () => {
                   style={myStyle(index, activeIndex)}
                   className="absolute top-1/2 left-1/2 flex flex-col justify-between card ">
                   {(card.description || card.title) ?
-                    (<div className={`w-[389px] h-auto p-14  rounded-md shadow-2xl  backdrop-blur-[30px] flex-col justify-center items-center gap-2.5`}
+                    (<div className={`w-[389px] h-auto p-14 bg-white rounded-md shadow-2xl   flex-col justify-center items-center gap-2.5`}
                     >
                       <div className="flex-col justify-start text-center items-center gap-5 flex">
                         <div className="item-center font-bold  leading-tight">
