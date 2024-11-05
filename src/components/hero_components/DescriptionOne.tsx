@@ -6,7 +6,7 @@ const DescriptionOne = () => {
     <section
       className="relative  w-full h-[460px] flex items-center justify-center text-center"
       style={{
-        backgroundImage: `url("/home/banner-bg.png")`,
+        backgroundImage: `url("/home/blue-bg.svg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

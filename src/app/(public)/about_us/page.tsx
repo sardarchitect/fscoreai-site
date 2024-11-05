@@ -5,6 +5,7 @@ import openJobsData from "@/src/components/about_us/openJobsData";
 import Image from "next/image";
 import React, { useEffect } from "react";
 import AnimatedCounter from "@/src/components/about_us/AnimatedCounter";
+import Link from "next/link";
 
 
 
@@ -54,9 +55,9 @@ const AboutUs = () => {
             we are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.  </p>
 
           {/* Team Members Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 justify-items-center ">
             {/* Aim 1 */}
-            <div className="flex w-[185px] h-[360px] flex-col items-center">
+            <div className=" w-[185px] h-[360px] flex-col items-center hidden sm:block">
               <img
                 src="/about_us/qc1.png"
                 alt="Aim 1"
@@ -65,7 +66,7 @@ const AboutUs = () => {
             </div>
 
             {/* Aim 2 */}
-            <div className="flex flex-col w-[185px] h-[360px] py-0 sm:py-9 items-center">
+            <div className=" flex-col w-[185px] h-[360px] py-0 sm:py-9 items-center hidden sm:block">
               <img
                 src="/about_us/qc2.png"
                 alt="Aim 2"
@@ -74,7 +75,7 @@ const AboutUs = () => {
             </div>
 
             {/* Team Member 3 */}
-            <div className="flex w-[185px] h-[360px] flex-col items-center">
+            <div className="w-[185px] h-[360px] flex-col items-center hidden sm:block">
               <img
                 src="/about_us/qc3.png"
                 alt="Team Member 3"
@@ -83,7 +84,7 @@ const AboutUs = () => {
             </div>
 
             {/* Aim 4 */}
-            <div className="flex flex-col w-[185px] h-[360px] py-0 sm:py-9 items-center">
+            <div className="flex-col w-[185px] h-[360px] py-0 sm:py-9 items-center hidden sm:block">
               <img
                 src="/about_us/qc4.png"
                 alt="Aim 4"
@@ -92,7 +93,7 @@ const AboutUs = () => {
             </div>
 
             {/* Aim 5 */}
-            <div className="flex flex-col w-[185px] h-[360px] items-center">
+            <div className="flex-col w-[185px] h-[360px] items-center hidden sm:block">
               <img
                 src="/about_us/qc5.png"
                 alt="Aim 5"
@@ -128,7 +129,7 @@ const AboutUs = () => {
               <span className="text-Charcoal-60">ReviewSync</span><br className="hidden md:block lg:block"></br> is Simple
             </p>
             <p className="lg:t1 md:text-sm text-sm text-gray-500 mt-6">
-              As an architect myself, I’ve been in the trenches—managing <br /> tight deadlines, navigating complex design  requirements, and <br /> dealing with the inevitable headaches that come from catching errors <br />  late in the process.
+              As an architect myself, I’ve been in the trenches—managing <br /> tight deadlines, navigating complex design  requirements, and  dealing with the inevitable headaches that come from catching errors <br />  late in the process.
             </p>
             <div className="mt-8 sm:block flex justify-center">
               {/* Signature (Optional) */}
@@ -205,7 +206,7 @@ const AboutUs = () => {
           </p>
 
           {/* Job Listings */}
-          <div className="space-y-4 max-w-7xl   text-left">
+          <div className="space-y-4 max-w-7xl text-left">
             {
               openJobsData.map((data, idx) => {
                 return (
@@ -223,6 +224,44 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
+
+      <section
+      className="relative  w-full h-[460px] flex items-center justify-center text-center"
+      style={{
+        backgroundImage: `url("/home/blue-bg.svg")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* Overlay for darkening the background slightly */}
+      <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
+
+      {/* Content Section */}
+      <div className="relative z-10 max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
+        {/* Centered Text in Grid Layout */}
+        <div className="col-span-12 flex items-center justify-center">
+          <div className="text-center px-8">
+            <p className="sm:he2 h3 text-white">
+              Create <span className="text-Earth-50">Flawless</span> Drawings with{" "}
+              <span className="text-Earth-50">Draftflow</span>
+            </p>
+            <p className="mt-6 t1 text-gray-300 max-w-lg mx-auto">
+              Draftflow is a subscription-based software that provides real-time, context-specific assistance to architects and engineers during production of drawings in Autodesk Revit.
+            </p>
+
+            {/* Call-to-Action Button with Link */}
+            <div className="mt-8 flex justify-center">
+              <Link href="/book-demo">
+                <p className="bg-blue-500  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-blue-600">
+                  Book a Demo
+                </p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
 

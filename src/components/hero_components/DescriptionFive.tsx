@@ -19,7 +19,7 @@ const FAQSection: React.FC = () => {
     };
 
     return (
-        <section className="bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-20 px-6">
+        <section className="bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] h-full w-full py-20 px-6">
             <div className="container justify-center mt-24 mx-auto">
                 <div className="flex flex-col items-center justify-center text-center">
                     <h2 className="he3 text-gray-800 mb-4">
@@ -69,7 +69,7 @@ const FAQSection: React.FC = () => {
                                     </span>
                                 </button>
                                 {activeIndexes.includes(index) && (
-                                    <div className="te4 px-4 pt-4 pb-8 text-gray-600">{faq.answer}</div>
+                                    <div className="te2 px-4 pt-4 pb-8 text-gray-600">{faq.answer}</div>
                                 )}
                                 <hr className="border-gray-30" />
                             </div>

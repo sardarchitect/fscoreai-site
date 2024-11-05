@@ -37,9 +37,9 @@ export const CookieConsent = () => {
   return (
     <div className={`${theme}`}>
       <div className=" ml-0 fixed bottom-0 left-1/2 w-full py-5 sm:py-15 sm:p-8  dark:bg-theme-blue dark:text-white bg-white text-theme-blue flex justify-center transform -translate-x-1/2 z-[5000] bg-opacity-90">
-        <div className="w-5/6 m-auto text-justify">
-          <h2 className="text-2xl font-bold pb-5"> Welcome in fscore </h2>
-          <p>
+        <div className="w-5/6 max-w-7xl m-auto text-justify">
+          <h2 className="text-2xl font-bold pb-5"> Welcome to fscore </h2>
+          <p className="w-3/4">
             We use some <strong>standard analytics packages</strong> to
             understand general user behaviour, so we can figure out how to
             improve our content. This involves some cookies. Read our
@@ -49,7 +49,7 @@ export const CookieConsent = () => {
             </Link>
             &nbsp; Are you OK with this?
           </p>
-          <div className="mt-4 sm:mb-5 flex justify-end">
+          <div className="mt- sm:mb- flex justify-end items-center">
             <button
               onClick={acceptConsent}
               className="dark:bg-white text-sm dark:text-theme-blue border-2 border-theme-blue sm:fixed sm:-translate-x-20 dark:sm:hover:border-white sm:hover:bg-theme-blue sm:hover:text-white px-4 py-2 rounded mr-4"
