@@ -6,18 +6,22 @@ import testimonials from "./testimonials";
 const DescriptionThree = () => {
   const cardWidth = 395; // Desktop card width in pixels
   const mobileCardWidth = 300; // Mobile card width in pixels
+  const mdCardWidth = 350; // Medium (md) card width in pixels
   const gap = 24; // Gap between the cards
   const totalCardWidth = cardWidth + gap;
   const maxIndex = testimonials.length - 1;
 
   const [currentIndex, setCurrentIndex] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
+  const [isMedium, setIsMedium] = useState(false);
   const x = useMotionValue(0);
 
   const calculateOffset = (index: number) => {
     const windowWidth = window.innerWidth;
     const centerPosition = isMobile
       ? (windowWidth - mobileCardWidth) / 2
+      : isMedium
+      ? (windowWidth - mdCardWidth) / 2
       : (windowWidth - cardWidth) / 3.5;
     return -(index * totalCardWidth - centerPosition);
   };
@@ -36,6 +40,7 @@ const DescriptionThree = () => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
+      setIsMedium(window.innerWidth >= 768 && window.innerWidth < 1024);
       animate(x, calculateOffset(currentIndex));
     };
 
@@ -49,22 +54,22 @@ const DescriptionThree = () => {
 
   return (
     <section className="relative bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-16 lg:py-24">
-      <div className="max-w-full mx-auto pt-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center ">
           <p className="sm:he2 h2 text-Charcoal-80 tracking-wide">
             From our <span className="text-Mercury-50">Community</span>
           </p>
           <p className="mt-2 t1   text-Mercury-50">
-          Draftflow is continuously evolving, thanks to insights from forward-thinking firms like yours. Here’s what some of our partners are saying: 
+            Draftflow is continuously evolving, thanks to insights from forward-thinking firms like yours. Here’s what some of our partners are saying: 
           </p>
         </div>
 
         {/* Scrollable cards */}
-        <div className={`relative mt-12 ${isMobile ? "overflow-x-scroll" : "flex justify-center items-center"}`}>
+        <div className={`relative mt-12 ${isMobile || isMedium ? "overflow-x-scroll" : "flex justify-center items-center"}`}>
           <motion.div
-            className={`flex ${isMobile ? "space-x-4" : "space-x-6"}`}
-            style={{ x: isMobile ? undefined : x }}
+            className={`flex ${isMobile || isMedium ? "space-x-4" : "space-x-6"}`}
+            style={{ x: isMobile || isMedium ? undefined : x }}
           >
             {testimonials.map((testimonial, index) => {
               const isCenter = index === currentIndex;
@@ -75,7 +80,7 @@ const DescriptionThree = () => {
                 <motion.div
                   key={testimonial.id}
                   className={`bg-white shadow-lg rounded-lg p-8 text-start cursor-pointer flex-none transition-transform duration-300 transform ${
-                    isMobile
+                    isMobile || isMedium
                       ? ""
                       : isCenter
                       ? "scale-105 opacity-100 z-10"
@@ -86,8 +91,16 @@ const DescriptionThree = () => {
                       : "opacity-0 pointer-events-none"
                   }`}
                   style={{
-                    width: isMobile ? mobileCardWidth : cardWidth,
-                    maxWidth: isMobile ? mobileCardWidth : cardWidth,
+                    width: isMobile
+                      ? mobileCardWidth
+                      : isMedium
+                      ? mdCardWidth
+                      : cardWidth,
+                    maxWidth: isMobile
+                      ? mobileCardWidth
+                      : isMedium
+                      ? mdCardWidth
+                      : cardWidth,
                     transformOrigin: isLeft ? "center" : isRight ? "center" : "center",
                   }}
                 >

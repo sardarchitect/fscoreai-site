@@ -35,7 +35,7 @@ const FAQSection: React.FC = () => {
     </p>
   </div>
 
-                <div className="flex flex-col lg:flex-row items-start gap-20 justify-center">
+                <div className="flex flex-col lg:flex-row  items-start gap-20 justify-center">
                     <div className="p-6 rounded-xl bg-white/40 shadow-lg flex flex-col items-center w-full lg:w-1/3 relative">
                         <div className="flex flex-col items-start">
                             <div className="mb-4 items-start text-black flex">
@@ -77,7 +77,7 @@ const FAQSection: React.FC = () => {
                                         activeIndexes.includes(index) ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
                                     }`}
                                 >
-                                    <div className="te2 px-4 pt-4 pb-8 text-gray-600">
+                                    <div className="te2 px-4 pt-4 lg:w-[600px] sm:w-full pb-8 text-gray-600">
                                         {faq.answer}
                                     </div>
                                 </div>

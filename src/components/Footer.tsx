@@ -89,11 +89,27 @@ const Footer = () => {
 
             {/* Social Media Links */}
             <div className="flex justify-center">
-            <div className="flex flex-col gap-2">
-              <div className="flex gap-2 h4"><img src="/linkdin.svg" alt="LinkedIn Icon" /> LinkedIn</div>
-              <div className="flex gap-2 h4"><img src="/Instagram.svg" alt="Instagram Icon" /> Instagram</div>
-              <div className="flex gap-2 h4"><img src="/facebook.svg" alt="Facebook Icon" /> Facebook</div>
-            </div>
+              <div className="flex flex-col gap-2 cursor-pointer">
+                <div className="flex  gap-2 h4">
+                  <a href="https://www.linkedin.com/company/fscore/" target="_blank" rel="noopener noreferrer" className="flex">
+                    <img src="/linkdin.svg" alt="LinkedIn Icon" />
+                    LinkedIn
+                  </a>
+                </div>
+                <div className="flex gap-2 h4">
+                  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="flex">
+                    <img src="/Instagram.svg" alt="Instagram Icon" />
+                    Instagram
+                  </a>
+                </div>
+                <div className="flex gap-2 h4">
+                  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="flex">
+                    <img src="/facebook.svg" alt="Facebook Icon" />
+                    Facebook
+                  </a>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

@@ -76,7 +76,7 @@ export default function Navbar() {
             ))}
 
             {/* Book Demo Button */}
-            <div onClick={() => setShowPopup(!showPopup)} className="inline-block text-sm px-6 py-4 leading-none border-2 bg-black rounded text-white dark:border-white border-theme-blue cursor-pointer">
+            <div onClick={() => setShowPopup(!showPopup)} className="inline-block text-sm px-6 py-4 leading-none border-2 bg-black rounded  text-white dark:border-white border-theme-blue cursor-pointer">
               Book a Demo
               <DemoForm />
             </div>
@@ -115,9 +115,12 @@ export default function Navbar() {
                 {/* Book Demo Button */}
                 <div
                   onClick={() => setShowPopup(!showPopup)}
-                  className="mt-6 text-center inline-block w-full text-sm px-4 py-3 leading-none border-2 rounded dark:text-white dark:border-white border-theme-blue cursor-pointer"
+                  className="mt-6 text-center  inline-block w-full text-sm px-4 py-3 leading-none border-2 rounded   border-theme-blue cursor-pointer"
                 >
                   Book a Demo
+                  <div className="text-left ">
+                  <DemoForm />
+                  </div>
                 </div>
               </div>
             </div>

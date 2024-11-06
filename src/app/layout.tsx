@@ -45,12 +45,12 @@ export default function RootLayout({
               <FormPopUpProvider>
                 <PageUpdateProvider>
                     <Navbar></Navbar>
-                  <ReactLenis root>
+                  {/* <ReactLenis root> */}
                     {/* <Header/> */}
                     <main className="">{children}</main>
                     <CookieConsent />
                     <Footer></Footer>
-                  </ReactLenis>
+                  {/* </ReactLenis> */}
                 </PageUpdateProvider>
               </FormPopUpProvider>
             </MobileMenuProvider>

@@ -6,6 +6,7 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import AnimatedCounter from "@/src/components/about_us/AnimatedCounter";
 import Link from "next/link";
+import DemoForm from "@/src/components/utilsComponents/DemoForm";
 
 
 
@@ -134,12 +135,12 @@ const AboutUs = () => {
           {/* Founder Text */}
           <div className="w-full md:w-1/2">
   {/* Goal Text */}
-  <p className="lg:-mx-24 md:-mx-24 mx-6 sm:mx-0 h2 md:h1 lg:he1 w-full sm:w-[90%] md:w-[680px] text-Mercury-50 leading-tight md:pt-10 text-center sm:text-left">
+  <p className="lg:-mx-24 md:-mx-24  sm:mx-0 h2 md:h1 lg:he1 w-full sm:w-[80%] md:w-[680px] text-Mercury-50 leading-tight md:pt-10 text-center sm:text-left">
    <span className="text-Charcoal-60"> My</span> Goal <span className="text-Charcoal-60">is to</span> Empower Architects <span className="text-Charcoal-60">with</span> AI
   </p>
 
   {/* Description Text */}
-  <p className="lg:t1 md:text-sm text-sm text-gray-500 mt-6 mx-6 sm:mx-0 w-full sm:w-[90%] md:w-[503px] text-center sm:text-left">
+  <p className="lg:t1 md:text-sm text-sm text-gray-500 mt-6  sm:mx-0 w-full sm:w-[80%] md:w-[503px] text-center sm:text-left">
     As an architect myself, I’ve been in the trenches—managing <br /> tight deadlines, navigating complex design requirements, and dealing with the inevitable headaches that come from catching errors <br /> late in the process.
   </p>
 
@@ -266,9 +267,10 @@ const AboutUs = () => {
 
               {/* Call-to-Action Button with Link */}
               <div className="mt-8 flex justify-center">
-                <Link href="/book-demo">
+                <Link href="/contact_us">
                   <p className="bg-blue-500  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-blue-600">
                     Book a Demo
+                
                   </p>
                 </Link>
               </div>
