@@ -118,9 +118,7 @@ export default function Navbar() {
                   className="mt-6 text-center  inline-block w-full text-sm px-4 py-3 leading-none border-2 rounded   border-theme-blue cursor-pointer"
                 >
                   Book a Demo
-                  <div className="text-left ">
                   <DemoForm />
-                  </div>
                 </div>
               </div>
             </div>

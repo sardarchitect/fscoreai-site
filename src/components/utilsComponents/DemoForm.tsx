@@ -87,7 +87,7 @@ const DemoForm = ({ open }: any) => {
     <>
 
       {showPopup && (
-        <div className="cursor-default ">
+        <div className="cursor-default text-left">
 
           <div className={`${theme} backdrop-blur-sm fixed inset-0 bg-opacity-5 flex items-center justify-center z-50 w-screen h-screen overflow-hidden`} onClick={togglePopup}>
             <div
