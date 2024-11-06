@@ -60,11 +60,9 @@ const FAQSection: React.FC = () => {
 
                     <div className="w-full lg:w-2/3">
                         {faqs.map((faq: FAQ, index: number) => (
-                            <div key={index}>
+                            <div className="cursor-pointer" onClick={() => toggleFAQ(index)} key={index}>
                                 <button
-                                    className="flex justify-between items-center w-full text-left py-5 px-4 rounded-lg"
-                                    onClick={() => toggleFAQ(index)}
-                                >
+                                    className="flex justify-between items-center w-full text-left py-5 px-4 rounded-lg">
                                     <p className="b1 text-gray-800">
                                         {faq.question}
                                     </p>
