@@ -84,7 +84,7 @@ const StackedCards = () => {
               </p>
 
               {/* Learn More Button */}
-              <button className="bg-blue-500 text-white c1 py-5 px-14 rounded mt-4 hover:bg-blue-600 transition duration-300">
+              <button className="bg-blue-500 text-white c1 py-5 px-14 rounded mt-4  hover:bg-blue-600 transition duration-300">
                 Learn More
               </button>
             </div>
@@ -137,7 +137,7 @@ const StackedCards = () => {
                 Draftflow is designed specifically for firms in the AEC industry. Through this one unique system, Draftflow benefits a large set of stakeholders:
               </p>
 
-              {/* Learn More Button */}
+            
 
             </div>
           </div>
@@ -171,7 +171,8 @@ const StackedCards = () => {
 
 
               ))}
-              <button className="bg-blue-500 h-[56px]  w-4/5 m-auto  text-white  py-2 lg:rounded-r-lg md:rounded-r-lg rounded-lg hover:bg-blue-600">
+                {/* Learn More Button */}
+              <button className="bg-blue-500 h-[56px]  w-4/5 m-auto mb-5 text-white  py-2 lg:rounded-r-lg md:rounded-r-lg rounded-lg hover:bg-blue-600">
                 Learn More
               </button>
             </div>

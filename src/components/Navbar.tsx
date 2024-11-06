@@ -31,14 +31,14 @@ export default function Navbar() {
 
   const getLinkClasses = (linkPath: string) => {
     return currentPath === linkPath
-      ? "font-bold underline text-black dark:text-blue-400" // Styles for active link
-      : "dark:text-white duration-500 ease-in-out cursor-pointer py-2 px-3"; // Default styles
+      ? "font-bold py-2 px-3 underline text-black" // Styles for active link
+      : "cursor-pointer py-2 px-3"; // Default styles
   };
 
   return (
     <div>
-      <header className="top-0 left-0 right-0 z-50 fixed lg:backdrop-blur bg-white bg-opacity-70">
-        <nav className="mx-auto flex max-w-7xl items-center bg-transparent justify-between p-4 lg:px-8" aria-label="Global">
+      <header className="top-0 left-0 right-0 z-40 fixed lg:backdrop-blur bg-white bg-opacity-70">
+        <nav className={`mx-auto flex max-w-7xl items-center ${mobileMenuOpen ? "bg-white" : "bg-transparent"} justify-between p-4 lg:px-8`} aria-label="Global">
           <div className="flex lg:flex-1">
             <Link href="/">
               <Image src="/fscorebold.svg" alt="logo" width={171} height={50} />
@@ -114,7 +114,10 @@ export default function Navbar() {
 
                 {/* Book Demo Button */}
                 <div
-                  onClick={() => setShowPopup(!showPopup)}
+                  onClick={() => {
+                    setMobileMenuOpen(false)
+                    setShowPopup(!showPopup)
+                  }}
                   className="mt-6 text-center  inline-block w-full text-sm px-4 py-3 leading-none border-2 rounded   border-theme-blue cursor-pointer"
                 >
                   Book a Demo

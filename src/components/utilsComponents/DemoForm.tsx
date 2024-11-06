@@ -89,15 +89,17 @@ const DemoForm = ({ open }: any) => {
       {showPopup && (
         <div className="cursor-default text-left">
 
-          <div className={`${theme} backdrop-blur-sm fixed inset-0 bg-opacity-5 flex items-center justify-center z-50 w-screen h-screen overflow-hidden`} onClick={togglePopup}>
+          <div className={`${theme} backdrop-blur-sm fixed inset-0 flex items-center justify-center w-screen h-screen overflow-hidden px-3`} onClick={togglePopup}>
+            
             <div
-              className="dark:text-white dark:bg-theme-blue bg-white text-theme-blue dark:border-white border-theme-blue p-6 max-w-lg max-h-[80%] overflow-y-auto rounded-lg shadow-lg relative"
+              className="mt-20 bg-theme-blue text-white border-white border-2 p-6 max-w-lg max-h-[80%] overflow-y-auto rounded-lg shadow-lg relative"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="absolute top-0 right-0 m-5">
                 <button onClick={togglePopup}
-                  className="hover:dark:text-theme-blue px-4 py-3 hover:bg-theme-color hover:text-white hover:dark:bg-white border-2 dark:border-white border-theme-blue rounded-xl">X</button>
+                  className="hover:dark:text-theme-blue px-4 py-3 hover:bg-theme-color hover:text-black hover:dark:bg-white border-2 dark:border-white border-theme-blue rounded-xl ">X</button>
               </div>
+              
               <h2 className="text-4xl font-bold mb-4 pr-10">Let's Chat</h2>
               <p className="text-sm mt-4 tracking-wide mb-4" id='contact-submission-alert'>Book a 1:1 meeting with us to get started.</p>
               {showMsg === true &&

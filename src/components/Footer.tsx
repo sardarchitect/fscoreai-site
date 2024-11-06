@@ -51,19 +51,20 @@ const Footer = () => {
             <div className="text-white w-[363px] h3 mb-4">
               <span className="text-Charcoal-40">Start a Project with</span> Draftflow
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className="bg-gradient-to-r rounded from-[#FFFFFF] to-[#514F4F] flex flex-col sm:flex-row items-center">
+            <form onSubmit={handleSubmit(onSubmit)} className="rounded w-full flex flex-col sm:flex-row items-center">
               <input
                 type="email"
                 placeholder="Enter your Email Address.."
                 {...register("email", { required: "Email is required", pattern: { value: /^\S+@\S+$/i, message: "Invalid email address" } })}
                 className="p-3 bg-[#444444] rounded-sm h-14 w-full text-white placeholder-gray-400 focus:outline-none"
               />
-              {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+             
 
               {/* Mobile View: Subscribe Button */}
               <button type="submit" className="bg-blue-500 c1 w-full sm:hidden justify-center text-center items-center p-5 h-14 rounded text-white">
                 Subscribe
               </button>
+              {errors.email && <p className="text-red-500  text-sm">{errors.email.message}</p>}
 
               {/* Desktop View: Arrow Icon */}
               <button type="submit" className="hidden sm:block bg-gray-50 p-5 h-14 rounded text-black">
