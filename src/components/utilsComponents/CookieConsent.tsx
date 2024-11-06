@@ -7,25 +7,23 @@ import { useState, useEffect } from "react";
 export const CookieConsent = () => {
   const [showConsent, setShowConsent] = useState(false);
   const [theme, setTheme] = useThemeContext();
+
   useEffect(() => {
-    // If no consent cookie is present, show the consent popup
     if (!hasCookie("consent")) {
       setShowConsent(true);
     }
   }, []);
 
   const acceptConsent = () => {
-    // When user accepts consent, hide the popup and set a consent cookie
     setShowConsent(false);
     setCookie("consent", "true", {});
 
-    // Trigger GTM script load
     if (typeof window !== "undefined") {
       window.dispatchEvent(new Event("updateGTMConsent"));
     }
   };
+
   const declineConsent = () => {
-    // When user declines the consent, simply hide the popup
     setShowConsent(false);
     setCookie("consent", "false", {});
   };
@@ -36,33 +34,24 @@ export const CookieConsent = () => {
 
   return (
     <div className={`${theme}`}>
-      <div className=" ml-0 fixed bottom-0 left-1/2 w-full py-5 sm:py-15 sm:p-8  dark:bg-theme-blue dark:text-white bg-white text-theme-blue flex justify-center transform -translate-x-1/2 z-[5000] bg-opacity-90">
-        <div className="w-5/6 max-w-7xl m-auto text-justify">
-          <h2 className="text-2xl font-bold pb-5"> Welcome to fscore </h2>
-          <p className="w-3/4">
-            We use some <strong>standard analytics packages</strong> to
-            understand general user behaviour, so we can figure out how to
-            improve our content. This involves some cookies. Read our
-            <Link href="/privacy_policy" className="font-bold hover:border-b-2">
-              {" "}
-              privacy policy.
-            </Link>
-            &nbsp; Are you OK with this?
-          </p>
-          <div className="mt- sm:mb- flex justify-end items-center">
-            <button
-              onClick={acceptConsent}
-              className="dark:bg-white text-sm dark:text-theme-blue border-2 border-theme-blue sm:fixed sm:-translate-x-20 dark:sm:hover:border-white sm:hover:bg-theme-blue sm:hover:text-white px-4 py-2 rounded mr-4"
-            >
-              Accept
-            </button>
-            <button
-              onClick={declineConsent}
-              className="dark:bg-white text-sm dark:text-theme-blue border-2 border-theme-blue sm:fixed sm:translate-x-0 dark:sm:hover:border-white sm:hover:bg-theme-blue sm:hover:text-white px-4 py-2 rounded"
-            >
-              Decline
-            </button>
-          </div>
+      <div className="fixed bottom-4 left-4 w-full max-w-md py-4 px-6 shadow-2xl border rounded-lg bg-white text-gray-800 text-start flex flex-col items-start z-[5000] bg-opacity-90">
+        <h2 className="text-xl font-semibold mb-3">We use cookies!</h2>
+        <p className="text-sm mb-4">
+          This website uses necessary cookies to ensure its proper functioning and other cookies which are listed in the preference center and are only set after consent.
+        </p>
+        <div className="flex w-full space-x-2">
+          <button
+            onClick={declineConsent}
+            className="w-1/2 bg-gray-200 text-gray-700 text-sm px-4 py-2 rounded"
+          >
+            Customize
+          </button>
+          <button
+            onClick={acceptConsent}
+            className="w-1/2 bg-Mercury-50 text-white text-sm px-4 py-2 rounded"
+          >
+            I agree
+          </button>
         </div>
       </div>
     </div>

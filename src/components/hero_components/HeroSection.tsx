@@ -16,10 +16,8 @@ const HeroSection: React.FC = () => {
 
   const [loading, setLoading] = useState<boolean>(false);
   const [isSubscribed, setSubscribe] = useState<boolean>(false);
-  
-  useEffect(() => {
-    
-  })
+
+  useEffect(() => {});
 
   const addUserData = async (data: FormValues) => {
     try {
@@ -39,7 +37,7 @@ const HeroSection: React.FC = () => {
       const responseData = await response.json();
       console.log("User data added successfully:", responseData);
       reset();
-      setSubscribe(true)
+      setSubscribe(true);
     } catch (error) {
       console.error("Error adding user data:", error);
     } finally {
@@ -53,30 +51,28 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section
-      className="relative w-full m-auto max-w-7xl h-full min-h-screen flex items-center justify-center text-center"
-    >
-      {/* Overlay for darkening the background slightly */}
-      {/* <div className="absolute inset-0  opacity-20 z-0"></div> */}
-
-      {/* Content Section */}
-      <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
+    <section className="relative w-full m-auto max-w-7xl h-full min-h-screen flex items-center justify-center text-center px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto grid grid-cols-12 gap-6 w-full h-full items-center">
         {/* Left Section: Text Content */}
         <div className="col-span-12 lg:col-span-6 order-2 md:order-1 lg:order-1 flex text-start mt-5 mb-5 md:mt-28 md:mb-8 lg:mt-2 lg:mb-8 flex-col justify-center">
-          <p className="h3 sm:he3 font-semibold text-Mercury-50">
-            Revolutionize <span className="text-[#666666]">your AEC firm's</span> quality control <span className="text-[#666666]">process with</span> Draftflow.
+          <p className="h2 sm:he2  text-Mercury-50">
+            Transform <span className="text-Charcoal-80">your Firm's</span>{" "}
+            Quality Control <span className="text-Charcoal-80">with</span>{" "}
+            Draftflow
           </p>
-          <p className="mt-4 text-gray-50">
-            Draftflow catches production drawing mistakes early,
-            speeding up the review process and preventing
-            construction delays and changes.
-          </p>
+          <div className="mt-4 max-w-md sm:max-w-lg text-gray-50">
+            Draftflow by FscoreAI is your firm’s essential tool for real-time
+            error detection, streamlining reviews, and avoiding costly
+            construction delays. Say goodbye to low-level markups and hello to
+            flawless, efficient workflows.
+            <p className="mt-5">Stay Updated – Subscribe Now</p>
+          </div>
 
           {/* Subscribe Form */}
-          <div className="mt-8 m-auto sm:px-6 lg:px-0 w-full text-start">
+          <div className="mt-6 w-full text-start">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="lg:flex md:flex block mx-auto w-full justify-start"
+              className="lg:flex md:flex block w-full justify-start"
             >
               {/* Email Input */}
               <input
@@ -89,30 +85,33 @@ const HeroSection: React.FC = () => {
                     message: "Invalid email address",
                   },
                 })}
-                className={`p-[19px] border lg:mb-auto md:mb-auto mb-3 te3 lg:w-[320px] w-full lg:rounded-l-lg md:rounded-l-lg shadow-2xl text-gray-700 ${errors.email ? "border-red-500" : ""}`}
+                className={`p-4 border mb-3 lg:w-[320px] w-full lg:rounded-l-lg shadow-2xl text-gray-700 ${
+                  errors.email ? "border-red-500" : ""
+                }`}
               />
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="bg-blue-500 h-[56px] lg:w-[179px] w-full text-white px-6 py-2 lg:rounded-r-lg md:rounded-r-lg  hover:bg-blue-600"
+                className="bg-blue-500 h-[56px] lg:w-[179px] w-full text-white px-6 py-2 lg:rounded-r-lg hover:bg-blue-600"
                 disabled={loading}
               >
-                  {loading ? 'Subscribing...' : isSubscribed ? "Subscribed" : "Subscribe"}
+                {loading ? "Subscribing..." : isSubscribed ? "Subscribed" : "Subscribe"}
               </button>
-              
             </form>
-              {/* Validation Error Message */}
-              {errors.email && (
-                <p className="text-red-500 te3 text-sm pt-[5px] pl-[19px]">{errors.email.message}</p>
-              )}
+            {/* Validation Error Message */}
+            {errors.email && (
+              <p className="text-red-500 text-sm pt-1">{errors.email.message}</p>
+            )}
           </div>
         </div>
 
-        {/* Right Section: Empty Space for Balance */}
-        <div className="col-span-12 lg:col-span-6 order-1 md:order-2 lg:order-2 mt-5 mb-5 md:mt-28 md:mb-8 lg:mt-28 lg:mb-8 flex-col justify-center">
+        {/* Right Section: Video */}
+        <div className="col-span-12 lg:col-span-6 order-1 md:order-2 lg:order-2 mt-5 mb-5 md:mt-28 md:mb-8 lg:mt-10 lg:mb-8 flex justify-center">
           <Suspense fallback={<p>Loading video...</p>}>
-            <HeroVideo />
+            <div className="w-full max-w-lg sm:max-w-xl lg:max-w-full">
+              <HeroVideo />
+            </div>
           </Suspense>
         </div>
       </div>

@@ -6,32 +6,32 @@ import Image from "next/image";
 // Array containing data for each card
 const cardData = [
   {
-    title: "Real-time Error Detection System",
-    description: "Our innovative real-time error detection system operates seamlessly in the background, keeping your projects on track. Users can customize detection frequency to suit their workflow.",
-    additionalInfo: " As it reviews your Revit documents against comprehensive project-based checklists, any potential errors are promptly identified. You'll receive gentle on-screen notifications, allowing you to quickly view issues through an easy to navigate error table.",
+    title: "Real-time Error Detection",
+    description: "Draftflow’s real-time error detection system quietly monitors your Revit projects, comparing them against comprehensive checklists to catch potential issues immediately. ",
+    additionalInfo: "Get quick on-screen notifications and view issues easily through an intuitive error table.",
     buttonLabel: "Get Started",
-    imageSrc: "/home/real-time error detection system.png",
+    imageSrc: "/home/videos/Real-Time Error Detection System.gif",
     imageAlt: "Issue Checklist",
     reverseLayout: true,
   },
   {
-    title: "Smart Error Resolution System",
-    description: "Streamline your project corrections with our Smart Error Resolution System. Upon detecting errors, you have the option to automatically resolve them with just a few clicks. ",
-    additionalInfo: "Our intuitive user interface suggests fixes based on your established checklist definitions, making error management faster and more efficient.",
+    title: "Smart Error Resolution ",
+    description: "When errors are detected, Draftflow suggests immediate resolutions, allowing you to correct issues with just a few clicks.",
+    additionalInfo: " Our user-friendly interface helps manage errors quickly, keeping projects on track and on budget.",
     buttonLabel: "Get Started",
     imageSrc: "/home/smart error resolution system.png",
     imageAlt: "Issue Checklist",
     reverseLayout: false,
   },
   {
-    title: "In-built Checklists",
-    description: "Ensure your designs meet the highest standards with our extensive in-built checklists, covering essential areas such as: ",
+    title: "In-built Checklists for High Standards",
+    description: "Ensure consistency across designs with Draftflow’s extensive in-built checklists covering:  ",
     additionalInfo: (
       <div>
         <ul className="list-disc list-inside">
           <li>Graphical Standards</li>
-          <li>Information Consistency and Compliance</li>
-          <li>Scope Capture</li>
+          <li> Information Consistency and Compliance </li>
+          <li>Scope Capture </li>
         </ul>
       </div>
     ),
@@ -42,8 +42,8 @@ const cardData = [
   },
   {
     title: "Project Analytics",
-    description: "Gain valuable insights into your team's performance with our robust Project Analytics feature. Admins and managers can monitor how Draftflow is utilized across projects, enabling informed decision-making and enhancing project outcomes.",
-    additionalInfo: " Elevate your workflow and ensure quality with Draftflow’s powerful features!",
+    description: "Use Draftflow’s Project Analytics to gain insights into your team’s performance.",
+    additionalInfo: " Monitor usage patterns, make data-driven decisions, and optimize workflows to achieve top-notch project outcomes.",
     buttonLabel: "Get Started",
     imageSrc: "/home/project analytics.png",
     imageAlt: "Issue Checklist",
@@ -60,26 +60,25 @@ const DescriptionFour: React.FC = () => {
   const headerTop = useTransform(scrollYProgress, [0.8, 1], [0, -100]);
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
-      <motion.div
-        style={{ top: headerTop, opacity: headerOpacity }}
-        className="lg:sticky lg:top-0 md:sticky md:top-0 static h-auto pt-20 pb-8 z-10 max-w-7xl mx-auto"
-      >
-        <div className="text-center mb-12">
-          <p className="he2 text-gray-800">
-            No more Hassle, yada yada
-          </p>
-          <p className="mt-4 t1 text-gray-600">
-            Draftflow uses a SaaS business model with tiered pricing, allowing flexibility in pricing based on required features.
-          </p>
-        </div>
-      </motion.div>
-      <div className="h-auto mx-auto">
-        {cardData.map((card, index) => (
-          <Cards key={index} index={index} card={card} />
-        ))}
-      </div>
-    </section>
+<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
+  <motion.div
+    style={{ top: headerTop, opacity: headerOpacity }}
+    className="lg:sticky lg:top-0 md:sticky md:top-0 static h-auto pt-20 pb-8 z-10 w-full max-w-[840px] mx-auto"
+  >
+    <div className="text-center w-full mb-12">
+      <p className="sm:he2 h2 text-Mercury-50">
+        Drawing Reviews <span className="text-Charcoal-60">have become</span> Easier <span className="text-Charcoal-60">than ever</span>
+      </p>
+    </div>
+  </motion.div>
+
+  <div className="h-auto w-full max-w-[840px] mx-auto">
+    {cardData.map((card, index) => (
+      <Cards key={index} index={index} card={card} />
+    ))}
+  </div>
+</section>
+
   );
 };
 
@@ -102,7 +101,8 @@ const Cards: React.FC<CardProps> = ({ index, card }) => {
   return (
     <motion.div
       key={index}
-      className="mx-auto lg:sticky lg:top-[35vh] md:sticky md:top-[35vh] static lg:h-[70vh] md:h-[70vh] h-full mb-10"
+      className="mx-auto lg:sticky lg:top-[25vh] md:sticky md:top-[35vh] static lg:h-[70vh] md:h-[70vh] h-full mb-10"
+
     >
       <motion.div
         className={`relative bg-white h-auto m-auto max-w-7xl origin-top flex flex-col ${card.reverseLayout ? "md:flex-row-reverse" : "md:flex-row"} items-center`}
@@ -125,9 +125,9 @@ const Cards: React.FC<CardProps> = ({ index, card }) => {
           </h3>
           <p className="mt-4 text-gray-700">{card.description}</p>
           <div className="mt-4 text-gray-600">{card.additionalInfo}</div>
-          <button className="mt-4 px-6 py-2 text-black border border-solid border-black font-bold rounded">
+          {/* <button className="mt-4 px-6 py-2 text-black border border-solid border-black font-bold rounded">
             {card.buttonLabel}
-          </button>
+          </button> */}
         </div>
       </motion.div>
     </motion.div>
