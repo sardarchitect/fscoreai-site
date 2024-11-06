@@ -1,7 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useFormPopUpContext } from "@/src/context/formPopup";
+import DemoForm from "../utilsComponents/DemoForm";
 
 const DescriptionOne = () => {
+  const [showPopup, setShowPopup] = useFormPopUpContext();
+
   return (
     <section
       className="relative w-full h-[460px] flex items-center justify-center text-center"
@@ -30,11 +34,10 @@ const DescriptionOne = () => {
 
             {/* Call-to-Action Button with Link */}
             <div className="mt-8 flex justify-center">
-              <Link href="/book-demo">
-                <p className="bg-blue-500  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-blue-600">
-                  Book a Demo
-                </p>
-              </Link>
+            <div onClick={() => setShowPopup(!showPopup)} className="bg-blue-500  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-blue-600">
+              Book a Demo
+              <DemoForm />
+            </div>
             </div>
           </div>
         </div>

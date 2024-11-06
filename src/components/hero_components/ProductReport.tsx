@@ -14,7 +14,7 @@ const ProductReport = () => {
 
   // Control background animation only when in view
   const controls = useAnimation();
-  const yPos = useTransform(scrollYProgress, [0, 1], ["100%", "-100%"]);
+  const yPos = useTransform(scrollYProgress, [1, 0], ["100%", "0%"]);
 
   useEffect(() => {
     scrollYProgress.onChange((latest) => {
@@ -38,27 +38,31 @@ const ProductReport = () => {
 
   })
 
+// desktop view
+
   if (windowWidth && windowWidth > 900) {
     return (
       <section
         ref={sectionRef}
         className="relative w-full pt-10 flex items-center justify-center text-center overflow-hidden"
       >
-        {/* Moving Background Image controlled by scroll */}
-        <motion.div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url(/home/graph-up.png)`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            opacity: 0.5,
-            zIndex: 0,
-          }}
-          animate={controls}
-          initial={{ y: "100%" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        />
+     {/* Moving Background Image controlled by scroll */}
+     <motion.div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url(/home/graph-up.png)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          opacity: 1.5,
+          zIndex: 0,
+        }}
+        // whileInView={{ y: "0%" ,}}
+        initial={{ y: "100%" }}
+        animate={controls}
+        // initial={{ y: "100%" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      />
 
         {/* Static Background Image */}
         {/* <div
@@ -264,7 +268,9 @@ const ProductReport = () => {
         </div>
       </section>
     );
-  } else if (windowWidth && windowWidth <= 900) {
+  }
+  // mobile view
+ else if (windowWidth && windowWidth <= 900) {
     return (
       <section
         ref={sectionRef}

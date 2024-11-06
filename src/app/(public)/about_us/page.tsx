@@ -6,12 +6,14 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import AnimatedCounter from "@/src/components/about_us/AnimatedCounter";
 import Link from "next/link";
+import DemoForm from "@/src/components/utilsComponents/DemoForm";
+import { useFormPopUpContext } from "@/src/context/formPopup";
 
 
 
 
 const AboutUs = () => {
-
+  const [showPopup, setShowPopup] = useFormPopUpContext();
 
   useEffect(() => {
     getOpenJobsData();
@@ -27,22 +29,22 @@ const AboutUs = () => {
     <main className=" w-full items-center justify-center">
       {/* Header Section */}
       <header className="bg-ab-bg w-full mt-20 sm:mt-10 md:mt-20 gap-6 md:gap-36 py-8 md:py-20 flex flex-col md:flex-row justify-center items-center text-center md:text-left">
-  <div className="max-w-7xl flex flex-col md:flex-row gap-8 md:gap-16 px-4 md:px-8">
-    {/* Left side with the main heading */}
-    <div className="md:w-1/2 flex justify-center md:justify-start">
-      <p className="text-white h3 md:h2 lg:h2  leading-tight">
-        Empowering Architectural Excellence Through Smart Quality Control
-      </p>
-    </div>
+        <div className="max-w-7xl flex flex-col md:flex-row gap-8 md:gap-16 px-4 md:px-8">
+          {/* Left side with the main heading */}
+          <div className="md:w-1/2 flex justify-center md:justify-start">
+            <p className="text-white h3 md:h2 lg:h2  leading-tight">
+              Empowering Architectural Excellence Through Smart Quality Control
+            </p>
+          </div>
 
-    {/* Right side with the mission statement */}
-    <div className="md:w-1/2 flex justify-center md:justify-start">
-      <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed">
-        Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
-      </p>
-    </div>
-  </div>
-</header>
+          {/* Right side with the mission statement */}
+          <div className="md:w-1/2 flex justify-center md:justify-start">
+            <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed">
+              Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
+            </p>
+          </div>
+        </div>
+      </header>
 
 
 
@@ -226,42 +228,41 @@ const AboutUs = () => {
       </section>
 
       <section
-      className="relative  w-full h-[460px] flex items-center justify-center text-center"
-      style={{
-        backgroundImage: `url("/home/blue-bg.svg")`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      {/* Overlay for darkening the background slightly */}
-      <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
+        className="relative  w-full h-[460px] flex items-center justify-center text-center"
+        style={{
+          backgroundImage: `url("/home/blue-bg.svg")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {/* Overlay for darkening the background slightly */}
+        <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
 
-      {/* Content Section */}
-      <div className="relative z-10 max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
-        {/* Centered Text in Grid Layout */}
-        <div className="col-span-12 flex items-center justify-center">
-          <div className="text-center px-8">
-            <p className="sm:he2 h3 text-white">
-              Create <span className="text-Earth-50">Flawless</span> Drawings with{" "}
-              <span className="text-Earth-50">Draftflow</span>
-            </p>
-            <p className="mt-6 t1 text-gray-300 max-w-lg mx-auto">
-              Draftflow is a subscription-based software that provides real-time, context-specific assistance to architects and engineers during production of drawings in Autodesk Revit.
-            </p>
+        {/* Content Section */}
+        <div className="relative z-10 max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
+          {/* Centered Text in Grid Layout */}
+          <div className="col-span-12 flex items-center justify-center">
+            <div className="text-center px-8">
+              <p className="sm:he2 h3 text-white">
+                Create <span className="text-Earth-50">Flawless</span> Drawings with{" "}
+                <span className="text-Earth-50">Draftflow</span>
+              </p>
+              <p className="mt-6 t1 text-gray-300 max-w-lg mx-auto">
+                Draftflow is a subscription-based software that provides real-time, context-specific assistance to architects and engineers during production of drawings in Autodesk Revit.
+              </p>
 
-            {/* Call-to-Action Button with Link */}
-            <div className="mt-8 flex justify-center">
-              <Link href="/book-demo">
-                <p className="bg-blue-500  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-blue-600">
+              {/* Call-to-Action Button with Link */}
+              <div className="mt-8 flex justify-center">
+                <div onClick={() => setShowPopup(!showPopup)} className="bg-blue-500  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-blue-600">
                   Book a Demo
-                </p>
-              </Link>
+                  <DemoForm />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
 
 
@@ -293,59 +294,59 @@ export default AboutUs;
 
 
 
-      {/* Journey Section */}
-      // <section className="relative py-10 md:py-20  text-white">
-      //   <div className="absolute bg-ab-bg inset-0 ">
-      //     {/* <Image
-      //       src="/about_us/bg-charcoal.svg" // Your SVG path
-      //       alt="Background SVG"
-      //       // layout=""
-      //       objectFit="cover"
-      //       quality={100}
-      //       width={600}
-      //       height={600}
-      //     /> */}
-      //   </div>
+{/* Journey Section */ }
+// <section className="relative py-10 md:py-20  text-white">
+//   <div className="absolute bg-ab-bg inset-0 ">
+//     {/* <Image
+//       src="/about_us/bg-charcoal.svg" // Your SVG path
+//       alt="Background SVG"
+//       // layout=""
+//       objectFit="cover"
+//       quality={100}
+//       width={600}
+//       height={600}
+//     /> */}
+//   </div>
 
 
-      //   <div className=" max-w-7xl mx-auto text-center pt-0 mb-10 py-0 relative z-10">
-      //     <div className="flex flex-col md:flex-row justify-between text-center md:text-left pt-0  mt-0 items-center gap-6  px-5 sm:px-0">
-      //       <div className="w-full sm:w-[33%] h2 sm:he2 mb-0 sm:mb-5 text-center md:text-left lg:text-right ">Journey</div>
-      //       <div className="w-full sm:w-[33%] t1 text-[#ADADAD] sm:mt-0 md:mt-0 lg:mt-[60px]">we are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.</div>
-      //       <div className="w-full sm:w-[33%] h2 sm:he2 sm:mt-0 md:mt-0 lg:mt-[100px]">Since 2022</div>
-      //     </div>
-      //     <div className="grid grid-cols-1 sm:pl-5 sm:pr-5 pl-5 pr-5 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12">
-      //       {/* 4,500 Hours Saved */}
-      //       <div className="bg-gray-800 bg-opacity-70 p-6 text-center sm:text-start md:p-10 rounded-lg shadow-lg">
-      //         <p className="h3 md:he3 lg:he2">
-      //           <AnimatedCounter target={4500} />
-      //         </p>
-      //         <p className="mt-4 text-lg text-gray-400">Hours Saved</p>
-      //       </div>
+//   <div className=" max-w-7xl mx-auto text-center pt-0 mb-10 py-0 relative z-10">
+//     <div className="flex flex-col md:flex-row justify-between text-center md:text-left pt-0  mt-0 items-center gap-6  px-5 sm:px-0">
+//       <div className="w-full sm:w-[33%] h2 sm:he2 mb-0 sm:mb-5 text-center md:text-left lg:text-right ">Journey</div>
+//       <div className="w-full sm:w-[33%] t1 text-[#ADADAD] sm:mt-0 md:mt-0 lg:mt-[60px]">we are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.</div>
+//       <div className="w-full sm:w-[33%] h2 sm:he2 sm:mt-0 md:mt-0 lg:mt-[100px]">Since 2022</div>
+//     </div>
+//     <div className="grid grid-cols-1 sm:pl-5 sm:pr-5 pl-5 pr-5 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12">
+//       {/* 4,500 Hours Saved */}
+//       <div className="bg-gray-800 bg-opacity-70 p-6 text-center sm:text-start md:p-10 rounded-lg shadow-lg">
+//         <p className="h3 md:he3 lg:he2">
+//           <AnimatedCounter target={4500} />
+//         </p>
+//         <p className="mt-4 text-lg text-gray-400">Hours Saved</p>
+//       </div>
 
-      //       {/* $1.8M Cost Saved */}
-      //       <div className="bg-gray-800 bg-opacity-70 p-6 text-center sm:text-start md:p-10 rounded-lg shadow-lg">
-      //         <p className="h3 md:he3 lg:he2">
-      //           <AnimatedCounter target={1.8} />M
-      //         </p>
-      //         <p className="mt-4 text-lg text-gray-400">Cost Saved</p>
-      //       </div>
+//       {/* $1.8M Cost Saved */}
+//       <div className="bg-gray-800 bg-opacity-70 p-6 text-center sm:text-start md:p-10 rounded-lg shadow-lg">
+//         <p className="h3 md:he3 lg:he2">
+//           <AnimatedCounter target={1.8} />M
+//         </p>
+//         <p className="mt-4 text-lg text-gray-400">Cost Saved</p>
+//       </div>
 
-      //       {/* 20+ Trusted Enterprises */}
-      //       <div className="bg-gray-800 bg-opacity-70 text-center sm:text-start p-6 md:p-10 rounded-lg shadow-lg">
-      //         <p className="h3 md:he3 lg:he2 ">
-      //           <AnimatedCounter target={20} />+
-      //         </p>
-      //         <p className="mt-4 text-lg text-gray-400">Trusted Enterprises</p>
-      //       </div>
+//       {/* 20+ Trusted Enterprises */}
+//       <div className="bg-gray-800 bg-opacity-70 text-center sm:text-start p-6 md:p-10 rounded-lg shadow-lg">
+//         <p className="h3 md:he3 lg:he2 ">
+//           <AnimatedCounter target={20} />+
+//         </p>
+//         <p className="mt-4 text-lg text-gray-400">Trusted Enterprises</p>
+//       </div>
 
-      //       {/* 600+ Clients Served */}
-      //       <div className="bg-gray-800 bg-opacity-70 p-6 text-center sm:text-start md:p-10 rounded-lg shadow-lg">
-      //         <p className="h3 md:he3 lg:he2">
-      //           <AnimatedCounter target={600} />+
-      //         </p>
-      //         <p className="mt-4 text-lg text-gray-400">Clients Served</p>
-      //       </div>
-      //     </div>
-      //   </div>
-      // </section>
+//       {/* 600+ Clients Served */}
+//       <div className="bg-gray-800 bg-opacity-70 p-6 text-center sm:text-start md:p-10 rounded-lg shadow-lg">
+//         <p className="h3 md:he3 lg:he2">
+//           <AnimatedCounter target={600} />+
+//         </p>
+//         <p className="mt-4 text-lg text-gray-400">Clients Served</p>
+//       </div>
+//     </div>
+//   </div>
+// </section>
