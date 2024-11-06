@@ -244,7 +244,7 @@ const AboutUs = () => {
       <section
         className="relative  w-full h-[460px] flex items-center justify-center text-center"
         style={{
-          backgroundImage: `url("/home/blue-bg.svg")`,
+          backgroundImage: `url(/home/Blue-bg.svg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
