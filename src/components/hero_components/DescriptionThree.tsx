@@ -11,7 +11,7 @@ const DescriptionThree = () => {
   const totalCardWidth = cardWidth + gap;
   const maxIndex = testimonials.length - 1;
 
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isMedium, setIsMedium] = useState(false);
   const x = useMotionValue(0);
@@ -60,8 +60,8 @@ const DescriptionThree = () => {
           <p className="sm:he2 h2 text-Charcoal-80 tracking-wide">
             From our <span className="text-Mercury-50">Community</span>
           </p>
-          <p className="mt-2 t1   text-Mercury-50">
-            Draftflow is continuously evolving, thanks to insights from forward-thinking firms like yours. Here’s what some of our partners are saying: 
+          <p className="mt-2 t1 text-Mercury-50">
+            Draftflow is continuously evolving, thanks to insights from forward-thinking firms like yours. Here’s what some of our partners are saying:
           </p>
         </div>
 
@@ -130,30 +130,35 @@ const DescriptionThree = () => {
           </motion.div>
         </div>
 
-        {/* Navigation Buttons (Hidden on mobile) */}
-        {!isMobile && (
-          <>
-            <button
-              className="absolute left-5 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full shadow-lg p-3"
-              onClick={() => moveCards("left")}
-              disabled={currentIndex === 0}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
+       {/* Navigation Buttons */}
+<div className="absolute inset-y-1/2 left-5 hidden md:block">
+  {/* Left Button - Hidden when at first index */}
+  {currentIndex !== 0 && (
+    <button
+      className="transform -translate-y-1/2 bg-black text-white rounded-full shadow-lg p-3"
+      onClick={() => moveCards("left")}
+    >
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+  )}
+</div>
 
-            <button
-              className="absolute right-5 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full shadow-lg p-3"
-              onClick={() => moveCards("right")}
-              disabled={currentIndex === maxIndex}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </>
-        )}
+<div className="absolute inset-y-1/2 right-5 hidden md:block">
+  {/* Right Button - Hidden when at last index */}
+  {currentIndex !== maxIndex && (
+    <button
+      className="transform -translate-y-1/2 bg-black text-white rounded-full shadow-lg p-3"
+      onClick={() => moveCards("right")}
+    >
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  )}
+</div>
+
       </div>
     </section>
   );

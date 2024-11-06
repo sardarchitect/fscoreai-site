@@ -125,9 +125,9 @@ const Cards: React.FC<CardProps> = ({ index, card }) => {
           </h3>
           <p className="mt-4 text-gray-700">{card.description}</p>
           <div className="mt-4 text-gray-600">{card.additionalInfo}</div>
-          <button className="mt-4 px-6 py-2 text-black border border-solid border-black font-bold rounded">
+          {/* <button className="mt-4 px-6 py-2 text-black border border-solid border-black font-bold rounded">
             {card.buttonLabel}
-          </button>
+          </button> */}
         </div>
       </motion.div>
     </motion.div>
