@@ -68,10 +68,10 @@ const ContactUs = () => {
         {/* Centered Header Text */}
         <div className="text-center py-5">
           <h2 className="text-4xl font-bold">
-            We'd love to talk about how we can work together.
+          Let’s Explore How We Can Help You Succeed
           </h2>
           <p id='contact-submission-alert' className="text-xl mt-4 tracking-wide">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, in.
+          Ready to elevate your projects? We’re here to discuss your needs, answer your questions, and explore solutions that streamline your workflow. Whether you’re curious about our technology or ready to get started, we’d love to connect!
           </p>
         </div>
 
@@ -79,9 +79,9 @@ const ContactUs = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {/* Left Side Section (Why Connect With Us?) */}
           <div className="bg-white dark:bg-gray-800 rounded-lg px-6 py-8">
-            <p className="text-2xl font-semibold mb-4">Why Connect With Us?</p>
+            <p className="text-2xl font-semibold mb-4">Why Partner With Us?</p>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae molestiae delectus neque amet nesciunt cum voluptatem illo. Ducimus, quos eos. Facere odio illum impedit veniam!
+            Our mission is to empower architects and designers with innovative tools that save time, reduce errors, and boost productivity. By working together, we help you focus on what truly matters: creating exceptional designs and bringing your vision to life.
             </p>
  
           </div>
