@@ -51,19 +51,10 @@ const StackedCards = () => {
       // return `translate(-50%, -50%) rotate(${(activeIndex - (index + 1)) * 10}deg)`;
     }
   }
-  // const getDisplayStyle = (index, activeIndex) => {
-  //   if (index > activeIndex) {
-  //     return "none";
-  //   } 
-  //   else {
-  //     return "flex";
-  //   }
-  // }
     const myStyle = (index, activeIndex) => ({
       transform: getTransformStyle(index, activeIndex),
       zIndex: index - cards.length,
       transition: "transform 0.4s ease-out",
-      // display: getDisplayStyle(index, activeIndex),
     });
 
   const handleResize = () => {
@@ -73,7 +64,6 @@ const StackedCards = () => {
   const adjustLayout = () => {
     return windowWidth < 800 ? "beforebegin" : "afterbegin";
   };
-  console.log(windowWidth)
 
   {/* desktop and tab view */ }
   if (windowWidth > 900 && windowWidth !== null) {

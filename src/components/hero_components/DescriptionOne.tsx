@@ -4,9 +4,9 @@ import Image from "next/image";
 const DescriptionOne = () => {
   return (
     <section
-      className="relative  w-full h-[460px] flex items-center justify-center text-center"
+      className="relative w-full h-[460px] flex items-center justify-center text-center"
       style={{
-        backgroundImage: `url("/home/blue-bg.svg")`,
+        backgroundImage: `url(/home/blue-bg.svg)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

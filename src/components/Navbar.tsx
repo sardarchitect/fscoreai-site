@@ -55,7 +55,7 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden items-center lg:flex gap-8">
-            {filteredLinks.map(link => (
+            {filteredLinks.map((link): any => (
               link.key === 'logout' ? (
                 <button key={link.key}  onClick={() => signOut()} className="dark:text-white duration-500 ease-in-out cursor-pointer py-2 px-3">
                   {link.label}
