@@ -19,7 +19,7 @@ const cardData = [
     description: "When errors are detected, Draftflow suggests immediate resolutions, allowing you to correct issues with just a few clicks.",
     additionalInfo: " Our user-friendly interface helps manage errors quickly, keeping projects on track and on budget.",
     buttonLabel: "Get Started",
-    imageSrc: "/home/Smart Error Resolution System.png",
+    imageSrc: "/home/videos/Smart Error Resolution System.gif",
     imageAlt: "Issue Checklist",
     reverseLayout: false,
   },
@@ -36,7 +36,7 @@ const cardData = [
       </div>
     ),
     buttonLabel: "Get Started",
-    imageSrc: "/home/In-built Checklists.png",
+    imageSrc: "/home/videos/inbuilt-checklists.gif",
     imageAlt: "Issue Checklist",
     reverseLayout: true,
   },
@@ -45,7 +45,7 @@ const cardData = [
     description: "Use Draftflow’s Project Analytics to gain insights into your team’s performance.",
     additionalInfo: " Monitor usage patterns, make data-driven decisions, and optimize workflows to achieve top-notch project outcomes.",
     buttonLabel: "Get Started",
-    imageSrc: "/home/Project Analytics.png",
+    imageSrc: "/home/videos/project analytics.gif",
     imageAlt: "Issue Checklist",
     reverseLayout: false,
   },
@@ -120,9 +120,9 @@ const Cards: React.FC<CardProps> = ({ index, card }) => {
         
         {/* Text */}
         <div className="w-full md:w-1/2 p-8">
-          <h3 className="h4 ">
+          <p className="h4 ">
             {card.title}
-          </h3>
+          </p>
           <p className="mt-4 text-gray-700">{card.description}</p>
           <div className="mt-4 text-gray-600">{card.additionalInfo}</div>
           {/* <button className="mt-4 px-6 py-2 text-black border border-solid border-black font-bold rounded">

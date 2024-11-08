@@ -125,11 +125,11 @@ const AboutUs = () => {
           {/* Founder Image */}
           <div className="w-full md:w-1/2 mb-10 md:mb-0">
             <Image
-              src="/about_us/founder.png"  // Replace with the actual path to the founder's image
+              src="/about_us/founder.jpg"  // Replace with the actual path to the founder's image
               alt="Founder"
               width={700}
               height={600}
-              className="rounded-lg object-cover"
+              className=" object-cover"
             />
           </div>
 
@@ -168,7 +168,7 @@ const AboutUs = () => {
             {/* Team Member 1 */}
             <div className="flex flex-col w-[185px] h-[360px] justify-center items-center">
               <img
-                src="/about_us/Team1.png"
+                src="/about_us/Shilpa.png"
                 alt="Team Member 1"
                 className="rounded-lg object-cover w-[185px] h-[360px]"
               />

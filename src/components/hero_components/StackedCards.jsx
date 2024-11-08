@@ -69,8 +69,14 @@ const StackedCards = () => {
   if (windowWidth > 900 && windowWidth !== null) {
     return (
 
-      <div className="w-full  z-0 h-auto  m-auto flex flex-col items-center justify-center">
-        
+      <div className="w-full  z-0 h-auto  m-auto flex flex-col items-center justify-center"
+          style={{
+          backgroundImage: `url(/home/stacked-bg.png)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+        >
         <div className={`w-full max-w-7xl flex h-[500vh] justify-center relative stack-area`} ref={stackAreaRef}>
           {/* <div className={`w-full hidden lg:flex md:flex h-[${cards.length * 100}vh] justify-center relative stack-area`} ref={stackAreaRef}> */}
           <div className={`flex flex-col items-center justify-center h-screen sticky top-0 basis-1/2 p-8 left ${adjustLayout()}`}>
