@@ -14,11 +14,11 @@ export const usersTable: any = pgTable('users', {
     name: varchar('name', { length: 100 }),
     email: varchar('email', { length: 255 }).notNull().unique('users_email_key'),  // Apply named unique constraint
     password: varchar('password', { length: 255 }).notNull(),
-    jobTitle: varchar('job_title', { length: 100 }),
-    companyName: varchar('company_name', { length: 255 }),
-    // role: rolesEnum().default("user"),
-    role: varchar('role', { length: 20 }).default('user'),
-    shortDescription: text('short_description'),
+    // jobTitle: varchar('job_title', { length: 100 }),
+    // companyName: varchar('company_name', { length: 255 }),
+    role: rolesEnum().default("user"),
+    // role: varchar('role', { length: 20 }).default('user'),
+    // shortDescription: text('short_description'),
     createdAt: timestamp('created_at', { withTimezone: false }).defaultNow(),
     updatedAt: timestamp('updated_at', { withTimezone: false }).defaultNow()
 });

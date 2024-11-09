@@ -12,7 +12,7 @@ export const organizationTable = pgTable('organization', {
     managers: jsonb('managers').notNull().default('[]'), 
     adminUserId: uuid('admin_user_id').notNull().references(() => usersTable.id, { onDelete: 'cascade' }),
     billingHistory: jsonb('billing_history'),
-    email: varchar('email', { length: 255 }).notNull().unique('organization_email_key'),
+    // email: varchar('email', { length: 255 }).notNull().unique('organization_email_key'),
     shortDescription: text('short_description'),
     createdAt: timestamp('created_at', { withTimezone: false }).defaultNow().notNull(),
     updatedAt: timestamp('updated_at', { withTimezone: false }).defaultNow().notNull(),

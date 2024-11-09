@@ -1,50 +1,70 @@
 import { NextResponse } from 'next/server';
-import { query } from '@/src/lib/db';
-import { updateUser } from '@/src/lib/actions/user';
+import { db } from '@/src/lib/db';
 import { hasAuth } from '@/src/lib/Middleware/hasAuth';
+import { updateUser } from '@/src/lib/helpers/updateUser';
+import { usersTable } from '@/src/lib/schema/user';
+import { count, eq } from 'drizzle-orm';
 
 export async function PUT(req: Request) {
   // Retrieve the session
   const authResponse = await hasAuth();
-  if (!(authResponse.ok === true)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });  ; // Return the unauthorized response if exists
-  const {user} = await authResponse.json();
+  if (!(authResponse.ok === true)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  const { user } = await authResponse.json();
+  console.log(user)
+  // if ((authResponse.ok === true)) return NextResponse.json({ error: user }, { status: 401 });
+
   
-    try {
-    // Start transaction
-    await query('BEGIN');
-
-    const { updatedUser, id , email} = await req.json();
-
-    // Check if the user exists 
-    const newUserCheckQuery = 'SELECT id, email FROM users WHERE email = $1';
-    const newUserCheckResult = await query(newUserCheckQuery, [email]);
-
-    if (newUserCheckResult.rows.length === 0 || newUserCheckResult.rows[0]?.email!==user.email ) {
-      throw new Error('user not found ');
-    }
-
-    // Update the user to change the user 
-    await updateUser(updatedUser, id, email)
-
-    await query('COMMIT');
-    return NextResponse.json({ message: 'User updated successfully', user: updatedUser }, { status: 200 });
-
+  if (user.role !== 'user') {
+    return NextResponse.json({ error: 'User not allowed' }, { status: 404 });
   }
 
+  try {
+    // Parse the request payload
+    const { name, email } = await req.json();
 
-  catch (error) {
-    await query('ROLLBACK');
+    // Check if the user exists
+    const result = await db
+      .select({ count: count() })
+      .from(usersTable)
+      .where(eq(usersTable.email, user.email))
+
+    if (result[0].count !== 1) {
+      return NextResponse.json({ error: result[0].count, message: 'User not found' }, { status: 404 });
+    }
+
+    // Start the transaction
+    await db.transaction(async (trx) => {
+      // Check permissions and update user using the updateUser helper function
+      const updateResult = await updateUser({
+        id: user.id,
+        role: user.role,
+        data: {
+          name, email
+        },
+        updaterId: user.id,
+        updaterRole: user.role,
+      });
+
+      // Commit transaction if successful
+      if (!updateResult) {
+        throw new Error('User update failed');
+      }
+      console.log(updateResult)
+    });
+
+
+    return NextResponse.json({ message: 'User updated successfully', user: {user, name, email} }, { status: 200 });
+    // return NextResponse.json(
+    //   { message: 'User updated. Please sign in again.' },
+    //   { status: 200, headers: { 'Clear-Site-Data': '"cookies"' } }
+    // );
+  } catch (error) {
     console.error('Catch Error', error);
 
-    if (error instanceof Error) {
-      if (error.message) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
-      }
+    if (error instanceof Error && error.message) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
     return NextResponse.json({ error: 'Failed to process request' }, { status: 500 });
-  } finally {
-
   }
 }
-

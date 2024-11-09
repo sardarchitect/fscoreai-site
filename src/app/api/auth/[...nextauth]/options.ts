@@ -55,12 +55,14 @@ export const authOptions = {
   ],
  
   callbacks: {
-    async jwt({ token, user }:  { token: JWT; user?: User }) {
+    async jwt({ token, user, trigger, session }:  { token: JWT; user?: User; trigger: any; session: Session; }) {
       if (user) {
-        token.id = user.id.toString()
-        token.role = user.role.toString()
-        token.email = user.email.toString()
+        token.user = user
       }
+      if (trigger === "update" && session) {
+        token = {...token, user :session}
+        return token;
+      };
       return token
     },
 
@@ -72,12 +74,6 @@ export const authOptions = {
       }
       return session
     },
-    // async redirect({ url, baseUrl } : any) {
-    //   if (url.startsWith("/")) return `${baseUrl}${url}`
-    //   else if (new URL(url).origin === baseUrl) return url
-    //   return baseUrl
-    // },
-
     debug: process.env.NODE_ENV !== "production"
 
   },
