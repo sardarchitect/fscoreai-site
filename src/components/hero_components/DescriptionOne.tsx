@@ -10,7 +10,7 @@ const DescriptionOne = () => {
     <section
       className="relative w-full h-[460px] flex items-center justify-center text-center"
       style={{
-        backgroundImage: `url("/home/Banner-bg.png")`,
+        backgroundImage: `url(/home/Blue-bg.svg)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -33,7 +33,7 @@ const DescriptionOne = () => {
 
             {/* Call-to-Action Button with Link */}
             <div className="mt-8 flex justify-center">
-            <div onClick={() => setShowPopup(!showPopup)} className="bg-blue-500  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-blue-600">
+            <div onClick={() => setShowPopup(!showPopup)} className="bg-Neptune-50  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-Earth-50 cursor-pointer">
               Book a Demo
               <DemoForm />
             </div>

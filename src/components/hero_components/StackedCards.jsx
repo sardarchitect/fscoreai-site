@@ -69,8 +69,14 @@ const StackedCards = () => {
   if (windowWidth > 900 && windowWidth !== null) {
     return (
 
-      <div className="w-full  z-0 h-auto  m-auto flex flex-col items-center justify-center">
-        
+      <div className="w-full  z-0 h-auto  m-auto flex flex-col items-center justify-center"
+          style={{
+          backgroundImage: `url(/home/stacked-bg.png)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+        >
         <div className={`w-full max-w-7xl flex h-[500vh] justify-center relative stack-area`} ref={stackAreaRef}>
           {/* <div className={`w-full hidden lg:flex md:flex h-[${cards.length * 100}vh] justify-center relative stack-area`} ref={stackAreaRef}> */}
           <div className={`flex flex-col items-center justify-center h-screen sticky top-0 basis-1/2 p-8 left ${adjustLayout()}`}>
@@ -84,7 +90,7 @@ const StackedCards = () => {
               </p>
 
               {/* Learn More Button */}
-              <button className="bg-blue-500 text-white c1 py-5 px-14 rounded mt-4 hover:bg-blue-600 transition duration-300">
+              <button className="bg-blue-500 text-white c1 py-5 px-14 rounded mt-4  hover:bg-blue-600 transition duration-300">
                 Learn More
               </button>
             </div>
@@ -137,7 +143,7 @@ const StackedCards = () => {
                 Draftflow is designed specifically for firms in the AEC industry. Through this one unique system, Draftflow benefits a large set of stakeholders:
               </p>
 
-              {/* Learn More Button */}
+            
 
             </div>
           </div>
@@ -171,7 +177,8 @@ const StackedCards = () => {
 
 
               ))}
-              <button className="bg-blue-500 h-[56px]  w-4/5 m-auto  text-white  py-2 lg:rounded-r-lg md:rounded-r-lg rounded-lg hover:bg-blue-600">
+                {/* Learn More Button */}
+              <button className="bg-blue-500 h-[56px]  w-4/5 m-auto mb-5 text-white  py-2 lg:rounded-r-lg md:rounded-r-lg rounded-lg hover:bg-blue-600">
                 Learn More
               </button>
             </div>

@@ -10,7 +10,7 @@ const cardData = [
     description: "Draftflow’s real-time error detection system quietly monitors your Revit projects, comparing them against comprehensive checklists to catch potential issues immediately. ",
     additionalInfo: "Get quick on-screen notifications and view issues easily through an intuitive error table.",
     buttonLabel: "Get Started",
-    imageSrc: "/home/videos/Real-Time Error Detection System.gif",
+    imageSrc: "/home/videos/Real-time Error Detection System.gif",
     imageAlt: "Issue Checklist",
     reverseLayout: true,
   },
@@ -19,7 +19,7 @@ const cardData = [
     description: "When errors are detected, Draftflow suggests immediate resolutions, allowing you to correct issues with just a few clicks.",
     additionalInfo: " Our user-friendly interface helps manage errors quickly, keeping projects on track and on budget.",
     buttonLabel: "Get Started",
-    imageSrc: "/home/smart error resolution system.png",
+    imageSrc: "/home/videos/Smart Error Resolution System.gif",
     imageAlt: "Issue Checklist",
     reverseLayout: false,
   },
@@ -36,7 +36,7 @@ const cardData = [
       </div>
     ),
     buttonLabel: "Get Started",
-    imageSrc: "/home/in-built checklists.png",
+    imageSrc: "/home/videos/inbuilt-checklists.gif",
     imageAlt: "Issue Checklist",
     reverseLayout: true,
   },
@@ -45,7 +45,7 @@ const cardData = [
     description: "Use Draftflow’s Project Analytics to gain insights into your team’s performance.",
     additionalInfo: " Monitor usage patterns, make data-driven decisions, and optimize workflows to achieve top-notch project outcomes.",
     buttonLabel: "Get Started",
-    imageSrc: "/home/project analytics.png",
+    imageSrc: "/home/videos/project analytics.gif",
     imageAlt: "Issue Checklist",
     reverseLayout: false,
   },
@@ -120,9 +120,9 @@ const Cards: React.FC<CardProps> = ({ index, card }) => {
         
         {/* Text */}
         <div className="w-full md:w-1/2 p-8">
-          <h3 className="h4 ">
+          <p className="h4 ">
             {card.title}
-          </h3>
+          </p>
           <p className="mt-4 text-gray-700">{card.description}</p>
           <div className="mt-4 text-gray-600">{card.additionalInfo}</div>
           {/* <button className="mt-4 px-6 py-2 text-black border border-solid border-black font-bold rounded">
