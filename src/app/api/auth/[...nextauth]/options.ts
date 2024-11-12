@@ -57,11 +57,13 @@ export const authOptions = {
   callbacks: {
     async jwt({ token, user, trigger, session }:  { token: JWT; user?: User; trigger: any; session: Session; }) {
       if (user) {
-        token.user = user
+        token.id = user.id
+        token.role = user.role
+        token.email = user.email
+        token.name = user.name
       }
       if (trigger === "update" && session) {
-        token = {...token, user :session}
-        return token;
+        token.name = session.user.name
       };
       return token
     },
@@ -71,6 +73,7 @@ export const authOptions = {
         session.user.id = token.id
         session.user.role = token.role
         session.user.email = token.email
+        session.user.name = token.name
       }
       return session
     },

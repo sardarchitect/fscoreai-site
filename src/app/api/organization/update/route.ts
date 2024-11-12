@@ -17,7 +17,6 @@ async function updateOrganization({
   trx,
   orgId,
   name,
-  email,
   contact,
   // currentPlan,
   shortDescription,
@@ -27,7 +26,6 @@ async function updateOrganization({
   trx: any;
   orgId: string;
   name?: string;
-  email?: string;
   contact: Record<string, any>;
   shortDescription?: string;
   billingHistory?: Record<string, any>;
@@ -35,7 +33,6 @@ async function updateOrganization({
   const existingOrganization = await trx
     .select({
       name: organizationTable.name,
-      email: organizationTable.email,
       contact: organizationTable.contact,
       shortDescription: organizationTable.shortDescription,
       billingHistory: organizationTable.billingHistory,
@@ -52,7 +49,6 @@ async function updateOrganization({
     .update(organizationTable)
     .set({
       name: name || existingOrganization[0].name,
-      email: email || existingOrganization[0].email,
       contact: contact || existingOrganization[0].contact,
       shortDescription: shortDescription || existingOrganization[0].shortDescription,
       billingHistory: billingHistory || existingOrganization[0].billingHistory,
@@ -79,7 +75,7 @@ export async function PUT(request: NextRequest) {
   try {
     const body: organization = await request.json();
 
-    const { name, email, contact, shortDescription, billingHistory } = body;
+    const { name, contact, shortDescription, billingHistory } = body;
 
     const response = await db.transaction(async (trx) => {
       // Check if session user matches the organization
@@ -91,7 +87,7 @@ export async function PUT(request: NextRequest) {
         trx,
         orgId: orgData.orgId,
         name,
-        email,
+        
         contact,
         shortDescription,
         billingHistory,

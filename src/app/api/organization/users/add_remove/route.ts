@@ -17,7 +17,7 @@ async function checkSessionUser(trx: any, sessionUser: User) {
   const result = await trx
     .select({ orgId: usersTable.orgId, role: usersTable.role })
     .from(usersTable)
-    .where(and(eq(usersTable.id, sessionUser.id), eq(usersTable.email, sessionUser.email)));
+    .where(eq(usersTable.id, sessionUser.id));
 
   if (result.length === 0) {
     throw new Error('Session user does not match provided ID and email || organization does not exist');

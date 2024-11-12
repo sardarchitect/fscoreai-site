@@ -15,10 +15,4 @@ declare module "next-auth" {
       email : string,
     } & DefaultSession["user"]
   }
-
-  // interface JWT {
-  //   role : string,
-  //   id : string,
-  //   email : string,
-  // }
 }

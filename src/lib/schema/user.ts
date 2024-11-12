@@ -9,22 +9,19 @@ export const rolesEnum = pgEnum("role", ["admin", "member", "manager", "user"]);
 
 // Define the 'users' table schema using Drizzle ORM
 export const usersTable: any = pgTable('users', {
-    id: uuid('id').defaultRandom().primaryKey(),
+    id: uuid('id').defaultRandom().primaryKey().notNull(),
     orgId: uuid('org_id').references(() => organizationTable.orgId).default(sql`NULL`), 
     name: varchar('name', { length: 100 }),
     email: varchar('email', { length: 255 }).notNull().unique('users_email_key'),  // Apply named unique constraint
     password: varchar('password', { length: 255 }).notNull(),
-    // jobTitle: varchar('job_title', { length: 100 }),
-    // companyName: varchar('company_name', { length: 255 }),
     role: rolesEnum().default("user"),
     // role: varchar('role', { length: 20 }).default('user'),
-    // shortDescription: text('short_description'),
     createdAt: timestamp('created_at', { withTimezone: false }).defaultNow(),
     updatedAt: timestamp('updated_at', { withTimezone: false }).defaultNow()
 });
 
 // Function to create the trigger
-export async function createUserTriggers() {
+async function createUserTriggers() {
     // Create the trigger function
     await db.execute(sql`
         CREATE OR REPLACE FUNCTION update_updated_at_column()
@@ -45,25 +42,17 @@ export async function createUserTriggers() {
     `);
 }
 
-export async function updateUserRoleConstraint() {
-    await db.transaction(async (trx) => {
-      // Drop the existing constraint
-      await trx.execute(sql`ALTER TABLE users DROP CONSTRAINT users_role_check;`);
-  
-      // Add the updated constraint with the new role
-      await trx.execute(sql`
+export async function addEmailConstraint() {
+    await db.execute(sql`
         ALTER TABLE users 
-        ADD CONSTRAINT users_role_check 
-        CHECK (role IN ('admin', 'member', 'manager', 'user'));
-      `);
-  
-      // Commit the transaction
-    });
-  }
+        ADD CONSTRAINT email_format_constraint 
+        CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$');
+    `);
+}
   
   
 
 
 // (async () => {
-//     await updateUserRoleConstraint();
+//     await ();
 // })();

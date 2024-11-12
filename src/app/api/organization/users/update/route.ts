@@ -24,7 +24,7 @@ export async function PUT(req: Request) {
     const result = await db
       .select({ count: count() })
       .from(usersTable)
-      .where(eq(usersTable.email, user.email))
+      .where(eq(usersTable.id, user.id))
 
     if (result[0].count !== 1) {
       return NextResponse.json({ error: result[0].count, message: 'User not found' }, { status: 404 });
@@ -34,6 +34,7 @@ export async function PUT(req: Request) {
     await db.transaction(async (trx) => {
       // Check permissions and update user using the updateUser helper function
       const updateResult = await updateUser({
+        trx,
         id: updatedUser.id,
         role: updatedUser.role,
         data: updatedUser,

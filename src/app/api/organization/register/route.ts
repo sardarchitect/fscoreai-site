@@ -11,7 +11,6 @@ async function createOrganization({
   trx,
   sessionUser,
   name,
-  email,
   contact,
   shortDescription,
   billingHistory,
@@ -19,7 +18,6 @@ async function createOrganization({
   trx: any;
   sessionUser: any;
   name?: string;
-  email: string;
   contact?: Record<string, any>;
   shortDescription?: string;
   billingHistory?: Record<string, any>;
@@ -28,7 +26,7 @@ async function createOrganization({
       const existingOrganization = await trx
         .select()
         .from(organizationTable)
-        .where(eq(organizationTable.email, email));
+        .where(eq(organizationTable.adminUserId, sessionUser.user.id));
 
       if (existingOrganization.length > 0) {
         throw new Error('Organization already exists')
@@ -38,7 +36,6 @@ async function createOrganization({
         .insert(organizationTable)
         .values({
           name,
-          email: email ? email : sessionUser.user.email,
           contact,
           adminUserId: sessionUser.user.id,
           shortDescription: shortDescription || null,
@@ -50,7 +47,7 @@ async function createOrganization({
 
         if (newOrganization.length > 0 && newOrganization[0].orgId) {
           // Update the role of the admin user and add orgId
-          await updateUserRole({userId: newOrganization[0].adminUserId, email, updatedRole: "admin", trx, orgId: newOrganization[0].orgId});
+          await updateUserRole({userId: newOrganization[0].adminUserId, updatedRole: "admin", trx, orgId: newOrganization[0].orgId});
         }
       return { data: newOrganization };
 }
@@ -69,7 +66,6 @@ export async function POST(request: Request) {
   try {
     const {
       name,
-      email,
       contact,
       shortDescription,
       billingHistory,
@@ -82,7 +78,6 @@ return await db.transaction(async (trx) => {
       trx,
       sessionUser,
       name,
-      email,
       contact,
       shortDescription,
       billingHistory,

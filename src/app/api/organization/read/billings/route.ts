@@ -24,10 +24,9 @@ export async function GET(request: Request) {
       const Organization = await trx
         .select({
           billingHistory: organizationTable.billingHistory, 
-          email: organizationTable.email,
         })
         .from(organizationTable)
-        .where(and(eq(organizationTable.email, sessionUser.user.email), eq(organizationTable.adminUserId, sessionUser.user.id)));
+        .where(eq(organizationTable.adminUserId, sessionUser.user.id));
 
       if (Organization.length === 0) {
         throw new Error('Organization not exists')
@@ -35,7 +34,6 @@ export async function GET(request: Request) {
 
       return NextResponse.json(
         { message: `Organization Billing History get successfully`, Organization: Organization[0] },
-        // {Organization: Organization[0]},
         { status: 201 }
       );
     })

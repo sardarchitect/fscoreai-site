@@ -6,36 +6,36 @@ import { usersTable } from '@/src/lib/schema/user';
 import { count, eq } from 'drizzle-orm';
 
 export async function PUT(req: Request) {
-  // Retrieve the session
-  const authResponse = await hasAuth();
-  if (!(authResponse.ok === true)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  const { user } = await authResponse.json();
-  console.log(user)
-  // if ((authResponse.ok === true)) return NextResponse.json({ error: user }, { status: 401 });
-
   
-  if (user.role !== 'user') {
-    return NextResponse.json({ error: 'User not allowed' }, { status: 404 });
-  }
-
   try {
+    // Retrieve the session
+    const authResponse = await hasAuth();
+    if (authResponse.ok === false) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const { user } = await authResponse.json();
+    let updateResult: any;
+
+    // if (user.role !== 'user') {
+    //   return NextResponse.json({ error: `User not allowed` }, { status: 404 });
+    // }
     // Parse the request payload
-    const { name, email } = await req.json();
-
-    // Check if the user exists
-    const result = await db
-      .select({ count: count() })
-      .from(usersTable)
-      .where(eq(usersTable.email, user.email))
-
-    if (result[0].count !== 1) {
-      return NextResponse.json({ error: result[0].count, message: 'User not found' }, { status: 404 });
-    }
+    const userData = await req.json();
+    const { name, email } = await userData;
 
     // Start the transaction
     await db.transaction(async (trx) => {
+      // Check if the user exists
+      const result = await trx
+        .select({ count: count() })
+        .from(usersTable)
+        .where(eq(usersTable.id, user.id))
+
+      if (result[0].count !== 1) {
+        return NextResponse.json({ error: result[0].count, message: 'User not found' }, { status: 404 });
+      }
+
       // Check permissions and update user using the updateUser helper function
-      const updateResult = await updateUser({
+      updateResult = await updateUser({
+        trx,
         id: user.id,
         role: user.role,
         data: {
@@ -49,11 +49,11 @@ export async function PUT(req: Request) {
       if (!updateResult) {
         throw new Error('User update failed');
       }
-      console.log(updateResult)
+
     });
+    
+    return NextResponse.json({ message: 'User updated successfully', user: updateResult?.user }, { status: 200 });
 
-
-    return NextResponse.json({ message: 'User updated successfully', user: {user, name, email} }, { status: 200 });
     // return NextResponse.json(
     //   { message: 'User updated. Please sign in again.' },
     //   { status: 200, headers: { 'Clear-Site-Data': '"cookies"' } }

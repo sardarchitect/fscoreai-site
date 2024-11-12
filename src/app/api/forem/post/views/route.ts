@@ -7,7 +7,7 @@ import startWorker from '@/src/lib/queues/postProcessor';
 export async function POST(request: NextRequest) {
   const authResponse = await hasAuth();
   if (!authResponse.ok) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthenticated' }, { status: 401 });
   }
   const sessionUser = await authResponse.json();
 

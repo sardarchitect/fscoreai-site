@@ -3,24 +3,22 @@ import { query } from "../db";
 import { usersTable } from "../schema/user";
 import { and, eq, or } from "drizzle-orm";
 
-export async function updateUserRole({ userId, email, updatedRole, trx, orgId }: { orgId?: string, userId: string, email: string, updatedRole: string, trx: any }) {
+export async function updateUserRole({ userId, updatedRole, trx, orgId }: { orgId?: string, userId: string, updatedRole: string, trx: any }) {
 
 
 
   // CHECK USER IS PART OF ANOTHER ORG OR NOT 
   const checkUserOrgResult = await trx
-    .select({ userOrgId: usersTable.orgId, })
+    .select({ userOrgId: usersTable.orgId, userEmail: usersTable.email})
     .from(usersTable)
-    .where(or(eq(usersTable.id, userId), eq(usersTable.email, email)))
-
-  console.log(orgId, "jhbjvvvvuvuvuyefih uir8hgi9")
+    .where(eq(usersTable.id, userId))
 
   if (checkUserOrgResult.length === 0) {
-    throw new Error(`${email} not exist`)
+    throw new Error(`USER not exist`)
   } else if (checkUserOrgResult[0].userOrgId !== null) {
     if (checkUserOrgResult[0].userOrgId === orgId) {
     }
-    else throw new Error(`user ${email} is part of other organization:`)
+    else throw new Error(`user ${checkUserOrgResult[0].email} is part of other organization:`)
   }
 
   // update user 
@@ -29,7 +27,7 @@ export async function updateUserRole({ userId, email, updatedRole, trx, orgId }:
     .set({
       role: updatedRole,
       orgId: updatedRole === "user" ? null : orgId
-    }).where(or(eq(usersTable.id, userId), eq(usersTable.email, email))).returning({ role: usersTable.role });
+    }).where(eq(usersTable.id, userId)).returning({ role: usersTable.role });
 
   if (roleUpdateResult.length === 0 || !(roleUpdateResult[0].role) || roleUpdateResult.error) {
     throw new Error('Error updating role:')
@@ -53,11 +51,11 @@ export async function updateMembersAndManagers({
 
   // Update roles for new members
   for (const member of newMembers) {
-    await updateUserRole({ userId: member.id, email: member.email, updatedRole: method === "UPDATE" ? "member" : "user", trx, orgId: orgId });
+    await updateUserRole({ userId: member.id, updatedRole: method === "UPDATE" ? "member" : "user", trx, orgId: orgId });
   }
   // Update roles for new managers
   for (const manager of newManagers) {
-    await updateUserRole({ userId: manager.id, email: manager.email, updatedRole: method === "UPDATE" ? "manager" : "user", trx, orgId: orgId });
+    await updateUserRole({ userId: manager.id, updatedRole: method === "UPDATE" ? "manager" : "user", trx, orgId: orgId });
   }
 }
 
@@ -68,7 +66,7 @@ export async function checkSessionUserForAdmin(trx: any, sessionUser: any) {
   const result = await trx
     .select({ orgId: usersTable.orgId, role: usersTable.role })
     .from(usersTable)
-    .where(and(eq(usersTable.id, sessionUser.id), eq(usersTable.email, sessionUser.email)));
+    .where(eq(usersTable.id, sessionUser.id));
 
   if (result.length === 0) {
     throw new Error('Session user does not match provided ID and email || organization does not exist');
