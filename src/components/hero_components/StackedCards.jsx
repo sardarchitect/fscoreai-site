@@ -70,18 +70,18 @@ const StackedCards = () => {
     return (
 
       <div className="w-full  z-0 h-auto  m-auto flex flex-col items-center justify-center"
-          style={{
-          backgroundImage: `url(/home/stacked-bg.png)`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
+        //   style={{
+        //   backgroundImage: `url(/home/stacked-bg.png)`,
+        //   backgroundSize: "cover",
+        //   backgroundPosition: "center",
+        //   backgroundRepeat: "no-repeat",
+        // }}
         >
-        <div className={`w-full max-w-7xl flex h-[500vh] justify-center relative stack-area`} ref={stackAreaRef}>
+        <div className={`w-full container-width flex h-[500vh] justify-center relative stack-area`} ref={stackAreaRef}>
           {/* <div className={`w-full hidden lg:flex md:flex h-[${cards.length * 100}vh] justify-center relative stack-area`} ref={stackAreaRef}> */}
           <div className={`flex flex-col items-center justify-center h-screen sticky top-0 basis-1/2 p-8 left ${adjustLayout()}`}>
             {/* Left Side: Text Content Section */}
-            <div className="col-span-12 lg:col-span-6 px-4 py-2">
+            <div className="col-span-12 lg:col-span-6 ">
               <p className="h3 sm:he2 w-[448px] text-Mercury-50">
              <span className="text-Charcoal-80"> Why</span> Choose Draftflow <span className="text-Charcoal-80">for Your Firm?</span>
               </p>
@@ -90,7 +90,7 @@ const StackedCards = () => {
               </p>
 
               {/* Learn More Button */}
-              <button className="bg-blue-500 text-white c1 py-5 px-14 rounded mt-4  hover:bg-blue-600 transition duration-300">
+              <button className="bg-Neptune-50 text-white c1 py-5 px-14 rounded mt-4  hover:bg-Earth-50 transition duration-300">
                 Learn More
               </button>
             </div>

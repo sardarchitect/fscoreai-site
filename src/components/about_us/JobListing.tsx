@@ -39,7 +39,7 @@ const JobListing: React.FC<JobListingProps> = ({ sNo, title, description, timePo
             e.stopPropagation();
             handleToggle();
           }}
-          className="w-8 md:w-12 h-8 md:h-12 bg-black text-white rounded-full flex items-center justify-center text-lg"
+          className="w-10 md:w-14 h-10 md:h-14 bg-black text-white rounded-full flex items-center justify-center text-2xl"
         >
           {isOpen ? "-" : "+"}
         </button>

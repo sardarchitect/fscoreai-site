@@ -44,12 +44,12 @@ export default function RootLayout({
             <MobileMenuProvider>
               <FormPopUpProvider>
                 <PageUpdateProvider>
-                    <Navbar></Navbar>
+                    <Navbar/>
                   {/* <ReactLenis root> */}
                     {/* <Header/> */}
                     <main className="">{children}</main>
                     <CookieConsent />
-                    <Footer></Footer>
+                    <Footer/>
                   {/* </ReactLenis> */}
                 </PageUpdateProvider>
               </FormPopUpProvider>

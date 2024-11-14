@@ -51,10 +51,10 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full m-auto max-w-7xl h-full min-h-screen flex items-center justify-center text-center px-4 sm:px-6 lg:px-8">
-      <div className="relative z-10 mx-auto grid grid-cols-12 gap-6 w-full h-full items-center">
+    <section className="relative  m-auto container-width h-full min-h-screen flex items-center justify-center text-center px-4 sm:px-6 lg:px-0">
+      <div className="relative z-10 mx-auto grid grid-cols-12  w-full h-full items-center">
         {/* Left Section: Text Content */}
-        <div className="col-span-12 lg:col-span-6 order-2 md:order-1 lg:order-1 flex text-start mt-5 mb-5 md:mt-28 md:mb-8 lg:mt-2 lg:mb-8 flex-col justify-center">
+        <div className="col-span-12 lg:col-span-6 order-2 md:order-1 lg:order-1 flex text-start   flex-col justify-center">
           <p className="h2 sm:he2  text-Mercury-50">
             Transform <span className="text-Charcoal-80">your Firm's</span>{" "}
             Quality Control <span className="text-Charcoal-80">with</span>{" "}
@@ -85,7 +85,7 @@ const HeroSection: React.FC = () => {
                     message: "Invalid email address",
                   },
                 })}
-                className={`p-4 border mb-3 lg:w-[320px] w-full lg:rounded-l-lg shadow-2xl text-gray-700 ${
+                className={`px-6 py-2 h-[56px] border mb-3 lg:w-[320px] w-full lg:rounded-l-lg shadow-2xl text-gray-700 ${
                   errors.email ? "border-red-500" : ""
                 }`}
               />
@@ -93,7 +93,7 @@ const HeroSection: React.FC = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="bg-blue-500 h-[56px] lg:w-[179px] w-full text-white px-6 py-2 lg:rounded-r-lg hover:bg-blue-600"
+                className="bg-Neptune-50 h-[56px] lg:w-[179px] w-full text-white px-6 py-2  lg:rounded-r-lg hover:bg-Earth-50"
                 disabled={loading}
               >
                 {loading ? "Subscribing..." : isSubscribed ? "Subscribed" : "Subscribe"}
@@ -107,7 +107,7 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* Right Section: Video */}
-        <div className="col-span-12 lg:col-span-6 order-1 md:order-2 lg:order-2 mt-5 mb-5 md:mt-28 md:mb-8 lg:mt-10 lg:mb-8 flex justify-center">
+        <div className="col-span-12 lg:col-span-6 order-1 md:order-2 lg:order-2  flex justify-center">
           <Suspense fallback={<p>Loading video...</p>}>
             <div className="w-full max-w-lg sm:max-w-xl lg:max-w-full">
               <HeroVideo />

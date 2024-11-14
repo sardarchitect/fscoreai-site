@@ -10,6 +10,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   font-family: Inter;
 }
@@ -166,6 +167,9 @@ html.lenis, html.lenis body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+}
+.container-width{
+  max-width: 1040px;
 }
 
 .form {

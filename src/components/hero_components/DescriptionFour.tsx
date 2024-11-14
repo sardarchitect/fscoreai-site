@@ -60,10 +60,10 @@ const DescriptionFour: React.FC = () => {
   const headerTop = useTransform(scrollYProgress, [0.8, 1], [0, -100]);
 
   return (
-<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
+<section className="container-width mx-auto px-4 sm:px-6 lg:px-0" ref={ref}>
   <motion.div
     style={{ top: headerTop, opacity: headerOpacity }}
-    className="lg:sticky lg:top-0 md:sticky md:top-0 static h-auto pt-20 pb-8 z-10 w-full max-w-[840px] mx-auto"
+    className="lg:sticky lg:top-0 md:sticky md:top-0 static h-auto pt-20 pb-8 z-10 w-full mx-auto"
   >
     <div className="text-center w-full mb-12">
       <p className="sm:he2 h2 text-Mercury-50">
@@ -72,7 +72,7 @@ const DescriptionFour: React.FC = () => {
     </div>
   </motion.div>
 
-  <div className="h-auto w-full max-w-[840px] mx-auto">
+  <div className="h-auto w-full  mx-auto">
     {cardData.map((card, index) => (
       <Cards key={index} index={index} card={card} />
     ))}

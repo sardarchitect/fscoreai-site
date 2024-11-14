@@ -20,10 +20,10 @@ const DescriptionOne = () => {
       <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
 
       {/* Content Section */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
+      <div className="relative z-10 container-width mx-auto px-4 sm:px-6 lg:px-0 grid grid-cols-12 w-full h-full items-center">
         {/* Centered Text in Grid Layout */}
         <div className="col-span-12 flex items-center justify-center w-full">
-          <div className="text-center px-4 sm:px-8">
+          <div className="text-center px-4 sm:px-0">
             <div className="sm:he2 h3 text-white">
               Create <span className="text-Earth-50">Flawless</span> Drawings with <span className="text-Earth-50">Draftflow</span>
             </div>

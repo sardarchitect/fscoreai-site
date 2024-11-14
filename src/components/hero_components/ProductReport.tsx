@@ -44,7 +44,7 @@ const ProductReport = () => {
     return (
       <section
         ref={sectionRef}
-        className="relative w-full pt-10 flex items-center justify-center text-center overflow-hidden"
+        className="relative w-full  flex items-center justify-center text-center overflow-hidden"
       >
      {/* Moving Background Image controlled by scroll */}
      <motion.div
@@ -76,9 +76,9 @@ const ProductReport = () => {
       ></div> */}
 
         {/* Content Section */}
-        <div className="relative z-10 max-w-7xl mb-20 mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
+        <div className="relative z-10 container-width mb-20 mx-auto  grid grid-cols-12 w-full h-full items-center">
           {/* Text Section */}
-          <div className="col-span-12 text-center px-4 py-16 lg:px-8">
+          <div className="col-span-12 text-center ">
             <p className="h3 sm:he2 text-gray-900">
               <span className="text-[#666666]">What is</span> Draftflow?
             </p>

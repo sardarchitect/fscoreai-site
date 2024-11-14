@@ -54,7 +54,7 @@ const DescriptionThree = () => {
 
   return (
     <section className="relative bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8">
+      <div className="container-width mx-auto pt-8 px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center ">
           <p className="sm:he2 h2 text-Charcoal-80 tracking-wide">

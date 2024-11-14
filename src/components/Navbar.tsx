@@ -31,14 +31,14 @@ export default function Navbar() {
 
   const getLinkClasses = (linkPath: string) => {
     return currentPath === linkPath
-      ? "font-bold py-2 px-3 underline text-black" // Styles for active link
+      ? "font-bold py-2 px-3 space  text-Neptune-50" // Styles for active link
       : "cursor-pointer py-2 px-3"; // Default styles
   };
 
   return (
     <div>
       <header className="top-0 left-0 right-0 z-40 fixed lg:backdrop-blur bg-white bg-opacity-70">
-        <nav className={`mx-auto flex max-w-7xl items-center ${mobileMenuOpen ? "bg-white" : "bg-transparent"} justify-between p-4 lg:px-8`} aria-label="Global">
+        <nav className={`mx-auto flex container-width items-center ${mobileMenuOpen ? "bg-white" : "bg-transparent"} justify-between p-4 `} >
           <div className="flex lg:flex-1">
             <Link href="/">
               <Image src="/fscorebold.svg" alt="logo" width={171} height={50} />
@@ -62,7 +62,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden items-center lg:flex gap-8">
+          <div className="hidden items-center hover:text-Earth-50 lg:flex gap-4">
             {filteredLinks.map((link): any => (
               link.key === 'logout' ? (
                 <button key={link.key} onClick={() => signOut()} className={getLinkClasses(link.href)}>
@@ -76,7 +76,7 @@ export default function Navbar() {
             ))}
 
             {/* Book Demo Button */}
-            <div onClick={() => setShowPopup(!showPopup)} className="inline-block text-sm px-6 py-4 leading-none border-2 bg-black rounded  text-white dark:border-white border-theme-blue cursor-pointer">
+            <div onClick={() => setShowPopup(!showPopup)} className="inline-block text-sm px-5 py-4 leading-none  bg-Neptune-50 rounded  text-white hover:bg-Earth-50 font-semibold dark:border-white border-theme-blue cursor-pointer">
               Book a Demo
               <DemoForm />
             </div>
@@ -121,7 +121,7 @@ export default function Navbar() {
                   className="mt-6 text-center  inline-block w-full text-sm px-4 py-3 leading-none border-2 rounded   border-theme-blue cursor-pointer"
                 >
                   Book a Demo
-                  <DemoForm />
+                  <DemoForm  />
                 </div>
               </div>
             </div>

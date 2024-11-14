@@ -28,8 +28,8 @@ const AboutUs = () => {
   return (
     <main className=" w-full items-center justify-center">
       {/* Header Section */}
-      <header className="bg-ab-bg w-full mt-20 sm:mt-10 md:mt-20 gap-6 md:gap-36 py-8 md:py-20 flex flex-col md:flex-row justify-center items-center text-center md:text-left">
-        <div className="max-w-7xl flex flex-col md:flex-row gap-8 md:gap-16 px-4 md:px-8">
+      <header className="bg-ab-bg lg:px-[0px] md:px-[32px] sm:px-[16px] w-full mt-[78px] sm:mt-10 mb-[66px] md:mt-20 gap-6 md:gap-36 pt-[66px] pb-[78px]  flex flex-col md:flex-row justify-center items-center text-center md:text-left">
+        <div className="container-width flex flex-col md:flex-row gap-8 md:gap-24  ">
           {/* Left side with the main heading */}
           <div className="md:w-1/2 flex justify-center md:justify-start">
             <p className="text-white h3 md:h2 lg:h2  leading-tight">
@@ -50,14 +50,14 @@ const AboutUs = () => {
 
 
       {/* Mission Section */}
-      <section className="bg-white mb-10 mt-10  py-10 md:py-20">
-        <div className="max-w-7xl  mx-auto text-center px-6">
+      <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px]">
+        <div className="container-width pb-[120px] mx-auto text-center">
 
-          <div className="w-full md:w-[840px] mx-auto mb-8">
-            <p className="h3 sm:he2 text-Mercury-50 mb-6">
+          <div className="w-full mx-auto mb-20 sm:w-[400px] md:w-[580px] lg:w-[830px] ">
+            <p className="h3 sm:he2 text-Mercury-50 mb-4">
               <span className="text-Charcoal-60">Our</span> Mission
             </p>
-            <p className="t1 text-gray-600 mb-5">
+            <p className="t1 text-gray-600 mb-10 ">
               Fscore AI envisions a future where architecture and engineering transcend traditional boundaries through the use of cutting-edge automation and innovation. The company believes that to deal with the upcoming future challenges, the architectural industry will need the assistance of intelligent systems that can handle the additional stressors caused by increasing amounts of demand in our built environment.
             </p>
 
@@ -66,7 +66,7 @@ const AboutUs = () => {
 
 
           {/* Team Members Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 justify-items-center ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 justify-items-center ">
             {/* Aim 1 */}
             <div className=" w-[185px] h-[360px] flex-col items-center hidden sm:block">
               <img
@@ -116,9 +116,9 @@ const AboutUs = () => {
       </section>
 
       {/* Meet the Founder Section */}
-      <section className="bg-white py-10 md:py-20 mb-10 mt-10  flex flex-col items-center w-full mx-auto px-5">
+      <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px]  flex flex-col items-center mb-[122px]  container-width mx-auto ">
 
-        <p className="h2 max-w-7xl lg:mb-10 mb-6 font-medium text-gray-600 text-center lg:text-left">
+        <p className="h2 mb-11 font-medium text-gray-600 text-center lg:text-left">
           Meet the <span className="font-bold">Founder</span>
         </p>
         <div className="flex flex-col max-w-7xl md:flex-row lg:space-x-5 md:space-x-5 space-x-0 sm:text-left text-center">
@@ -136,17 +136,17 @@ const AboutUs = () => {
           {/* Founder Text */}
           <div className="w-full md:w-1/2">
   {/* Goal Text */}
-  <p className="lg:-mx-24 md:-mx-24  sm:mx-0 h2 md:h1 lg:he1 w-full sm:w-[80%] md:w-[680px] text-Mercury-50 leading-tight md:pt-10 text-center sm:text-left">
+  <p className="lg:-mx-44 md:-mx-32  sm:mx-0 h2 md:h1 lg:he1 w-full sm:w-[400px] md:w-[492px] lg:w-[678px] text-Mercury-50 leading-tight  text-center sm:text-left">
    <span className="text-Charcoal-60"> My</span> Goal <span className="text-Charcoal-60">is to</span> Empower Architects <span className="text-Charcoal-60">with</span> AI
   </p>
 
   {/* Description Text */}
-  <p className="lg:t1 md:text-sm text-sm text-gray-500 mt-6  sm:mx-0 w-full sm:w-[80%] md:w-[503px] text-center sm:text-left">
+  <p className="lg:t1 md:text-sm text-sm text-gray-500 mt-6  sm:mx-0 w-full sm:w-[400px] md:w-[340px] lg:w-[502px] text-center sm:text-left">
     As an architect myself, I’ve been in the trenches—managing <br /> tight deadlines, navigating complex design requirements, and dealing with the inevitable headaches that come from catching errors <br /> late in the process.
   </p>
 
   {/* Signature Image */}
-  <div className="mt-8 sm:block flex justify-center">
+  <div className=" sm:block flex justify-center">
     <img src="/about_us/sign.png" alt="Signature" className="w-48" />
   </div>
 </div>
@@ -156,15 +156,17 @@ const AboutUs = () => {
       </section>
 
       {/* Meet the Team Section */}
-      <section className="bg-white py-10 md:py-20">
-        <div className="max-w-7xl mx-auto text-center flex-col flex px-6">
-          <p className="h3 md:h2 text-Mercury-50 font-bold mb-6"><span className="text-Charcoal-60"> Our </span> Experts <span className="text-Charcoal-60"> are like </span> No Other</p>
-          <p className="te1 text-gray-600 mb-16">
+      <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px] mb-[108px]">
+        <div className="container-width mx-auto text-center justify-center  flex-col flex ">
+          <div className="flex text-center flex-col items-center">
+          <p className="h3 md:h2 text-Mercury-50  mb-6"><span className="text-Charcoal-60"> Our </span> Experts <span className="text-Charcoal-60"> are like </span> No Other</p>
+          <p className="te1 text-gray-600 flex  sm:w-[400px] md:w-[500px] lg:w-[798px]  mb-16">
             Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
           </p>
+          </div>
 
           {/* Team Members Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 mb-28 justify-items-center">
             {/* Team Member 1 */}
             <div className="flex flex-col w-[185px] h-[360px] justify-center items-center">
               <img
@@ -214,8 +216,8 @@ const AboutUs = () => {
       </section>
 
       {/* Call to Action (Join Us) Section */}
-      <section className="bg-white py-10 md:py-20">
-        <div className="max-w-7xl mx-auto text-center px-6">
+      <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px] mb-[98px]">
+        <div className="container-width mx-auto text-center ">
           <div className="h3 sm:h2   text-Mercury-50 mb-6"><span className="text-Charcoal-60">Become a</span> Part of < span className="text-Charcoal-60"> our </span> Team</div>
           <p className="te3 sm:te1 text-gray-600 mb-10">
             Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
@@ -242,7 +244,7 @@ const AboutUs = () => {
       </section>
 
       <section
-        className="relative  w-full h-[460px] flex items-center justify-center text-center"
+        className="relative lg:px-[0px] md:px-[32px] sm:px-[16px] w-full h-[460px] flex items-center justify-center text-center"
         style={{
           backgroundImage: `url(/home/Blue-bg.svg)`,
           backgroundSize: "cover",
@@ -254,7 +256,7 @@ const AboutUs = () => {
         <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
 
         {/* Content Section */}
-        <div className="relative z-10 max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
+        <div className="relative z-10 container-width  mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
           {/* Centered Text in Grid Layout */}
           <div className="col-span-12 flex items-center justify-center">
             <div className="text-center px-8">
@@ -268,7 +270,7 @@ const AboutUs = () => {
 
               {/* Call-to-Action Button with Link */}
               <div className="mt-8 flex justify-center">
-                <div onClick={() => setShowPopup(!showPopup)} className="bg-blue-500  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-blue-600">
+                <div onClick={() => setShowPopup(!showPopup)} className="bg-Neptune-50  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-Earth-50 cursor-pointer">
                   Book a Demo
                   <DemoForm />
                 </div>

@@ -1,7 +1,9 @@
 "use client";
 import SubmissionAlert from "@/src/components/utilsComponents/SubmissionAlert";
 import { useThemeContext } from "@/src/context/theme";
+import Link from "next/link";
 import React, { useState } from "react";
+
 import { useForm } from "react-hook-form";
 
 interface RequestBody {
@@ -63,8 +65,8 @@ const ContactUs = () => {
   }
 
   return (
-    <main className="py-16 flex justify-center">
-      <div className=" max-w-7xl dark:text-white dark:bg-rgb-2-6-23 bg-white text-theme-blue px-4 sm:px-6 lg:px-8 py-8">
+    <main className="py-16  items-center flex justify-center">
+      <div className=" container-width dark:text-white dark:bg-rgb-2-6-23 bg-white text-theme-blue px-4 sm:px-6 lg:px-8 py-8">
         {/* Centered Header Text */}
         <div className="text-center py-5">
           <h2 className="text-4xl font-bold">
@@ -78,11 +80,12 @@ const ContactUs = () => {
         {/* Grid Layout for 50-50% split */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {/* Left Side Section (Why Connect With Us?) */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg px-6 py-8">
+          <div className="bg-white  dark:bg-gray-800 rounded-lg px-6 py-8">
             <p className="text-2xl font-semibold mb-4">Why Partner With Us?</p>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
             Our mission is to empower architects and designers with innovative tools that save time, reduce errors, and boost productivity. By working together, we help you focus on what truly matters: creating exceptional designs and bringing your vision to life.
             </p>
+            <p>Reach out to us at <Link href="mailto:support@fscore.ai" className="text-Neptune-50 hover:underline">support@fscore.ai</Link> for any additional queries.</p>
  
           </div>
 
@@ -95,7 +98,7 @@ const ContactUs = () => {
             )}
             <form noValidate method="POST" onSubmit={handleSubmit(onSubmit)}>
               <div className="space-y-6 ">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
                   {/* Full Name Input */}
                   <div>
                     <label
@@ -109,7 +112,7 @@ const ContactUs = () => {
                       {...register("name", { required: "Name is required" })}
                       id="name"
                       placeholder="Enter your name"
-                      className="mt-1 block w-full rounded-md border-0 py-2 px-3 shadow-sm ring-1 ring-inset dark:bg-gray-900 focus:ring-2 focus:ring-indigo-600 sm:text-sm"
+                      className="mt-1 block w-full rounded-md border-0 py-4 px-3 shadow-sm ring-1 ring-inset dark:bg-gray-900 focus:ring-2 focus:ring-indigo-600 sm:text-sm"
                     />
                   </div>
 
@@ -117,7 +120,7 @@ const ContactUs = () => {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium leading-6"
+                      className="block text-sm  font-medium leading-6"
                     >
                       Email address
                     </label>
@@ -132,7 +135,7 @@ const ContactUs = () => {
                       })}
                       type="email"
                       placeholder="Enter your email"
-                      className="mt-1 block w-full rounded-md border-0 py-2 px-3 shadow-sm ring-1 ring-inset dark:bg-gray-900 focus:ring-2 focus:ring-indigo-600 sm:text-sm"
+                      className="mt-1 block w-full rounded-md border-0 py-4 px-3 shadow-sm ring-1 ring-inset dark:bg-gray-900 focus:ring-2 focus:ring-indigo-600 sm:text-sm"
                     />
                   </div>
                 </div>
@@ -149,7 +152,7 @@ const ContactUs = () => {
                       required: "Short description is required",
                     })}
                     id="short_description"
-                    rows={4}
+                    rows={6}
                     className="mt-1 block w-full rounded-md border-0 py-2 px-3 shadow-sm ring-1 ring-inset dark:bg-gray-900 focus:ring-2 focus:ring-indigo-600 sm:text-sm"
                     placeholder="Describe your project..."
                   ></textarea>
@@ -177,7 +180,7 @@ const ContactUs = () => {
                 <div className="mt-6">
                   <button
                     type="submit"
-                    className="w-full inline-flex justify-center h-[56px] items-center  py-2 px-4 border border-transparent shadow-sm b2 rounded-md text-white bg-Neptune-50 hover:bg-Mercury-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="w-full inline-flex justify-center h-[56px] items-center  py-2 px-4 border border-transparent shadow-sm b2 rounded-md text-white bg-Neptune-50 hover:bg-Earth-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     Submit
                   </button>
