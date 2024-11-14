@@ -5,6 +5,7 @@ import { usersTable } from "../schema/user";
 type UserRole = 'user' | 'admin' | 'manager' | 'member';
 
 interface UpdateUserPayload {
+  trx:any;
   id: number;
   role: UserRole;
   data: Partial<{
@@ -16,6 +17,7 @@ interface UpdateUserPayload {
 }
 
 export async function updateUser({
+  trx,
   id,
   role,
   data,
@@ -23,7 +25,6 @@ export async function updateUser({
   updaterRole,
 }: UpdateUserPayload) {
   try {
-    return await db.transaction(async (trx) => {
       // Check permissions based on the updater's role
       const hasPermission = (() => {
         if (updaterRole === 'user') {
@@ -61,7 +62,6 @@ export async function updateUser({
         message: `User update successful`,
         user: updatedUser,
       };
-    });
   } catch (error: any) {
     console.error('Error updating user:', error);
     throw new Error(`Error updating user: ${error.message}`);

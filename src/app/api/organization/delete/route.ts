@@ -37,7 +37,7 @@ export async function DELETE(req: NextRequest) {
       const deleteRowData = await deleteOrganization(trx, orgId);
       
       if (deleteRowData.adminUserId) {
-        const updatedRole = await updateUserRole({userId: deleteRowData.adminUserId, email: deleteRowData.email, updatedRole: "user", trx})
+        const updatedRole = await updateUserRole({userId: deleteRowData.adminUserId, updatedRole: "user", trx})
       }
 
       //  Commit the transaction
@@ -59,7 +59,7 @@ async function deleteOrganization(trx: any, orgId: string) {
     const deletedRows = await trx
       .delete(organizationTable)
       .where(eq(organizationTable.orgId, orgId))
-      .returning({email: organizationTable.email, adminUserId: organizationTable.adminUserId});
+      .returning({adminUserId: organizationTable.adminUserId});
       if(deletedRows.length === 0 ){
         throw new Error('Failed to delete organization')
       }

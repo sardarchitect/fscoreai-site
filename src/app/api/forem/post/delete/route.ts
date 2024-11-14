@@ -10,7 +10,7 @@ export async function DELETE(req: NextRequest) {
   //  Authenticate the request
   const authResponse = await hasAuth();
   if (!(authResponse.ok === true)) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthenticated' }, { status: 401 });
   }
   const sessionUser = await authResponse.json();
 

@@ -34,7 +34,7 @@ export const postLikesTable: any = table(
   {
     id: t.uuid("id").primaryKey().defaultRandom(),
     postId: t.uuid("post_id").references(() => postsTable.id, { onDelete: 'cascade' }), // Foreign key to the post
-    userId: t.uuid("user_id").references(() => usersTable.id, { onDelete: 'set null' }).default("user-was-removed"), // Foreign key to the user
+    userId: t.uuid("user_id").references(() => usersTable.id, { onDelete: 'set null' }), // Foreign key to the user
     createdAt: t.timestamp("created_at", { withTimezone: false }).defaultNow(),
   },
   (table) => {
@@ -84,7 +84,7 @@ export const commentsTable: any = table(
 
 
 
-export async function updateSchema(db: any) {
+async function updateSchema(db: any) {
 
     // Create the trigger function to update the updated_at column
     await db.execute(sql`

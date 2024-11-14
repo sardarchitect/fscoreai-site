@@ -26,11 +26,10 @@ export async function GET(request: Request) {
           name: organizationTable.name, 
           contact: organizationTable.contact, 
           currentPlan: organizationTable.currentPlan,
-          email: organizationTable.email,
           shortDescription: organizationTable.shortDescription,
         })
         .from(organizationTable)
-        .where(and(eq(organizationTable.email, sessionUser.user.email), eq(organizationTable.adminUserId, sessionUser.user.id)));
+        .where(eq(organizationTable.adminUserId, sessionUser.user.id));
 
       if (Organization.length === 0) {
         throw new Error('Organization not exists')

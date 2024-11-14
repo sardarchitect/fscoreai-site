@@ -12,12 +12,8 @@ export async function DELETE(req: NextRequest) {
   const {user} = await authResponse.json()
   
   try {
-    const { email } = await req.json();
-
-    if (!email) {
-        return NextResponse.json({ error: 'Email is required' }, { status: 400 });
-    }
-    const deletedUser = await deleteUserByEmail(email);
+   
+    const deletedUser = await deleteUserById(user.id);
 
     // If no user is deleted (i.e., user doesn't exist)
     if (!deletedUser.length) {
@@ -36,11 +32,11 @@ export async function DELETE(req: NextRequest) {
 
 
 // Function to delete a user by email
-async function deleteUserByEmail (email: string){
+async function deleteUserById (id: string){
 
     try {
         const deletedUser = await db.delete(usersTable)
-            .where(eq(usersTable.email, email)) 
+            .where(eq(usersTable.id, id)) 
             .returning({email: usersTable.email})
 
         console.log('Deleted user:', deletedUser);
