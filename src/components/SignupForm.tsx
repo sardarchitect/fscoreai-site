@@ -6,11 +6,15 @@ const SignupForm: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle signup logic here
     handleSignUp({  email, password });
+  };
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -39,6 +43,7 @@ const SignupForm: React.FC = () => {
 
         <div className="mb-4">
           <label className="b3 block mb-1" htmlFor="password">Password</label>
+          <div className="relative">
           <input
             id="password"
             className="border border-gray-300 rounded-lg px-3 py-2 w-full"
@@ -48,6 +53,14 @@ const SignupForm: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <button
+          type="button"
+          className="absolute inset-y-0 right-0 px-3 flex items-center"
+          onClick={togglePasswordVisibility}
+        >
+          {showPassword ? 'Hide' : 'Show'}
+        </button>
+        </div>
           <div className="flex items-center mt-2">
             <input
               id="remember-me"
