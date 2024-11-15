@@ -44,7 +44,7 @@ const Footer = () => {
 
   return (
     <main>
-      <footer className="bg-[#0c0b16] text-gray-400 text-center p-8 pt-20 lg:px-[20px] md:px-[32px] sm:px-[16px]">
+      <footer className="bg-[#181824] text-gray-400 text-center lg:pt-[70px] lg:px-[20px] md:px-[32px] sm:px-[16px]">
         <div className="container-width mb-[52px] mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-start   ">
           {/* Subscription Section */}
           <div className="flex flex-col items-center lg:items-start text-center w-[374px] lg:text-left mb-8 lg:mb-0">
@@ -67,7 +67,7 @@ const Footer = () => {
               
 
               {/* Desktop View: Arrow Icon */}
-              <button type="submit" className="hidden sm:block bg-gray-50 p-5 h-14  rounded-r-sm text-black">
+              <button type="submit" className="hidden sm:block bg-[#444444] border-l border-gray-600 p-5 h-14  rounded-r-sm text-black">
                 <img src="/home/arrow.svg" alt="arrow icon" />
               </button>
               
@@ -117,7 +117,7 @@ const Footer = () => {
           </div>
         </div>
         <div className=" border-t container-width border-gray-700 m-auto pt-[52px] flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-6">
-          <div className="flex flex-col-2 gap-[118px] sm:gap-6 sm:flex-row justify-center sm:text-center lg:text-left">
+          <div className="flex flex-col-2 gap-[100px] sm:gap-6 sm:flex-row justify-center sm:text-center lg:text-left">
             <Link href="/terms_of_use" className="hover:text-gray-400  text-Charcoal-60">Terms of Use</Link>
             <Link href="/privacy_policy" className="hover:text-gray-400 text-Charcoal-60">Privacy Policy</Link>
           </div>

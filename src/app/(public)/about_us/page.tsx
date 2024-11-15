@@ -39,7 +39,7 @@ const AboutUs = () => {
 
           {/* Right side with the mission statement */}
           <div className="md:w-1/2 flex justify-center md:justify-start">
-            <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed">
+            <p className="text-white te1 leading-relaxed">
             Our mission is to streamline the architectural drawing production process and elevate the quality of construction documents through cutting-edge technology.
             </p>
           </div>
@@ -51,13 +51,13 @@ const AboutUs = () => {
 
       {/* Mission Section */}
       <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px]">
-        <div className="container-width pb-[120px] mx-auto text-center">
+        <div className="container-width lg:pb-[120px] mx-auto text-center">
 
           <div className="w-full mx-auto mb-20 sm:w-[400px] md:w-[580px] lg:w-[830px] ">
             <p className="h3 sm:he2 text-Mercury-50 mb-4">
               <span className="text-Charcoal-60">Our</span> Mission
             </p>
-            <p className="t1 text-gray-600 mb-10 ">
+            <p className="t1 text-gray-600 mb-5 ">
               Fscore AI envisions a future where architecture and engineering transcend traditional boundaries through the use of cutting-edge automation and innovation. The company believes that to deal with the upcoming future challenges, the architectural industry will need the assistance of intelligent systems that can handle the additional stressors caused by increasing amounts of demand in our built environment.
             </p>
 
@@ -116,7 +116,7 @@ const AboutUs = () => {
       </section>
 
       {/* Meet the Founder Section */}
-      <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px]  flex flex-col items-center mb-[122px]  container-width mx-auto ">
+      <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px]  flex flex-col items-center mb-6  lg:mb-[122px]  container-width mx-auto ">
 
         <p className="h2 mb-11 font-medium text-gray-600 text-center lg:text-left">
           Meet the <span className="font-bold">Founder</span>
@@ -141,13 +141,13 @@ const AboutUs = () => {
   </p>
 
   {/* Description Text */}
-  <p className="lg:t1 md:text-sm text-sm text-gray-500 mt-6  sm:mx-0 w-full sm:w-[400px] md:w-[340px] lg:w-[502px] text-center sm:text-left">
-    As an architect myself, I’ve been in the trenches—managing <br /> tight deadlines, navigating complex design requirements, and dealing with the inevitable headaches that come from catching errors <br /> late in the process.
+  <p className="lg:t1 md:te1 te1 text-gray-500 mt-6  sm:mx-0 w-full sm:w-[400px] md:w-[340px] lg:w-[502px] text-center sm:text-left">
+    As an architect myself, I’ve been in the trenches—managing  tight deadlines, navigating complex design requirements, and dealing with the inevitable headaches that come from catching errors  late in the process.
   </p>
 
   {/* Signature Image */}
   <div className=" sm:block flex justify-center">
-    <img src="/about_us/sign.png" alt="Signature" className="w-48" />
+    <img src="/about_us/sign.png" alt="Signature" className="w-[244px] h-[128px]" />
   </div>
 </div>
 
@@ -156,17 +156,17 @@ const AboutUs = () => {
       </section>
 
       {/* Meet the Team Section */}
-      <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px] mb-[108px]">
+      <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px] lg:mb-[184px] mb-10">
         <div className="container-width mx-auto text-center justify-center  flex-col flex ">
           <div className="flex text-center flex-col items-center">
           <p className="h3 md:h2 text-Mercury-50  mb-6"><span className="text-Charcoal-60"> Our </span> Experts <span className="text-Charcoal-60"> are like </span> No Other</p>
-          <p className="te1 text-gray-600 flex  sm:w-[400px] md:w-[500px] lg:w-[798px]  mb-16">
+          <p className="te1 text-gray-600 flex  sm:w-[400px] md:w-[500px] lg:w-[798px]  mb-10">
             Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
           </p>
           </div>
 
           {/* Team Members Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 mb-28 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 lg:space-y-0 space-y-5  justify-items-center">
             {/* Team Member 1 */}
             <div className="flex flex-col w-[185px] h-[360px] justify-center items-center">
               <img
@@ -217,9 +217,9 @@ const AboutUs = () => {
 
       {/* Call to Action (Join Us) Section */}
       <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px] mb-[98px]">
-        <div className="container-width mx-auto text-center ">
+        <div className="container-width mx-auto  items-center text-center ">
           <div className="h3 sm:h2   text-Mercury-50 mb-6"><span className="text-Charcoal-60">Become a</span> Part of < span className="text-Charcoal-60"> our </span> Team</div>
-          <p className="te3 sm:te1 text-gray-600 mb-10">
+          <p className="te3 sm:te1 lg:w-[798px] mx-auto text-center text-gray-600 mb-10">
             Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
           </p>
 

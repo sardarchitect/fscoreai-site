@@ -38,7 +38,7 @@ export default function Navbar() {
   return (
     <div>
       <header className="top-0 left-0 right-0 z-40 fixed lg:backdrop-blur bg-white bg-opacity-70">
-        <nav className={`mx-auto flex container-width items-center ${mobileMenuOpen ? "bg-white" : "bg-transparent"} justify-between p-4 `} >
+        <nav className={`mx-auto flex container-width items-center ${mobileMenuOpen ? "bg-white" : "bg-transparent"} justify-between py-4 `} >
           <div className="flex lg:flex-1">
             <Link href="/">
               <Image src="/fscorebold.svg" alt="logo" width={171} height={50} />
@@ -62,7 +62,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden items-center hover:text-Earth-50 lg:flex gap-4">
+          <div className="hidden items-center  lg:flex gap-4">
             {filteredLinks.map((link): any => (
               link.key === 'logout' ? (
                 <button key={link.key} onClick={() => signOut()} className={getLinkClasses(link.href)}>

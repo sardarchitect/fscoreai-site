@@ -47,7 +47,7 @@ const JobListing: React.FC<JobListingProps> = ({ sNo, title, description, timePo
     </div>
 
     {/* Conditionally render the job description with smooth transition */}
-    <div className={`overflow-hidden duration-300 pl-2 md:pl-28 w-4/5 text-gray-600 text-sm md:tex4 ${isOpen ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
+    <div className={`overflow-hidden duration-300  md:pl-28 w-4/5 text-gray-600 text-sm md:tex4 ${isOpen ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
       }`}
     >
       <p className="mt-4">{description}</p>
