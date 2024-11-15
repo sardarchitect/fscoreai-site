@@ -31,9 +31,9 @@ const LoginForm: React.FC = () => {
 
 
   return (
-    <div className="flex flex-col w-auto  gap-1">
+    <div className="flex flex-col w-auto  gap-5">
       
-      <div className="flex justify-center items-center py-8">
+      <div className="flex justify-center items-center py-5">
       <hr className="absolute w-2/4 sm:w-1/4 h-px bg-gray-200 border-0 dark:bg-gray-700" />
         <span className="absolute font-medium text-gray-900 bg-white dark:text-white dark:bg-gray-900">or</span>
         
@@ -91,7 +91,7 @@ const LoginForm: React.FC = () => {
 
         </div>
 
-        <button className="bg-black b2 hover:bg-gray-800 text-white font-bold py-4 rounded-lg mt-4 w-full">
+        <button className="bg-black b2 hover:bg-gray-800 text-white  py-4 rounded-lg mt-4 w-full">
           Log In
         </button>
 

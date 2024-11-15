@@ -37,7 +37,7 @@ export default function Navbar() {
 
   return (
     <div>
-      <header className="top-0 left-0 right-0 z-40 fixed lg:px-0 px-1 lg:backdrop-blur bg-white bg-opacity-70">
+      <header className="top-0 left-0 right-0 z-40 fixed lg:px-0 pl-4  lg:pr-0 pr-2 lg:backdrop-blur bg-white bg-opacity-70">
         <nav className={`mx-auto flex container-width items-center ${mobileMenuOpen ? "bg-white" : "bg-transparent"} justify-between py-4 `} >
           <div className="flex lg:flex-1">
             <Link href="/">

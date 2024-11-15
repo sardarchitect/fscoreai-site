@@ -44,14 +44,14 @@ const Footer = () => {
 
   return (
     <main>
-      <footer className="bg-[#181824] text-gray-400 text-center lg:pt-[70px] lg:px-[20px] md:px-[32px] sm:px-[16px]">
+      <footer className="bg-[#181824] text-gray-400 text-center lg:my-0 pt-[59px] lg:pt-[70px] lg:px-[20px] md:px-[32px] sm:px-[16px]">
         <div className="container-width mb-[52px] mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-start   ">
           {/* Subscription Section */}
           <div className="flex flex-col items-center lg:items-start text-center w-[374px] lg:text-left mb-8 lg:mb-0">
             <div className="text-white w-[362px] h3 mb-4">
               <span className="text-Charcoal-40">Start a Project with</span> Draftflow
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className=" w-auto  sm:gap-0 gap-2 border-b sm:border-none border-gray-30 pb-[38px] flex flex-col sm:flex-row items-center">
+            <form onSubmit={handleSubmit(onSubmit)} className=" w-auto  sm:gap-0 gap-2 border-b sm:border-none border-gray-30 flex flex-col sm:flex-row items-center">
               <input
                 type="email"
                 placeholder="Enter your Email Address.."
@@ -116,7 +116,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className=" border-t container-width border-gray-700 m-auto pt-[52px] flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-6">
+        <div className=" border-t container-width border-gray-700 pb-10 m-auto pt-[52px] flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-6">
           <div className="flex flex-col-2 gap-[100px] sm:gap-6 sm:flex-row justify-center sm:text-center lg:text-left">
             <Link href="/terms_of_use" className="hover:text-gray-400  text-Charcoal-60">Terms of Use</Link>
             <Link href="/privacy_policy" className="hover:text-gray-400 text-Charcoal-60">Privacy Policy</Link>

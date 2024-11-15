@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const LoginPage: React.FC = () => {
     return (
-        <main className="w-auto m-auto">
+        <main className="w-auto lg:mt-0 mt-44 m-auto">
         <div className="flex flex-col items-center justify-center h-auto bg-white relative" style={{
             backgroundImage: 'url("/Waves.svg")',
             backgroundSize: 'contain',
@@ -41,7 +41,7 @@ const LoginPage: React.FC = () => {
 
                     <div className="cursor-pointer flex items-center justify-center p-4 bg-gray-200 text-[#181824] rounded hover:bg-blue-600">
                         <Image
-                            src="/microsoft.svg"
+                            src="/Microsoft.svg"
                             alt="microsoft logo"
                             width={24}
                             height={24}
@@ -52,7 +52,7 @@ const LoginPage: React.FC = () => {
 
                     <div className="flex items-center cursor-pointer justify-center p-4 bg-gray-200 text-[#181824] rounded hover:bg-blue-600">
                         <Image
-                            src="/autodesk-02 1.svg"
+                            src="/Autodesk-02 1.svg"
                             alt="autodesk logo"
                             width={24}
                             height={24}
