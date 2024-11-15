@@ -27,7 +27,7 @@ const JobListing: React.FC<JobListingProps> = ({ sNo, title, description, timePo
 
       {/* Job Details */}
       <div className="flex-1">
-        <p className="b3 sm:h4 mb-1">{title}</p>
+        <p className="b3 sm:h4 lg:w-[618px] w-full mb-1">{title}</p>
         <p className="text-gray-500 text-sm md:te4 mb-1">{jobRole}</p>
         <p className="text-gray-400 text-xs md:te4">{timePosted}</p>
       </div>
