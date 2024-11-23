@@ -1,11 +1,15 @@
 import Image from "next/image";
-import { motion, useMotionValue, useTransform, useScroll, useAnimation } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  useScroll,
+  useAnimation,
+} from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
+
 const ProductReport = () => {
-
-  const [windowWidth, setWindowWidth] = useState<number | null>(null);
-
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -14,7 +18,18 @@ const ProductReport = () => {
 
   // Control background animation only when in view
   const controls = useAnimation();
-  const yPos = useTransform(scrollYProgress, [1, 0], ["100%", "0%"]);
+  const yPos = useTransform(scrollYProgress, [0, 1], ["100%", "-100%"]);
+  const [mousePosition, setMousePosition] = useState<any>({ x: 0, y: 0 });
+
+  const handleMouseMove = (event: any) => {
+    const { clientX, clientY } = event;
+    setMousePosition({ x: clientX, y: clientY });
+  };
+
+  const calculateMovement = (axisValue: any, iconPosition: any) => {
+    // Calculate movement limited to -100px to +100px relative to the icon's position
+    return Math.max(-100, Math.min(100, (axisValue - iconPosition) / 5));
+  };
 
   useEffect(() => {
     scrollYProgress.onChange((latest) => {
@@ -24,48 +39,29 @@ const ProductReport = () => {
     });
   }, [scrollYProgress, controls, yPos]);
 
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-
-
-  })
-
-// desktop view
-
-  if (windowWidth && windowWidth > 900) {
-    return (
-      <section
-        ref={sectionRef}
-        className="relative w-full  flex items-center justify-center text-center overflow-hidden"
-      >
-     {/* Moving Background Image controlled by scroll */}
-     <motion.div
+  return (
+    <section
+      ref={sectionRef}
+      className="relative  w-full pt-10 flex items-center justify-center text-center overflow-hidden"
+    >
+      {/* Moving Background Image controlled by scroll */}
+      <motion.div
         className="absolute inset-0"
         style={{
           backgroundImage: `url(/home/graph-up.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          opacity: 1.5,
+          opacity: 0.5,
           zIndex: 0,
         }}
-        // whileInView={{ y: "0%" ,}}
-        initial={{ y: "100%" }}
         animate={controls}
-        // initial={{ y: "100%" }}
+        initial={{ y: "100%" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       />
 
-        {/* Static Background Image */}
-        {/* <div
+      {/* Static Background Image */}
+      {/* <div
         className="absolute inset-0 opacity-10 z-0"
         style={{
           backgroundImage: `url(/home/BG.jpg)`,
@@ -75,656 +71,320 @@ const ProductReport = () => {
         }}
       ></div> */}
 
-        {/* Content Section */}
-        <div className="relative z-10 container-width mb-20 mx-auto  grid grid-cols-12 w-full h-full items-center">
-          {/* Text Section */}
-          <div className="col-span-12 text-center ">
-            <p className="h3 sm:he2 text-gray-900">
-              <span className="text-[#666666]">What is</span> Draftflow?
-            </p>
-            <p className="mt-6 t1 text-gray-600 mx-auto max-w-3xl">
-            Draftflow is a powerful subscription-based software solution designed to elevate quality control in architectural construction drawings. Seamlessly integrated with Autodesk® Revit, it provides architects with real-time, context-specific assistance, ensuring precision and compliance at every step.
-            </p>
-            <p className="mt-4 t1 text-gray-600 mx-auto max-w-3xl">
-            From enforcing graphical standards to flagging inconsistencies and missing scope, Draftflow empowers firms to deliver accurate, high-quality documents while minimizing change orders and maximizing efficiency.
-            </p>
-          </div>
+      {/* Content Section */}
+      <div className="relative  z-10 max-w-7xl mb-20 mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
+        {/* Text Section */}
+        <div className="col-span-12 text-center px-4 py-16 lg:px-8">
+          <p className="h3 sm:he2 text-gray-900">
+            <span className="text-[#666666]">What is</span> Draftflow?
+          </p>
+          {/* <MovingIcons /> */}
 
-          {/* Image Section */}
-          <div className="col-span-12 flex justify-center relative ">
-            {/* Main Image with Zoom-In Animation */}
-            <motion.div
-              className="bg-[url(/home/image.png)] bg-center bg-no-repeat  bg-contain w-[80%] h-[50%]"
-              initial={{ scale: 0.6 }}
-              whileInView={{ scale: 1.2 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <div className="relative h-1/2 flex items-center justify-center">
+          <p className="mt-6 t1 text-gray-600 mx-auto max-w-3xl">
+            Draftflow is a subscription-based software that provides real-time,
+            context-specific assistance to architects and engineers during the
+            production of drawings in Autodesk Revit.
+          </p>
+          <p className="mt-4 t1 text-gray-600 mx-auto max-w-3xl">
+            It enforces graphical standards, flags inconsistencies, and
+            highlights missing scope in construction drawings, allowing
+            architects and engineers to deliver flawless documents with speed
+            and precision.
+          </p>
+        </div>
 
+        {/* Image Section */}
+        {/* <div className="col-span-12 flex justify-center relative ">
+          <motion.div
+            className="bg-[url(/home/image.png)] bg-center bg-no-repeat bg-contain w-[80%] h-[50%]"
+            initial={{ scale: 0.6 }}
+            whileInView={{ scale: 1.2 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <div className="relative h-1/2 flex items-center justify-center">
+              <motion.div className="w-full" style={{}}>
                 <motion.div
-                  className="w-full"
+                  className=""
                   style={{}}
+                  initial={{ opacity: 0, transform: `translate(85%, 69%)` }}
+                  whileInView={{
+                    opacity: 1,
+                    transform: `translate(28%, -30%)`,
+                  }}
+                  transition={{ duration: 1.2 }}
                 >
+                  <motion.div className="bg-[url(/home/1.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"></motion.div>
+                </motion.div>
+              </motion.div>
+
+              <motion.div className="w-full " style={{}}>
+                <motion.div
+                  className="w-full "
+                  style={{}}
+                  initial={{ opacity: 0, transform: `translate(-53%, 79%)` }}
+                  whileInView={{
+                    opacity: 1,
+                    transform: `translate(30%, -30%)`,
+                  }}
+                  transition={{ duration: 1.2 }}
+                >
+                  <motion.div className="bg-[url(/home/2.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"></motion.div>
+                </motion.div>
+              </motion.div>
+            </div>
+
+            <div className="relative h-1/2 flex items-center justify-center">
+              <motion.div className="w-full">
+                <motion.div
+                  className="w-full "
+                  style={{}}
+                  initial={{ opacity: 0, transform: `translate(85%, -60%)` }}
+                  whileInView={{
+                    opacity: 1,
+                    transform: `translate(15%, -30%)`,
+                  }}
+                  transition={{ duration: 1.2 }}
+                >
+                  <motion.div className="bg-[url(/home/3.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"></motion.div>
+                </motion.div>
+              </motion.div>
+
+              <motion.div className="w-full">
+                <motion.div
+                  className="w-full "
+                  style={{}}
+                  initial={{ opacity: 0, transform: `translate(-15%, -60%)` }}
+                  whileInView={{
+                    opacity: 1,
+                    transform: `translate(50%, -30%)`,
+                  }}
+                  transition={{ duration: 1.2 }}
+                >
+                  <motion.div className="bg-[url(/home/4.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"></motion.div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div> */}
+
+        <div className="col-span-12 flex justify-center relative ">
+          {/* Main Image with Zoom-In Animation */}
+
+          <motion.div
+            className="bg-[url(/home/image.png)] bg-center bg-no-repeat bg-contain w-[80%] h-[50%]"
+            initial={{ scale: 0.6 }}
+            whileInView={{ scale: 1.2 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            onMouseMove={handleMouseMove}
+          >
+           
+              {/* First Row */}
+              <div className="relative h-1/2 flex items-center justify-center">
+                <motion.div className="w-full">
                   <motion.div
                     className=""
                     style={{}}
                     initial={{ opacity: 0, transform: `translate(85%, 69%)` }}
-                    whileInView={{ opacity: 1, transform: `translate(28%, -30%)` }}
+                    whileInView={{
+                      opacity: 1,
+                      transform: `translate(28%, -30%)`,
+                    }}
                     transition={{ duration: 1.2 }}
                   >
                     <motion.div
                       className="bg-[url(/home/1.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                    >
-                    </motion.div>
-
-                    {/* <Image src="/home/1.png" alt="Icon 1" width={180} height={40} className="" /> */}
+                      animate={{
+                        x: calculateMovement(
+                          mousePosition.x,
+                          window.innerWidth / 2
+                        ),
+                        y: calculateMovement(
+                          mousePosition.y,
+                          window.innerHeight / 2
+                        ),
+                      }}
+                     
+                      // transition={{ type: "spring", stiffness: 150, damping: 20 }}
+                      transition={{ type: "tween", duration: 0.1 }}
+                    />
                   </motion.div>
                 </motion.div>
 
-                <motion.div
-                  className="w-full "
-                  style={{}}
-                >
+                <motion.div className="w-full">
                   <motion.div
-                    className="w-full "
+                    className=""
                     style={{}}
-                    initial={{ opacity: 0, transform: `translate(-53%, 79%)` }}
-                    whileInView={{ opacity: 1, transform: `translate(30%, -30%)` }}
+                    initial={{
+                      opacity: 0,
+                      transform: `translate(-53%, 79%)`,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      transform: `translate(30%, -30%)`,
+                    }}
                     transition={{ duration: 1.2 }}
                   >
                     <motion.div
                       className="bg-[url(/home/2.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                    >
-                    </motion.div>
-                    {/* <Image src="/home/2.png" alt="Icon 2" width={180} height={40} className="" /> */}
+                      animate={{
+                        x: calculateMovement(
+                          mousePosition.x,
+                          window.innerWidth / 2
+                        ),
+                        y: calculateMovement(
+                          mousePosition.y,
+                          window.innerHeight / 2
+                        ),
+                      }}
+                      // transition={{ type: "spring", stiffness: 150, damping: 20 }}
+                      transition={{ type: "tween", duration: 0.1 }}
+                    />
                   </motion.div>
                 </motion.div>
               </div>
 
+              {/* Second Row */}
               <div className="relative h-1/2 flex items-center justify-center">
-                <motion.div
-                  className="w-full"
-                >
+                <motion.div className="w-full">
                   <motion.div
-                    className="w-full "
+                    className=""
                     style={{}}
-                    initial={{ opacity: 0, transform: `translate(85%, -60%)` }}
-                    whileInView={{ opacity: 1, transform: `translate(15%, -50%)` }}
+                    initial={{
+                      opacity: 0,
+                      transform: `translate(85%, -60%)`,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      transform: `translate(15%, -30%)`,
+                    }}
                     transition={{ duration: 1.2 }}
                   >
                     <motion.div
                       className="bg-[url(/home/3.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                    >
-                    </motion.div>
-                    {/* <Image src="/home/3.png" alt="Icon 3" width={180} height={40} className="" /> */}
+                      animate={{
+                        x: calculateMovement(
+                          mousePosition.x,
+                          window.innerWidth / 2
+                        ),
+                        y: calculateMovement(
+                          mousePosition.y,
+                          window.innerHeight / 2
+                        ),
+                      }}
+                      // transition={{ type: "spring", stiffness: 150, damping: 20 }}
+                      transition={{ type: "tween", duration: 0.1 }}
+                    />
                   </motion.div>
                 </motion.div>
 
-                <motion.div
-                  className="w-full"
-                >
+                <motion.div className="w-full">
                   <motion.div
-                    className="w-full "
+                    className=""
                     style={{}}
-                    initial={{ opacity: 0, transform: `translate(-15%, -60%)` }}
-                    whileInView={{ opacity: 1, transform: `translate(50%, -50%)` }}
+                    initial={{
+                      opacity: 0,
+                      transform: `translate(-15%, -60%)`,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      transform: `translate(50%, -30%)`,
+                    }}
                     transition={{ duration: 1.2 }}
                   >
                     <motion.div
                       className="bg-[url(/home/4.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                    >
-                    </motion.div>
-                    {/* <Image src="/home/4.png" alt="Icon 4" width={180} height={40} className="" /> */}
+                      animate={{
+                        x: calculateMovement(
+                          mousePosition.x,
+                          window.innerWidth / 2
+                        ),
+                        y: calculateMovement(
+                          mousePosition.y,
+                          window.innerHeight / 2
+                        ),
+                      }}
+                    //  transition={{ type: "spring", stiffness: 150, damping: 20 }}
+                    transition={{ type: "tween", duration: 0.1 }}
+                    />
                   </motion.div>
                 </motion.div>
               </div>
-
-
-
-            </motion.div>
-
-            {/* bg-Images with Zoom-In Animation */}
-            <div className="absolute grid grid-rows-3 w-full h-full">
-              <div className="row-span-1 h-fit  w-full flex relative ">
-                <motion.div
-                  className="absolute "
-                  style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  initial={{ opacity: 0, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  whileInView={{ opacity: 1, top: "2.5rem", left: 0, transform: "translate(5rem, -20%)" }}
-                  transition={{ duration: 1.2 }}
-                >
-                  <Image src="/home/1.1.png" alt="Icon 4" width={150} height={40} />
-                </motion.div>
-                <motion.div
-                  className="absolute "
-                  style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  initial={{ opacity: 0, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  whileInView={{ opacity: 1, top: "2rem", right: 0, transform: "translate(50%, -25%)" }}
-                  transition={{ duration: 1.2 }}
-                >
-                  <Image src="/home/4.4.png" alt="Icon 4" width={150} height={40} />
-                </motion.div>
-
-              </div>
-              <div className="row-span-1 h-fit bg-red-500 flex relative">
-              <motion.div
-                  className="absolute"
-                  style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  initial={{ opacity: 0, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  whileInView={{ opacity: 1, top: "2.5rem", left: 0, transform: "translate(0rem, -20%)" }}
-                  transition={{ duration: 1.2 }}
-                >
-                  <Image src="/home/2.2.png" alt="Icon 4" width={70} height={40} />
-                </motion.div>
-
-                <motion.div
-                  className="absolute "
-                  style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  initial={{ opacity: 0, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  whileInView={{ opacity: 1, top: "2.5rem", right: 0, transform: "translate(85%, -30%)" }}
-                  transition={{ duration: 1.2 }}
-                >
-                  <Image src="/home/5.5.png" alt="Icon 2" width={80} height={40} />
-                </motion.div>
-              </div>
-              <div className="row-span-1 h-fit relative bg-black">
-              <motion.div
-                  className="absolute "
-                  style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  initial={{ opacity: 0, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  whileInView={{ opacity: 1, top: "2.5rem", left: 0, transform: "translate(5rem, -30%)" }}
-                  transition={{ duration: 1.2 }}
-                >
-                  <Image src="/home/3.3.png" alt="Icon 4" width={140} height={40} />
-                </motion.div>
-
-                <motion.div
-                  className="absolute "
-                  style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  initial={{ opacity: 0, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  whileInView={{ opacity: 1, top: "2rem", right: 0, transform: "translate(50%, -35%)" }}
-                  transition={{ duration: 1.2 }}
-                >
-                  <Image src="/home/6.6.png" alt="Icon 2" width={150} height={40} />
-                </motion.div>
-              </div>
-            </div>
-            <div>
-
-
-
-
-
-            </div>
-
-
-
-          </div>
-        </div>
-      </section>
-    );
-  }
-  // mobile view
- else if (windowWidth && windowWidth <= 900) {
-    return (
-      <section
-        ref={sectionRef}
-        className="relative w-full pt-10 flex items-center justify-center text-center overflow-hidden"
-      >
-        {/* Moving Background Image controlled by scroll */}
-        <motion.div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url(/home/graph-up.png)`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            opacity: 0.5,
-            zIndex: 0,
-          }}
-          animate={controls}
-          initial={{ y: "100%" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        />
-
-        {/* Static Background Image */}
-        {/* <div
-        className="absolute inset-0 opacity-10 z-0"
-        style={{
-          backgroundImage: `url(/home/BG.jpg)`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      ></div> */}
-
-        {/* Content Section */}
-        <div className="relative z-10 max-w-7xl mb-20 mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
-          {/* Text Section */}
-          <div className="col-span-12 text-center px-4 py-16 lg:px-8">
-            <p className="h3 sm:he2 text-gray-900">
-              <span className="text-[#666666]">What is</span> Draftflow?
-            </p>
-            <p className="mt-6 t1 text-gray-600 mx-auto max-w-3xl">
-              Draftflow is a subscription-based software that provides real-time,
-              context-specific assistance to architects and engineers during the
-              production of drawings in Autodesk Revit.
-            </p>
-            <p className="mt-4 t1 text-gray-600 mx-auto max-w-3xl">
-              It enforces graphical standards, flags inconsistencies, and
-              highlights missing scope in construction drawings, allowing
-              architects and engineers to deliver flawless documents with speed
-              and precision.
-            </p>
-          </div>
-
-          {/* Image Section */}
-          <div className="col-span-12 flex justify-center items-center relative ">
-            {/* Main Image with Zoom-In Animation */}
+          
+          </motion.div>
+          <div>
             <motion.div
-              className="bg-[url(/home/image.png)] bg-center bg-no-repeat bg-contain w-[300px] h-[180px]"
-              initial={{ scale: 0.6 }}
-              whileInView={{ scale: 1.2 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              className="absolute top-10 left-32"
+              style={{}}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1.2 }}
             >
-              <div className="relative h-1/2 flex items-center justify-center">
-                <motion.div
-                  className="relative w-full h-full"
-                  style={{}}
-                >
-                  <motion.div
-                    className="absolute top-[0%] left-[10%] bg-[url(/home/1.png)] bg-center bg-no-repeat bg-contain md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                  >
-                  </motion.div>
-
-                  {/* <Image src="/home/1.png" alt="Icon 1" width={180} height={40} className="" /> */}
-                </motion.div>
-
-                <motion.div
-                  className="w-full h-full relative"
-                  style={{}}
-                >
-                  <motion.div
-                    className="absolute top-[0%] right-[15%] bg-[url(/home/2.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                  >
-                  </motion.div>
-                  {/* <Image src="/home/2.png" alt="Icon 2" width={180} height={40} className="" /> */}
-                </motion.div>
-              </div>
-
-              <div className="relative h-1/2 flex items-center justify-center">
-
-                <motion.div
-                  className="w-full h-full relative"
-                  style={{}}
-                >
-                  <motion.div
-                    className="absolute -top-[15%] left-[0%] bg-[url(/home/3.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                  >
-                  </motion.div>
-                  {/* <Image src="/home/3.png" alt="Icon 3" width={180} height={40} className="" /> */}
-                </motion.div>
-                <motion.div
-                  className="w-full h-full relative"
-                  style={{}}
-                >
-                  <motion.div
-                    className="absolute -top-[15%] -right-[10%] bg-[url(/home/4.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                  >
-                  </motion.div>
-                  {/* <Image src="/home/4.png" alt="Icon 4" width={180} height={40} className="" /> */}
-                </motion.div>
-              </div>
+              <Image src="/home/1.1.png" alt="Icon 4" width={150} height={40} />
             </motion.div>
 
-              {/* bg-Images with Zoom-In Animation */}
-              <div className="absolute grid grid-rows-3 w-full h-full">
-              <div className="row-span-1 h-fit  w-full flex relative ">
-                <motion.div
-                  className="absolute "
-                  style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  initial={{ opacity: 0, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  whileInView={{ opacity: 1, top: "2.5rem", left: 0, transform: "translate(-2rem, -20%)" }}
-                  transition={{ duration: 1.2 }}
-                >
-                  <Image src="/home/1.1.png" alt="Icon 4" width={100} height={40} />
-                </motion.div>
-                <motion.div
-                  className="absolute "
-                  style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  initial={{ opacity: 0, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  whileInView={{ opacity: 1, top: "2rem", right: 0, transform: "translate(50%, -25%)" }}
-                  transition={{ duration: 1.2 }}
-                >
-                  <Image src="/home/4.4.png" alt="Icon 4" width={100} height={40} />
-                </motion.div>
-              </div>
+            <motion.div
+              className="absolute top-40 left-10"
+              style={{}}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1.2 }}
+            >
+              <Image src="/home/2.2.png" alt="Icon 4" width={70} height={40} />
+            </motion.div>
 
-              <div className="row-span-1 h-fit flex relative">
-              <motion.div
-                  className="absolute hidden"
-                  style={{ top: "50%", left: "50%",  transform: "translate(2rem, -20%)" }}
-                >
-                  <Image src="/home/2.2.png" alt="Icon 4" width={50} height={40} />
-                </motion.div>
+            <motion.div
+              className="absolute top-64 left-32"
+              style={{}}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1.2 }}
+            >
+              <Image src="/home/3.3.png" alt="Icon 4" width={140} height={40} />
+            </motion.div>
 
-                <motion.div
-                  className="absolute hidden"
-                  style={{ top: "50%", left: "50%", transform: "translate(100%, -30%)" }}
-                >
-                  <Image src="/home/5.5.png" alt="Icon 2" width={50} height={40} />
-                </motion.div>
-              </div>
+            <motion.div
+              className="absolute -top-5 right-32 transform -translate-y-7"
+              style={{}}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1.2 }}
+            >
+              <Image
+                src="/home/4.4.png"
+                alt="Icon 2"
+                width={180}
+                height={40}
+                className="absolute "
+              />
+            </motion.div>
 
-              <div className="row-span-1 h-fit relative bg-black">
-              <motion.div
-                  className="absolute "
-                  style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  initial={{ opacity: 0, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  whileInView={{ opacity: 1, top: "2.5rem", left: 0, transform: "translate(-2rem, -30%)" }}
-                  transition={{ duration: 1.2 }}
-                >
-                  <Image src="/home/3.3.png" alt="Icon 4" width={100} height={40} />
-                </motion.div>
+            <motion.div
+              className="absolute top-48 right-24 transform -translate-y-7"
+              style={{}}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1.2 }}
+            >
+              <Image src="/home/5.5.png" alt="Icon 2" width={80} height={40} />
+            </motion.div>
 
-                <motion.div
-                  className="absolute "
-                  style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  initial={{ opacity: 0, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  whileInView={{ opacity: 1, top: "2rem", right: 0, transform: "translate(50%, -30%)" }}
-                  transition={{ duration: 1.2 }}
-                >
-                  <Image src="/home/6.6.png" alt="Icon 2" width={100} height={40} />
-                </motion.div>
-              </div>
-            </div>
-
-
-
+            <motion.div
+              className="absolute top-80  right-40 transform -translate-y-7"
+              style={{}}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1.2 }}
+            >
+              <Image src="/home/6.6.png" alt="Icon 2" width={150} height={40} />
+            </motion.div>
           </div>
         </div>
-      </section>
-    );
-  };
-}
+      </div>
+    </section>
+  );
+};
 
 export default ProductReport;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import Image from "next/image";
-// import { motion, useMotionValue, useTransform, useScroll, useAnimation } from "framer-motion";
-// import { useEffect, useRef } from "react";
-
-// const ProductReport = () => {
-
-//   const sectionRef = useRef<HTMLElement>(null);
-//   const { scrollYProgress } = useScroll({
-//     target: sectionRef,
-//     offset: ["start end", "end start"],
-//   });
-
-//   // Control background animation only when in view
-//   const controls = useAnimation();
-//   const yPos = useTransform(scrollYProgress, [0, 1], ["100%", "-100%"]);
-
-//   useEffect(() => {
-//     scrollYProgress.onChange((latest) => {
-//       if (latest > 0 && latest < 1) {
-//         controls.start({ y: yPos.get() });
-//       }
-//     });
-//   }, [scrollYProgress, controls, yPos]);
-
-
-//   return (
-//     <section
-//       ref={sectionRef}
-//       className="relative w-full pt-10 flex items-center justify-center text-center overflow-hidden"
-//     >
-//       {/* Moving Background Image controlled by scroll */}
-//       <motion.div
-//         className="absolute inset-0"
-//         style={{
-//           backgroundImage: `url(/home/graph-up.png)`,
-//           backgroundSize: "cover",
-//           backgroundPosition: "center",
-//           backgroundRepeat: "no-repeat",
-//           opacity: 0.5,
-//           zIndex: 0,
-//         }}
-//         animate={controls}
-//         initial={{ y: "100%" }}
-//         transition={{ duration: 0.5, ease: "easeOut" }}
-//       />
-
-//       {/* Static Background Image */}
-//       {/* <div
-//         className="absolute inset-0 opacity-10 z-0"
-//         style={{
-//           backgroundImage: `url(/home/BG.jpg)`,
-//           backgroundSize: "cover",
-//           backgroundPosition: "center",
-//           backgroundRepeat: "no-repeat",
-//         }}
-//       ></div> */}
-
-//       {/* Content Section */}
-//       <div className="relative z-10 max-w-7xl mb-20 mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-12 w-full h-full items-center">
-//         {/* Text Section */}
-//         <div className="col-span-12 text-center px-4 py-16 lg:px-8">
-//           <p className="h3 sm:he2 text-gray-900">
-//             <span className="text-[#666666]">What is</span> Draftflow?
-//           </p>
-//           <p className="mt-6 t1 text-gray-600 mx-auto max-w-3xl">
-//             Draftflow is a subscription-based software that provides real-time,
-//             context-specific assistance to architects and engineers during the
-//             production of drawings in Autodesk Revit.
-//           </p>
-//           <p className="mt-4 t1 text-gray-600 mx-auto max-w-3xl">
-//             It enforces graphical standards, flags inconsistencies, and
-//             highlights missing scope in construction drawings, allowing
-//             architects and engineers to deliver flawless documents with speed
-//             and precision.
-//           </p>
-//         </div>
-
-//         {/* Image Section */}
-//         <div className="col-span-12 flex justify-center relative ">
-//           {/* Main Image with Zoom-In Animation */}
-//           <motion.div
-//             className="bg-[url(/home/image.png)] bg-center bg-no-repeat bg-contain w-[80%] h-[50%]"
-//             initial={{ scale: 0.6 }}
-//             whileInView={{ scale: 1.2 }}
-//             transition={{ duration: 0.8, delay: 0.4 }}
-//           >
-//             <div className="relative h-1/2 flex items-center justify-center">
-
-//               <motion.div
-//                 className="w-full"
-//                 style={{}}
-//               >
-//                 <motion.div
-//                   className=""
-//                   style={{}}
-//                   initial={{ opacity: 0, transform: `translate(85%, 69%)` }}
-//                   whileInView={{ opacity: 1, transform: `translate(28%, -30%)` }}
-//                   transition={{ duration: 1.2 }}
-//                 >
-//                   <motion.div
-//                     className="bg-[url(/home/1.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-//                   >
-//                   </motion.div>
-
-//                   {/* <Image src="/home/1.png" alt="Icon 1" width={180} height={40} className="" /> */}
-//                 </motion.div>
-//               </motion.div>
-
-//               <motion.div
-//                 className="w-full "
-//                 style={{}}
-//               >
-//                 <motion.div
-//                   className="w-full "
-//                   style={{}}
-//                   initial={{ opacity: 0, transform: `translate(-53%, 79%)` }}
-//                   whileInView={{ opacity: 1, transform: `translate(30%, -30%)` }}
-//                   transition={{ duration: 1.2 }}
-//                 >
-//                    <motion.div
-//                     className="bg-[url(/home/2.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-//                   >
-//                   </motion.div>
-//                   {/* <Image src="/home/2.png" alt="Icon 2" width={180} height={40} className="" /> */}
-//                 </motion.div>
-//               </motion.div>
-//             </div>
-
-//             <div className="relative h-1/2 flex items-center justify-center">
-//               <motion.div
-//                 className="w-full"
-//               >
-//                 <motion.div
-//                   className="w-full "
-//                   style={{}}
-//                   initial={{ opacity: 0, transform: `translate(85%, -60%)` }}
-//                   whileInView={{ opacity: 1, transform: `translate(15%, -30%)` }}
-//                   transition={{ duration: 1.2 }}
-//                 >
-//                    <motion.div
-//                     className="bg-[url(/home/3.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-//                   >
-//                   </motion.div>
-//                   {/* <Image src="/home/3.png" alt="Icon 3" width={180} height={40} className="" /> */}
-//                 </motion.div>
-//               </motion.div>
-
-//               <motion.div
-//                 className="w-full"
-//               >
-//                 <motion.div
-//                   className="w-full "
-//                   style={{}}
-//                   initial={{ opacity: 0, transform: `translate(-15%, -60%)` }}
-//                   whileInView={{ opacity: 1, transform: `translate(50%, -30%)` }}
-//                   transition={{ duration: 1.2 }}
-//                 >
-//                    <motion.div
-//                     className="bg-[url(/home/4.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-//                   >
-//                   </motion.div>
-//                   {/* <Image src="/home/4.png" alt="Icon 4" width={180} height={40} className="" /> */}
-//                 </motion.div>
-//               </motion.div>
-//             </div>
-
-
-
-//           </motion.div>
-//           <div>
-//             <motion.div
-//               className="absolute top-10 left-32"
-//               style={{}}
-//               initial={{ opacity: 0 }}
-//               whileInView={{ opacity: 1 }}
-//               transition={{ duration: 1.2 }}
-//             >
-//               <Image src="/home/1.1.png" alt="Icon 4" width={150} height={40} />
-//             </motion.div>
-
-//             <motion.div
-//               className="absolute top-40 left-10"
-//               style={{}}
-//               initial={{ opacity: 0 }}
-//               whileInView={{ opacity: 1 }}
-//               transition={{ duration: 1.2 }}
-//             >
-//               <Image src="/home/2.2.png" alt="Icon 4" width={70} height={40} />
-//             </motion.div>
-
-//             <motion.div
-//               className="absolute top-64 left-32"
-//               style={{}}
-//               initial={{ opacity: 0 }}
-//               whileInView={{ opacity: 1 }}
-//               transition={{ duration: 1.2 }}
-//             >
-//               <Image src="/home/3.3.png" alt="Icon 4" width={140} height={40} />
-//             </motion.div>
-
-//             <motion.div
-//               className="absolute -top-5 right-32 transform -translate-y-7"
-//               style={{}}
-//               initial={{ opacity: 0 }}
-//               whileInView={{ opacity: 1 }}
-//               transition={{ duration: 1.2 }}
-//             >
-//               <Image src="/home/4.4.png" alt="Icon 2" width={180} height={40} className="absolute " />
-//             </motion.div>
-
-//             <motion.div
-//               className="absolute top-48 right-24 transform -translate-y-7"
-//               style={{}}
-//               initial={{ opacity: 0 }}
-//               whileInView={{ opacity: 1 }}
-//               transition={{ duration: 1.2 }}
-//             >
-//               <Image src="/home/5.5.png" alt="Icon 2" width={80} height={40} />
-//             </motion.div>
-
-//             <motion.div
-//               className="absolute top-80  right-40 transform -translate-y-7"
-//               style={{}}
-//               initial={{ opacity: 0 }}
-//               whileInView={{ opacity: 1 }}
-//               transition={{ duration: 1.2 }}
-//             >
-//               <Image src="/home/6.6.png" alt="Icon 2" width={150} height={40} />
-//             </motion.div>
-//           </div>
-
-
-
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default ProductReport;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import Image from "next/image";
 // import { motion, useMotionValue, useTransform, useScroll, useAnimation } from "framer-motion";
@@ -745,12 +405,10 @@ export default ProductReport;
 //   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
 //   const sectionRef = useRef<HTMLElement>(null);
 
-
 //   const { scrollYProgress } = useScroll({
 //     target: sectionRef,
 //     offset: ["start end", "end start"],
 //   });
-
 
 // const posX = useMotionValue(0);
 // const posY = useMotionValue(0);
@@ -788,7 +446,6 @@ export default ProductReport;
 //   posY.set(getY)
 // };
 
-
 //   // Control background animation only when in view
 //   const controls = useAnimation();
 //   const yPos = useTransform(scrollYProgress, [0, 1], ["100%", "-100%"]);
@@ -800,8 +457,6 @@ export default ProductReport;
 //       }
 //     });
 //   }, [scrollYProgress, controls, yPos]);
-
-
 
 //   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
 //     const { pageX, pageY, clientX, clientY } = e;
@@ -840,9 +495,7 @@ export default ProductReport;
 
 //   })
 
-
 //   }, { scope: sectionRef }) // <-- scope for selector text (optional)
-
 
 //   // Function to calculate distance between cursor and image
 //   function calculateDistance(element, cursorX, cursorY) {
@@ -1009,8 +662,6 @@ export default ProductReport;
 //               </motion.div>
 //             </div>
 
-
-
 //           </motion.div>
 //           <div>
 //             <motion.div
@@ -1074,8 +725,6 @@ export default ProductReport;
 //             </motion.div>
 //           </div>
 
-
-
 //         </div>
 //       </div>
 //     </section>
@@ -1083,9 +732,3 @@ export default ProductReport;
 // };
 
 // export default ProductReport;
-
-
-
-
-
-

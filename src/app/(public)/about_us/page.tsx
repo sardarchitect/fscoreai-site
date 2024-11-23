@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import JobListing from "@/src/components/about_us/JobListing";
 import openJobsData from "@/src/components/about_us/openJobsData";
@@ -9,22 +9,18 @@ import Link from "next/link";
 import DemoForm from "@/src/components/utilsComponents/DemoForm";
 import { useFormPopUpContext } from "@/src/context/formPopup";
 
-
-
-
 const AboutUs = () => {
   const [showPopup, setShowPopup] = useFormPopUpContext();
 
   useEffect(() => {
     getOpenJobsData();
-  }, [])
+  }, []);
 
   const getOpenJobsData = () => {
-    fetch('./src/componenets/about_us/openJobsData').then(function (res) {
+    fetch("./src/componenets/about_us/openJobsData").then(function (res) {
       return res.json();
-    })
-  }
-    ;
+    });
+  };
   return (
     <main className=" w-full items-center  justify-center">
       {/* Header Section */}
@@ -33,37 +29,46 @@ const AboutUs = () => {
           {/* Left side with the main heading */}
           <div className="md:w-1/2 flex justify-center md:justify-start">
             <p className="text-white h3 md:h2 lg:h2  leading-tight">
-           <span className="text-Charcoal-40"> We Believe</span> Automation is The Next Revolution <span className="text-Charcoal-40"> in Architecture </span>
+              <span className="text-Charcoal-40"> We Believe</span> Automation
+              is The Next Revolution{" "}
+              <span className="text-Charcoal-40"> in Architecture </span>
             </p>
           </div>
 
           {/* Right side with the mission statement */}
           <div className="md:w-1/2 flex justify-center md:justify-start">
             <p className="text-white te1 leading-relaxed">
-            Our mission is to streamline the architectural drawing production process and elevate the quality of construction documents through cutting-edge technology.
+              Our mission is to streamline the architectural drawing production
+              process and elevate the quality of construction documents through
+              cutting-edge technology.
             </p>
           </div>
         </div>
       </header>
 
-
-
-
       {/* Mission Section */}
       <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px]">
         <div className="container-width lg:pb-[120px] mx-auto text-center">
-
           <div className="w-full mx-auto mb-20 sm:w-[400px] md:w-[580px] lg:w-[830px] ">
             <p className="h3 sm:he2 text-Mercury-50 mb-4">
               <span className="text-Charcoal-60">Our</span> Mission
             </p>
             <p className="t1 text-gray-600 mb-5 ">
-              Fscore AI envisions a future where architecture and engineering transcend traditional boundaries through the use of cutting-edge automation and innovation. The company believes that to deal with the upcoming future challenges, the architectural industry will need the assistance of intelligent systems that can handle the additional stressors caused by increasing amounts of demand in our built environment.
+              Fscore AI envisions a future where architecture and engineering
+              transcend traditional boundaries through the use of cutting-edge
+              automation and innovation. The company believes that to deal with
+              the upcoming future challenges, the architectural industry will
+              need the assistance of intelligent systems that can handle the
+              additional stressors caused by increasing amounts of demand in our
+              built environment.
             </p>
 
-            <p className="text-gray-600 t1">Fscore AI strives to be at the forefront of developing technologies that empower architects and engineers to achieve greater efficiency, productivity, and quality in their projects.</p>
+            <p className="text-gray-600 t1">
+              Fscore AI strives to be at the forefront of developing
+              technologies that empower architects and engineers to achieve
+              greater efficiency, productivity, and quality in their projects.
+            </p>
           </div>
-
 
           {/* Team Members Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 justify-items-center ">
@@ -117,7 +122,6 @@ const AboutUs = () => {
 
       {/* Meet the Founder Section */}
       <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px]  flex flex-col items-center mb-6  lg:mb-[122px]  container-width mx-auto ">
-
         <p className="h2 mb-11 font-medium text-gray-600 text-center lg:text-left">
           Meet the <span className="font-bold">Founder</span>
         </p>
@@ -125,7 +129,7 @@ const AboutUs = () => {
           {/* Founder Image */}
           <div className="w-full md:w-1/2 mb-10 md:mb-0">
             <Image
-              src="/about_us/founder.jpg"  // Replace with the actual path to the founder's image
+              src="/about_us/founder.jpg" // Replace with the actual path to the founder's image
               alt="Founder"
               width={700}
               height={600}
@@ -135,23 +139,30 @@ const AboutUs = () => {
 
           {/* Founder Text */}
           <div className="w-full md:w-1/2">
-  {/* Goal Text */}
-  <p className="lg:-mx-44 md:-mx-32  sm:mx-0 h2 md:h1 lg:he1 w-full sm:w-[400px] md:w-[492px] lg:w-[678px] text-Mercury-50 leading-tight  text-center sm:text-left">
-   <span className="text-Charcoal-60"> My</span> Goal <span className="text-Charcoal-60">is to</span> Empower Architects <span className="text-Charcoal-60">with</span> AI
-  </p>
+            {/* Goal Text */}
+            <p className="lg:-mx-44 md:-mx-32  sm:mx-0 h2 md:h1 lg:he1 w-full sm:w-[400px] md:w-[492px] lg:w-[678px] text-Mercury-50 leading-tight  text-center sm:text-left">
+              <span className="text-Charcoal-60"> My</span> Goal{" "}
+              <span className="text-Charcoal-60">is to</span> Empower Architects{" "}
+              <span className="text-Charcoal-60">with</span> AI
+            </p>
 
-  {/* Description Text */}
-  <p className="lg:t1 md:te1 te1 text-gray-500 mt-6  sm:mx-0 w-full sm:w-[400px] md:w-[340px] lg:w-[502px] text-center sm:text-left">
-    As an architect myself, I’ve been in the trenches—managing  tight deadlines, navigating complex design requirements, and dealing with the inevitable headaches that come from catching errors  late in the process.
-  </p>
+            {/* Description Text */}
+            <p className="lg:t1 md:te1 te1 text-gray-500 mt-6  sm:mx-0 w-full sm:w-[400px] md:w-[340px] lg:w-[502px] text-center sm:text-left">
+              As an architect myself, I’ve been in the trenches—managing tight
+              deadlines, navigating complex design requirements, and dealing
+              with the inevitable headaches that come from catching errors late
+              in the process.
+            </p>
 
-  {/* Signature Image */}
-  <div className=" sm:block flex justify-center">
-    <img src="/about_us/sign.png" alt="Signature" className="w-[244px] h-[128px]" />
-  </div>
-</div>
-
-
+            {/* Signature Image */}
+            <div className=" sm:block flex justify-center">
+              <img
+                src="/about_us/sign.png"
+                alt="Signature"
+                className="w-[244px] h-[128px]"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -159,10 +170,15 @@ const AboutUs = () => {
       <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px] lg:mb-[184px] mb-10">
         <div className="container-width mx-auto text-center justify-center  flex-col flex ">
           <div className="flex text-center flex-col items-center">
-          <p className="h3 md:h2 text-Mercury-50  mb-6"><span className="text-Charcoal-60"> Our </span> Experts <span className="text-Charcoal-60"> are like </span> No Other</p>
-          <p className="te1 text-gray-600 flex  sm:w-[400px] md:w-[500px] lg:w-[798px]  mb-10">
-            Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
-          </p>
+            <p className="h3 md:h2 text-Mercury-50  mb-6">
+              <span className="text-Charcoal-60"> Our </span> Experts{" "}
+              <span className="text-Charcoal-60"> are like </span> No Other
+            </p>
+            <p className="te1 text-gray-600 flex  sm:w-[400px] md:w-[500px] lg:w-[798px]  mb-10">
+              Our mission is to streamline the architectural drawing process and
+              elevate the quality of construction documents through cutting-edge
+              technology.
+            </p>
           </div>
 
           {/* Team Members Grid */}
@@ -218,27 +234,30 @@ const AboutUs = () => {
       {/* Call to Action (Join Us) Section */}
       <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px] mb-[98px]">
         <div className="container-width mx-auto  items-center text-center ">
-          <div className="h3 sm:h2   text-Mercury-50 mb-6"><span className="text-Charcoal-60">Become a</span> Part of < span className="text-Charcoal-60"> our </span> Team</div>
+          <div className="h3 sm:h2   text-Mercury-50 mb-6">
+            <span className="text-Charcoal-60">Become a</span> Part of{" "}
+            <span className="text-Charcoal-60"> our </span> Team
+          </div>
           <p className="te3 sm:te1 lg:w-[798px] mx-auto text-center text-gray-600 mb-10">
-            Our mission is to streamline the architectural drawing process and elevate the quality of construction documents through cutting-edge technology.
+            Our mission is to streamline the architectural drawing process and
+            elevate the quality of construction documents through cutting-edge
+            technology.
           </p>
 
           {/* Job Listings */}
           <div className="space-y-4 max-w-7xl text-left">
-            {
-              openJobsData.map((data, idx) => {
-                return (
-                  <JobListing
-                    key={idx}
-                    sNo={idx + 1}
-                    title={data.title}
-                    description={data.description}
-                    timePosted={data.timePosted}
-                    jobRole={data.jobRole}
-                  />
-                )
-              })
-            }
+            {openJobsData.map((data, idx) => {
+              return (
+                <JobListing
+                  key={idx}
+                  sNo={idx + 1}
+                  title={data.title}
+                  description={data.description}
+                  timePosted={data.timePosted}
+                  jobRole={data.jobRole}
+                />
+              );
+            })}
           </div>
         </div>
       </section>
@@ -261,16 +280,21 @@ const AboutUs = () => {
           <div className="col-span-12 flex items-center justify-center">
             <div className="text-center px-8">
               <p className="sm:he2 h3 text-white">
-                Create <span className="text-Earth-50">Flawless</span> Drawings with{" "}
-                <span className="text-Earth-50">Draftflow</span>
+                Create <span className="text-Earth-50">Flawless</span> Drawings
+                with <span className="text-Earth-50">Draftflow</span>
               </p>
               <p className="mt-6 t1 text-gray-300 max-w-lg mx-auto">
-                Draftflow is a subscription-based software that provides real-time, context-specific assistance to architects and engineers during production of drawings in Autodesk Revit.
+                Draftflow is a subscription-based software that provides
+                real-time, context-specific assistance to architects and
+                engineers during production of drawings in Autodesk Revit.
               </p>
 
               {/* Call-to-Action Button with Link */}
               <div className="mt-8 flex justify-center">
-                <div onClick={() => setShowPopup(!showPopup)} className="bg-Neptune-50  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-Earth-50 cursor-pointer">
+                <div
+                  onClick={() => setShowPopup(!showPopup)}
+                  className="bg-Neptune-50  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-Earth-50 cursor-pointer"
+                >
                   Book a Demo
                   <DemoForm />
                 </div>
@@ -279,38 +303,15 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
-
-
-
     </main>
   );
 };
 
 export default AboutUs;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* Journey Section */ }
+{
+  /* Journey Section */
+}
 // <section className="relative py-10 md:py-20  text-white">
 //   <div className="absolute bg-ab-bg inset-0 ">
 //     {/* <Image
@@ -323,7 +324,6 @@ export default AboutUs;
 //       height={600}
 //     /> */}
 //   </div>
-
 
 //   <div className=" max-w-7xl mx-auto text-center pt-0 mb-10 py-0 relative z-10">
 //     <div className="flex flex-col md:flex-row justify-between text-center md:text-left pt-0  mt-0 items-center gap-6  px-5 sm:px-0">

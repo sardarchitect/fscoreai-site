@@ -216,6 +216,33 @@ html.lenis, html.lenis body {
   background-color: #3e8e41;
 }
 
+
+.indicator-container {
+  margin-top: 65px;
+}
+
+.indicator-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background: #a6a4a4;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.indicator-dot.active {
+  background: #3f3e3e;
+
+
+}
+.drawing-reviews-h4{
+  font-weight:700;
+  font-size:24px;
+}
+
+
 @media (max-width: 768px) {
   .container {
     max-width: 100%;

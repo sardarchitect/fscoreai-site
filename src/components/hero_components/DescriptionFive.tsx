@@ -19,7 +19,7 @@ const FAQSection: React.FC = () => {
     };
 
     return (
-        <section className="bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] h-full w-full py-20 px-6">
+        <section className="bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] h-full w-full py-20 px-6 mt-0 md:mt-[118px]">
             <div className="container-width justify-center  mx-auto">
                 <div className="flex flex-col items-center justify-center text-center">
                     <p className="he3 text-gray-800 mb-4">
