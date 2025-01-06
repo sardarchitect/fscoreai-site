@@ -2,7 +2,7 @@ const cardData = [
     {
       title: "Enhanced Quality Control",
       description:
-        "Draftflow’s live, intuitive interface detects graphical and design errors in real time, ensuring your documents meet the highest standards of clarity and compliance. ",
+        "Draftflow’s intuitive interface detects and flags graphical and design errors in real-time, ensuring documents consistently meet firm-wide standards of clarity and scope.",
       icon: "/home/enhanced quality control.svg", // Replace with the actual path to your icon
     },
     {
@@ -14,19 +14,19 @@ const cardData = [
     {
       title: "Time and Cost Savings",
       description:
-        "With Draftflow’s Smart Error Resolution System, automate corrections and drastically cut down time spent on manual review and rework. ",
+        "By automating error detection and error resolution, Draftflow significantly reduces the time spent on manual reviews and rework. By catching errors early, Draftflow reduces the risk of change orders and expensive disputes.",
       icon: "/home/Time and cost savings.svg",
     },
     {
-      title: "Effortless Integration",
+      title: "Seamless Integration",
       description:
-        "Working within Autodesk® Revit, Draftflow operates seamlessly in the background, blending naturally into your existing workflow without interruptions. ",
+        "The application operates smoothly within Autodesk Revit, integrating into the majority of existing workflows. Fscore’s team offers 24/7 support to ensure a smooth setup to each firm’s specific infrastructure.",
       icon: "/home/seamless.svg",
     },
     {
-      title: "Customized to Your Needs",
+      title: "Improved Training and Compliance",
       description:
-        "Our team can develop custom checklists tailored to your firm’s standards, making Draftflow a perfect fit for your quality assurance process. ",
+        "Draftflow assists in training new drafters by enforcing company standards and providing usage insights to team managers.",
       icon: "/home/improved.svg",
     },
   ];

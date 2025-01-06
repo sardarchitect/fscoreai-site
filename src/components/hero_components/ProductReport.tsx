@@ -81,15 +81,15 @@ const ProductReport = () => {
           {/* <MovingIcons /> */}
 
           <p className="mt-6 t1 text-gray-600 mx-auto max-w-3xl">
-            Draftflow is a subscription-based software that provides real-time,
-            context-specific assistance to architects and engineers during the
-            production of drawings in Autodesk Revit.
+            Draftflow is a subscription-based software designed to streamline and 
+            enhance the quality control process for architectural construction drawings 
+            by providing real-time, context-specific assistance to architects in Autodesk® Revit.
           </p>
           <p className="mt-4 t1 text-gray-600 mx-auto max-w-3xl">
-            It enforces graphical standards, flags inconsistencies, and
-            highlights missing scope in construction drawings, allowing
-            architects and engineers to deliver flawless documents with speed
-            and precision.
+          Draftflow enforces graphical standards, flags data inconsistencies, and 
+          highlights potential missing scope, helping firms deliver flawless documents 
+          with speed and precision, while reducing the time spent on lengthy 
+          review process.
           </p>
         </div>
 
