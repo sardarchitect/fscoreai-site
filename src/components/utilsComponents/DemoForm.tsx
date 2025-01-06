@@ -1,12 +1,9 @@
 "use client";
 import { useFormPopUpContext } from "@/src/context/formPopup";
 import { useThemeContext } from "@/src/context/theme";
-import { sql } from "@vercel/postgres";
 import SubmissionAlert from "@/src/components/utilsComponents/SubmissionAlert";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useMobileMenuContext } from "@/src/context/mobileMenu";
 
 interface RequestBody {

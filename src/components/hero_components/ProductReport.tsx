@@ -1,7 +1,6 @@
 import Image from "next/image";
 import {
   motion,
-  useMotionValue,
   useTransform,
   useScroll,
   useAnimation,
@@ -177,139 +176,159 @@ const ProductReport = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             onMouseMove={handleMouseMove}
           >
-           
-              {/* First Row */}
-              <div className="relative h-1/2 flex items-center justify-center">
-                <motion.div className="w-full">
-                  <motion.div
-                    className=""
-                    style={{}}
-                    initial={{ opacity: 0, transform: `translate(85%, 69%)` }}
-                    whileInView={{
-                      opacity: 1,
-                      transform: `translate(28%, -30%)`,
-                    }}
-                    transition={{ duration: 1.2 }}
-                  >
-                    <motion.div
-                      className="bg-[url(/home/1.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                      animate={{
-                        x: calculateMovement(
-                          mousePosition.x,
-                          window.innerWidth / 2
-                        ),
-                        y: calculateMovement(
-                          mousePosition.y,
-                          window.innerHeight / 2
-                        ),
-                      }}
-                     
-                      // transition={{ type: "spring", stiffness: 150, damping: 20 }}
-                      transition={{ type: "tween", duration: 0.1 }}
-                    />
-                  </motion.div>
-                </motion.div>
 
-                <motion.div className="w-full">
+            {/* First Row */}
+            <div className="relative h-1/2 flex items-center justify-center">
+              <motion.div className="w-full">
+                <motion.div
+                  className=""
+                  style={{}}
+                  initial={{ opacity: 0, transform: `translate(85%, 69%)` }}
+                  whileInView={{
+                    opacity: 1,
+                    transform: `translate(28%, -30%)`,
+                  }}
+                  transition={{ duration: 1.2 }}
+                >
                   <motion.div
-                    className=""
-                    style={{}}
-                    initial={{
-                      opacity: 0,
-                      transform: `translate(-53%, 79%)`,
+                    className="bg-[url(/home/1.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
+                    animate={{
+                      x: typeof window !== "undefined"
+                        ? calculateMovement(mousePosition.x, window.innerWidth / 2)
+                        : 0,
+                      y: typeof window !== "undefined"
+                        ? calculateMovement(mousePosition.y, window.innerHeight / 2)
+                        : 0,
                     }}
-                    whileInView={{
-                      opacity: 1,
-                      transform: `translate(30%, -30%)`,
-                    }}
-                    transition={{ duration: 1.2 }}
-                  >
-                    <motion.div
-                      className="bg-[url(/home/2.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                      animate={{
-                        x: calculateMovement(
-                          mousePosition.x,
-                          window.innerWidth / 2
-                        ),
-                        y: calculateMovement(
-                          mousePosition.y,
-                          window.innerHeight / 2
-                        ),
-                      }}
-                      // transition={{ type: "spring", stiffness: 150, damping: 20 }}
-                      transition={{ type: "tween", duration: 0.1 }}
-                    />
-                  </motion.div>
-                </motion.div>
-              </div>
+                    // animate={{
+                    //   x: calculateMovement(
+                    //     mousePosition.x,
+                    //     window.innerWidth / 2
+                    //   ),
+                    //   y: calculateMovement(
+                    //     mousePosition.y,
+                    //     window.innerHeight / 2
+                    //   ),
+                    // }}
 
-              {/* Second Row */}
-              <div className="relative h-1/2 flex items-center justify-center">
-                <motion.div className="w-full">
-                  <motion.div
-                    className=""
-                    style={{}}
-                    initial={{
-                      opacity: 0,
-                      transform: `translate(85%, -60%)`,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      transform: `translate(15%, -30%)`,
-                    }}
-                    transition={{ duration: 1.2 }}
-                  >
-                    <motion.div
-                      className="bg-[url(/home/3.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                      animate={{
-                        x: calculateMovement(
-                          mousePosition.x,
-                          window.innerWidth / 2
-                        ),
-                        y: calculateMovement(
-                          mousePosition.y,
-                          window.innerHeight / 2
-                        ),
-                      }}
-                      // transition={{ type: "spring", stiffness: 150, damping: 20 }}
-                      transition={{ type: "tween", duration: 0.1 }}
-                    />
-                  </motion.div>
+                    // transition={{ type: "spring", stiffness: 150, damping: 20 }}
+                    transition={{ type: "tween", duration: 0.1 }}
+                  />
                 </motion.div>
+              </motion.div>
 
-                <motion.div className="w-full">
+              <motion.div className="w-full">
+                <motion.div
+                  className=""
+                  style={{}}
+                  initial={{
+                    opacity: 0,
+                    transform: `translate(-53%, 79%)`,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    transform: `translate(30%, -30%)`,
+                  }}
+                  transition={{ duration: 1.2 }}
+                >
                   <motion.div
-                    className=""
-                    style={{}}
-                    initial={{
-                      opacity: 0,
-                      transform: `translate(-15%, -60%)`,
+                    className="bg-[url(/home/2.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
+                    animate={{
+                      x: typeof window !== "undefined"
+                        ? calculateMovement(
+                        mousePosition.x,
+                        window.innerWidth / 2
+                      )
+                        : 0,
+                      y: typeof window !== "undefined"
+                        ? calculateMovement(
+                        mousePosition.y,
+                        window.innerHeight / 2
+                      )
+                        : 0,
                     }}
-                    whileInView={{
-                      opacity: 1,
-                      transform: `translate(50%, -30%)`,
-                    }}
-                    transition={{ duration: 1.2 }}
-                  >
-                    <motion.div
-                      className="bg-[url(/home/4.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                      animate={{
-                        x: calculateMovement(
+                    // transition={{ type: "spring", stiffness: 150, damping: 20 }}
+                    transition={{ type: "tween", duration: 0.1 }}
+                  />
+                </motion.div>
+              </motion.div>
+            </div>
+
+            {/* Second Row */}
+            <div className="relative h-1/2 flex items-center justify-center">
+              <motion.div className="w-full">
+                <motion.div
+                  className=""
+                  style={{}}
+                  initial={{
+                    opacity: 0,
+                    transform: `translate(85%, -60%)`,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    transform: `translate(15%, -30%)`,
+                  }}
+                  transition={{ duration: 1.2 }}
+                >
+                  <motion.div
+                    className="bg-[url(/home/3.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
+                    animate={{
+                      x: typeof window !== "undefined"
+                        ? calculateMovement(
                           mousePosition.x,
                           window.innerWidth / 2
-                        ),
-                        y: calculateMovement(
+                        )
+                        : 0,
+                      y: typeof window !== "undefined"
+                        ? calculateMovement(
                           mousePosition.y,
                           window.innerHeight / 2
-                        ),
-                      }}
+                        )
+                        : 0,
+                    }}
+                    // transition={{ type: "spring", stiffness: 150, damping: 20 }}
+                    transition={{ type: "tween", duration: 0.1 }}
+                  />
+                </motion.div>
+              </motion.div>
+
+              <motion.div className="w-full">
+                <motion.div
+                  className=""
+                  style={{}}
+                  initial={{
+                    opacity: 0,
+                    transform: `translate(-15%, -60%)`,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    transform: `translate(50%, -30%)`,
+                  }}
+                  transition={{ duration: 1.2 }}
+                >
+                  <motion.div
+                    className="bg-[url(/home/4.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
+                    animate={{
+                      x: typeof window !== "undefined"
+                        ? calculateMovement(
+                        mousePosition.x,
+                        window.innerWidth / 2
+                      )
+                        : 0,
+                      y: typeof window !== "undefined" 
+                        ? calculateMovement(
+                        mousePosition.y,
+                        window.innerHeight / 2
+                      )
+                        : 0,
+                    }}
                     //  transition={{ type: "spring", stiffness: 150, damping: 20 }}
                     transition={{ type: "tween", duration: 0.1 }}
-                    />
-                  </motion.div>
+                  />
                 </motion.div>
-              </div>
-          
+              </motion.div>
+            </div>
+
           </motion.div>
           <div>
             <motion.div
