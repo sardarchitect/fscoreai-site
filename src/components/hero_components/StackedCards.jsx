@@ -109,7 +109,7 @@ const StackedCards = () => {
                     >
                       <div className="flex-col justify-start text-center items-center gap-5 flex">
                         <div className="item-center font-bold  leading-tight">
-                          <Image src={card.icon} height={100} width={100}></Image>
+                          <Image src={card.icon} alt={card.title} height={100} width={100}></Image>
                         </div>
                         <div className=" text-[#171724] text-base font-bold font-['Inter'] leading-tight">
                           {card.title}
@@ -161,7 +161,7 @@ const StackedCards = () => {
                     >
                       <div className="flex-col justify-start text-center items-center gap-5 flex">
                         <div className="item-center font-bold  leading-tight">
-                          <Image src={card.icon} height={100} width={100}></Image>
+                          <Image src={card.icon} alt={card.title} height={100} width={100}></Image>
                         </div>
                         <div className=" text-[#171724] text-base font-bold font-['Inter'] leading-tight">
                           {card.title}

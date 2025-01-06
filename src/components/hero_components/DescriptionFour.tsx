@@ -297,8 +297,8 @@ const Cards: React.FC<CardProps> = ({ index, card }) => {
             alt={card.imageAlt}
             width={573} // Adjust width to maintain 50% on most screens
             height={519} // Adjust height to maintain the desired aspect ratio
-            objectFit="cover"
-          />
+            style={{ objectFit: 'cover' }} // or 'contain', depending on your use case
+            />
         </div>
 
         {/* Text */}
