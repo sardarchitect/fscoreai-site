@@ -158,35 +158,35 @@ const cardData = [
   {
     title: "Real-time Error Detection",
     description:
-      "Draftflow’s real-time error detection system quietly monitors your Revit projects, comparing them against comprehensive checklists to catch potential issues immediately. ",
+      "Draftflow’s real-time error detection system quietly monitors your Revit projects, comparing them against comprehensive checklists to catch potential issues immediately.",
     additionalInfo:
-      "Get quick on-screen notifications and view issues easily through an intuitive error table.",
+      "Get quick on-screen notifications and manage detected issues easily through an intuitive workflow.",
     buttonLabel: "Get Started",
     imageSrc: "/home/videos/Real-time Error Detection System.gif",
     imageAlt: "Issue Checklist",
     reverseLayout: true,
   },
   {
-    title: "Smart Error Resolution ",
+    title: "Automated Error Resolution ",
     description:
-      "When errors are detected, Draftflow suggests immediate resolutions, allowing you to correct issues with just a few clicks.",
+      "When errors are detected, Draftflow suggests immediate resolutions, allowing you to correct issues as they occur with just a few clicks.",
     additionalInfo:
-      " Our user-friendly interface helps manage errors quickly, keeping projects on track and on budget.",
+      "Let our AI-powered resolution system quickly resolve flagged issues to keep you on track and on budget.",
     buttonLabel: "Get Started",
     imageSrc: "/home/videos/Smart Error Resolution System.gif",
     imageAlt: "Issue Checklist",
     reverseLayout: false,
   },
   {
-    title: "In-built Checklists for High Standards",
+    title: "In-built Checklists that Meet Industry Standards",
     description:
-      "Ensure consistency across designs with Draftflow’s extensive in-built checklists covering:  ",
+      "Ensure consistency across designs with Draftflow’s extensive in-built checklists covering:",
     additionalInfo: (
       <div>
         <ul className="list-disc list-inside">
-          <li>Graphical Standards</li>
-          <li> Information Consistency and Compliance </li>
-          <li>Scope Capture </li>
+          <li>Graphical standards like annotation alignments, overlaps, and heirarchies.</li>
+          <li>Informational consistency and compliance like checking whether your stairs meet ADA requirements.</li>
+          <li>Scope capture like ensuring important elements are dimensioned in the right views.</li>
         </ul>
       </div>
     ),
@@ -200,7 +200,7 @@ const cardData = [
     description:
       "Use Draftflow’s Project Analytics to gain insights into your team’s performance.",
     additionalInfo:
-      " Monitor usage patterns, make data-driven decisions, and optimize workflows to achieve top-notch project outcomes.",
+      "Managers can get  important insights into how Draftflow is being used in their current organization and projects.",
     buttonLabel: "Get Started",
     imageSrc: "/home/videos/project analytics.gif",
     imageAlt: "Issue Checklist",

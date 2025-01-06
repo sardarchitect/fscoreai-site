@@ -56,15 +56,16 @@ const HeroSection: React.FC = () => {
         {/* Left Section: Text Content */}
         <div className="col-span-12 lg:col-span-6 order-2 md:order-1 lg:order-1 flex text-start   flex-col justify-center">
           <p className="h2 sm:he2  text-Mercury-50">
-            Transform <span className="text-Charcoal-80">your Firm's</span>{" "}
-            Quality Control <span className="text-Charcoal-80">with</span>{" "}
-            Draftflow
+            Elevate the
+            <span className="text-Charcoal-80"> Quality </span>
+            of Your 
+            <span className="text-Charcoal-80"> Construction Drawings </span>
+            with Draftflow
           </p>
           <div className="mt-4 max-w-md sm:max-w-lg text-gray-50">
-            Draftflow by FscoreAI is your firm’s essential tool for real-time
-            error detection, streamlining reviews, and avoiding costly
-            construction delays. Say goodbye to low-level markups and hello to
-            flawless, efficient workflows.
+          Automatically flag and resolve common architectural drafting errors in real time. 
+          Save valuable time, avoid costly mistakes, and move beyond tedious markups 
+          with seamless automated reviews!
             <p className="mt-5">Stay Updated – Subscribe Now</p>
           </div>
 
@@ -77,9 +78,9 @@ const HeroSection: React.FC = () => {
               {/* Email Input */}
               <input
                 type="email"
-                placeholder="Enter your Email Address..."
+                placeholder="Your Email"
                 {...register("email", {
-                  required: "Email is required",
+                  required: "Please provide your email address.",
                   pattern: {
                     value: /^\S+@\S+$/i,
                     message: "Invalid email address",

@@ -83,10 +83,11 @@ const StackedCards = () => {
             {/* Left Side: Text Content Section */}
             <div className="col-span-12 lg:col-span-6 ">
               <p className="h3 sm:he2 w-[448px] text-Mercury-50">
-             <span className="text-Charcoal-80"> Why</span> Choose Draftflow <span className="text-Charcoal-80">for Your Firm?</span>
+             <span className="text-Charcoal-80"> Why</span> Choose Draftflow?
               </p>
               <p className="t1 py-4 w-[448px] text-gray-700">
-              Draftflow has been developed in collaboration with top architectural firms to address the unique demands of your industry. Here’s how Draftflow delivers measurable value:
+              Draftflow has been developed in collaboration with architectural firms 
+              to address the unique demands of the industry.
               </p>
 
               {/* Learn More Button */}
@@ -137,11 +138,12 @@ const StackedCards = () => {
             {/* Left Side: Text Content Section */}
             <div className="col-span-12 lg:col-span-6 px-4 py-2">
               <p className="h3 sm:he2 text-black">
-                Key Benefits of Draftflow for Your Firm
+              <span className="text-Charcoal-80"> Why</span> Choose Draftflow?
               </p>
               <p className="t1 py-4 text-gray-700">
-                Draftflow is designed specifically for firms in the AEC industry. Through this one unique system, Draftflow benefits a large set of stakeholders:
-              </p>
+              Draftflow has been developed in collaboration with architectural firms 
+              to address the unique demands of the industry.
+                </p>
 
             
 
