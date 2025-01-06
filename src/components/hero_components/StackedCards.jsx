@@ -82,8 +82,8 @@ const StackedCards = () => {
           <div className={`flex flex-col items-center justify-center h-screen sticky top-0 basis-1/2 p-8 left ${adjustLayout()}`}>
             {/* Left Side: Text Content Section */}
             <div className="col-span-12 lg:col-span-6 ">
-              <p className="h3 sm:he2 w-[448px] text-Mercury-50">
-             <span className="text-Charcoal-80"> Why</span> Choose Draftflow?
+              <p className="h3 sm:he2 w-[448px] text-Charcoal-80">
+              Why Choose <span className="text-Mercury-50"> Draftflow?</span>
               </p>
               <p className="t1 py-4 w-[448px] text-gray-700">
               Draftflow has been developed in collaboration with architectural firms 
@@ -137,8 +137,8 @@ const StackedCards = () => {
           <div className={`flex flex-col items-center justify-center p-8 ${adjustLayout()} `}>
             {/* Left Side: Text Content Section */}
             <div className="col-span-12 lg:col-span-6 px-4 py-2">
-              <p className="h3 sm:he2 text-black">
-              <span className="text-Charcoal-80"> Why</span> Choose Draftflow?
+              <p className="h3 sm:he2 text-Charcoal-80">Why Choose 
+                <span className="text-Mercury-50">Draftflow?</span>
               </p>
               <p className="t1 py-4 text-gray-700">
               Draftflow has been developed in collaboration with architectural firms 

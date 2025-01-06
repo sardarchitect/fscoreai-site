@@ -55,12 +55,13 @@ const HeroSection: React.FC = () => {
       <div className="relative z-10 mx-auto grid grid-cols-12  w-full h-full items-center">
         {/* Left Section: Text Content */}
         <div className="col-span-12 lg:col-span-6 order-2 md:order-1 lg:order-1 flex text-start   flex-col justify-center">
-          <p className="h2 sm:he2  text-Mercury-50">
+          <p className="h2 sm:he2 text-Charcoal-80">
             Elevate the
-            <span className="text-Charcoal-80"> Quality </span>
+            <span className="text-Mercury-50"> Quality </span>
             of Your 
-            <span className="text-Charcoal-80"> Construction Drawings </span>
-            with Draftflow
+            <span className="text-Mercury-50"> Construction Drawings </span>
+            with 
+            <span className="text-Mercury-50"> Draftflow </span>
           </p>
           <div className="mt-4 max-w-md sm:max-w-lg text-gray-50">
           Automatically flag and resolve common architectural drafting errors in real time. 

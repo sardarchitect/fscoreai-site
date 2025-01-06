@@ -28,10 +28,10 @@ const AboutUs = () => {
         <div className="container-width flex flex-col md:flex-row gap-8 md:gap-24  ">
           {/* Left side with the main heading */}
           <div className="md:w-1/2 flex justify-center md:justify-start">
-            <p className="text-white h3 md:h2 lg:h2  leading-tight">
-              <span className="text-Charcoal-40"> We Believe</span> Automation
-              is The Next Revolution{" "}
-              <span className="text-Charcoal-40"> in Architecture </span>
+            <p className="h3 md:h2 lg:h2  leading-tight text-Charcoal-40">
+              We Believe <span className="text-white">Automation </span>
+              is The Next <span className="text-white">Revolution </span>
+              in Architecture.
             </p>
           </div>
 
@@ -51,16 +51,15 @@ const AboutUs = () => {
         <div className="container-width lg:pb-[120px] mx-auto text-center">
           <div className="w-full mx-auto mb-20 sm:w-[400px] md:w-[580px] lg:w-[830px] ">
             <p className="h3 sm:he2 text-Mercury-50 mb-4">
-              <span className="text-Charcoal-60">Our</span> Mission
+              <span className="text-Charcoal-40">Our</span> Vision
             </p>
             <p className="t1 text-gray-600 mb-5 ">
               Fscore AI envisions a future where architecture and engineering
               transcend traditional boundaries through the use of cutting-edge
               automation and innovation. The company believes that to deal with
-              the upcoming future challenges, the architectural industry will
-              need the assistance of intelligent systems that can handle the
-              additional stressors caused by increasing amounts of demand in our
-              built environment.
+              upcoming future challenges, the architectural industry will
+              need the assistance of intelligent systems that can handle 
+              increasing demands in our built environment.
             </p>
 
             <p className="text-gray-600 t1">
@@ -71,52 +70,6 @@ const AboutUs = () => {
           </div>
 
           {/* Team Members Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 justify-items-center ">
-            {/* Aim 1 */}
-            <div className=" w-[185px] h-[360px] flex-col items-center hidden sm:block">
-              <img
-                src="/about_us/qc1.png"
-                alt="Aim 1"
-                className="rounded-lg object-cover w-[185px] h-[360px]"
-              />
-            </div>
-
-            {/* Aim 2 */}
-            <div className=" flex-col w-[185px] h-[360px] py-0 sm:py-9 items-center hidden sm:block">
-              <img
-                src="/about_us/qc2.png"
-                alt="Aim 2"
-                className="rounded-lg object-coverw-[185px] h-[360px]"
-              />
-            </div>
-
-            {/* Team Member 3 */}
-            <div className="w-[185px] h-[360px] flex-col items-center hidden sm:block">
-              <img
-                src="/about_us/qc3.png"
-                alt="Team Member 3"
-                className="rounded-lg object-cover w-[185px] h-[360px]"
-              />
-            </div>
-
-            {/* Aim 4 */}
-            <div className="flex-col w-[185px] h-[360px] py-0 sm:py-9 items-center hidden sm:block">
-              <img
-                src="/about_us/qc4.png"
-                alt="Aim 4"
-                className="rounded-lg object-cover w-[185px] h-[360px]"
-              />
-            </div>
-
-            {/* Aim 5 */}
-            <div className="flex-col w-[185px] h-[360px] items-center hidden sm:block">
-              <img
-                src="/about_us/qc5.png"
-                alt="Aim 5"
-                className="rounded-lg object-cover w-[185px] h-[360px]"
-              />
-            </div>
-          </div>
         </div>
       </section>
 
@@ -141,17 +94,18 @@ const AboutUs = () => {
           <div className="w-full md:w-1/2">
             {/* Goal Text */}
             <p className="lg:-mx-44 md:-mx-32  sm:mx-0 h2 md:h1 lg:he1 w-full sm:w-[400px] md:w-[492px] lg:w-[678px] text-Mercury-50 leading-tight  text-center sm:text-left">
-              <span className="text-Charcoal-60"> My</span> Goal{" "}
-              <span className="text-Charcoal-60">is to</span> Empower Architects{" "}
-              <span className="text-Charcoal-60">with</span> AI
+              <span className="text-Charcoal-40"> My</span> Goal
+              <span className="text-Charcoal-40"> is to</span> Empower Architects
+              <span className="text-Charcoal-40"> with</span> AI
             </p>
 
             {/* Description Text */}
             <p className="lg:t1 md:te1 te1 text-gray-500 mt-6  sm:mx-0 w-full sm:w-[400px] md:w-[340px] lg:w-[502px] text-center sm:text-left">
-              As an architect myself, I’ve been in the trenches—managing tight
+              As an architect myself, I’ve been in the trenches — managing tight
               deadlines, navigating complex design requirements, and dealing
               with the inevitable headaches that come from catching errors late
-              in the process.
+              in the process. I wish I had the tools we are developing today during my 
+              time as an Revit drafter.
             </p>
 
             {/* Signature Image */}
@@ -171,7 +125,7 @@ const AboutUs = () => {
         <div className="container-width mx-auto text-center justify-center  flex-col flex ">
           <div className="flex text-center flex-col items-center">
             <p className="h3 md:h2 text-Mercury-50  mb-6">
-              <span className="text-Charcoal-60"> Our </span> Experts{" "}
+              <span className="text-Charcoal-60"> Our </span> Experts
               <span className="text-Charcoal-60"> are like </span> No Other
             </p>
             <p className="te1 text-gray-600 flex  sm:w-[400px] md:w-[500px] lg:w-[798px]  mb-10">
@@ -235,13 +189,13 @@ const AboutUs = () => {
       <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px] mb-[98px]">
         <div className="container-width mx-auto  items-center text-center ">
           <div className="h3 sm:h2   text-Mercury-50 mb-6">
-            <span className="text-Charcoal-60">Become a</span> Part of{" "}
-            <span className="text-Charcoal-60"> our </span> Team
+            <span className="text-Charcoal-60">Become a</span> Part
+            <span className="text-Charcoal-60"> of our </span> Team
           </div>
           <p className="te3 sm:te1 lg:w-[798px] mx-auto text-center text-gray-600 mb-10">
-            Our mission is to streamline the architectural drawing process and
-            elevate the quality of construction documents through cutting-edge
-            technology.
+          At Fscore AI, we’re building more than just innovative solutions – we’re fostering a culture of collaboration, 
+          growth, and respect. Here, your ideas matter, your growth is supported, 
+          and your work makes a real impact.
           </p>
 
           {/* Job Listings */}
