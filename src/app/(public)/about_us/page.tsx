@@ -245,7 +245,8 @@ const AboutUs = () => {
           </p>
 
           {/* Job Listings */}
-          <div className="space-y-4 max-w-7xl text-left">
+          <div className="max-w-7xl text-left">
+          {/* <div className="space-y-4 max-w-7xl text-left"> */}
             {openJobsData.map((data, idx) => {
               return (
                 <JobListing

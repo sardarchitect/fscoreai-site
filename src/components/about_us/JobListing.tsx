@@ -28,8 +28,8 @@ const JobListing: React.FC<JobListingProps> = ({ sNo, title, description, timePo
       {/* Job Details */}
       <div className="flex-1">
         <p className="b3 sm:h4 lg:w-[618px] w-full mb-1">{title}</p>
-        <p className="text-gray-500 text-sm md:te4 mb-1">{jobRole}</p>
-        <p className="text-gray-400 text-xs md:te4">{timePosted}</p>
+        {/* <p className="text-gray-500 text-sm md:te4 mb-1">{jobRole}</p>
+        <p className="text-gray-400 text-xs md:te4">{timePosted}</p> */}
       </div>
 
       {/* Toggle Button */}
@@ -39,7 +39,7 @@ const JobListing: React.FC<JobListingProps> = ({ sNo, title, description, timePo
             e.stopPropagation();
             handleToggle();
           }}
-          className="w-10 md:w-14 h-10 md:h-14 bg-black text-white rounded-full flex items-center justify-center text-2xl"
+          className="w-7 md:w-11 h-7 md:h-11 bg-black text-white rounded-full flex items-center justify-center text-2xl"
         >
           {isOpen ? "-" : "+"}
         </button>
@@ -50,6 +50,8 @@ const JobListing: React.FC<JobListingProps> = ({ sNo, title, description, timePo
     <div className={`overflow-hidden duration-300  md:pl-28 w-4/5 text-gray-600 text-sm md:tex4 ${isOpen ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
       }`}
     >
+      <p className="text-gray-500 text-sm md:te4 mb-1">{jobRole}</p>
+      <p className="text-gray-400 text-xs md:te4">{timePosted}</p>
       <p className="mt-4">{description}</p>
     </div>
   </div>

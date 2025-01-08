@@ -5,6 +5,7 @@ import SubmissionAlert from "@/src/components/utilsComponents/SubmissionAlert";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMobileMenuContext } from "@/src/context/mobileMenu";
+import { useAlertPopUpContext } from "@/src/context/alertPopup";
 
 interface RequestBody {
   name: string;
@@ -26,6 +27,7 @@ const DemoForm = ({ open }: any) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useMobileMenuContext()
   const [showPopup, setShowPopup] = useFormPopUpContext()
   const [theme, setTheme] = useThemeContext();
+  const [showAlertPopup, setShowAlertPopup] = useAlertPopUpContext();
   const [showMsg, setShowMsg] = useState(false);
 
   const onSubmit = async (data: any) => {
@@ -39,11 +41,14 @@ const DemoForm = ({ open }: any) => {
   };
 
   function ShowAlert() {
-    setShowMsg(true);
+    // setShowMsg(true);
+    setShowAlertPopup(true)
+    setShowPopup(false)
     setTimeout(() => {
-      setShowMsg(false);
+      // setShowMsg(false);
+    setShowAlertPopup(false)
       setMobileMenuOpen(false)
-    }, 10000); 1
+    }, 10000);
   }
   useEffect(() => {
     if (showPopup) {
@@ -86,28 +91,27 @@ const DemoForm = ({ open }: any) => {
       {showPopup && (
         <div className="cursor-default text-left">
 
-          <div className={`${theme} backdrop-blur-sm fixed inset-0 flex items-center justify-center w-screen h-screen overflow-hidden px-3`} onClick={togglePopup}>
-            
+          <div className={`${theme} sm:pt-0 pt-20 backdrop-blur-sm fixed inset-0 flex items-center justify-center w-screen h-screen overflow-hidden px-3`} onClick={togglePopup}>
+
             <div
-              className="mt-20 bg-theme-blue text-white border-white border-2 p-6 max-w-lg max-h-[80%] overflow-y-auto rounded-lg shadow-lg relative"
+              className="bg-theme-blue text-white border-white border-2 p-6 max-w-lg max-h-full overflow-y-scroll rounded-lg shadow-lg relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="absolute top-0 right-0 m-5">
+              <div className="absolute top-0 right-0 m-4">
                 <button onClick={togglePopup}
                   className="hover:dark:text-theme-blue px-4 py-3 hover:bg-theme-color hover:text-black hover:dark:bg-white border-2 dark:border-white border-theme-blue rounded-xl ">X</button>
               </div>
-              
-              <h2 className="text-4xl font-bold mb-4 pr-10">Let's Chat</h2>
-              <p className="text-sm mt-4 tracking-wide mb-4" id='contact-submission-alert'>Book a 1:1 meeting with us to get started.</p>
-              {showMsg === true &&
+
+              <h2 className="text-4xl font-bold mb-1 pr-10">Let's Chat</h2>
+              <p className="text-sm tracking-wide mb-4" id='contact-submission-alert'>Book a 1:1 meeting with us to get started.</p>
+              {/* {showMsg === true &&
                 <div className="animate-fadeIn dark:border-2 shadow-xl border rounded-full sm:mt-auto mt-5">
-                  {/* <div className="px-4 sm:px-6 sm:col-span-3 sm:py-6 lg:py-8 shadow-xl border rounded-lg"> */}
                   <SubmissionAlert type='success' message="Thank you for submitting your form. We will get back to you shortly." />
-                </div>}
+                </div>} */}
 
               <form noValidate method="POST" onSubmit={handleSubmit(onSubmit)}>
-                <div className="pb-12 mt-5">
-                  <div className="mt-10">
+                <div className="pb-6 mt-4">
+                  <div className="mt-5">
                     <div className="sm:col-span-4 mb-4">
                       <label htmlFor="name" className="block text-sm font-medium leading-6">Full name</label>
                       <div className="mt-2">
@@ -116,7 +120,7 @@ const DemoForm = ({ open }: any) => {
                           {...register("name", { required: "Name is required" })}
                           id="name"
                           placeholder="Enter your name"
-                          className="block w-full rounded-md border-0 py-1.5 p-2 sm:p-4 shadow-sm ring-1 ring-inset dark:ring-gray-300 dark:bg-rgb-2-6-23 focus:ring-2 focus:ring-inset dark:focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 text-sm p-2 sm:p-3 shadow-sm ring-1 ring-inset dark:ring-gray-300 dark:bg-rgb-2-6-23 focus:ring-2 focus:ring-inset dark:focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                         {errors.name && <p className="text-red-500 text-sm mt-1">
                           {typeof errors.name.message === "string" ? errors.name.message : ""}
@@ -139,7 +143,7 @@ const DemoForm = ({ open }: any) => {
                           type="email"
                           autoComplete="email"
                           placeholder="Enter your email"
-                          className="block w-full rounded-md border-0 py-1.5 p-2 sm:p-4 shadow-sm ring-1 ring-inset dark:ring-gray-300 dark:bg-rgb-2-6-23 focus:ring-2 focus:ring-inset dark:focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 p-2 sm:p-3 text-sm shadow-sm ring-1 ring-inset dark:ring-gray-300 dark:bg-rgb-2-6-23 focus:ring-2 focus:ring-inset dark:focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                         {errors.email && <p className="text-red-500 text-sm mt-1">
                           {typeof errors.email.message === "string" ? errors.email.message : ""}
@@ -160,7 +164,7 @@ const DemoForm = ({ open }: any) => {
                           {...register("company_name")}
                           id="company_name"
                           placeholder="Enter company name"
-                          className="block w-full rounded-md border-0 py-1.5  p-2 sm:p-4  shadow-sm ring-1 ring-inset dark:ring-gray-300 dark:bg-rgb-2-6-23 focus:ring-2 focus:ring-inset dark:focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 text-sm  p-2 sm:p-3  shadow-sm ring-1 ring-inset dark:ring-gray-300 dark:bg-rgb-2-6-23 focus:ring-2 focus:ring-inset dark:focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
@@ -173,9 +177,9 @@ const DemoForm = ({ open }: any) => {
                         <textarea
                           {...register("short_description", { required: "Short description is required" })}
                           id="short_description"
-                          rows={3}
+                          rows={2}
                           placeholder="Write your thoughts here..."
-                          className="block w-full rounded-md border-0 py-1.5 p-2 sm:p-4 shadow-sm ring-1 ring-inset dark:bg-rgb-2-6-23 dark:ring-gray-100 focus:ring-2 focus:ring-inset dark:focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 text-sm p-2 sm:p-3 shadow-sm ring-1 ring-inset dark:bg-rgb-2-6-23 dark:ring-gray-100 focus:ring-2 focus:ring-inset dark:focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         ></textarea>
                         {errors.short_description && <p className="text-red-500 text-sm mt-1">
                           {typeof errors.short_description.message === "string" ? errors.short_description.message : ""}
@@ -184,12 +188,10 @@ const DemoForm = ({ open }: any) => {
                     </div>
 
                     <div className="sm:col-span-4 mb-4">
-                      <p className="mt-4 text-sm leading-6">
-                        <span className="">
-                            <p className="text-xs">
-                              By leaving your information you agree to receive communications from Fscore AI and agree to our <a href="/privacy_policy" className="font-bold underline">Privacy Policy</a>. You may unsubscribe from these communications at anytime. &nbsp;</p>
-                        </span>
-                      </p>
+                      <span className="mt-4 text-sm leading-6">
+                        <p className="text-xs">
+                          By leaving your information you agree to receive communications from Fscore AI and agree to our <a href="/privacy_policy" className="font-bold underline">Privacy Policy</a>. You may unsubscribe from these communications at anytime. &nbsp;</p>
+                      </span>
                     </div>
                   </div>
 

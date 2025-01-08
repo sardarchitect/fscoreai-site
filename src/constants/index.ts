@@ -17,7 +17,7 @@ export const FOOTER_LINKS = [
   { href: '/about_us', key: 'about_us', label: 'About' },
   { href: '/contact_us', key: 'contact_us', label: 'Contact Us' },
     // { href: '/logout' , key: 'logout', label: 'Logout'},
-    {href: '/#', key: 'community' , label: 'Community'},
+    // {href: '/#', key: 'community' , label: 'Community'},
     // {href: '/#', key: 'sitemap' , label: 'Sitemap'},
   // { href: '/blogs', key: 'blogs', label: 'Blogs' },
   // { href: '/login' , key: 'login', label: 'Login'},

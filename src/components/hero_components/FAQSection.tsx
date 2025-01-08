@@ -66,7 +66,7 @@ const FAQSection: React.FC = () => {
                                     <p className="b1 text-gray-800">
                                         {faq.question}
                                     </p>
-                                    <span className="w-10 md:w-14 h-10 md:h-14 ml-10 p-3 bg-black text-white rounded-full flex items-center justify-center text-2xl">
+                                    <span className="w-7 md:w-10 h-7 md:h-10 ml-10 p-3 bg-black text-white rounded-full flex items-center justify-center text-2xl">
                                         {activeIndexes.includes(index) ? "–" : "+"}
                                     </span>
                                 </button>

@@ -6,11 +6,14 @@ import Navbar from "@/src/components/Navbar";
 import Footer from "@/src/components/Footer";
 import { ThemeProvider } from "../context/theme";
 import { FormPopUpProvider } from "../context/formPopup";
+import { AlertPopUpProvider } from "../context/alertPopup";
 import { MobileMenuProvider } from "../context/mobileMenu";
 import { PageUpdateProvider } from "../context/pageUpdate";
 import { CookieConsent } from "@/src/components/utilsComponents/CookieConsent";
 import AuthProviders from "../providers/authProvider";
 import { ReactLenis, useLenis } from 'lenis/react'
+import DemoForm from "../components/utilsComponents/DemoForm";
+import ThanksMsgAlert from "../components/utilsComponents/ThanksMsgAlert";
 
 export const metadata: Metadata = {
   title: "fscore.ai",
@@ -43,15 +46,19 @@ export default function RootLayout({
           <ThemeProvider>
             <MobileMenuProvider>
               <FormPopUpProvider>
-                <PageUpdateProvider>
-                    <Navbar/>
-                  {/* <ReactLenis root> */}
+                <AlertPopUpProvider>
+                  <PageUpdateProvider>
+                    <Navbar />
+                    <DemoForm />
+                    <ThanksMsgAlert/>
+                    {/* <ReactLenis root> */}
                     {/* <Header/> */}
                     <main className="">{children}</main>
                     <CookieConsent />
-                    <Footer/>
-                  {/* </ReactLenis> */}
-                </PageUpdateProvider>
+                    <Footer />
+                    {/* </ReactLenis> */}
+                  </PageUpdateProvider>
+                </AlertPopUpProvider>
               </FormPopUpProvider>
             </MobileMenuProvider>
           </ThemeProvider>

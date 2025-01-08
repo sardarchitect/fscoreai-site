@@ -1,11 +1,11 @@
 "use client"
 import { useThemeContext } from "@/src/context/theme";
 import DescriptionFour from "@/src/components/hero_components/DescriptionFour";
-import DescriptionFive from "@/src/components/hero_components/DescriptionFive";
 import DescriptionOne from "@/src/components/hero_components/DescriptionOne";
-import DescriptionThree from "@/src/components/hero_components/DescriptionThree";
+import CommunitySection from "@/src/components/hero_components/CommunitySection";
 import Hero_one from "@/src/components/hero_components/HeroSection";
 import ProductReport from "@/src/components/hero_components/ProductReport";
+import FAQSection  from "@/src/components/hero_components/FAQSection";
 import { useSession } from "next-auth/react";
 import StackedCards from "../components/hero_components/StackedCards";
 import React, { useEffect, useRef, useState } from "react";
@@ -32,9 +32,9 @@ return (
   <ProductReport />
   <DescriptionOne />
   <StackedCards />
-  <DescriptionThree />
+  <CommunitySection />
   <DescriptionFour />
-  <DescriptionFive />
+  <FAQSection />
 
 </div>
  
