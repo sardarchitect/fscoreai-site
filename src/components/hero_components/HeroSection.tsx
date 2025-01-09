@@ -54,7 +54,7 @@ const HeroSection: React.FC = () => {
     <section className="relative m-auto container-width h-full min-h-[90vh] flex items-center justify-center text-center px-4 sm:px-6 lg:px-0">
       <div className="relative z-10 mx-auto grid grid-cols-12  w-full h-full items-center">
         {/* Left Section: Text Content */}
-        <div className="col-span-12 lg:col-span-6 order-2 md:order-1 lg:order-1 flex text-start   flex-col justify-center">
+        <div className="col-span-12 lg:col-span-6 order-2 md:order-1 lg:order-1 flex text-start  flex-col justify-center">
           <p className="h2 sm:he2  text-Mercury-50">
             Elevate the
             <span className="text-Charcoal-80"> Quality </span>
