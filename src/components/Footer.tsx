@@ -121,7 +121,7 @@ const Footer = () => {
             <Link href="/terms_of_use" className="hover:text-gray-400  text-Charcoal-60">Terms of Use</Link>
             <Link href="/privacy_policy" className="hover:text-gray-400 text-Charcoal-60">Privacy Policy</Link>
           </div>
-          <div className="text-gray-500 lg:text-right sm:text-center cursor-pointer">&copy; 2024 Fscore AI LLC. All rights reserved.</div>
+          <div className="text-gray-500 lg:text-right sm:text-center cursor-pointer">&copy; 2025 Fscore AI LLC. All rights reserved.</div>
         </div>
       </footer>
     </main>

@@ -1,3 +1,51 @@
+#  Fscore.ai website review 01/05/2025:
+# depends on Arvinder sir
+    2. [ ] Some text editing needs to be done by me.
+    5. [ ] Text on animations needs to be reviewed by me.
+    11. [ ] Start project with draftflow form at footer does not make any sense. UI/UX needs to look at it.
+    16. [ ] Instagram link does not work right now.
+    17. [ ] Facebook link also does not work.
+    19. [ ] Cookies customization button does not work.
+    22. [ ] "Learn More" button on stacked card section does not go anywhere. Arvinder to discuss with UI/UX.
+    
+# ignore
+    8. [ ] About section images need to be replaced.
+
+# confirm after review
+    6. [x] FAQ section "expand/collapse" icons look too big. Make them smaller.
+    9. [x] Standardize all UI elements. For example: FAQ section and Job Openings section should look similar.
+    10. [x] Subscribed animation should show green check.
+        -> Add "Subscribed" text pop up animation
+        -> add placeholder as message "Thanks for Subscribing" shows after subscription
+    12. [x] Book a demo form should fit in single page without scrolling on laptop. It is ok to scroll on phone.
+        -> To make this competible for all size of screens, its time consuming
+        -> for now i resize the demo form for laptop size screens: that fullfill this condition
+    23. [ ] Stacked card animation does not work for mobile. Please make it work similarly.
+        -> not add animaion on mobile but make it responsive for all devices (tabs, pc, mobile)
+
+
+
+1. [ ] At startup, latency issues that cause text to appear default font, and time for all the GIFs/videos to appear.
+3. [x] Homepage Section 2 animation is still missing. Please add.
+4. [x] Homepage "From Our Community" Section, I want to see 3rd card in the background. Currently it just appears suddenly when you press the button on the right.
+14. [x] Contact us form currently lets you submit without checking the "I agree..." checkbox. Make the checkbox mandatory.
+13. [x] Submitting book a demo form should collapse the form and only show "thank you for submitting, we will get back to you shortly" message.
+15. [x] On footer, remove "Community" link. We do not have that working right now.
+18. [x] Arvinder to work on Terms of Use and Privacy Policy page.
+21. [x] Stacked card animation: Cards that are already placed on screen should not be rotating. Please keep them static.
+
+20. [ ] Lots of improvement can be made on the code. Please standardize file naming system, folder structures, variable names, function names, commenting, linting.
+
+
+
+
+
+
+
+
+
+
+
 ## Database
 -[x] Setup Vercel Postgres: https://vercel.com/storage/postgres
 
@@ -14,66 +62,6 @@
 -[x] Padding on large screen
 -[] Make mobile-friendly navbar and nav menu
 -[] Change color of nav symbol to white in dark mode
-
-## Homepage
--[][] Hero
--[][] Section: About
--[][] Section: Features
--[][] Section: Clients We Work With
--[][] Section: Pricing
-
-## About Us
--[x] Add content
--[x] Add testimonials
--[][] Add photos and content
-
-## Contact Us
--[x] Connect to Atlas DB
--[x] Add text after submitting form "Thank you for submitting your form. We will get back to you shortly."
--[x] Add field for "submission date" (UTC)
-
-## Blog Posts
--[x] Connect to Atlas DB
--[x] Add share buttons for blog posts. Share to LinkedIn, Facebook, X.
--[x] Add dark theme to blog posts. (https://tailwindcss.com/docs/dark-mode)
--[x] Make adding/removing blogs more efficient. Organize into folders in separate categories.
--[x] Pagination is working
--[x] Remove "#" link from blog thumbnails
--[x] Order blogs by date
-
--[] Add option to modify Featured Post
-
-## Demo Form
--[x] Request Demo Button
--[x] Request Demo Form
--[x] Add all fields
--[x] Test with Vercel
--[x] Change content of privacy policy under form
-
-## Footer
--[x] Site Map
--[][x] Add logos and links to social media (Instagram, LinkedIn, X)
--[x] Privacy Page Link: Instagram, LinkedIn, Facebook, X
-
-## Privacy Policy Page
--[x] Add privacy policy page
--[][] Add content on privacy policy page 
--[x] Connect with accept cookies banner
--[x] Add accept or reject cookies functionality
--[x] On cookies decline, add "false" for consent and do not show cookies banner again.
-
-## 404 Page
--[x] Add 404 Page
-
-
-
-
-[] (dashboard), (public), (forem) - make saperate paths for frontend
-
-
--[] demo form scrolling effect
-
-
 
 
 
