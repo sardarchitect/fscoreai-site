@@ -49,7 +49,7 @@ const Footer = () => {
           {/* Subscription Section */}
           <div className="flex flex-col items-center lg:items-start text-center w-[374px] lg:text-left mb-8 lg:mb-0">
             <div className="text-white w-[362px] h3 mb-4">
-              <span className="text-Charcoal-40">Start a Project with</span> Draftflow
+              <span className="text-Charcoal-40">Subscribe to Stay Updated with</span> Draftflow
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className=" w-auto  sm:gap-0 gap-2 border-b sm:border-none border-gray-30 flex flex-col sm:flex-row items-center">
               <input
