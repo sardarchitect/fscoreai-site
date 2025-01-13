@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useFormPopUpContext } from "@/src/context/formPopup";
 import DemoForm from "../utilsComponents/DemoForm";
 
-const DescriptionOne = () => {
+const DraftDemo = () => {
   const [showPopup, setShowPopup] = useFormPopUpContext();
 
   return (
@@ -45,4 +45,4 @@ const DescriptionOne = () => {
   );
 };
 
-export default DescriptionOne;
+export default DraftDemo;

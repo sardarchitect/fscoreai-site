@@ -7,33 +7,50 @@ const CommunitySection = () => {
   const cardWidth = 395; // Desktop card width in pixels
   const mobileCardWidth = 300; // Mobile card width in pixels
   const mdCardWidth = 350; // Medium (md) card width in pixels
-  const gap = 24; // Gap between the cards
-  const totalCardWidth = cardWidth + gap;
   const maxIndex = testimonials.length - 1;
+  const centeredCard = Math.floor(testimonials?.length / 2); // Calculate the index of the centered card based on the total number of testimonials.
+  const x = useMotionValue(0);
 
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(centeredCard); // This ensures the card at the middle of the array is aligned at the center of the viewport.
   const [isMobile, setIsMobile] = useState(false);
   const [isMedium, setIsMedium] = useState(false);
   const [isInView, setIsInView] = useState(false); // Track if section is in view
+
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null); // Ref to manage interval
-
-  const x = useMotionValue(0);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const setCardRef = (el: HTMLDivElement | null, index: number) => {
+    cardRefs.current[index] = el;
+  };
 
   const calculateOffset = (index: number) => {
-    const windowWidth = window.innerWidth;
-    const centerPosition = isMobile
-      ? (windowWidth - mobileCardWidth) / 2
-      : isMedium
-        ? (windowWidth - mdCardWidth) / 2
-        : (windowWidth - cardWidth) / 2.8;
-        // : (windowWidth - cardWidth) / 3.5;
-    return -(index * totalCardWidth - centerPosition);
+    // Ensure refs are valid
+    if (!cardRefs.current.length || index < 0 || index >= cardRefs.current.length) {
+      console.error("Invalid index or card references are not initialized.");
+      return 0;
+    }
+    // Calculate card widths and centers
+    const cardWidths = cardRefs.current.map((card) => card?.getBoundingClientRect().width || 0);
+    // Calculate cumulative offsets (center of each card)
+    const cardCenters: number[] = [];
+    let cumulativeOffset = 0;
+    cardWidths.forEach((width, i) => {
+      const center = cumulativeOffset + width / 2; // Center of the current card
+      cardCenters.push(center);
+      cumulativeOffset += width;
+    });
+    // If the current index matches the centeredCard, no offset is needed as it's already in view.
+    if (index === centeredCard) {
+      return 0; // Reference index, no offset needed
+    }
+
+    const offset = cardCenters[index] - cardCenters[centeredCard];
+    return -offset; // Negative for leftward movement
   };
+
 
   const moveCards = (direction: string) => {
     let newIndex = currentIndex;
-
     if (direction === "left" && currentIndex > 0) {
       newIndex = currentIndex - 1;
     } else if (direction === "right" && currentIndex < maxIndex) {
@@ -121,7 +138,7 @@ const CommunitySection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative  bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2] w-full py-16 lg:py-24 ">
+    <section ref={sectionRef} className="relative overflow-hidden w-full py-16 lg:py-24 bg-gradient-to-br from-[#B6C4E1] via-[#CCD7E1] to-[#DCE5E2]">
       <div className="container-width mx-auto pt-8 px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <p className="sm:he2 h2 text-Charcoal-80 tracking-wide">
@@ -136,13 +153,12 @@ const CommunitySection = () => {
 
         <div
           className={`relative mt-12 ${isMobile || isMedium
-              ? "overflow-x-scroll"
-              : "flex justify-center items-center"
+            ? "overflow-x-scroll"
+            : "flex justify-center items-center"
             }`}
         >
           <motion.div
-            className={`flex ${isMobile || isMedium ? "space-x-4" : "space-x-6"
-              }`}
+            className={`flex ${isMobile || isMedium ? "space-x-4" : "space-x-6"}`}
             style={{ x: isMobile || isMedium ? undefined : x }}
           >
             {testimonials.map((testimonial, index) => {
@@ -153,15 +169,16 @@ const CommunitySection = () => {
               return (
                 <motion.div
                   key={testimonial.id}
-                  className={`bg-white shadow-lg rounded-lg p-8 text-start cursor-pointer flex-none   transition-all duration-1000 transform  ${isMobile || isMedium
-                      ? ""
-                      : isCenter
-                        ? "scale-105 opacity-100 z-10"
-                        : isLeft
-                          ? "rotate-12 scale-95 opacity-70 -z-0"
-                          : isRight
-                            ? "-rotate-12 scale-95 opacity-70 -z-0"
-                            : "opacity-0 pointer-events-none"
+                  ref={(el) => setCardRef(el, index)}
+                  className={`bg-white shadow-lg rounded-lg p-8 text-start cursor-pointer flex-none transition-all duration-1000 transform  ${isMobile || isMedium
+                    ? ""
+                    : isCenter
+                      ? "scale-105 opacity-100 z-10"
+                      : isLeft
+                        ? "rotate-12 scale-95 opacity-70 -z-0"
+                        : isRight
+                          ? "-rotate-12 scale-95 opacity-70 -z-0"
+                          : "opacity-0 pointer-events-none"
                     }`}
                   style={{
                     width: isMobile

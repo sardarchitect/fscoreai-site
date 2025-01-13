@@ -9,7 +9,7 @@ import { FormPopUpProvider } from "../context/formPopup";
 import { AlertPopUpProvider } from "../context/alertPopup";
 import { MobileMenuProvider } from "../context/mobileMenu";
 import { PageUpdateProvider } from "../context/pageUpdate";
-import { CookieConsent } from "@/src/components/utilsComponents/CookieConsent";
+// import { CookieConsent } from "@/src/components/utilsComponents/CookieConsent";
 import AuthProviders from "../providers/authProvider";
 import { ReactLenis, useLenis } from 'lenis/react'
 import DemoForm from "../components/utilsComponents/DemoForm";
@@ -54,7 +54,7 @@ export default function RootLayout({
                     {/* <ReactLenis root> */}
                     {/* <Header/> */}
                     <main className="">{children}</main>
-                    <CookieConsent />
+                    {/* <CookieConsent /> */}
                     <Footer />
                     {/* </ReactLenis> */}
                   </PageUpdateProvider>

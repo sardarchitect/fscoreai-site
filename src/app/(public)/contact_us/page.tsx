@@ -1,5 +1,6 @@
 "use client";
 import SubmissionAlert from "@/src/components/utilsComponents/SubmissionAlert";
+import { useAlertPopUpContext } from "@/src/context/alertPopup";
 import { useThemeContext } from "@/src/context/theme";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -24,7 +25,7 @@ const ContactUs = () => {
   } = useForm<RequestBody>();
 
   const [showMsg, setShowMsg] = useState(false);
-  const [theme] = useThemeContext();
+  const [showAlertPopup, setShowAlertPopup] = useAlertPopUpContext();
 
   const onSubmit = async (data: RequestBody) => {
     await addUserData(data);
@@ -37,9 +38,9 @@ const ContactUs = () => {
   };
 
   function ShowAlert() {
-    setShowMsg(true);
+    setShowAlertPopup(true);
     setTimeout(() => {
-      setShowMsg(false);
+      setShowAlertPopup(false);
     }, 10000);
   }
 
@@ -92,12 +93,6 @@ const ContactUs = () => {
 
           {/* Right Side Section (Form Section) */}
           <div className="bg-white rounded-lg  py-8">
-          {/* <div className="bg-white dark:bg-gray-800   rounded-lg  py-8"> */}
-            {showMsg && (
-              <div className="animate-fadeIn shadow-xl border rounded-full mb-5">
-                <SubmissionAlert type='success' message="Thank you for submitting your form. We will get back to you shortly." />
-              </div>
-            )}
             <form noValidate method="POST" onSubmit={handleSubmit(onSubmit)}>
               <div className="space-y-6  ">
                 <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">

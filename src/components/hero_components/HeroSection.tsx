@@ -46,7 +46,6 @@ const HeroSection: React.FC = () => {
   };
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    console.log("Email submitted:", data.email);
     await addUserData(data);
   };
 
@@ -97,7 +96,7 @@ const HeroSection: React.FC = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="bg-Neptune-50 h-[56px] lg:w-[179px] w-full text-white px-6 py-2  lg:rounded-r-lg hover:bg-Earth-50"
+              className={`${isSubscribed ? "bg-green-50" : "bg-Neptune-50"} h-[56px] lg:w-[179px] w-full text-white px-6 py-2  lg:rounded-r-lg hover:${isSubscribed ? "" : "bg-Earth-50"}`}
               disabled={loading || isSubscribed}
             >
               {loading ? (

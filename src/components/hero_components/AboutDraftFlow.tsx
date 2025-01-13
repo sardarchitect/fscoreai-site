@@ -8,7 +8,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 
 
-const ProductReport = () => {
+const AboutDraftFlow = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -401,4 +401,4 @@ const ProductReport = () => {
   );
 };
 
-export default ProductReport;
+export default AboutDraftFlow;

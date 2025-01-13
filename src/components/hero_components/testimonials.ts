@@ -22,7 +22,7 @@ const testimonials = [
       testimonial:
        "The intuitive interface and robust features of Draftflow have improved our daily operations. We’re now delivering complex designs in record time, consistently exceeding client expectations.",
       image: "/home/comm.svg",
-    },
+    }
     
   ];
 

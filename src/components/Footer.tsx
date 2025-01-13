@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { FOOTER_LINKS } from "@/src/constants";
 import { usePathname } from "next/navigation";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 interface FormData {
   email: string;
@@ -16,31 +16,35 @@ const Footer = () => {
     return null; // Hide the Footer for these pages
   }
 
-  async function addUserData(data: FormData) {
-    try {
-      const response = await fetch('/api/email/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to add user data');
+  const addUserData = async (data: FormData) => {
+      try {
+        const response = await fetch("/api/email/subscribe", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+  
+        if (!response.ok) {
+          throw new Error("Failed to add user data");
+        }
+  
+        const responseData = await response.json();
+  
+        // setTimeout(() => {
+        // }, 2000)
+        reset();
+      } catch (error) {
+        console.error("Error adding user data:", error);
       }
-      const responseData = await response.json();
-      reset();
-      console.log('User data added successfully:', responseData);
-    } catch (error) {
-      console.error('Error adding user data:', error);
-    }
-  }
-
-  const onSubmit = async (data: FormData) => {
-    console.log('Email:', data.email);
-    await addUserData(data);
-  };
+    };
+  
+    const onSubmit: SubmitHandler<FormData> = async (data) => {
+      console.log("Email submitted:", data.email);
+      await addUserData(data);
+    };
+  
 
   return (
     <main>
@@ -50,6 +54,7 @@ const Footer = () => {
           <div className="flex flex-col items-center lg:items-start text-center w-[374px] lg:text-left mb-8 lg:mb-0">
             <div className="text-white w-[362px] h3 mb-4">
               <span className="text-Charcoal-40">Subscribe to Stay Updated with</span> Draftflow
+            {/* <p className="mt-5">Subscribe Now</p> */}
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className=" w-auto  sm:gap-0 gap-2 border-b sm:border-none border-gray-30 flex flex-col sm:flex-row items-center">
               <input
@@ -61,13 +66,17 @@ const Footer = () => {
              
 
               {/* Mobile View: Subscribe Button */}
-              <button type="submit" className="bg-blue-500 c1 w-full sm:hidden justify-center  text-center items-center p-5 h-14 rounded text-white">
+              <button type="submit" 
+                onSubmit={handleSubmit(onSubmit)}
+                className="bg-blue-500 c1 w-full sm:hidden justify-center  text-center items-center p-5 h-14 rounded text-white">
                 Subscribe
               </button>
               
 
               {/* Desktop View: Arrow Icon */}
-              <button type="submit" className="hidden sm:block bg-[#444444] border-l border-gray-600 p-5 h-14  rounded-r-sm text-black">
+              <button type="submit" 
+                onSubmit={handleSubmit(onSubmit)}
+                className="hidden sm:block bg-[#444444] border-l border-gray-600 p-5 h-14  rounded-r-sm text-black">
                 <img src="/home/arrow.svg" alt="arrow icon" />
               </button>
               

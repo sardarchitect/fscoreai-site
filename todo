@@ -1,40 +1,28 @@
 #  Fscore.ai website review 01/05/2025:
 # depends on Arvinder sir
-    2. [xx] Some text editing needs to be done by me.
-    5. [ ] Text on animations needs to be reviewed by me. Starting 01/13
-    11. [ ] Start project with draftflow form at footer, convert this to a subscribe form with subscribe alert message.
-    16. [ ] Instagram link does not work right now.
-    17. [ ] Facebook link also does not work.
-    19. [ ] Remove cookies dialog box for now.
-    22. [xx] "Learn More" button on stacked card section does not go anywhere. Arvinder to discuss with UI/UX.
+[ ] Text on animations needs to be reviewed by me. Starting 01/13
+[ ] Instagram & Facebook link does not work right now.
     
-# ignore
-    8. [xx] About section images need to be replaced.
-
 # confirm after review
-    6. [xx] FAQ section "expand/collapse" icons look too big. Make them smaller.
-    9. [xx] Standardize all UI elements. For example: FAQ section and Job Openings section should look similar.
-    10. [] Turn subscribe button background to green after subscribe animation.
-    12. [xx] Book a demo form should fit in single page without scrolling on laptop. It is ok to scroll on phone.
-        -> To make this competible for all size of screens, its time consuming
-        -> for now i resize the demo form for laptop size screens: that fullfill this condition
-    23. [xx] Stacked card animation does not work for mobile. Please make it work similarly.
-        -> not add animaion on mobile but make it responsive for all devices (tabs, pc, mobile)
-    24. [ ] Remove "Learn More" button below stacked cards in all devices.
-    25. [ ] Testimonials - make cards centered on all screens.
-    26. [ ] Standardize alert message for all form submissions. Including placement on screen.
-    27. [ ] Add TOC of Cookies as sent before.
 
-1. [ ] At startup, latency issues that cause text to appear default font, and time for all the GIFs/videos to appear. Make default text "Sans Serif" instead of "Serif".
-3. [xx] Homepage Section 2 animation is still missing. Please add.
-4. [xx] Homepage "From Our Community" Section, I want to see 3rd card in the background. Currently it just appears suddenly when you press the button on the right.
-14. [xx] Contact us form currently lets you submit without checking the "I agree..." checkbox. Make the checkbox mandatory.
-13. [xx] Submitting book a demo form should collapse the form and only show "thank you for submitting, we will get back to you shortly" message.
-15. [xx] On footer, remove "Community" link. We do not have that working right now.
-18. [xx] Arvinder to work on Terms of Use and Privacy Policy page.
-21. [xx] Stacked card animation: Cards that are already placed on screen should not be rotating. Please keep them static.
-20. [ ] Lots of improvement can be made on the code. Please standardize file naming system, folder structures, variable names, function names, commenting, linting.
+# task
+[ ] Testimonials - make cards centered on all screens.
+    -> when the cards w/h increase or decrease the cenater position value of a card will not change beacause the 
+    total card width is hard coded but it varies on different screens
+    chack that my thury is correct or not 
+[x] Start project with draftflow form at footer, convert this to a subscribe form with subscribe alert message.
+[x] Turn subscribe button background to green after subscribe animation.
+[x] Standardize alert message for all form submissions. Including placement on screen.
+[x] Add TOC of Cookies as sent before.
 
+# Enhancement Tasks
+[ ] Homepage Section 2 animation need to be improved.
+[ ] At startup, latency issues that cause text to appear default font, and time for all the GIFs/videos to appear. Make default text "Sans Serif" instead of "Serif".
+[ ] Lots of improvement can be made on the code. Please standardize file naming system, folder structures, variable names, function names, commenting, linting.
+
+# temporary solution
+[x] Remove cookies dialog box for now.
+[x] About section images need to be replaced.
 
 
 
