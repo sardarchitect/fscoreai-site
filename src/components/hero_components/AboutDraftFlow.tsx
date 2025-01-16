@@ -79,7 +79,7 @@ const AboutDraftFlow = () => {
         transition={{ duration: 0.5, ease: "easeOut" }}
       />
 
-      {/* Static Background Image */}
+       {/* Static Background Image */}
       {/* <div
         className="absolute inset-0 opacity-10 z-0"
         style={{
@@ -113,82 +113,9 @@ const AboutDraftFlow = () => {
         </div>
 
         {/* Image Section */}
-        {/* <div className="col-span-12 flex justify-center relative ">
-          <motion.div
-            className="bg-[url(/home/image.png)] bg-center bg-no-repeat bg-contain w-[80%] h-[50%]"
-            initial={{ scale: 0.6 }}
-            whileInView={{ scale: 1.2 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="relative h-1/2 flex items-center justify-center">
-              <motion.div className="w-full" style={{}}>
-                <motion.div
-                  className=""
-                  style={{}}
-                  initial={{ opacity: 0, transform: `translate(85%, 69%)` }}
-                  whileInView={{
-                    opacity: 1,
-                    transform: `translate(28%, -30%)`,
-                  }}
-                  transition={{ duration: 1.2 }}
-                >
-                  <motion.div className="bg-[url(/home/1.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"></motion.div>
-                </motion.div>
-              </motion.div>
-
-              <motion.div className="w-full " style={{}}>
-                <motion.div
-                  className="w-full "
-                  style={{}}
-                  initial={{ opacity: 0, transform: `translate(-53%, 79%)` }}
-                  whileInView={{
-                    opacity: 1,
-                    transform: `translate(30%, -30%)`,
-                  }}
-                  transition={{ duration: 1.2 }}
-                >
-                  <motion.div className="bg-[url(/home/2.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"></motion.div>
-                </motion.div>
-              </motion.div>
-            </div>
-
-            <div className="relative h-1/2 flex items-center justify-center">
-              <motion.div className="w-full">
-                <motion.div
-                  className="w-full "
-                  style={{}}
-                  initial={{ opacity: 0, transform: `translate(85%, -60%)` }}
-                  whileInView={{
-                    opacity: 1,
-                    transform: `translate(15%, -30%)`,
-                  }}
-                  transition={{ duration: 1.2 }}
-                >
-                  <motion.div className="bg-[url(/home/3.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"></motion.div>
-                </motion.div>
-              </motion.div>
-
-              <motion.div className="w-full">
-                <motion.div
-                  className="w-full "
-                  style={{}}
-                  initial={{ opacity: 0, transform: `translate(-15%, -60%)` }}
-                  whileInView={{
-                    opacity: 1,
-                    transform: `translate(50%, -30%)`,
-                  }}
-                  transition={{ duration: 1.2 }}
-                >
-                  <motion.div className="bg-[url(/home/4.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"></motion.div>
-                </motion.div>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div> */}
-
         <div className="col-span-12 flex justify-center relative ">
+          
           {/* Main Image with Zoom-In Animation */}
-
           <motion.div
             className="bg-[url(/home/image.png)] bg-center bg-no-repeat bg-contain w-[80%] h-[50%]"
             initial={{ scale: 0.6 }}
@@ -212,25 +139,6 @@ const AboutDraftFlow = () => {
                 >
                   <motion.div
                     className="bg-[url(/home/1.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                    animate={
-                      windowSize.width && windowSize.height // Ensure we have dimensions
-                      ? {
-                          x: calculateMovement(mousePosition.x, windowSize.width / 2),
-                          y: calculateMovement(mousePosition.y, windowSize.height / 2),
-                        }
-                      : { x: 0, y: 0 }}
-                    // animate={{
-                    //   x: calculateMovement(
-                    //     mousePosition.x,
-                    //     window.innerWidth / 2
-                    //   ),
-                    //   y: calculateMovement(
-                    //     mousePosition.y,
-                    //     window.innerHeight / 2
-                    //   ),
-                    // }}
-
-                    // transition={{ type: "spring", stiffness: 150, damping: 20 }}
                     transition={{ type: "tween", duration: 0.1 }}
                   />
                 </motion.div>
@@ -252,14 +160,6 @@ const AboutDraftFlow = () => {
                 >
                   <motion.div
                     className="bg-[url(/home/2.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                    animate={
-                      windowSize.width && windowSize.height // Ensure we have dimensions
-                      ? {
-                          x: calculateMovement(mousePosition.x, windowSize.width / 2),
-                          y: calculateMovement(mousePosition.y, windowSize.height / 2),
-                        }
-                      : { x: 0, y: 0 }}
-                    // transition={{ type: "spring", stiffness: 150, damping: 20 }}
                     transition={{ type: "tween", duration: 0.1 }}
                   />
                 </motion.div>
@@ -280,18 +180,10 @@ const AboutDraftFlow = () => {
                     opacity: 1,
                     transform: `translate(15%, -30%)`,
                   }}
-                  transition={{ duration: 1.2 }}
+                  transition={{ duration: 1.2 }}   
                 >
                   <motion.div
                     className="bg-[url(/home/3.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                    animate={
-                      windowSize.width && windowSize.height // Ensure we have dimensions
-                      ? {
-                          x: calculateMovement(mousePosition.x, windowSize.width / 2),
-                          y: calculateMovement(mousePosition.y, windowSize.height / 2),
-                        }
-                      : { x: 0, y: 0 }}
-                    // transition={{ type: "spring", stiffness: 150, damping: 20 }}
                     transition={{ type: "tween", duration: 0.1 }}
                   />
                 </motion.div>
@@ -313,14 +205,6 @@ const AboutDraftFlow = () => {
                 >
                   <motion.div
                     className="bg-[url(/home/4.png)] bg-center bg-no-repeat bg-contain lg:w-[200px] lg:h-[200px] md:w-[160px] md:h-[160px] w-[80px] h-[80px]"
-                    animate={
-                      windowSize.width && windowSize.height // Ensure we have dimensions
-                      ? {
-                          x: calculateMovement(mousePosition.x, windowSize.width / 2),
-                          y: calculateMovement(mousePosition.y, windowSize.height / 2),
-                        }
-                      : { x: 0, y: 0 }}
-                    //  transition={{ type: "spring", stiffness: 150, damping: 20 }}
                     transition={{ type: "tween", duration: 0.1 }}
                   />
                 </motion.div>

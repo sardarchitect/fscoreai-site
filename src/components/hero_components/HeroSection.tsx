@@ -2,6 +2,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { Suspense, useState } from "react";
 import { HeroVideo } from "./Videos";
 import { motion } from "framer-motion";
+import { useAlertPopUpContext } from "@/src/context/alertPopup";
+import { ALERT_MESSAGES } from "@/src/constants/alertMessages";
 
 type FormValues = {
   email: string;
@@ -17,6 +19,7 @@ const HeroSection: React.FC = () => {
 
   const [loading, setLoading] = useState<boolean>(false);
   const [isSubscribed, setSubscribe] = useState<boolean>(false);
+  const { showAlert } = useAlertPopUpContext();
 
   const addUserData = async (data: FormValues) => {
     try {
@@ -34,12 +37,10 @@ const HeroSection: React.FC = () => {
       }
 
       const responseData = await response.json();
-
-      // setTimeout(() => {
-      // }, 2000)
       reset();
       setSubscribe(true);
       setLoading(false);
+      showAlert(ALERT_MESSAGES.SUBSCRIPTION_SUCCESS);
     } catch (error) {
       console.error("Error adding user data:", error);
     }
@@ -79,7 +80,7 @@ const HeroSection: React.FC = () => {
               <input
                 type="email"
                 disabled={loading || isSubscribed}
-                placeholder={isSubscribed ? "Thanks for Subscribing" : "Enter Your Email"}
+                placeholder={"Enter Your Email"}
                 {...register("email", {
                   required: "Please provide your email address.",
                   pattern: {
@@ -107,21 +108,6 @@ const HeroSection: React.FC = () => {
                   animate={{ scale: 1 }}
                   className="flex items-center justify-center space-x-2"
                 >
-                  {/* <motion.svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    className="w-5 h-5 text-green-400"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M9 12.293l3.146-3.146a1 1 0 011.415 1.415l-4 4a1 1 0 01-1.415 0l-2-2a1 1 0 111.415-1.415L9 12.293z"
-                      clipRule="evenodd"
-                    />
-                  </motion.svg> */}
                   <span>Subscribed</span>
                 </motion.div>
               ) : (

@@ -1,19 +1,14 @@
 "use client"
-import { useThemeContext } from "@/src/context/theme";
-import DescriptionFour from "@/src/components/hero_components/DescriptionFour";
+import DrawingReviews from "@/src/components/hero_components/DrawingReviews";
 import DraftDemo from "@/src/components/hero_components/DraftDemo";
 import CommunitySection from "@/src/components/hero_components/CommunitySection";
 import Hero_one from "@/src/components/hero_components/HeroSection";
 import AboutDraftFlow from "@/src/components/hero_components/AboutDraftFlow";
 import FAQSection  from "@/src/components/hero_components/FAQSection";
-import { useSession } from "next-auth/react";
 import StackedCards from "../components/hero_components/StackedCards";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 
 export default function Home() {
-
-  const [theme] = useThemeContext();
-  const { data: session, status, update } = useSession()
   
   useEffect(() => {
     // Scroll to top
@@ -26,14 +21,12 @@ return (
 
     
 <div className="">
-{/* <div className="text-white flex flex-col items-center w-full justify-center m-auto "> */}
-
   <Hero_one />
   <AboutDraftFlow />
   <DraftDemo />
   <StackedCards />
   <CommunitySection />
-  <DescriptionFour />
+  <DrawingReviews/>
   <FAQSection />
 
 </div>

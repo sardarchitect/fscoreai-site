@@ -2,6 +2,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Playfair_Display, Merriweather } from "next/font/google";
+// import { Playfair_Display, Merriweather } from "next/font/google";
+import { Inter } from "next/font/google";
+
 import Navbar from "@/src/components/Navbar";
 import Footer from "@/src/components/Footer";
 import { ThemeProvider } from "../context/theme";
@@ -11,25 +14,31 @@ import { MobileMenuProvider } from "../context/mobileMenu";
 import { PageUpdateProvider } from "../context/pageUpdate";
 // import { CookieConsent } from "@/src/components/utilsComponents/CookieConsent";
 import AuthProviders from "../providers/authProvider";
-import { ReactLenis, useLenis } from 'lenis/react'
 import DemoForm from "../components/utilsComponents/DemoForm";
-import ThanksMsgAlert from "../components/utilsComponents/ThanksMsgAlert";
+import Alert from "../components/utilsComponents/Alert";
 
 export const metadata: Metadata = {
   title: "fscore.ai",
   // description: "This is the demo desctiption",
 };
 
-const playfair_display_init = Playfair_Display({
+// Initialize the Inter font
+const inter = Inter({
   subsets: ["latin"],
-  weight: "700",
-  variable: "--font-playfair_display",
+  weight: ["300", "400", "500", "600", "700"], // Choose the weights you need
+  display: "swap", // Ensures faster rendering
 });
-const Merriweather_init = Merriweather({
-  subsets: ["latin"],
-  weight: ["300", "400", "700"],
-  variable: "--font-Merriweather",
-});
+
+// const playfair_display_init = Playfair_Display({
+//   subsets: ["latin"],
+//   weight: "700",
+//   variable: "--font-playfair_display",
+// });
+// const Merriweather_init = Merriweather({
+//   subsets: ["latin"],
+//   weight: ["300", "400", "700"],
+//   variable: "--font-Merriweather",
+// });
 
 export default function RootLayout({
   children,
@@ -40,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-white dark:bg-theme-color ${playfair_display_init}, ${Merriweather_init}`}
+        className={`bg-white ${inter.className}`}
       >
         <AuthProviders>
           <ThemeProvider>
@@ -50,7 +59,7 @@ export default function RootLayout({
                   <PageUpdateProvider>
                     <Navbar />
                     <DemoForm />
-                    <ThanksMsgAlert/>
+                    <Alert/>
                     {/* <ReactLenis root> */}
                     {/* <Header/> */}
                     <main className="">{children}</main>

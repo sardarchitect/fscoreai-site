@@ -201,10 +201,10 @@ module.exports = {
       borderRadius: {
         '5xl': '40px',
       },
-      fontFamily: {
-        Merriweather : ['Merriweather'],
-        playfair_display : ['var(--font-playfair_display)'],
-      },
+      // fontFamily: {
+      //   Merriweather : ['Merriweather'],
+      //   playfair_display : ['var(--font-playfair_display)'],
+      // },
     },
   },
 };

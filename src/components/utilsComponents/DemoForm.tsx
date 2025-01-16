@@ -1,11 +1,11 @@
 "use client";
 import { useFormPopUpContext } from "@/src/context/formPopup";
 import { useThemeContext } from "@/src/context/theme";
-import SubmissionAlert from "@/src/components/utilsComponents/SubmissionAlert";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMobileMenuContext } from "@/src/context/mobileMenu";
 import { useAlertPopUpContext } from "@/src/context/alertPopup";
+import { ALERT_MESSAGES } from "@/src/constants/alertMessages";
 
 interface RequestBody {
   name: string;
@@ -27,8 +27,7 @@ const DemoForm = ({ open }: any) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useMobileMenuContext()
   const [showPopup, setShowPopup] = useFormPopUpContext()
   const [theme, setTheme] = useThemeContext();
-  const [showAlertPopup, setShowAlertPopup] = useAlertPopUpContext();
-  const [showMsg, setShowMsg] = useState(false);
+  const { showAlert } = useAlertPopUpContext();
 
   const onSubmit = async (data: any) => {
     await addUserData(data);
@@ -37,19 +36,10 @@ const DemoForm = ({ open }: any) => {
       targetSection.scrollIntoView({ behavior: 'smooth' });
     }
     reset();
-    ShowAlert()
-  };
-
-  function ShowAlert() {
-    // setShowMsg(true);
-    setShowAlertPopup(true)
     setShowPopup(false)
-    setTimeout(() => {
-      // setShowMsg(false);
-    setShowAlertPopup(false)
-      setMobileMenuOpen(false)
-    }, 10000);
-  }
+    showAlert(ALERT_MESSAGES.FORM_SUBMITTED);
+  };
+  
   useEffect(() => {
     if (showPopup) {
       document.body.classList.add('overflow-hidden');
@@ -104,11 +94,6 @@ const DemoForm = ({ open }: any) => {
 
               <h2 className="text-4xl font-bold mb-1 pr-10">Let's Chat</h2>
               <p className="text-sm tracking-wide mb-4" id='contact-submission-alert'>Book a 1:1 meeting with us to get started.</p>
-              {/* {showMsg === true &&
-                <div className="animate-fadeIn dark:border-2 shadow-xl border rounded-full sm:mt-auto mt-5">
-                  <SubmissionAlert type='success' message="Thank you for submitting your form. We will get back to you shortly." />
-                </div>} */}
-
               <form noValidate method="POST" onSubmit={handleSubmit(onSubmit)}>
                 <div className="pb-6 mt-4">
                   <div className="mt-5">

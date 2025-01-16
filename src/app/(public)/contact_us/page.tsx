@@ -1,7 +1,6 @@
 "use client";
-import SubmissionAlert from "@/src/components/utilsComponents/SubmissionAlert";
+import { ALERT_MESSAGES } from "@/src/constants/alertMessages";
 import { useAlertPopUpContext } from "@/src/context/alertPopup";
-import { useThemeContext } from "@/src/context/theme";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -24,8 +23,8 @@ const ContactUs = () => {
     formState: { errors },
   } = useForm<RequestBody>();
 
-  const [showMsg, setShowMsg] = useState(false);
-  const [showAlertPopup, setShowAlertPopup] = useAlertPopUpContext();
+  const { showAlert } = useAlertPopUpContext();
+
 
   const onSubmit = async (data: RequestBody) => {
     await addUserData(data);
@@ -34,15 +33,9 @@ const ContactUs = () => {
       targetSection.scrollIntoView({ behavior: 'smooth' });
     }
     reset();
-    ShowAlert();
+    showAlert(ALERT_MESSAGES.FORM_SUBMITTED);
   };
 
-  function ShowAlert() {
-    setShowAlertPopup(true);
-    setTimeout(() => {
-      setShowAlertPopup(false);
-    }, 10000);
-  }
 
   async function addUserData(data: RequestBody) {
     try {

@@ -6,17 +6,14 @@
 # confirm after review
 
 # task
-[ ] Testimonials - make cards centered on all screens.
-    -> when the cards w/h increase or decrease the cenater position value of a card will not change beacause the 
-    total card width is hard coded but it varies on different screens
-    chack that my thury is correct or not 
+[x] Testimonials - make cards centered on all screens.
 [x] Start project with draftflow form at footer, convert this to a subscribe form with subscribe alert message.
 [x] Turn subscribe button background to green after subscribe animation.
 [x] Standardize alert message for all form submissions. Including placement on screen.
 [x] Add TOC of Cookies as sent before.
 
 # Enhancement Tasks
-[ ] Homepage Section 2 animation need to be improved.
+[x] Homepage Section 2 animation need to be improved.
 [ ] At startup, latency issues that cause text to appear default font, and time for all the GIFs/videos to appear. Make default text "Sans Serif" instead of "Serif".
 [ ] Lots of improvement can be made on the code. Please standardize file naming system, folder structures, variable names, function names, commenting, linting.
 
