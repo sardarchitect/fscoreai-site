@@ -2,19 +2,18 @@
 # depends on Arvinder sir
 [ ] Text on animations needs to be reviewed by me. Starting 01/13
 [ ] Instagram & Facebook link does not work right now.
-    
-# confirm after review
 
 # task
-[x] Testimonials - make cards centered on all screens.
-[x] Start project with draftflow form at footer, convert this to a subscribe form with subscribe alert message.
-[x] Turn subscribe button background to green after subscribe animation.
-[x] Standardize alert message for all form submissions. Including placement on screen.
-[x] Add TOC of Cookies as sent before.
+
+[x] Job Post Relative Time: Show time dynamically (e.g., "Posted 2 hours ago").
+[x] Fix Lag: Smooth job listing accordions.
+[x] subscribing bottom box
+[] Add LinkedIn: Link to job/company LinkedIn page.
+
+
 
 # Enhancement Tasks
 [x] Homepage Section 2 animation need to be improved.
-[ ] At startup, latency issues that cause text to appear default font, and time for all the GIFs/videos to appear. Make default text "Sans Serif" instead of "Serif".
 [ ] Lots of improvement can be made on the code. Please standardize file naming system, folder structures, variable names, function names, commenting, linting.
 
 # temporary solution

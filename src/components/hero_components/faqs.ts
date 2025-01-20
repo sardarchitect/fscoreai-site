@@ -1,5 +1,3 @@
-
-
 const faqs = [
     {
       question: "How does Draftflow work? ",

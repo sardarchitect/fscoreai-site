@@ -1,26 +1,13 @@
-"use client";
-
+import BookDemoPopUp from "@/src/components/about_us/BookDemoPopup";
 import JobListing from "@/src/components/about_us/JobListing";
 import openJobsData from "@/src/components/about_us/openJobsData";
 import Image from "next/image";
-import React, { useEffect } from "react";
-import AnimatedCounter from "@/src/components/about_us/AnimatedCounter";
-import Link from "next/link";
-import DemoForm from "@/src/components/utilsComponents/DemoForm";
-import { useFormPopUpContext } from "@/src/context/formPopup";
+import React from "react";
+
+
 
 const AboutUs = () => {
-  const [showPopup, setShowPopup] = useFormPopUpContext();
-
-  useEffect(() => {
-    getOpenJobsData();
-  }, []);
-
-  const getOpenJobsData = () => {
-    fetch("./src/componenets/about_us/openJobsData").then(function (res) {
-      return res.json();
-    });
-  };
+  
   return (
     <main className=" w-full items-center  justify-center">
       {/* Header Section */}
@@ -58,7 +45,7 @@ const AboutUs = () => {
               transcend traditional boundaries through the use of cutting-edge
               automation and innovation. The company believes that to deal with
               upcoming future challenges, the architectural industry will
-              need the assistance of intelligent systems that can handle 
+              need the assistance of intelligent systems that can handle
               increasing demands in our built environment.
             </p>
 
@@ -104,7 +91,7 @@ const AboutUs = () => {
               As an architect myself, I’ve been in the trenches — managing tight
               deadlines, navigating complex design requirements, and dealing
               with the inevitable headaches that come from catching errors late
-              in the process. I wish I had the tools we are developing today during my 
+              in the process. I wish I had the tools we are developing today during my
               time as an Revit drafter.
             </p>
 
@@ -193,14 +180,14 @@ const AboutUs = () => {
             <span className="text-Charcoal-60"> of our </span> Team
           </div>
           <p className="te3 sm:te1 lg:w-[798px] mx-auto text-center text-gray-600 mb-10">
-          At Fscore AI, we’re building more than just innovative solutions – we’re fostering a culture of collaboration, 
-          growth, and respect. Here, your ideas matter, your growth is supported, 
-          and your work makes a real impact.
+            At Fscore AI, we’re building more than just innovative solutions – we’re fostering a culture of collaboration,
+            growth, and respect. Here, your ideas matter, your growth is supported,
+            and your work makes a real impact.
           </p>
 
           {/* Job Listings */}
           <div className="max-w-7xl text-left">
-          {/* <div className="space-y-4 max-w-7xl text-left"> */}
+            {/* <div className="space-y-4 max-w-7xl text-left"> */}
             {openJobsData.map((data, idx) => {
               return (
                 <JobListing
@@ -246,13 +233,7 @@ const AboutUs = () => {
 
               {/* Call-to-Action Button with Link */}
               <div className="mt-8 flex justify-center">
-                <div
-                  onClick={() => setShowPopup(!showPopup)}
-                  className="bg-Neptune-50  text-white flex justify-center px-6 py-5 w-52 rounded-l-lg rounded-r-lg c1 hover:bg-Earth-50 cursor-pointer"
-                >
-                  Book a Demo
-                  <DemoForm />
-                </div>
+                <BookDemoPopUp/>
               </div>
             </div>
           </div>
@@ -263,61 +244,3 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
-
-{
-  /* Journey Section */
-}
-// <section className="relative py-10 md:py-20  text-white">
-//   <div className="absolute bg-ab-bg inset-0 ">
-//     {/* <Image
-//       src="/about_us/bg-charcoal.svg" // Your SVG path
-//       alt="Background SVG"
-//       // layout=""
-//       objectFit="cover"
-//       quality={100}
-//       width={600}
-//       height={600}
-//     /> */}
-//   </div>
-
-//   <div className=" max-w-7xl mx-auto text-center pt-0 mb-10 py-0 relative z-10">
-//     <div className="flex flex-col md:flex-row justify-between text-center md:text-left pt-0  mt-0 items-center gap-6  px-5 sm:px-0">
-//       <div className="w-full sm:w-[33%] h2 sm:he2 mb-0 sm:mb-5 text-center md:text-left lg:text-right ">Journey</div>
-//       <div className="w-full sm:w-[33%] t1 text-[#ADADAD] sm:mt-0 md:mt-0 lg:mt-[60px]">we are passionate about enhancing the way architects and drafters work. Our mission is to streamline the architectural drawing process.</div>
-//       <div className="w-full sm:w-[33%] h2 sm:he2 sm:mt-0 md:mt-0 lg:mt-[100px]">Since 2022</div>
-//     </div>
-//     <div className="grid grid-cols-1 sm:pl-5 sm:pr-5 pl-5 pr-5 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12">
-//       {/* 4,500 Hours Saved */}
-//       <div className="bg-gray-800 bg-opacity-70 p-6 text-center sm:text-start md:p-10 rounded-lg shadow-lg">
-//         <p className="h3 md:he3 lg:he2">
-//           <AnimatedCounter target={4500} />
-//         </p>
-//         <p className="mt-4 text-lg text-gray-400">Hours Saved</p>
-//       </div>
-
-//       {/* $1.8M Cost Saved */}
-//       <div className="bg-gray-800 bg-opacity-70 p-6 text-center sm:text-start md:p-10 rounded-lg shadow-lg">
-//         <p className="h3 md:he3 lg:he2">
-//           <AnimatedCounter target={1.8} />M
-//         </p>
-//         <p className="mt-4 text-lg text-gray-400">Cost Saved</p>
-//       </div>
-
-//       {/* 20+ Trusted Enterprises */}
-//       <div className="bg-gray-800 bg-opacity-70 text-center sm:text-start p-6 md:p-10 rounded-lg shadow-lg">
-//         <p className="h3 md:he3 lg:he2 ">
-//           <AnimatedCounter target={20} />+
-//         </p>
-//         <p className="mt-4 text-lg text-gray-400">Trusted Enterprises</p>
-//       </div>
-
-//       {/* 600+ Clients Served */}
-//       <div className="bg-gray-800 bg-opacity-70 p-6 text-center sm:text-start md:p-10 rounded-lg shadow-lg">
-//         <p className="h3 md:he3 lg:he2">
-//           <AnimatedCounter target={600} />+
-//         </p>
-//         <p className="mt-4 text-lg text-gray-400">Clients Served</p>
-//       </div>
-//     </div>
-//   </div>
-// </section>
