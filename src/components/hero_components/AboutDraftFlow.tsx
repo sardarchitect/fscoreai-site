@@ -18,7 +18,6 @@ const AboutDraftFlow = () => {
   // Control background animation only when in view
   const controls = useAnimation();
   const yPos = useTransform(scrollYProgress, [0, 1], ["100%", "-100%"]);
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const [isLargeScreen, setIsLargeScreen] = useState(true);
 
   useEffect(() => {
@@ -52,19 +51,19 @@ const AboutDraftFlow = () => {
     >
       {/* Moving Background Image controlled by scroll */}
       <motion.div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `url(/home/graph-up.png)`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          opacity: 0.5,
-          zIndex: 0,
-        }}
+        className=" bg-[url(/home/wavy-graph-up.png)] bg-center bg-no-repeat bg-cover w-full h-screen opacity-100 z-0 absolute inset-0"
         animate={controls}
         initial={{ y: "100%" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       />
+
+
+      {/* <motion.div
+        className="lg:block hidden " // Set width/height for the container
+      >
+        <Image src="/home/new-graph-up.png" alt="graph" fill />
+      </motion.div> */}
+
 
       {/* Content Section */}
       <div className="relative  z-10 max-w-7xl mb-20 mx-auto px-4 lg:px-8 grid grid-cols-12 w-full h-full items-center">
@@ -89,16 +88,14 @@ const AboutDraftFlow = () => {
             review process.
           </p>
         </div>
-        
+
 
         {/* Image Section */}
         <div className="col-span-12 flex justify-center lg:pb-0 pb-6 pt-8 lg:pt-16 relative order-1 lg:order-2">
 
           {/* Main Image with Zoom-In Animation */}
           <motion.div
-            className={`${isLargeScreen ? "bg-[url(/home/image.png)]" : "bg-[url(/home/main/new-image.png)] shadow-[10px_10px_15px_rgba(0,0,0,0.15)]"} bg-center bg-no-repeat lg:bg-contain bg-[length:100%_90%] lg:w-[80%] lg:h-[50%] h-fit w-fit`}
-            // className={`${isLargeScreen ? "bg-[url(/home/image.png)]" : "bg-[url(/home/main/new-image.png)] shadow-black drop-shadow-xl "} bg-center bg-no-repeat lg:bg-contain bg-[length:100%_90%] lg:w-[80%] lg:h-[50%] h-fit w-fit`}
-            // className="bg-[url(/home/image.png)] bg-center bg-no-repeat lg:bg-contain md:bg-contain bg-cover lg:w-[80%] lg:h-[50%] h-fit w-fit "
+            className={`${isLargeScreen ? "bg-[url(/home/image.png)]" : "bg-[url(/home/main/new-image.png)]  shadow-[10px_10px_15px_rgba(0,0,0,0.15)]"} bg-center bg-no-repeat lg:bg-contain bg-[length:100%_90%] lg:w-[80%] lg:h-[50%] h-fit w-fit`}
             initial={{ scale: 0.6 }}
             whileInView={{ scale: 1.2 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -108,8 +105,8 @@ const AboutDraftFlow = () => {
             <div className="relative h-1/2 flex items-center justify-center">
               <motion.div className="w-full">
                 <motion.div
-                  initial={isLargeScreen 
-                    ? { opacity: 0, transform: `translate(85%, 69%)` } 
+                  initial={isLargeScreen
+                    ? { opacity: 0, transform: `translate(85%, 69%)` }
                     : { opacity: 1, transform: `translate(-20%, -20%)` }}
                   whileInView={
                     isLargeScreen
@@ -122,8 +119,52 @@ const AboutDraftFlow = () => {
                     className={`${isLargeScreen ? "bg-[url(/home/about-draft-flow/run-checklist.png)]" : "bg-[url(/home/1.png)]"} bg-center bg-no-repeat bg-contain lg:w-[250px] lg:h-[200px] md:w-[200px] md:h-[160px] w-[100px] h-[80px]`}
                     transition={{ type: "tween", duration: 0.1 }}
                   />
+                  {/* bg-icons animation */}
+                  <motion.div
+                    className="absolute"
+                    initial={isLargeScreen
+                      ? { opacity: 0, transform: `translate(50%, 50%)` }
+                      : { opacity: 1, transform: `translate(-2rem, -3.5rem)` }}
+                    whileInView={isLargeScreen
+                      ? { opacity: 1, transform: `translate(-7rem, -9rem)` }
+                      : { opacity: 1, transform: `translate(-2rem, -3.5rem)` }}
+                    transition={{ duration: 1.2 }}
+                  >
+                    <Image src="/home/1.1.png" alt="Icon 4"
+                      width={isLargeScreen ? 130 : 90}
+                      height={70} />
+                  </motion.div>
+
+
+                  <motion.div
+                    className="absolute hidden  lg:block "
+                    initial={{ opacity: 0, transform: `translate(50%, 50%)` }}
+                    whileInView={{ opacity: 1, transform: `translate(-13rem, -20%)` }}
+                    transition={{ duration: 1.2 }}
+                  >
+                    <Image src="/home/2.2.png" alt="Icon 4"
+                      width={80}
+                      height={50} />
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute"
+                    initial={isLargeScreen
+                      ? { opacity: 0, transform: `translate(50%, 50%)` }
+                      : { opacity: 1, transform: `translate(-1rem, 2rem)` }}
+                    whileInView={isLargeScreen
+                      ? { opacity: 1, transform: `translate(-5rem, 8rem)` }
+                      : { opacity: 1, transform: `translate(-1rem, 2rem)` }}
+                    transition={{ duration: 1.2 }}
+                  >
+                    <Image src="/home/3.3.png" alt="Icon 4"
+                      width={isLargeScreen ? 100 : 70}
+                      height={40} />
+                  </motion.div>
+
                 </motion.div>
               </motion.div>
+
 
               <motion.div className="w-full">
                 <motion.div
@@ -140,9 +181,50 @@ const AboutDraftFlow = () => {
                   transition={isLargeScreen ? { duration: 1.2 } : undefined}
                 >
                   <motion.div
-                    className={`${isLargeScreen ? "bg-[url(/home/about-draft-flow/auto-detection.png)]" : "bg-[url(/home/2.png)]"} bg-center bg-no-repeat bg-contain lg:w-[250px] lg:h-[200px] md:w-[200px] md:h-[160px] w-[100px] h-[80px]`}
+                    className={`${isLargeScreen ? "bg-[url(/home/about-draft-flow/auto-detection.png)]" : "bg-[url(/home/2.png)]"} z-10 relative bg-center bg-no-repeat bg-contain lg:w-[250px] lg:h-[200px] md:w-[200px] md:h-[160px] w-[100px] h-[80px]`}
                     transition={{ type: "tween", duration: 0.1 }}
                   />
+                  <motion.div
+                    className="absolute z-0 "
+                    initial={isLargeScreen
+                      ? { opacity: 0, transform: `translate(50%, 50%)` }
+                      : { opacity: 1, transform: `translate(2.5rem, -4rem)` }}
+                    whileInView={isLargeScreen
+                      ? { opacity: 1, transform: `translate(6.5rem, -10rem)` }
+                      : { opacity: 1, transform: `translate(2.5rem, -4rem)` }}
+                    transition={{ duration: 1.2 }}
+                  >
+                    <Image src="/home/4.4.png" alt="Icon 4"
+                      width={isLargeScreen ? 140 : 80}
+                      height={80} />
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute z-0 hidden  lg:block "
+                    initial={{ opacity: 0, transform: `translate(50%, 50%)` }}
+                    whileInView={{ opacity: 1, transform: `translate(17rem, -40%)` }}
+                    transition={{ duration: 1.2 }}
+                  >
+                    <Image src="/home/5.5.png" alt="Icon 4"
+                      width={isLargeScreen ? 80 : 50}
+                      height={40} />
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute z-0"
+                    initial={isLargeScreen
+                      ? { opacity: 0, transform: `translate(50%, 50%)` }
+                      : { opacity: 1, transform: `translate(2rem, 2rem)` }}
+                    whileInView={isLargeScreen
+                      ? { opacity: 1, transform: `translate(6.5rem, 7.5rem)` }
+                      : { opacity: 1, transform: `translate(2rem, 2rem)` }}
+                    transition={{ duration: 1.2 }}
+                  >
+                    <Image src="/home/6.6.png" alt="Icon 4"
+                      width={isLargeScreen ? 100 : 70}
+                      height={40} />
+                  </motion.div>
+
                 </motion.div>
               </motion.div>
             </div>
@@ -164,7 +246,7 @@ const AboutDraftFlow = () => {
                   transition={isLargeScreen ? { duration: 1.2 } : undefined}
                 >
                   <motion.div
-                    className={`${isLargeScreen ? "bg-[url(/home/about-draft-flow/issues-checklist.png)]" : "bg-[url(/home/3.png)]" } bg-center bg-no-repeat bg-contain lg:w-[250px] lg:h-[200px] md:w-[200px] md:h-[160px] w-[100px] h-[80px]`}
+                    className={`${isLargeScreen ? "bg-[url(/home/about-draft-flow/issues-checklist.png)]" : "bg-[url(/home/3.png)]"} bg-center bg-no-repeat bg-contain lg:w-[250px] lg:h-[200px] md:w-[200px] md:h-[160px] w-[100px] h-[80px]`}
                     transition={{ type: "tween", duration: 0.1 }}
                   />
                 </motion.div>
@@ -185,7 +267,7 @@ const AboutDraftFlow = () => {
                   transition={isLargeScreen ? { duration: 1.2 } : undefined}
                 >
                   <motion.div
-                    className={`${isLargeScreen ? "bg-[url(/home/about-draft-flow/auto-resolve.png)]" : "bg-[url(/home/4.png)]" } bg-center bg-no-repeat bg-contain lg:w-[300px] lg:h-[200px] md:w-[300px] md:h-[160px] w-[130px] h-[80px]`}
+                    className={`${isLargeScreen ? "bg-[url(/home/about-draft-flow/auto-resolve.png)]" : "bg-[url(/home/4.png)]"} bg-center bg-no-repeat bg-contain lg:w-[300px] lg:h-[200px] md:w-[300px] md:h-[160px] w-[130px] h-[80px]`}
                     transition={{ type: "tween", duration: 0.1 }}
                   />
                 </motion.div>
@@ -195,81 +277,12 @@ const AboutDraftFlow = () => {
           </motion.div>
 
 
-          <div>
-            <motion.div
-              className="absolute hidden lg:block top-10 left-32"
-              style={{}}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1.2 }}
-            >
-              <Image src="/home/1.1.png" alt="Icon 4"
-                width={100}
-                height={40} />
-            </motion.div>
 
-            <motion.div
-              className="absolute hidden lg:block top-40 left-10"
-              style={{}}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1.2 }}
-            >
-              <Image src="/home/2.2.png" alt="Icon 4"
-                width={70} height={40} />
-            </motion.div>
 
-            <motion.div
-              className="absolute hidden lg:block top-64 left-32"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1.2 }}
-            >
-              <Image src="/home/3.3.png"
-                alt="Icon 4" width={140} height={40} />
-            </motion.div>
-
-            <motion.div
-              className="absolute hidden lg:block top-10 right-40 transform -translate-y-7"
-              style={{}}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1.2 }}
-            >
-              <Image
-                src="/home/4.4.png"
-                alt="Icon 2"
-                width={120}
-                height={40}
-              />
-            </motion.div>
-
-            <motion.div
-              className="absolute hidden lg:block top-48 right-24 transform -translate-y-7"
-              style={{}}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1.2 }}
-            >
-              <Image src="/home/5.5.png"
-                alt="Icon 2" width={80} height={40} />
-            </motion.div>
-
-            <motion.div
-              className="absolute hidden lg:block top-80 right-40 transform -translate-y-7"
-              style={{}}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1.2 }}
-            >
-              <Image src="/home/6.6.png" alt="Icon 2"
-                width={150} height={40} />
-            </motion.div>
-          </div>
         </div>
-        
-        </div>
-    </section>
+
+      </div >
+    </section >
   );
 };
 

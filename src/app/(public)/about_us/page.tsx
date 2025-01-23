@@ -9,7 +9,7 @@ import React from "react";
 const AboutUs = () => {
   
   return (
-    <main className=" w-full items-center  justify-center">
+    <main className=" w-full items-center justify-center">
       {/* Header Section */}
       <header className="bg-ab-bg overflow-x-hidden sm:px-[16px] md:px-[32px] lg:px-[0px] w-full mt-[78px] sm:mt-10 mb-[66px] md:mt-20 gap-6 md:gap-36 pt-[66px] pb-[78px]  flex flex-col md:flex-row justify-center items-center text-center md:text-left">
         <div className="container-width flex flex-col md:flex-row gap-8 md:gap-24  ">
