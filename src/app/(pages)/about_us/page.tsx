@@ -9,9 +9,9 @@ import React from "react";
 const AboutUs = () => {
   
   return (
-    <main className=" w-full items-center justify-center">
+    <main className=" w-full">
       {/* Header Section */}
-      <header className="bg-ab-bg overflow-x-hidden sm:px-[16px] md:px-[32px] lg:px-[0px] w-full mt-[78px] sm:mt-10 mb-[66px] md:mt-20 gap-6 md:gap-36 pt-[66px] pb-[78px]  flex flex-col md:flex-row justify-center items-center text-center md:text-left">
+      <header className="bg-ab-bg overflow-x-hidden sm:px-[16px] md:px-[32px] lg:px-[0px] w-full mb-[66px] gap-6 md:gap-36 pt-[66px] pb-[78px]  flex flex-col md:flex-row justify-center items-center text-center md:text-left">
         <div className="container-width flex flex-col md:flex-row gap-8 md:gap-24  ">
           {/* Left side with the main heading */}
           <div className="md:w-1/2 flex justify-center md:justify-start">
@@ -36,7 +36,7 @@ const AboutUs = () => {
       {/* Mission Section */}
       <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px]">
         <div className="container-width lg:pb-[120px] mx-auto text-center">
-          <div className="w-full mx-auto mb-20 sm:w-[400px] md:w-[580px] lg:w-[830px] ">
+          <div className="w-full mx-auto lg:mb-0 md:mb-0 mb-20 sm:w-[400px] md:w-[580px] lg:w-[830px] ">
             <p className="h3 sm:he2 text-Mercury-50 mb-4">
               <span className="text-Charcoal-40">Our</span> Vision
             </p>

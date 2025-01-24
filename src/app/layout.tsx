@@ -13,7 +13,6 @@ import { AlertPopUpProvider } from "../context/alertPopup";
 import { MobileMenuProvider } from "../context/mobileMenu";
 import { PageUpdateProvider } from "../context/pageUpdate";
 // import { CookieConsent } from "@/src/components/utilsComponents/CookieConsent";
-import AuthProviders from "../providers/authProvider";
 import DemoForm from "../components/utilsComponents/DemoForm";
 import Alert from "../components/utilsComponents/Alert";
 
@@ -51,7 +50,6 @@ export default function RootLayout({
       <body
         className={`bg-white ${inter.className}`}
       >
-        <AuthProviders>
           <ThemeProvider>
             <MobileMenuProvider>
               <FormPopUpProvider>
@@ -71,7 +69,6 @@ export default function RootLayout({
               </FormPopUpProvider>
             </MobileMenuProvider>
           </ThemeProvider>
-        </AuthProviders>
 
       </body>
     </html>

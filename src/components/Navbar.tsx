@@ -6,18 +6,14 @@ import DemoForm from "./utilsComponents/DemoForm";
 import Image from "next/image";
 import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useThemeContext } from "@/src/context/theme";
 import { useFormPopUpContext } from "@/src/context/formPopup";
 import { usePathname } from "next/navigation";
-import { signOut, useSession } from "next-auth/react";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [filteredLinks, setFilteredLinks] = useState(NAV_LINKS.filter(link => link.key !== 'logout'));
-  const [theme, setTheme] = useThemeContext();
   const [showPopup, setShowPopup] = useFormPopUpContext();
   const currentPath = usePathname();
-  const { status } = useSession();
 
   useEffect(() => {
     const links = status === 'unauthenticated'
@@ -65,15 +61,9 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden items-center  lg:flex gap-4">
             {filteredLinks.map((link): any => (
-              link.key === 'logout' ? (
-                <button key={link.key} onClick={() => signOut()} className={getLinkClasses(link.href)}>
-                  {link.label}
-                </button>
-              ) : (
                 <Link href={link.href} key={link.key} className={getLinkClasses(link.href)}>
                   {link.label}
                 </Link>
-              )
             ))}
 
             {/* Book Demo Button */}
@@ -93,15 +83,6 @@ export default function Navbar() {
               {/* Centered Content Container */}
               <div className="flex flex-col justify-center items-center mt-4 space-y-6">
                 {filteredLinks.map(link => (
-                  link.key === 'logout' ? (
-                    <button
-                      key={link.key}
-                      onClick={() => { signOut(); setMobileMenuOpen(false); }}
-                      className={getLinkClasses(link.href)}
-                    >
-                      {link.label}
-                    </button>
-                  ) : (
                     <Link
                       href={link.href}
                       key={link.key}
@@ -110,7 +91,6 @@ export default function Navbar() {
                     >
                       {link.label}
                     </Link>
-                  )
                 ))}
 
                 {/* Book Demo Button */}
