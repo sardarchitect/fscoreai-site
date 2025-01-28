@@ -11,20 +11,10 @@ import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [filteredLinks, setFilteredLinks] = useState(NAV_LINKS.filter(link => link.key !== 'logout'));
   const [showPopup, setShowPopup] = useFormPopUpContext();
   const currentPath = usePathname();
 
-  useEffect(() => {
-    const links = status === 'unauthenticated'
-      ? NAV_LINKS.filter(link => link.key !== 'logout')
-      : NAV_LINKS.filter(link => link.key !== 'login');
-
-    setFilteredLinks(links);
-  }, [status]);
-
-  if (currentPath === "/login" || currentPath === "/signup") return null;
-
+ 
   const getLinkClasses = (linkPath: string) => {
     return currentPath === linkPath
       ? "font-bold py-2 px-3 space  text-Neptune-50" // Styles for active link
@@ -60,7 +50,7 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden items-center  lg:flex gap-4">
-            {filteredLinks.map((link): any => (
+            {NAV_LINKS.map((link): any => (
                 <Link href={link.href} key={link.key} className={getLinkClasses(link.href)}>
                   {link.label}
                 </Link>
@@ -82,7 +72,7 @@ export default function Navbar() {
             >
               {/* Centered Content Container */}
               <div className="flex flex-col justify-center items-center mt-4 space-y-6">
-                {filteredLinks.map(link => (
+                {NAV_LINKS.map(link => (
                     <Link
                       href={link.href}
                       key={link.key}
