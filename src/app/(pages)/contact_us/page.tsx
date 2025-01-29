@@ -99,7 +99,8 @@ const ContactUs = () => {
   return (
     <main className={``}>
        {/* Header Section */}
-       <header className="bg-ab-bg overflow-x-hidden sm:px-[16px] md:px-[32px] lg:px-[0px] w-full mb-[66px] gap-6 md:gap-36 pt-[66px] pb-[78px]  flex flex-col md:flex-row justify-center items-center text-center md:text-left">
+       <header className="bg-[#121724] overflow-x-hidden sm:px-[16px] md:px-[32px] lg:px-[0px] w-full mb-[66px] gap-6 md:gap-36 pt-[66px] pb-[78px]  flex flex-col md:flex-row justify-center items-center text-center md:text-left">
+       {/* <header className="bg-ab-bg overflow-x-hidden sm:px-[16px] md:px-[32px] lg:px-[0px] w-full mb-[66px] gap-6 md:gap-36 pt-[66px] pb-[78px]  flex flex-col md:flex-row justify-center items-center text-center md:text-left"> */}
         <div className="container-width lg:px-0 px-4 flex flex-col md:flex-row gap-8 md:gap-24  ">
           {/* Left side with the main heading */}
           <div className="md:w-1/2 flex justify-center md:justify-start">

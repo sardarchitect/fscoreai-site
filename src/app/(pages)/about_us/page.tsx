@@ -7,11 +7,12 @@ import React from "react";
 
 
 const AboutUs = () => {
-  
+
   return (
-    <main className=" w-full">
+    <main className="overflow-x-hidden w-full">
       {/* Header Section */}
-      <header className="bg-ab-bg overflow-x-hidden sm:px-[16px] md:px-[32px] lg:px-[0px] w-full mb-[66px] gap-6 md:gap-36 pt-[66px] pb-[78px]  flex flex-col md:flex-row justify-center items-center text-center md:text-left">
+      <header className="bg-[#121724] sm:px-[16px] md:px-[32px] lg:px-[0px] w-full mb-[66px] gap-6 md:gap-36 pt-[66px] pb-[78px]  flex flex-col md:flex-row justify-center items-center text-center md:text-left">
+      {/* <header className="bg-ab-bg sm:px-[16px] md:px-[32px] lg:px-[0px] w-full mb-[66px] gap-6 md:gap-36 pt-[66px] pb-[78px]  flex flex-col md:flex-row justify-center items-center text-center md:text-left"> */}
         <div className="container-width flex flex-col md:flex-row gap-8 md:gap-24  ">
           {/* Left side with the main heading */}
           <div className="md:w-1/2 flex justify-center md:justify-start">
@@ -108,69 +109,7 @@ const AboutUs = () => {
       </section>
 
       {/* Meet the Team Section */}
-      <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px] lg:mb-[184px] mb-10">
-        <div className="container-width mx-auto text-center justify-center  flex-col flex ">
-          <div className="flex text-center flex-col items-center">
-            <p className="h3 md:h2 text-Mercury-50  mb-6">
-              <span className="text-Charcoal-60"> Our </span> Experts
-              <span className="text-Charcoal-60"> are like </span> No Other
-            </p>
-            <p className="te1 text-gray-600 flex  sm:w-[400px] md:w-[500px] lg:w-[798px]  mb-10">
-              Our mission is to streamline the architectural drawing process and
-              elevate the quality of construction documents through cutting-edge
-              technology.
-            </p>
-          </div>
 
-          {/* Team Members Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 lg:space-y-0 space-y-5  justify-items-center">
-            {/* Team Member 1 */}
-            <div className="flex flex-col w-[185px] h-[360px] justify-center items-center">
-              <img
-                src="/about_us/Shilpa.png"
-                alt="Team Member 1"
-                className="rounded-lg object-cover w-[185px] h-[360px]"
-              />
-            </div>
-
-            {/* Team Member 2 */}
-            <div className="flex flex-col py-0 sm:py-9  w-[185px] h-[360px] items-center">
-              <img
-                src="/about_us/Team2.png"
-                alt="Team Member 2"
-                className="rounded-lg object-cover w-[185px] h-[360px]"
-              />
-            </div>
-
-            {/* Team Member 3 */}
-            <div className="flex flex-col w-[185px] h-[360px] items-center">
-              <img
-                src="/about_us/Team3.png"
-                alt="Team Member 3"
-                className="rounded-lg object-cover w-[185px] h-[360px]"
-              />
-            </div>
-
-            {/* Team Member 4 */}
-            <div className="flex flex-col py-0 sm:py-9 w-[185px] h-[360px] items-center">
-              <img
-                src="/about_us/Team4.png"
-                alt="Team Member 4"
-                className="rounded-lg object-cover w-[185px] h-[360px]"
-              />
-            </div>
-
-            {/* Team Member 5 */}
-            <div className="flex flex-col w-[185px] h-[360px] items-center ">
-              <img
-                src="/about_us/Team5.png"
-                alt="Team Member 5"
-                className="rounded-lg object-cover w-[185px] h-[360px]"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Call to Action (Join Us) Section */}
       <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px] mb-[98px]">
@@ -205,13 +144,13 @@ const AboutUs = () => {
       </section>
 
       <section
-        className="relative lg:px-[0px] md:px-[32px] sm:px-[16px] w-full h-[460px] flex items-center justify-center text-center"
-        style={{
-          backgroundImage: `url(/home/Blue-bg.svg)`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
+        className="bg-[#121724] relative lg:px-[0px] md:px-[32px] sm:px-[16px] w-full h-[460px] flex items-center justify-center text-center"
+        // style={{
+        //   backgroundImage: `url(/home/Blue-bg.svg)`,
+        //   backgroundSize: "cover",
+        //   backgroundPosition: "center",
+        //   backgroundRepeat: "no-repeat",
+        // }}
       >
         {/* Overlay for darkening the background slightly */}
         <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
@@ -233,7 +172,7 @@ const AboutUs = () => {
 
               {/* Call-to-Action Button with Link */}
               <div className="mt-8 flex justify-center">
-                <BookDemoPopUp/>
+                <BookDemoPopUp />
               </div>
             </div>
           </div>
@@ -244,3 +183,70 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
+
+
+
+{/* Meet the Team Section */ }
+//  <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px] lg:mb-[184px] mb-10">
+//  <div className="container-width mx-auto text-center justify-center  flex-col flex ">
+//    <div className="flex text-center flex-col items-center">
+//      <p className="h3 md:h2 text-Mercury-50  mb-6">
+//        <span className="text-Charcoal-60"> Our </span> Experts
+//        <span className="text-Charcoal-60"> are like </span> No Other
+//      </p>
+//      <p className="te1 text-gray-600 flex  sm:w-[400px] md:w-[500px] lg:w-[798px]  mb-10">
+//        Our mission is to streamline the architectural drawing process and
+//        elevate the quality of construction documents through cutting-edge
+//        technology.
+//      </p>
+//    </div>
+
+//    {/* Team Members Grid */}
+//    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 lg:space-y-0 space-y-5  justify-items-center">
+//      {/* Team Member 1 */}
+//      <div className="flex flex-col w-[185px] h-[360px] justify-center items-center">
+//        <img
+//          src="/about_us/Shilpa.png"
+//          alt="Team Member 1"
+//          className="rounded-lg object-cover w-[185px] h-[360px]"
+//        />
+//      </div>
+
+//      {/* Team Member 2 */}
+//      <div className="flex flex-col py-0 sm:py-9  w-[185px] h-[360px] items-center">
+//        <img
+//          src="/about_us/Team2.png"
+//          alt="Team Member 2"
+//          className="rounded-lg object-cover w-[185px] h-[360px]"
+//        />
+//      </div>
+
+//      {/* Team Member 3 */}
+//      {/* <div className="flex flex-col w-[185px] h-[360px] items-center">
+//        <img
+//          src="/about_us/Team3.png"
+//          alt="Team Member 3"
+//          className="rounded-lg object-cover w-[185px] h-[360px]"
+//        />
+//      </div> */}
+
+//      {/* Team Member 4 */}
+//      {/* <div className="flex flex-col py-0 sm:py-9 w-[185px] h-[360px] items-center">
+//        <img
+//          src="/about_us/Team4.png"
+//          alt="Team Member 4"
+//          className="rounded-lg object-cover w-[185px] h-[360px]"
+//        />
+//      </div> */}
+
+//      {/* Team Member 5 */}
+//      {/* <div className="flex flex-col w-[185px] h-[360px] items-center ">
+//        <img
+//          src="/about_us/Team5.png"
+//          alt="Team Member 5"
+//          className="rounded-lg object-cover w-[185px] h-[360px]"
+//        />
+//      </div> */}
+//    </div>
+//  </div>
+// </section>

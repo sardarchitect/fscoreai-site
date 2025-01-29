@@ -59,8 +59,10 @@ const Footer = () => {
         <div className="container-width mb-[52px] mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-start   ">
           {/* Subscription Section */}
 
-          <div className="flex flex-col items-center lg:items-start text-center w-[374px] lg:text-left mb-8 lg:mb-0">
-            <div className="text-white w-[362px] h3 mb-4">
+          <div className="flex flex-col items-center lg:items-start text-center lg:w-[374px] lg:text-left mb-8 lg:mb-0">
+          {/* <div className="flex flex-col items-center lg:items-start text-center w-[374px] lg:text-left mb-8 lg:mb-0"> */}
+            <div className="text-white lg:w-[362px] h3 mb-4">
+            {/* <div className="text-white w-[362px] h3 mb-4"> */}
               <span className="text-Charcoal-40">Subscribe to Stay Updated with</span> Draftflow
               {/* <p className="mt-5">Subscribe Now</p> */}
             </div>
@@ -113,7 +115,8 @@ const Footer = () => {
           {/* Navigation Links */}
           <div className="flex flex-col lg:flex-row  lg:space-x-24 gap-[27px] text-center lg:text-left">
             <div className="flex flex-col h4 items-center lg:items-start space-y-2">
-              <div className="flex flex-col   w-[231px] text-[#BBBBBB] space-y-2">
+              <div className="flex flex-col lg:w-[231px] text-[#BBBBBB] space-y-2">
+              {/* <div className="flex flex-col   w-[231px] text-[#BBBBBB] space-y-2"> */}
                 {FOOTER_LINKS.map((link) => (
                   <Link key={link.key} href={link.href} className="hover:text-gray-400">
                     {link.label}

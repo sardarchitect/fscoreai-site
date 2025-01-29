@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <div className="sticky top-0 z-50">
       {/* <header className="top-0 left-0 right-0 z-40 fixed lg:px-0 pl-4  lg:pr-0 pr-2 lg:backdrop-blur bg-white bg-opacity-70"> */}
-      <header className=" lg:px-0 pl-4  lg:pr-0 pr-2 lg:backdrop-blur bg-white bg-opacity-70">
+      <header className=" px-0 pl-4  lg:pr-0 pr-2 lg:backdrop-blur bg-white bg-opacity-70">
         <nav className={`mx-auto flex container-width items-center ${mobileMenuOpen ? "bg-white" : "bg-transparent"} justify-between py-4 `} >
           <div className="flex lg:flex-1">
             <Link href="/">
@@ -36,7 +36,7 @@ export default function Navbar() {
           <div className="lg:hidden">
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              className="inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <span className="sr-only">Toggle main menu</span>

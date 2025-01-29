@@ -4,29 +4,19 @@
 [ ] Instagram & Facebook link does not work right now.
 
 # task
+aboit section:
 
-[x] Job Post Relative Time: Show time dynamically (e.g., "Posted 2 hours ago").
-[x] Fix Lag: Smooth job listing accordions.
-[x] subscribing bottom box
+[] side white space: pending in my side
+
+
+
 [ ] Add LinkedIn: Link to job/company LinkedIn page.
 
 
 
 # Enhancement Tasks
-[x] Homepage Section 2 animation need to be improved.
 [ ] Lots of improvement can be made on the code. Please standardize file naming system, folder structures, variable names, function names, commenting, linting.
 
 # temporary solution
 [x] Remove cookies dialog box for now.
 [x] About section images need to be replaced.
-
-
-
-
-
-
-
-
-
-
-

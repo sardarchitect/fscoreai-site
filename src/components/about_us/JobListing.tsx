@@ -18,10 +18,10 @@ const JobListing: React.FC<JobListingProps> = ({ sNo, title, description, timePo
   const calculateRelativeTime = (timePosted: string): string => {
     const now = new Date();
     const postedDate = new Date(timePosted);
-  
+
     const diffInMilliseconds = now.getTime() - postedDate.getTime();
     const diffInSeconds = Math.floor(diffInMilliseconds / 1000);
-  
+
     // Convert to relative time
     if (diffInSeconds < 60) {
       return `Posted ${diffInSeconds} seconds ago`;
@@ -36,8 +36,8 @@ const JobListing: React.FC<JobListingProps> = ({ sNo, title, description, timePo
       return `Posted ${days} day${days > 1 ? "s" : ""} ago`;
     }
   };
-  
-  
+
+
   // const calculateRelativeTime = (timePosted: string): string => {
   //   const now = new Date();
   //   const postedDate = new Date(timePosted);
@@ -84,7 +84,17 @@ const JobListing: React.FC<JobListingProps> = ({ sNo, title, description, timePo
               }}
               className="w-7 md:w-11 h-7 md:h-11 bg-black text-white rounded-full flex items-center justify-center text-2xl"
             >
-              {isOpen ? "-" : "+"}
+              {isOpen ?
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="10" width="20" height="4" fill="white" />
+                </svg>
+                :
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="2" width="4" height="20" fill="white" />
+                    <rect x="2" y="10" width="20" height="4" fill="white" />
+                  </svg>
+              }
+              {/* {isOpen ? "-" : "+"} */}
             </button>
           </div>
         </div>
@@ -97,8 +107,8 @@ const JobListing: React.FC<JobListingProps> = ({ sNo, title, description, timePo
           {/* <p className="text-gray-400 text-xs md:te4">{timePosted}</p> */}
           {/* <p className="text-gray-400 text-xs md:te4">{calculateRelativeTime(timePosted)}</p> */}
           <p className="text-gray-400 text-xs md:te4">
-              {calculateRelativeTime(timePosted)}
-            </p>
+            {calculateRelativeTime(timePosted)}
+          </p>
 
           <p className="mt-4">{description}</p>
         </div>

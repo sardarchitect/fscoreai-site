@@ -8,13 +8,13 @@ const DraftDemo = () => {
 
   return (
     <section
-      className="relative w-full h-[460px] flex items-center justify-center text-center"
-      style={{
-        backgroundImage: `url(/home/Blue-bg.svg)`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
+      className="bg-[#121623] relative w-full h-[460px] flex items-center justify-center text-center"
+      // style={{
+      //   backgroundImage: `url(/home/Blue-bg.svg)`,
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      //   backgroundRepeat: "no-repeat",
+      // }}
     >
       {/* Overlay for darkening the background slightly */}
       <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
