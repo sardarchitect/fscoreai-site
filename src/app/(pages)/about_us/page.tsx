@@ -1,6 +1,7 @@
 import BookDemoPopUp from "@/src/components/about_us/BookDemoPopup";
 import JobListing from "@/src/components/about_us/JobListing";
 import openJobsData from "@/src/components/about_us/openJobsData";
+import TeamSection from "@/src/components/about_us/TeamSection";
 import Image from "next/image";
 import React from "react";
 
@@ -12,8 +13,8 @@ const AboutUs = () => {
     <main className="overflow-x-hidden w-full">
       {/* Header Section */}
       <header className="bg-[#121724] sm:px-[16px] md:px-[32px] lg:px-[0px] w-full mb-[66px] gap-6 md:gap-36 pt-[66px] pb-[78px]  flex flex-col md:flex-row justify-center items-center text-center md:text-left">
-      {/* <header className="bg-ab-bg sm:px-[16px] md:px-[32px] lg:px-[0px] w-full mb-[66px] gap-6 md:gap-36 pt-[66px] pb-[78px]  flex flex-col md:flex-row justify-center items-center text-center md:text-left"> */}
-        <div className="container-width flex flex-col md:flex-row gap-8 md:gap-24  ">
+        {/* <header className="bg-ab-bg sm:px-[16px] md:px-[32px] lg:px-[0px] w-full mb-[66px] gap-6 md:gap-36 pt-[66px] pb-[78px]  flex flex-col md:flex-row justify-center items-center text-center md:text-left"> */}
+        <div className="container-width flex flex-col md:flex-row gap-8 md:gap-24">
           {/* Left side with the main heading */}
           <div className="md:w-1/2 flex justify-center md:justify-start">
             <p className="h3 md:h2 lg:h2  leading-tight text-Charcoal-40">
@@ -109,7 +110,7 @@ const AboutUs = () => {
       </section>
 
       {/* Meet the Team Section */}
-
+<TeamSection/>
 
       {/* Call to Action (Join Us) Section */}
       <section className="bg-white lg:px-[0px] md:px-[32px] sm:px-[16px] mb-[98px]">
@@ -145,12 +146,12 @@ const AboutUs = () => {
 
       <section
         className="bg-[#121724] relative lg:px-[0px] md:px-[32px] sm:px-[16px] w-full h-[460px] flex items-center justify-center text-center"
-        // style={{
-        //   backgroundImage: `url(/home/Blue-bg.svg)`,
-        //   backgroundSize: "cover",
-        //   backgroundPosition: "center",
-        //   backgroundRepeat: "no-repeat",
-        // }}
+      // style={{
+      //   backgroundImage: `url(/home/Blue-bg.svg)`,
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      //   backgroundRepeat: "no-repeat",
+      // }}
       >
         {/* Overlay for darkening the background slightly */}
         <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
